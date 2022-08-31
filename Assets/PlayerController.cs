@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour
     {
         parent = GetComponent<PlayerMovement>();
     }
+    void Start()
+    {
+        PlayerSelector.main.RegisterCharacter(this);
+    }
 
     private void Update()
     {
@@ -22,8 +26,9 @@ public class PlayerController : MonoBehaviour
         parent.Move(Input.GetAxis("Horizontal"));
         parent.TryJump();
     }
-    public void SetSelected()
+    public void SetSelected(bool value)
     {
-
+        Selected = value;
+        parent.Move(0);
     }
 }
