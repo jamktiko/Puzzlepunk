@@ -5,12 +5,6 @@ using UnityEngine.UI;
 
 public class DialogueUIController : MonoBehaviour
 {
-    public static DialogueUIController main;
-    private void Awake()
-    {
-        main = this;
-        gameObject.SetActive(false);
-    }
 
     [Header("Portrait 1")]
     DialogueCharacterSO Char1;

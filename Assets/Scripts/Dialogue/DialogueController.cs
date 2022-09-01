@@ -32,10 +32,10 @@ public class DialogueController : MonoBehaviour
             return PlayerClass.main != null;
         });*/
         OnEnterCinematic();
-        DialogueUIController.main.PlayCutscene(CutsceneScript);
+        UIController.main.dialogueController.PlayCutscene(CutsceneScript);
 
             yield return new WaitUntil(() => {
-                return !DialogueUIController.main.IsCutscenePlaying();
+                return !UIController.main.dialogueController.IsCutscenePlaying();
             });
             OnExitCinematic();
             if (OnlyTriggerOnce)

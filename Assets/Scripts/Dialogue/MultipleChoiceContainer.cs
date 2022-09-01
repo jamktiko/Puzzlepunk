@@ -55,11 +55,11 @@ public class MultipleChoiceContainer : MonoBehaviour
 
         if (action.dialogue!=null)
         {
-            DialogueUIController.main.PlayCutscene(action.dialogue);
+            UIController.main.dialogueController.PlayCutscene(action.dialogue);
         }
         else
         {
-            DialogueUIController.main.Close();
+            UIController.main.dialogueController.Close();
         }
     }
     MultipleChoiceSO myChoices;

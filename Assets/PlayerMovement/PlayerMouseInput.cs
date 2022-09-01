@@ -11,7 +11,7 @@ public class PlayerMouseInput : MonoBehaviour
     }
     private void Update()
     {
-        if (DialogueUIController.main.IsCutscenePlaying())
+        if (UIController.main.dialogueController.IsCutscenePlaying())
             return;
         if (Input.GetMouseButtonDown(0))
         {

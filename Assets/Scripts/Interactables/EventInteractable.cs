@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class InteractableCutscene : InteractableBase
+public class EventInteractable : InteractableBase
 {
-    public DialogueScriptSO Cutscene;
+    UnityEvent uEvent;
     public override void OnInteract()
     {
-        UIController.main.dialogueController.PlayCutscene(Cutscene);
+        uEvent.Invoke();
         base.OnInteract();
     }
 }
