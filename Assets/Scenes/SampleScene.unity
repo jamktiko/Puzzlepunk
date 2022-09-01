@@ -239,6 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RequiresMoveInRange: 0
   InteractRange: 1
+  SingleUse: 0
   Cutscene: {fileID: 11400000, guid: 04cbc83628a18984a927545382b907dc, type: 2}
 --- !u!1 &344395767
 GameObject:
@@ -288,6 +289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RequiresMoveInRange: 1
   InteractRange: 2
+  SingleUse: 0
   Cutscene: {fileID: 11400000, guid: 04cbc83628a18984a927545382b907dc, type: 2}
 --- !u!58 &344395770
 CircleCollider2D:
@@ -1303,18 +1305,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1978374946}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1303238388}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -1607,10 +1597,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 832204728}
     m_Modifications:
-    - target: {fileID: 1420562561, guid: 4e5b879a70ac10f48b1ae742d4ddb6d2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1978374946}
     - target: {fileID: 2921119256977823300, guid: 4e5b879a70ac10f48b1ae742d4ddb6d2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -7,7 +7,7 @@ public class UIController : MonoBehaviour
     public static UIController main { get; private set; }
     [Header("Idea UI")]
     public IdeaButtonManager ShowIdeaWindowButton;
-    public IdeaManager IdeaManagerWindow;
+    public ThoughtBubbleInterface IdeaManagerWindow;
     public DialogueUIController dialogueController;
 
     private void Awake()
@@ -15,7 +15,7 @@ public class UIController : MonoBehaviour
         main = this;
         if (IdeaManagerWindow == null)
         {
-            IdeaManagerWindow = GetComponentInChildren<IdeaManager>();
+            IdeaManagerWindow = GetComponentInChildren<ThoughtBubbleInterface>();
         }
         if (ShowIdeaWindowButton == null)
         {

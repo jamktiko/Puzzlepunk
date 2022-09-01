@@ -210,18 +210,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!1 &41222843164813206
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,9 +297,9 @@ GameObject:
   - component: {fileID: 2921119256977823300}
   - component: {fileID: 441827987749290711}
   - component: {fileID: 2504817360682586484}
-  - component: {fileID: 3297347462659637403}
+  - component: {fileID: 6861063180314327426}
   m_Layer: 5
-  m_Name: IdeaManagerUI
+  m_Name: ClueUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -380,7 +368,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3297347462659637403
+--- !u!114 &6861063180314327426
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -389,9 +377,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8734359300207599530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8a5e155d7c5ea24db3125b96bac00a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f8256f18f13b9440801e6df66757a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Clues: []
 --- !u!1001 &234395742102181770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -399,6 +388,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2921119256977823300}
     m_Modifications:
+    - target: {fileID: 4685943765194450472, guid: b39aac62b609cc740955b186d8aa298b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -204.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685943765194450472, guid: b39aac62b609cc740955b186d8aa298b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 59
+      objectReference: {fileID: 0}
     - target: {fileID: 5523509476106738414, guid: b39aac62b609cc740955b186d8aa298b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -465,11 +462,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5523509476106738414, guid: b39aac62b609cc740955b186d8aa298b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 143
+      value: 323.1
       objectReference: {fileID: 0}
     - target: {fileID: 5523509476106738414, guid: b39aac62b609cc740955b186d8aa298b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -147
+      value: -159.3
       objectReference: {fileID: 0}
     - target: {fileID: 5523509476106738414, guid: b39aac62b609cc740955b186d8aa298b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -501,6 +498,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2921119256977823300}
     m_Modifications:
+    - target: {fileID: 4685943765194450472, guid: b39aac62b609cc740955b186d8aa298b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -218
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685943765194450472, guid: b39aac62b609cc740955b186d8aa298b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -17
+      objectReference: {fileID: 0}
     - target: {fileID: 5523509476106738414, guid: b39aac62b609cc740955b186d8aa298b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -567,11 +572,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5523509476106738414, guid: b39aac62b609cc740955b186d8aa298b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 251
+      value: 378
       objectReference: {fileID: 0}
     - target: {fileID: 5523509476106738414, guid: b39aac62b609cc740955b186d8aa298b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 94
+      value: 100.7
       objectReference: {fileID: 0}
     - target: {fileID: 5523509476106738414, guid: b39aac62b609cc740955b186d8aa298b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
