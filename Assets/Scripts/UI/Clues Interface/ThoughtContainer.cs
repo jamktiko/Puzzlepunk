@@ -47,6 +47,7 @@ public class ThoughtContainer : MonoBehaviour
                 PercentComplete += 1 / IdeaNames.Length;
             }
         }
+        gameObject.SetActive(PercentComplete > 0);
         conclusion.SetActive(PercentComplete >= PercentRequired);
     }
 }
