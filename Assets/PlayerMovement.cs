@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(CapsuleCollider2D))]
 public class PlayerMovement : MonoBehaviour, IMoveable
 {
+    public bool HasControl = false;
     bool FacesRight = false;
     public float WalkSpeed = 10;
     public float JumpTime = .33f;
@@ -40,7 +41,16 @@ public class PlayerMovement : MonoBehaviour, IMoveable
     }
     void Update()
     {
-        modifiedVelocity.y = rbody.velocity.y;
+        modifiedVelocity = rbody.velocity;
+        if (HasControl)
+        {
+            parent.Move(Input.GetAxis("Horizontal"));
+            parent.TryJump();
+        }
+        else
+        {
+            parent.Move(0);
+        }
         HandleFall();
         rbody.velocity = modifiedVelocity;
     }

@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1387968347631701066}
   - component: {fileID: 1387968347631701069}
   - component: {fileID: 2705072339640875209}
-  - component: {fileID: 592147305}
+  - component: {fileID: -7154684205252564740}
   m_Layer: 0
-  m_Name: Player
+  m_Name: PlayerZim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   MaxFallSpeed: 8
   MaxGlideSpeed: 3
   GroundTime: 0.1
---- !u!114 &592147305
+--- !u!114 &-7154684205252564740
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,10 +154,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1387968347631701062}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6c9d3e23872fbf4584a37256413f8b5, type: 3}
+  m_Script: {fileID: 11500000, guid: d9b3ea500003ca34e94af74ebda5ce84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 0}
 --- !u!1 &2039671787576660280
 GameObject:
   m_ObjectHideFlags: 0

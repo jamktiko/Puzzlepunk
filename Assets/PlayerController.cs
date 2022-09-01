@@ -15,20 +15,9 @@ public class PlayerController : MonoBehaviour
     {
         PlayerSelector.main.RegisterCharacter(this);
     }
-
-    private void Update()
-    {
-        if (Selected)
-            HandleControls();
-    }
-    void HandleControls()
-    {
-        parent.Move(Input.GetAxis("Horizontal"));
-        parent.TryJump();
-    }
     public void SetSelected(bool value)
     {
         Selected = value;
-        parent.Move(0);
+        parent.HasControl = value;
     }
 }
