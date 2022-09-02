@@ -18,7 +18,6 @@ public class DialogueUIController : MonoBehaviour
     public Text dialogText;
     public Text nameText;
     public MultipleChoiceContainer MultipleChoice;
-    public ClueCombinerTopBar ClueChoice;
 
     Coroutine CutsceneCoroutine;
     private void Update()
@@ -65,7 +64,6 @@ public class DialogueUIController : MonoBehaviour
     IEnumerator PlayCutsceneCoroutine(DialogueScriptSO Script)
     {
         HideMultipleChoice();
-        HideClueChoice();
         int quote = 0;
         while (quote< Script.Dialogue.Length)
         {
@@ -80,7 +78,9 @@ public class DialogueUIController : MonoBehaviour
             }
             if (Script.EndChoice.GetType() == typeof(ClueChoiceSO))
             {
-                ShowClueChoice((ClueChoiceSO)Script.EndChoice);
+                UIController.main.IdeaManagerWindow.PuzzleBar.Asd((ClueChoiceSO  )Script.EndChoice);
+                UIController.main.IdeaManagerWindow.gameObject.SetActive(true);
+                Close();
             }
 
         loopstart:
@@ -89,8 +89,7 @@ public class DialogueUIController : MonoBehaviour
         }
         else
         {
-            CutsceneCoroutine = null;
-            gameObject.SetActive(false);
+            Close();
         }
     }
     public void Close()
@@ -240,15 +239,5 @@ public class DialogueUIController : MonoBehaviour
     public void HideMultipleChoice()
     {
         MultipleChoice.gameObject.SetActive(false);
-    }
-
-    public void ShowClueChoice(ClueChoiceSO choices)
-    {
-        ClueChoice.gameObject.SetActive(true);
-        //ClueChoice.LoadMultipleChoiceFunction(choices);
-    }
-    public void HideClueChoice()
-    {
-        ClueChoice.gameObject.SetActive(false);
     }
 }

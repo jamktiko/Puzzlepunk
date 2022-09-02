@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class ThoughtLabel : MonoBehaviour
 {
+    public enum ThoughtType
+    {
+        clue,
+        important,
+        conclusion
+    }
     public TMPro.TextMeshProUGUI text;
     public string IdeaID = "-";
+    public ThoughtType Thought = ThoughtType.important;
 
     private void Awake()
     {
@@ -15,6 +22,6 @@ public class ThoughtLabel : MonoBehaviour
     }
     public void SetRevealed(bool Value)
     {
-        text.text = Value ? IdeaID : "";
+        text.enabled = Value;
     }
 }

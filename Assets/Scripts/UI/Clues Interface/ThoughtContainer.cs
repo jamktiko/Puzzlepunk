@@ -21,15 +21,24 @@ public class ThoughtContainer : MonoBehaviour
         PercentComplete = 0;
         foreach (ThoughtLabel clue in IdeaNames)
         {
-            bool Clue = PlayerClueController.main.GetClue(clue.IdeaID);
-            clue.SetRevealed(Clue);
-            if (Clue)
+            if (PlayerClueController.main.TryGetClue(clue.IdeaID, out PlayerClueController.Clue c)) {
+                
+                clue.SetRevealed(c.revealed);
+                if (c.revealed && c.important)
+                {
+                    PercentComplete += 1f / IdeaNames.Length;
+                }
+            }
+            else
             {
-                PercentComplete += 1f / IdeaNames.Length;
+                clue.SetRevealed(false);
             }
         }
-        Debug.Log(PercentComplete);
         gameObject.SetActive(PercentComplete > 0);
-        conclusion.SetActive(PercentComplete >= PercentRequired);
+
+        if (PercentComplete > 0)
+        {
+            conclusion.SetActive(PercentComplete >= PercentRequired);
+        }
     }
 }

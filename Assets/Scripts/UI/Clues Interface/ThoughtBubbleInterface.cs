@@ -13,7 +13,11 @@ public class ThoughtBubbleInterface : MonoBehaviour
         {
             PuzzleBar = GetComponentInChildren<ClueCombinerTopBar>();
             PuzzleBar.gameObject.SetActive(false);
-        }       
+        }
+    }
+    private void Start()
+    {
+        OnNewClueRevealed();
     }
     public void OnNewClueRevealed()
     {
