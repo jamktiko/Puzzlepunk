@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class ThoughtBubbleInterface : MonoBehaviour
@@ -27,7 +28,15 @@ public class ThoughtBubbleInterface : MonoBehaviour
     public ClueChoiceSO Selection;
     private void OnEnable()
     {
-        if (Selection!=null)
+        UpdatePuzzleUI();
+    }
+    private void OnDisable()
+    {
+        ClearPuzzleUI();
+    }
+    void UpdatePuzzleUI()
+    {
+        if (Selection != null)
         {
             PuzzleBar.Puzzle = Selection;
             PuzzleBar.gameObject.SetActive(true);
@@ -36,5 +45,10 @@ public class ThoughtBubbleInterface : MonoBehaviour
         {
             PuzzleBar.gameObject.SetActive(false);
         }
+    }
+    void ClearPuzzleUI()
+    {
+        Selection = null;
+        PuzzleBar.gameObject.SetActive(false);
     }
 }
