@@ -16,37 +16,19 @@ public class ThoughtContainer : MonoBehaviour
             conclusion = transform.GetChild(1).gameObject;
         }
     }
-    private void Start()
-    {
-        foreach (ThoughtLabel ic in IdeaNames)
-        {
-            ic.gameObject.SetActive(ic.Revealed);
-        }
-        UpdateProgress();
-    }
-    public bool RevealClueByID(string clueID)
-    {
-        foreach (ThoughtLabel clue in IdeaNames)
-        {
-            if (clue.IdeaID == clueID)
-            {
-                clue.Reveal();
-                UpdateProgress();
-                return true;
-            }
-        }
-        return false;
-    }
-    void UpdateProgress()
+    public void UpdateProgress()
     {
         PercentComplete = 0;
         foreach (ThoughtLabel clue in IdeaNames)
         {
-            if (clue.Revealed)
+            bool Clue = PlayerClueController.main.GetClue(clue.IdeaID);
+            clue.SetRevealed(Clue);
+            if (Clue)
             {
-                PercentComplete += 1 / IdeaNames.Length;
+                PercentComplete += 1f / IdeaNames.Length;
             }
         }
+        Debug.Log(PercentComplete);
         gameObject.SetActive(PercentComplete > 0);
         conclusion.SetActive(PercentComplete >= PercentRequired);
     }

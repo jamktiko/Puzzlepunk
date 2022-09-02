@@ -66,6 +66,7 @@ public class MultipleChoiceContainer : MonoBehaviour
     public void LoadMultipleChoiceFunction(MultipleChoiceSO MultipleChoiceScriptable)
     {
         myChoices = MultipleChoiceScriptable;
+        Header.text = MultipleChoiceScriptable.DialogueQuestion;
         for (int iC = 0; iC< ChoiceButtons.Length; iC++)
         {
             if (iC < MultipleChoiceScriptable.Choices.Length)

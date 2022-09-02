@@ -2,16 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "DialogueScriptSO", menuName = "Dialogue/MultipleChoiceSO")]
-public class MultipleChoiceSO : ScriptableObject
+[CreateAssetMenu(fileName = "MultipleChoiceSO", menuName = "Dialogue/MultipleChoiceSO")]
+public class MultipleChoiceSO : ChoiceSO
 {
-    [Header("Character Data")]
-    public DialogueCharacterSO Character;
-
-    [Header("Emote")]
-    public DialogueScriptSO.CharacterEyePosition Eyes;
-    public DialogueScriptSO.CharacterMouthPosition Mouth;
-
     [Header("Choices")]
     public Choice[] Choices;
 

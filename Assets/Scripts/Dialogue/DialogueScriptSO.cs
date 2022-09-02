@@ -42,5 +42,5 @@ public class DialogueScriptSO : ScriptableObject
         public AudioClip AudioClip;
         public float DialogueShake;
     }
-    public MultipleChoiceSO MultipleChoice;
+    public ChoiceSO EndChoice;
 }

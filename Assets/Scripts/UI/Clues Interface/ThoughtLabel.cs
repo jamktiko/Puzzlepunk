@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class ThoughtLabel : MonoBehaviour
 {
-    public bool Revealed = false;
+    public TMPro.TextMeshProUGUI text;
     public string IdeaID = "-";
 
     private void Awake()
     {
-        gameObject.SetActive(false);
+        if (text == null)
+            text = GetComponent<TMPro.TextMeshProUGUI>();
+        SetRevealed(false);
     }
-    public void Reveal()
+    public void SetRevealed(bool Value)
     {
-        Revealed = true;
-
+        text.text = Value ? IdeaID : "";
     }
 }
