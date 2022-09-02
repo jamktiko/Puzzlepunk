@@ -8,9 +8,6 @@ public class PlayerClueController : MonoBehaviour
     private void Awake()
     {
         main = this;
-    }
-    private void Start()
-    {
         InitClues();
     }
 
@@ -33,15 +30,16 @@ public class PlayerClueController : MonoBehaviour
     {
         if (TryGetClue(clueID,out Clue cl))
         {
-            if (cl.revealed!=value)
+            bool update = cl.revealed != value;
+            cl.revealed = value;
+            if (update)
             {
-                UIController.main.IdeaManagerWindow.OnNewClueRevealed();
-                if (!cl.revealed && value)
+                if (cl.revealed)
                 {
                     HasNewClues = true;
                 }
+                UIController.main.IdeaManagerWindow.OnNewClueRevealed();
             }
-            cl.revealed = value;
         }
     }
     public bool IsClueRevealed(string clueID)

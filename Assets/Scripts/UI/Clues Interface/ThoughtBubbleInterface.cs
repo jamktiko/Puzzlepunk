@@ -29,7 +29,6 @@ public class ThoughtBubbleInterface : MonoBehaviour
     }
 
     public ClueCombinerTopBar PuzzleBar;
-    public ClueChoiceSO Selection;
     private void OnEnable()
     {
         UpdatePuzzleUI();
@@ -40,9 +39,8 @@ public class ThoughtBubbleInterface : MonoBehaviour
     }
     void UpdatePuzzleUI()
     {
-        if (Selection != null)
+        if (PuzzleBar.Puzzle != null)
         {
-            PuzzleBar.Puzzle = Selection;
             PuzzleBar.gameObject.SetActive(true);
         }
         else
@@ -52,7 +50,7 @@ public class ThoughtBubbleInterface : MonoBehaviour
     }
     void ClearPuzzleUI()
     {
-        Selection = null;
+        PuzzleBar.Puzzle = null;
         PuzzleBar.gameObject.SetActive(false);
     }
 }

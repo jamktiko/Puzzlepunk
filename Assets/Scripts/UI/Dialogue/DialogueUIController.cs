@@ -78,7 +78,7 @@ public class DialogueUIController : MonoBehaviour
             }
             if (Script.EndChoice.GetType() == typeof(ClueChoiceSO))
             {
-                UIController.main.IdeaManagerWindow.PuzzleBar.Asd((ClueChoiceSO  )Script.EndChoice);
+                UIController.main.IdeaManagerWindow.PuzzleBar.LoadChoices((ClueChoiceSO  )Script.EndChoice);
                 UIController.main.IdeaManagerWindow.gameObject.SetActive(true);
                 Close();
             }
