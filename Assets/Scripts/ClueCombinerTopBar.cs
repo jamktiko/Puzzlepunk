@@ -20,7 +20,9 @@ public class ClueCombinerTopBar : MonoBehaviour
     }
     internal void InsertClue(string text, string clue)
     {
-        if (ClueText.text == "" || cluesSelected.Count >= Puzzle.DialogueQuestion.Length)
+        if (cluesSelected.Contains(clue))
+            return;
+        if (ClueText.text == "" || cluesSelected.Count >= Puzzle.VariablesRequired.Length)
         {
             Clear();
             ClueText.text = text;
@@ -30,10 +32,29 @@ public class ClueCombinerTopBar : MonoBehaviour
             ClueText.text = ClueText.text + " + " + text;
         }
         cluesSelected .Add( clue);
+        CheckSuccess();
     }
     public void Clear()
     {
         ClueText.text = "";
         cluesSelected.Clear();
+    }
+    void CheckSuccess()
+    {
+        if (cluesSelected.Count == Puzzle.VariablesRequired.Length)
+        {
+            foreach (string clue in Puzzle.VariablesRequired)
+            {
+                if (!cluesSelected.Contains(clue))
+                {
+                    return;
+                }
+            }
+        }
+        Debug.Log("SUCCESS!!!");
+        if (Puzzle.SuccessDialogue!=null)
+        {
+            UIController.main.dialogueController.PlayCutscene(Puzzle.SuccessDialogue);
+        }
     }
 }

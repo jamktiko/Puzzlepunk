@@ -6,5 +6,5 @@ using UnityEngine;
 public class ClueChoiceSO : ChoiceSO
 {
     public string[] VariablesRequired;
-
+    public DialogueScriptSO SuccessDialogue;
 }

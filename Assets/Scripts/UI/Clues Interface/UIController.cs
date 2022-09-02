@@ -10,6 +10,12 @@ public class UIController : MonoBehaviour
     public ThoughtBubbleInterface IdeaManagerWindow;
     public DialogueUIController dialogueController;
 
+    public enum UIWindow
+    {
+        none,
+        dialogue,
+        brain
+    }
     private void Awake()
     {
         main = this;
@@ -28,7 +34,15 @@ public class UIController : MonoBehaviour
     }
     private void Start()
     {
-        dialogueController.gameObject.SetActive(false);
-        IdeaManagerWindow.gameObject.SetActive(false);
+        CloseWindow();
+    }
+    public void OpenWindow(UIWindow nWindow)
+    {
+        dialogueController.gameObject.SetActive(nWindow == UIWindow.dialogue);
+        IdeaManagerWindow.gameObject.SetActive(nWindow == UIWindow.brain);
+    }
+    public void CloseWindow()
+    {
+        OpenWindow( UIWindow.none);
     }
 }

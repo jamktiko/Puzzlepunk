@@ -51,7 +51,7 @@ public class DialogueUIController : MonoBehaviour
     }
     public void PlayCutscene(DialogueScriptSO Script)
     {
-        gameObject.SetActive(true);
+        UIController.main.OpenWindow(UIController.UIWindow.dialogue);
         if (CutsceneCoroutine!=null)
         StopCoroutine(CutsceneCoroutine);
 
@@ -97,7 +97,7 @@ public class DialogueUIController : MonoBehaviour
         StopCoroutine(CutsceneCoroutine);
         CutsceneCoroutine = null;
 
-        gameObject.SetActive(false);
+        UIController.main.CloseWindow();
     }
     public IEnumerator LoadDialogueLine(DialogueScriptSO.DialogueLine NewLine)
     {
