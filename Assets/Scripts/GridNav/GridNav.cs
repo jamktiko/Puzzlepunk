@@ -41,8 +41,18 @@ public class GridNav : MonoBehaviour
                 nav.GetNodeAt(gridPos + Vector2Int.left + Vector2Int.down),
                 };
         }
-        public float sqrDistance;
-        public Node Previous;
+        public override bool Equals(object obj)
+        {
+            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+            {
+                return false;
+            }
+            else
+            {
+                Node p = (Node)obj;
+                return gridPos == p.gridPos;
+            }
+        }
     }
     private void Awake()
     {
