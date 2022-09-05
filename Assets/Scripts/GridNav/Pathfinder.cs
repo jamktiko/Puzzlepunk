@@ -158,7 +158,7 @@ public class Pathfinder
     }
     public static PathfinderPath SolvePath(GridNav g, Vector2 origin, Vector2 dest,float range)
     {
-        return Solve(g, g.TranslateCoordinate(origin), g.TranslateCoordinate(dest),Mathf.FloorToInt(range/g.UnitSize));
+        return Solve(g, g.TranslateCoordinate(origin), g.TranslateCoordinate(dest),Mathf.Max(1, Mathf.FloorToInt(range/g.UnitSize - 1)));
     }
 
     Failure failure = Failure.incomplete;
