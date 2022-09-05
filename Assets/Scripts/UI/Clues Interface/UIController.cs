@@ -44,5 +44,7 @@ public class UIController : MonoBehaviour
     public void CloseWindow()
     {
         OpenWindow( UIWindow.none);
+        dialogueController.ForgetNPC();
+        //IdeaManagerWindow.ClearNPC();
     }
 }

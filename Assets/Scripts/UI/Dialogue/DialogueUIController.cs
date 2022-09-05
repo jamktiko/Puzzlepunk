@@ -17,7 +17,7 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
 
     [Header("Components")]
 
-    public int letterPerSecond = 60;
+    public int wordsPerSecond = 10;
     public TextMeshProUGUI dialogText;
     public TextMeshProUGUI nameText;
     public MultipleChoiceContainer MultipleChoice;
@@ -160,23 +160,24 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
 
         for (int iC = 0; iC < line.Length; iC++)
         {
-            dialogText.text += line[iC];
-            if (line[iC] == '<')
+            if (line[iC] != ' ')
             {
-                int skips = 3;
-                while (skips > 0 && iC< line.Length)
+                bool writeWord = true;
+                while (iC < line.Length && writeWord)
                 {
-                    if (line[iC] == '<' || line[iC] == '>')
-                    {
-                        skips--;
-                    }
+                    dialogText.text += line[iC];
                     iC++;
+                    if (iC < line.Length && line[iC] == ' ')
+                    {
+                        dialogText.text += line[iC];
+                        writeWord = false;
+                    }
                 }
             }
 
             if (SkipLine)
                 break;
-            yield return SkippableWait(1f / letterPerSecond);
+            yield return SkippableWait(1f / wordsPerSecond);
         }
         dialogText.text = dialog;
     }
@@ -278,7 +279,7 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
         MultipleChoice.gameObject.SetActive(false);
     }
     #region NPC Dialogue
-    CharacterSO talkingNPC;
+    public CharacterSO talkingNPC;
     public void TalkWithNPC(CharacterSO talker)
     {
         HideMultipleChoice();
@@ -290,10 +291,9 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
 
         CutsceneCoroutine = StartCoroutine(HandleNPCTalk());
     }
-    void ClearNPC()
+    public void ForgetNPC()
     {
         talkingNPC = null;
-        Close();
     }
     IEnumerator HandleNPCTalk()
     {
@@ -305,7 +305,6 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
         UIController.main.IdeaManagerWindow.PuzzleBar.LoadChoices((ClueChoiceSO)Script.EndChoice);
         UIController.main.IdeaManagerWindow.gameObject.SetActive(true);
    */
-        UIController.main.IdeaManagerWindow.PuzzleBar.TalkWithNPC(talkingNPC);
         UIController.main.IdeaManagerWindow.gameObject.SetActive(true);
 
         if (talkingNPC.Questions.Length > 0)
@@ -349,6 +348,7 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         int linkIndex = TMP_TextUtilities.FindIntersectingLink(dialogText, Input.mousePosition, null);
+        if (linkIndex >= 0 && linkIndex < dialogText.textInfo.linkInfo.Length)
         HandleLinkFunctions( dialogText.textInfo.linkInfo[linkIndex].GetLinkID());
     }
     bool HandleLinkFunctions(string linkID)

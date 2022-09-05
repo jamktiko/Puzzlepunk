@@ -39,7 +39,7 @@ public class ThoughtLabel : MonoBehaviour
     void OnButtonClick()
     {
         var puzzleBar = UIController.main.IdeaManagerWindow.PuzzleBar;
-        if (puzzleBar.Puzzle != null || puzzleBar.talkingNPC)
+        if (puzzleBar.Puzzle != null || UIController.main.dialogueController.talkingNPC!=null)
         {
             puzzleBar.InsertClue(text.text, IdeaID);
         }

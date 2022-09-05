@@ -21,7 +21,7 @@ public class ClueCombinerTopBar : MonoBehaviour
     }
     internal void InsertClue(string text, string clue)
     {
-        if (talkingNPC != null)
+        if (UIController.main.dialogueController.talkingNPC != null)
         {
             HandleNPCResponse(clue.ToLower());
         }
@@ -55,30 +55,23 @@ public class ClueCombinerTopBar : MonoBehaviour
         }
         foreach (string clue in Puzzle.VariablesRequired)
         {
-            if (!cluesSelected.Contains(clue))
+            if (!cluesSelected.Contains(clue.ToLower()))
             {
+                Debug.Log("Puzzle failed");
                 return;
             }
         }
 
         if (Puzzle.SuccessDialogue != null)
         {
+            Debug.Log("Puzzle complete");
             UIController.main.dialogueController.PlayCutscene(Puzzle.SuccessDialogue);
         }
     }
     #region NPCs
-    public CharacterSO talkingNPC;
-    public void TalkWithNPC(CharacterSO talker)
-    {
-        talkingNPC = talker;
-    }
-    void ClearNPC()
-    {
-        talkingNPC = null;
-    }
     void HandleNPCResponse(string variable)
     {
-        foreach (CharacterSO.NPCReaction reply in talkingNPC.Reactions)
+        foreach (CharacterSO.NPCReaction reply in UIController.main.dialogueController.talkingNPC.Reactions)
         {
             if (reply.VariableReaction.ToLower() == variable)
             {
@@ -86,7 +79,7 @@ public class ClueCombinerTopBar : MonoBehaviour
                 return;
             }
         }
-        UIController.main.dialogueController.PlayCutscene(talkingNPC.StandardReply);
+        UIController.main.dialogueController.PlayCutscene(UIController.main.dialogueController.talkingNPC.StandardReply);
     }
     #endregion
 }
