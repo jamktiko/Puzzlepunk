@@ -78,14 +78,14 @@ public class DialogueUIController : MonoBehaviour
             }
             if (Script.EndChoice.GetType() == typeof(ClueChoiceSO))
             {
-                UIController.main.IdeaManagerWindow.PuzzleBar.LoadChoices((ClueChoiceSO  )Script.EndChoice);
-                UIController.main.IdeaManagerWindow.gameObject.SetActive(true);
                 Close();
+                UIController.main.IdeaManagerWindow.PuzzleBar.LoadChoices((ClueChoiceSO)Script.EndChoice);
+                UIController.main.IdeaManagerWindow.gameObject.SetActive(true);
             }
 
-        loopstart:
-            yield return new WaitForSeconds(999);
-            goto loopstart;
+        waitloop:
+            yield return new WaitForEndOfFrame();
+            goto waitloop;
         }
         else
         {

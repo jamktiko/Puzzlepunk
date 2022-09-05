@@ -10,18 +10,17 @@ public class ClueCombinerTopBar : MonoBehaviour
     public ClueChoiceSO Puzzle;
     public TextMeshProUGUI HeaderText;
     public TextMeshProUGUI ClueText;
-    public Button  ResetButton;
+    public Button ResetButton;
     List<string> cluesSelected = new List<string>();
 
     public void LoadChoices(ClueChoiceSO pzq)
     {
         Puzzle = pzq;
+        HeaderText.text = pzq.DialogueQuestion;
         Clear();
     }
     internal void InsertClue(string text, string clue)
     {
-        if (cluesSelected.Contains(clue))
-            return;
         if (ClueText.text == "" || cluesSelected.Count >= Puzzle.VariablesRequired.Length)
         {
             Clear();
@@ -29,9 +28,11 @@ public class ClueCombinerTopBar : MonoBehaviour
         }
         else
         {
+            if (cluesSelected.Contains(clue))
+                return;
             ClueText.text = ClueText.text + " + " + text;
         }
-        cluesSelected .Add( clue);
+        cluesSelected.Add(clue);
         CheckSuccess();
     }
     public void Clear()
@@ -41,18 +42,20 @@ public class ClueCombinerTopBar : MonoBehaviour
     }
     void CheckSuccess()
     {
-        if (cluesSelected.Count == Puzzle.VariablesRequired.Length)
+        if (cluesSelected.Count != Puzzle.VariablesRequired.Length)
         {
-            foreach (string clue in Puzzle.VariablesRequired)
+            return;
+        }
+        foreach (string clue in Puzzle.VariablesRequired)
+        {
+            if (!cluesSelected.Contains(clue))
             {
-                if (!cluesSelected.Contains(clue))
-                {
-                    return;
-                }
+                return;
             }
         }
+
         Debug.Log("SUCCESS!!!");
-        if (Puzzle.SuccessDialogue!=null)
+        if (Puzzle.SuccessDialogue != null)
         {
             UIController.main.dialogueController.PlayCutscene(Puzzle.SuccessDialogue);
         }

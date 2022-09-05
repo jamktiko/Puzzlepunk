@@ -268,7 +268,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113505392}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.09, y: 0.55, z: 0}
+  m_LocalPosition: {x: 0.42, y: -4.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -657,7 +657,7 @@ MonoBehaviour:
   RequiresMoveInRange: 1
   InteractRange: 2
   SingleUse: 0
-  Cutscene: {fileID: 11400000, guid: 04cbc83628a18984a927545382b907dc, type: 2}
+  Cutscene: {fileID: 11400000, guid: cf74b76a821beca4cb781bdd5473a4dd, type: 2}
 --- !u!58 &344395770
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2562,6 +2562,10 @@ PrefabInstance:
       propertyPath: IdeaID
       value: C
       objectReference: {fileID: 0}
+    - target: {fileID: 6596714576143885780, guid: b39aac62b609cc740955b186d8aa298b, type: 3}
+      propertyPath: m_text
+      value: fgh
+      objectReference: {fileID: 0}
     - target: {fileID: 8018968534584449926, guid: b39aac62b609cc740955b186d8aa298b, type: 3}
       propertyPath: IdeaID
       value: ASD
@@ -2577,6 +2581,10 @@ PrefabInstance:
     - target: {fileID: 8453815762700921787, guid: b39aac62b609cc740955b186d8aa298b, type: 3}
       propertyPath: IdeaID
       value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 8665957218257779526, guid: b39aac62b609cc740955b186d8aa298b, type: 3}
+      propertyPath: m_text
+      value: asd
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b39aac62b609cc740955b186d8aa298b, type: 3}
