@@ -21,19 +21,26 @@ public class ClueCombinerTopBar : MonoBehaviour
     }
     internal void InsertClue(string text, string clue)
     {
-        if (ClueText.text == "" || cluesSelected.Count >= Puzzle.VariablesRequired.Length)
+        if (talkingNPC != null)
         {
-            Clear();
-            ClueText.text = text;
+            HandleNPCResponse(clue);
         }
         else
         {
-            if (cluesSelected.Contains(clue))
-                return;
-            ClueText.text = ClueText.text + " + " + text;
+            if (ClueText.text == "" || cluesSelected.Count >= Puzzle.VariablesRequired.Length)
+            {
+                Clear();
+                ClueText.text = text;
+            }
+            else
+            {
+                if (cluesSelected.Contains(clue))
+                    return;
+                ClueText.text = ClueText.text + " + " + text;
+            }
+            cluesSelected.Add(clue);
+            CheckSuccess();
         }
-        cluesSelected.Add(clue);
-        CheckSuccess();
     }
     public void Clear()
     {
@@ -54,10 +61,32 @@ public class ClueCombinerTopBar : MonoBehaviour
             }
         }
 
-        Debug.Log("SUCCESS!!!");
         if (Puzzle.SuccessDialogue != null)
         {
             UIController.main.dialogueController.PlayCutscene(Puzzle.SuccessDialogue);
         }
     }
+    #region NPCs
+    public CharacterSO talkingNPC;
+    public void TalkWithNPC(CharacterSO talker)
+    {
+        talkingNPC = talker;
+    }
+    void ClearNPC()
+    {
+        talkingNPC = null;
+    }
+    void HandleNPCResponse(string variable)
+    {
+        foreach (CharacterSO.NPCReaction reply in talkingNPC.Reactions)
+        {
+            if (reply.VariableReaction == variable)
+            {
+                UIController.main.dialogueController.PlayCutscene(reply.ReactionDialogue);
+                return;
+            }
+        }
+        UIController.main.dialogueController.PlayCutscene(talkingNPC.StandardReply);
+    }
+    #endregion
 }

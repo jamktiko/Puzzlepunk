@@ -51,15 +51,18 @@ public class DialogueUIController : MonoBehaviour
     }
     public void PlayCutscene(DialogueScriptSO Script)
     {
-        UIController.main.OpenWindow(UIController.UIWindow.dialogue);
+        if (talkingNPC == null)
+        {
+            UIController.main.OpenWindow(UIController.UIWindow.dialogue);
+        }
         if (CutsceneCoroutine!=null)
-        StopCoroutine(CutsceneCoroutine);
+            StopCoroutine(CutsceneCoroutine);
 
         CutsceneCoroutine = StartCoroutine(PlayCutsceneCoroutine(Script));
     }
     public bool IsCutscenePlaying()
     {
-        return CutsceneCoroutine != null;
+        return gameObject.activeSelf && CutsceneCoroutine != null;
     }
     IEnumerator PlayCutsceneCoroutine(DialogueScriptSO Script)
     {
@@ -89,11 +92,19 @@ public class DialogueUIController : MonoBehaviour
         }
         else
         {
-            Close();
+            if (talkingNPC == null)
+            {
+                Close();
+            }
+            else
+            {
+                yield return LoadNPCQuery();
+            }
         }
     }
     public void Close()
     {
+        if (CutsceneCoroutine!=null)
         StopCoroutine(CutsceneCoroutine);
         CutsceneCoroutine = null;
 
@@ -101,7 +112,14 @@ public class DialogueUIController : MonoBehaviour
     }
     public IEnumerator LoadDialogueLine(DialogueScriptSO.DialogueLine NewLine)
     {
-        ChangeCharacter(NewLine.Character);
+        if (NewLine.Character == null && talkingNPC != null)
+        {
+            ChangeCharacter(talkingNPC.CharacterFile);
+        }
+        else
+        {
+            ChangeCharacter(NewLine.Character);
+        }
         EmoteCharacter(NewLine.Eyes);
         EmoteCharacter(NewLine.Mouth);
 
@@ -240,4 +258,73 @@ public class DialogueUIController : MonoBehaviour
     {
         MultipleChoice.gameObject.SetActive(false);
     }
+    #region NPC Dialogue
+    CharacterSO talkingNPC;
+    public void TalkWithNPC(CharacterSO talker)
+    {
+        HideMultipleChoice();
+        talkingNPC = talker;
+
+        UIController.main.OpenWindow(UIController.UIWindow.dialogue);
+        if (CutsceneCoroutine != null)
+            StopCoroutine(CutsceneCoroutine);
+
+        CutsceneCoroutine = StartCoroutine(HandleNPCTalk());
+    }
+    void ClearNPC()
+    {
+        talkingNPC = null;
+        Close();
+    }
+    IEnumerator HandleNPCTalk()
+    {
+        if (talkingNPC.WelcomeLines.Length > 0)
+        {
+            yield return LoadNPCWelcome();
+        }
+        /*Close();
+        UIController.main.IdeaManagerWindow.PuzzleBar.LoadChoices((ClueChoiceSO)Script.EndChoice);
+        UIController.main.IdeaManagerWindow.gameObject.SetActive(true);
+   */
+        UIController.main.IdeaManagerWindow.PuzzleBar.TalkWithNPC(talkingNPC);
+        UIController.main.IdeaManagerWindow.gameObject.SetActive(true);
+
+        if (talkingNPC.Questions.Length > 0)
+        {
+            yield return LoadNPCQuery();
+        }
+    }
+    IEnumerator LoadNPCWelcome()
+    {
+        int randomLine = Random.Range(0, talkingNPC.WelcomeLines.Length - 1);
+        string welcome = talkingNPC.WelcomeLines[randomLine];
+        yield return ShowNPCDialogue(welcome);
+    }
+    IEnumerator LoadNPCQuery()
+    {
+        int randomLine = Random.Range(0, talkingNPC.Questions.Length - 1);
+        string question = talkingNPC.Questions[randomLine];
+        yield return ShowNPCDialogue(question);
+    }
+    public IEnumerator ShowNPCDialogue(string Dialogue)
+    {
+        if (talkingNPC != null)
+        {
+            ChangeCharacter(talkingNPC.CharacterFile);
+            EmoteCharacter(DialogueScriptSO.CharacterEyePosition.normal);
+            EmoteCharacter(DialogueScriptSO.CharacterEyePosition.normal);
+
+            if (talkingNPC.WelcomeLines.Length > 0)
+            {
+                yield return TypeDialog(Dialogue);
+                float Wait = .5f + Dialogue.Length * .1f;
+                if (Wait > 0)
+                {
+                    SkipLine = false;
+                    yield return SkippableWait(Wait);
+                }
+            }
+        }
+    }
+    #endregion
 }
