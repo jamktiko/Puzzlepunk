@@ -80,7 +80,7 @@ public class ClueCombinerTopBar : MonoBehaviour
     {
         foreach (CharacterSO.NPCReaction reply in talkingNPC.Reactions)
         {
-            if (reply.VariableReaction == variable)
+            if (reply.VariableReaction.ToLower() == variable)
             {
                 UIController.main.dialogueController.PlayCutscene(reply.ReactionDialogue);
                 return;

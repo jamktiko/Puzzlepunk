@@ -1,9 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static PlayerClueController;
 
-public class DialogueUIController : MonoBehaviour
+public class DialogueUIController : MonoBehaviour, IPointerClickHandler
 {
 
     [Header("Portrait 1")]
@@ -15,8 +18,8 @@ public class DialogueUIController : MonoBehaviour
     [Header("Components")]
 
     public int letterPerSecond = 60;
-    public Text dialogText;
-    public Text nameText;
+    public TextMeshProUGUI dialogText;
+    public TextMeshProUGUI nameText;
     public MultipleChoiceContainer MultipleChoice;
 
     Coroutine CutsceneCoroutine;
@@ -152,9 +155,25 @@ public class DialogueUIController : MonoBehaviour
     {
         SkipLine = false;
         dialogText.text = "";
-        foreach (var letter in dialog.ToCharArray())
+
+        char[] line = dialog.ToCharArray();
+
+        for (int iC = 0; iC < line.Length; iC++)
         {
-            dialogText.text += letter;
+            dialogText.text += line[iC];
+            if (line[iC] == '<')
+            {
+                int skips = 3;
+                while (skips > 0 && iC< line.Length)
+                {
+                    if (line[iC] == '<' || line[iC] == '>')
+                    {
+                        skips--;
+                    }
+                    iC++;
+                }
+            }
+
             if (SkipLine)
                 break;
             yield return SkippableWait(1f / letterPerSecond);
@@ -327,4 +346,20 @@ public class DialogueUIController : MonoBehaviour
         }
     }
     #endregion
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        int linkIndex = TMP_TextUtilities.FindIntersectingLink(dialogText, Input.mousePosition, null);
+        HandleLinkFunctions( dialogText.textInfo.linkInfo[linkIndex].GetLinkID());
+    }
+    bool HandleLinkFunctions(string linkID)
+    {
+        if (linkID.Substring(0,4) == "var_")
+        {
+            Debug.Log(linkID);
+            Debug.Log(linkID.Substring(4, linkID.Length - 4));
+            PlayerClueController.main.RevealClue(linkID.Substring(4,linkID.Length-4).ToLower(), true);
+            return true;
+        }
+        return false;
+    }
 }

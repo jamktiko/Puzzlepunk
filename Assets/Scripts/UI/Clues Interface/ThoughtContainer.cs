@@ -5,12 +5,20 @@ using UnityEngine;
 public class ThoughtContainer : MonoBehaviour
 {
     float PercentComplete = 0;
+    int totalImportant = 0;
     public float PercentRequired = .5f;
     public ThoughtLabel[] IdeaNames;
     public GameObject conclusion;
     private void Awake()
     {
         IdeaNames = GetComponentsInChildren<ThoughtLabel>();
+        foreach (ThoughtLabel label in IdeaNames)
+        {
+            if (label.Thought == ThoughtLabel.ThoughtType.important)
+            {
+                totalImportant++;
+            }
+        }
         if (conclusion==null)
         {
             conclusion = transform.GetChild(1).gameObject;
@@ -26,7 +34,7 @@ public class ThoughtContainer : MonoBehaviour
                 clue.SetRevealed(c.revealed);
                 if (c.revealed && c.important)
                 {
-                    PercentComplete += 1f / IdeaNames.Length;
+                    PercentComplete += 1f / totalImportant;
                 }
             }
             else
