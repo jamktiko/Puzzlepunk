@@ -21,7 +21,7 @@ public class ThoughtContainer : MonoBehaviour
         PercentComplete = 0;
         foreach (ThoughtLabel clue in IdeaNames)
         {
-            if (PlayerClueController.main.TryGetClue(clue.IdeaID, out PlayerClueController.Clue c)) {
+            if (PlayerClueController.main.TryGetClue(clue.IdeaID.ToLower(), out PlayerClueController.Clue c)) {
                 
                 clue.SetRevealed(c.revealed);
                 if (c.revealed && c.important)

@@ -18,7 +18,7 @@ public class PlayerClueController : MonoBehaviour
         {
             if (clue.IdeaID != "" && clue.IdeaID!= "-")
             {
-                PlayerClues.Add (clue.IdeaID, new Clue(clue.IdeaID, clue.Thought == ThoughtLabel.ThoughtType.conclusion, clue.Thought == ThoughtLabel.ThoughtType.important));
+                PlayerClues.Add (clue.IdeaID.ToLower(), new Clue(clue.IdeaID.ToLower(), clue.Thought == ThoughtLabel.ThoughtType.conclusion, clue.Thought == ThoughtLabel.ThoughtType.important));
             }
         }
     }
@@ -28,7 +28,7 @@ public class PlayerClueController : MonoBehaviour
 
     public void RevealClue(string clueID, bool value)
     {
-        if (TryGetClue(clueID,out Clue cl))
+        if (TryGetClue(clueID.ToLower(), out Clue cl))
         {
             bool update = cl.revealed != value;
             cl.revealed = value;
@@ -44,23 +44,23 @@ public class PlayerClueController : MonoBehaviour
     }
     public bool IsClueRevealed(string clueID)
     {
-        Clue c = GetClue(clueID);
+        Clue c = GetClue(clueID.ToLower());
         if (c == null)
         { return false; }
         return c.revealed;
     }
     public Clue GetClue(string clueID)
     {
-        if (PlayerClues == null || !PlayerClues.ContainsKey(clueID))
+        if (PlayerClues == null || !PlayerClues.ContainsKey(clueID.ToLower()))
         { return null; }
-        return PlayerClues[clueID];
+        return PlayerClues[clueID.ToLower()];
     }
     public bool TryGetClue(string clueID, out Clue variable)
     {
         variable = null;
-        if (PlayerClues == null || !PlayerClues.ContainsKey(clueID))
+        if (PlayerClues == null || !PlayerClues.ContainsKey(clueID.ToLower()))
         { return false; }
-        variable = PlayerClues[clueID];
+        variable = PlayerClues[clueID.ToLower()];
         return true;
     }
     public class Clue

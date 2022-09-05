@@ -23,7 +23,7 @@ public class ClueCombinerTopBar : MonoBehaviour
     {
         if (talkingNPC != null)
         {
-            HandleNPCResponse(clue);
+            HandleNPCResponse(clue.ToLower());
         }
         else
         {
@@ -34,11 +34,11 @@ public class ClueCombinerTopBar : MonoBehaviour
             }
             else
             {
-                if (cluesSelected.Contains(clue))
+                if (cluesSelected.Contains(clue.ToLower()))
                     return;
                 ClueText.text = ClueText.text + " + " + text;
             }
-            cluesSelected.Add(clue);
+            cluesSelected.Add(clue.ToLower());
             CheckSuccess();
         }
     }
