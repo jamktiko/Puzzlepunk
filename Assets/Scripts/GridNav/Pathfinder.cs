@@ -3,6 +3,7 @@ using System.Collections;
 
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 public class Pathfinder
 {
@@ -38,7 +39,9 @@ public class Pathfinder
 
     GridNav grid;
     Node currentCell;
+    
     bool approximate = true;
+    bool recalculate = true;
 
     List<Node> openList = new List<Node>();
     List<Node> closedList = new List<Node>();
@@ -137,7 +140,7 @@ public class Pathfinder
     public void solve()
     {
         UnityEngine.Debug.Log("Initializing Pathfinder");
-        currentCell = new Node( grid.GetNodeAt(origin),GetDistanceBetweenTilesSquared(origin,dest),0);
+        currentCell = new Node(grid.GetNodeAt(origin), GetDistanceBetweenTilesSquared(origin, dest), 0);
         openList.Add(currentCell);
 
         if (dest == origin)
@@ -148,7 +151,7 @@ public class Pathfinder
         if (grid.GetNodeAt(dest) == null || !grid.GetNodeAt(dest).passible && ApproachRange == 0)
         {
             UnityEngine.Debug.LogWarning("Target Impassible " + ApproachRange);
-            
+
             if (approximate)
             {
                 dest = grid.GetClosestToPoint(dest).gridPos;
@@ -164,8 +167,32 @@ public class Pathfinder
             stepPathfinder();
         }
 
-        ResolvePath();
-        Debug.Log("Pathfinder concluded as " + GetFailureType());
+        if (failure != Failure.success && recalculate)
+        {
+            recalculate = false;
+
+            float sqrDist = Mathf.Infinity;
+            Node newDest = null;
+            foreach (Node n in closedList)
+            {
+                float dist = (n.point.gridPos - dest).sqrMagnitude;
+                if (n.point.passible && dist < sqrDist)
+                {
+                    newDest = n;
+                    sqrDist = dist;
+                }
+            }
+            openList.Clear();
+            closedList.Clear();
+
+            dest = newDest.point.gridPos;
+            solve();
+        }
+        else
+        {
+            ResolvePath();
+            Debug.Log("Pathfinder concluded as " + GetFailureType());
+        }
     }
     private void stepPathfinder()
     {

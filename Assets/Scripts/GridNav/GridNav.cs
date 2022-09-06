@@ -109,15 +109,18 @@ public class GridNav : MonoBehaviour
     }
     public Node GetClosestToPoint(Vector2Int point)
     {
-        float sqrDist = 0;
+        float sqrDist = Mathf.Infinity;
         Node dest = null;
         foreach (Node n in Nodes)
         {
-            float dist = (n.gridPos - point).sqrMagnitude;
-            if (dist < sqrDist)
+            if (n.passible)
             {
-                dest = n;
-                sqrDist = dist;
+                float dist = (n.gridPos - point).sqrMagnitude;
+                if (dist < sqrDist)
+                {
+                    dest = n;
+                    sqrDist = dist;
+                }
             }
         }
         return dest;
