@@ -107,6 +107,21 @@ public class GridNav : MonoBehaviour
             Gizmos.DrawSphere(n.worldPos, .1f);
         }
     }
+    public Node GetClosestToPoint(Vector2Int point)
+    {
+        float sqrDist = 0;
+        Node dest = null;
+        foreach (Node n in Nodes)
+        {
+            float dist = (n.gridPos - point).sqrMagnitude;
+            if (dist < sqrDist)
+            {
+                dest = n;
+                sqrDist = dist;
+            }
+        }
+        return dest;
+    }
     public Vector2Int TranslateCoordinate(Vector2 point)
     {
         return Vector2Int.CeilToInt((point - origin - Vector2.one * .5f * UnitSize) / UnitSize);

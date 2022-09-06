@@ -38,6 +38,7 @@ public class Pathfinder
 
     GridNav grid;
     Node currentCell;
+    bool approximate = true;
 
     List<Node> openList = new List<Node>();
     List<Node> closedList = new List<Node>();
@@ -52,35 +53,6 @@ public class Pathfinder
         {
             walkpath = new List<GridNav.Node>();
             FailureType = Failure.incomplete;
-        }
-        public void SmoothPath()
-        {
-            Debug.Log("Smooth path with " + walkpath.Count + " tiles");
-            bool iscompletelysmooth = false;
-            while (!iscompletelysmooth)
-            {
-                iscompletelysmooth = true;
-
-                for (int I = 0; I < walkpath.Count - 2; I++)
-                {
-                    GridNav.Node current = walkpath[I];
-
-                    for (int iN = I + 2; iN< walkpath.Count - 1; iN++)
-                    {
-                        GridNav.Node next = walkpath[iN];
-
-                        if (next.IsNeighboring(current))
-                        {
-                            for (int iR = I + 1; iR <= iN; iR++)
-                            {
-                                walkpath.RemoveAt(I + 1);
-                            }
-                            iscompletelysmooth = false;
-                        }
-                    }
-                }
-            }
-            Debug.Log("End result is " + walkpath.Count + " tiles");
         }
 
         public void Cull(int desiredLength)
@@ -173,10 +145,18 @@ public class Pathfinder
             UnityEngine.Debug.LogWarning("Target Origin");
             return;
         }
-        if (!grid.GetNodeAt(dest).passible && ApproachRange == 0)
+        if (grid.GetNodeAt(dest) == null || !grid.GetNodeAt(dest).passible && ApproachRange == 0)
         {
             UnityEngine.Debug.LogWarning("Target Impassible " + ApproachRange);
-            failure = Failure.impassible_target;
+            
+            if (approximate)
+            {
+                dest = grid.GetClosestToPoint(dest).gridPos;
+            }
+            else
+            {
+                failure = Failure.impassible_target;
+            }
         }
 
         while (failure == Failure.incomplete)

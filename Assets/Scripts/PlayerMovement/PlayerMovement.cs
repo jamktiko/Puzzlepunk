@@ -57,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
                 Vector2 delta = (Vector2)transform.position - moveDestination;
                 if (delta.sqrMagnitude > MovementSpeed * Time.deltaTime)
                 {
+                    facesRight = transform.position.x < moveDestination.x;
                     transform.position = Vector3.MoveTowards(transform.position, moveDestination, MovementSpeed * Time.deltaTime);
                 }
                 else
@@ -68,5 +69,14 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+    }
+    bool facesRight = true;
+    public bool IsFacingRight()
+    {
+        return facesRight;
+    }
+    public bool IsWalking()
+    {
+        return walkPath != null;
     }
 }
