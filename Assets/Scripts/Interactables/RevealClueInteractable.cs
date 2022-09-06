@@ -13,7 +13,7 @@ public class RevealClueInteractable : InteractableBase
         }
         else
         {
-            PlayerClueController.main.SetClue(ClueID, true);
+            PlayerClueController.main.RevealClue(ClueID, true);
         }
         base.OnInteract();
     }

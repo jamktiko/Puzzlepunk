@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class ThoughtBubbleInterface : MonoBehaviour
@@ -12,7 +13,11 @@ public class ThoughtBubbleInterface : MonoBehaviour
         {
             PuzzleBar = GetComponentInChildren<ClueCombinerTopBar>();
             PuzzleBar.gameObject.SetActive(false);
-        }       
+        }
+    }
+    private void Start()
+    {
+        OnNewClueRevealed();
     }
     public void OnNewClueRevealed()
     {
@@ -24,17 +29,28 @@ public class ThoughtBubbleInterface : MonoBehaviour
     }
 
     public ClueCombinerTopBar PuzzleBar;
-    public ClueChoiceSO Selection;
     private void OnEnable()
     {
-        if (Selection!=null)
+        UpdatePuzzleUI();
+    }
+    private void OnDisable()
+    {
+        ClearPuzzleUI();
+    }
+    void UpdatePuzzleUI()
+    {
+        if (PuzzleBar.Puzzle != null)
         {
-            PuzzleBar.Puzzle = Selection;
             PuzzleBar.gameObject.SetActive(true);
         }
         else
         {
             PuzzleBar.gameObject.SetActive(false);
         }
+    }
+    void ClearPuzzleUI()
+    {
+        PuzzleBar.Puzzle = null;
+        PuzzleBar.gameObject.SetActive(false);
     }
 }

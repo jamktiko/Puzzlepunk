@@ -47,18 +47,25 @@ public class PlayerMovement : MonoBehaviour
         }
         if (walkPath != null)
         {
-            Vector2 moveDestination = walkPath.Current().worldPos;
-            Vector2 delta = (Vector2)transform.position - moveDestination;
-            if (delta.sqrMagnitude > MovementSpeed * Time.deltaTime)
+            if (walkPath.FailureType != Pathfinder.Failure.success)
             {
-                transform.position = Vector3.MoveTowards(transform.position, moveDestination, MovementSpeed * Time.deltaTime);
+                Debug.Log(walkPath.FailureType);
+                Stop();
             }
-            else
-            {
-                if (walkPath.Solved())
-                    Stop();
+            else {
+                Vector2 moveDestination = walkPath.Current().worldPos;
+                Vector2 delta = (Vector2)transform.position - moveDestination;
+                if (delta.sqrMagnitude > MovementSpeed * Time.deltaTime)
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, moveDestination, MovementSpeed * Time.deltaTime);
+                }
                 else
-                    walkPath.Next();
+                {
+                    if (walkPath.Solved())
+                        walkPath = null;
+                    else
+                        walkPath.Next();
+                }
             }
         }
     }
