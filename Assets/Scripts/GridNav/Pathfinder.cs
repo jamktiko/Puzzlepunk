@@ -11,6 +11,7 @@ public class Pathfinder
     {
         incomplete,
         impossible_outofrange,
+        impassible_origin,
         impassible_target,
         impossible,
         success
@@ -139,15 +140,21 @@ public class Pathfinder
     Failure failure = Failure.incomplete;
     public void solve()
     {
-        UnityEngine.Debug.Log("Initializing Pathfinder");
-        currentCell = new Node(grid.GetNodeAt(origin), GetDistanceBetweenTilesSquared(origin, dest), 0);
-        openList.Add(currentCell);
 
         if (dest == origin)
         {
             UnityEngine.Debug.LogWarning("Target Origin");
             return;
         }
+        UnityEngine.Debug.Log("Initializing Pathfinder");
+        currentCell = new Node(grid.GetNodeAt(origin), GetDistanceBetweenTilesSquared(origin, dest), 0);
+        if (!currentCell.point.passible)
+        {
+            UnityEngine.Debug.LogWarning("Origin Impassible");
+            failure = Failure.impassible_origin;
+            return;
+        }
+        openList.Add(currentCell);
         if (grid.GetNodeAt(dest) == null || !grid.GetNodeAt(dest).passible && ApproachRange == 0)
         {
             UnityEngine.Debug.LogWarning("Target Impassible " + ApproachRange);
