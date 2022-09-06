@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f10aa779aaec54f8006c9f4936058c, type: 3}
+  m_Name: Sphere Choice
+  m_EditorClassIdentifier: 
+  Character: {fileID: 11400000, guid: 22f0e373466d95042925f81510c5f5ba, type: 2}
+  Eyes: 0
+  Mouth: 0
+  DialogueQuestion: Repeat?
+  Choices:
+  - name: Repeat
+    text: Repeat
+    dialogue: {fileID: 11400000, guid: 04cbc83628a18984a927545382b907dc, type: 2}
+  - name: Quit
+    text: Quit
+    dialogue: {fileID: 0}
