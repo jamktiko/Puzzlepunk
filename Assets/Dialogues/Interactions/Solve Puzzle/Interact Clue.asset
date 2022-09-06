@@ -12,5 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0faf04322e76f9744b7ad398a9e40df4, type: 3}
   m_Name: Interact Clue
   m_EditorClassIdentifier: 
-  Dialogue: []
+  Dialogue:
+  - name: Line 1
+    Character: {fileID: 11400000, guid: 5ad905a5fc265c6429a27d825589f904, type: 2}
+    Eyes: 0
+    Mouth: 0
+    Quote: Please let me out!
+    Wait: 0
+    PlayType: 0
+    AudioClip: {fileID: 0}
+    DialogueShake: 0
   EndChoice: {fileID: 11400000, guid: 205c3b3d2a2b34140b3621f3871933ba, type: 2}

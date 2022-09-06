@@ -37,6 +37,7 @@ public class PlayerClueController : MonoBehaviour
                 if (cl.revealed)
                 {
                     HasNewClues = true;
+                    UIController.main.flyingTextController.RevealClue(clueID, Input.mousePosition);
                 }
                 UIController.main.IdeaManagerWindow.OnNewClueRevealed();
             }

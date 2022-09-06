@@ -20,12 +20,31 @@ public abstract class InteractableBase : MonoBehaviour
         {
             collider = GetComponent<Collider2D>();
         }
+        if (Outline != null)
+        {
+            Outline.enabled = false;
+        }
     }
     public virtual void EnableDisable(bool value)
     {
         if (collider!=null)
         {
             collider.enabled = value;
+        }
+    }
+    public SpriteRenderer Outline;
+    private void OnMouseEnter()
+    {
+        if (Outline!=null)
+        {
+            Outline.enabled = true;
+        }
+    }
+    private void OnMouseExit()
+    {
+        if (Outline != null)
+        {
+            Outline.enabled = false;
         }
     }
 }

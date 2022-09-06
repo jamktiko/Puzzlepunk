@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (walkPath == null)
             {
-                walkPath = Pathfinder.SolvePath(GridNav.main, transform.position, InteractObject.transform.position, InteractObject.InteractRange);
+                walkPath = Pathfinder.SolvePath(GridNav.main, transform.position, InteractObject.transform.position);
             }
         }
         if (walkPath != null)
@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
                 if (delta.sqrMagnitude > MovementSpeed * Time.deltaTime)
                 {
                     facesRight = transform.position.x < moveDestination.x;
-                    transform.position = Vector3.MoveTowards(transform.position, moveDestination, MovementSpeed * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, moveDestination, MovementSpeed * Time.deltaTime * (IsSprinting() ? SprintMultiplier : 1));
                 }
                 else
                 {
@@ -78,5 +78,10 @@ public class PlayerMovement : MonoBehaviour
     public bool IsWalking()
     {
         return walkPath != null;
+    }
+    public float SprintMultiplier = 2f;
+    bool IsSprinting()
+    {
+        return Input.GetMouseButton(0);
     }
 }

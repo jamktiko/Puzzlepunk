@@ -9,6 +9,7 @@ public class UIController : MonoBehaviour
     public IdeaButtonManager ShowIdeaWindowButton;
     public ThoughtBubbleInterface IdeaManagerWindow;
     public DialogueUIController dialogueController;
+    public FlyingTextUI flyingTextController;
 
     public enum UIWindow
     {
@@ -31,10 +32,15 @@ public class UIController : MonoBehaviour
         {
             dialogueController = GetComponentInChildren<DialogueUIController>();
         }
+        if (flyingTextController == null)
+        {
+            flyingTextController = GetComponentInChildren<FlyingTextUI>();
+        }
     }
     private void Start()
     {
         CloseWindow();
+        flyingTextController.Hide();
     }
     public void OpenWindow(UIWindow nWindow)
     {

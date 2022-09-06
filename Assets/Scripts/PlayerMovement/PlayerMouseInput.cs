@@ -11,7 +11,7 @@ public class PlayerMouseInput : MonoBehaviour
     }
     private void Update()
     {
-        if ((bool)(UIController.main?.dialogueController?.IsCutscenePlaying()))
+        if (UIController.main != null && UIController.main.dialogueController.IsCutscenePlaying())
             return;
         if (Input.GetMouseButtonDown(0))
         {
@@ -31,7 +31,10 @@ public class PlayerMouseInput : MonoBehaviour
                     return;
                 }
                 else
+                {
                     interactable.OnInteract();
+                    return;
+                }
             }
         }
         PlayerMovement.main.IssueMoveOrder(point);
