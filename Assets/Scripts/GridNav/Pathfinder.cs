@@ -196,7 +196,7 @@ public class Pathfinder
     }
     private void stepPathfinder()
     {
-        if (currentCell.point.gridPos == dest || (ApproachRange > 0 && (currentCell.point.gridPos - dest).sqrMagnitude <= ApproachRange * ApproachRange))
+        if (currentCell.point.gridPos == dest || (ApproachRange > 0 && currentCell.point!=null && (currentCell.point.gridPos - dest).sqrMagnitude <= ApproachRange * ApproachRange))
         {
             failure = Failure.success;
             return;

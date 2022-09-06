@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class EventInteractable : InteractableBase
 {
-    UnityEvent uEvent;
+    public UnityEvent uEvent;
     public override void OnInteract()
     {
         uEvent.Invoke();

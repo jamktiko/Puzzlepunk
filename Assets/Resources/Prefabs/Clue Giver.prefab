@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 6544795820147071520}
   - component: {fileID: 6544795820147071525}
   - component: {fileID: 6544795820147071522}
-  - component: {fileID: 6544795820147071523}
+  - component: {fileID: 3620494854113587744}
   m_Layer: 0
   m_Name: Clue Giver
   m_TagString: Untagged
@@ -198,13 +198,13 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &6544795820147071523
+--- !u!114 &3620494854113587744
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,11 +213,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6544795820147071521}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aeda36af3a6de9643942b01f844ae787, type: 3}
+  m_Script: {fileID: 11500000, guid: 83947639945806e418154d142ac060ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   RequiresMoveInRange: 0
   InteractRange: 1
-  SingleUse: 1
+  SingleUse: 0
   Outline: {fileID: 6544795818980947112}
-  ClueID: Banana

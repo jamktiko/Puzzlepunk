@@ -29,7 +29,14 @@ public class GridNav : MonoBehaviour
 
         public void Init(GridNav nav)
         {
-            passible = !Physics2D.CircleCast(worldPos, nav.UnitSize, Vector2.zero, LayerMask.GetMask(new string[] { "Obstacle" }));
+            passible = true;
+            foreach (RaycastHit2D collision in Physics2D.CircleCastAll(worldPos, nav.UnitSize, Vector2.zero) )
+            {
+                if (collision.transform.tag == "Obstacle")
+                {
+                    passible = false;
+                }
+            }
             neighbors = new Node[]{
                 nav.GetNodeAt(gridPos + Vector2Int.right + Vector2Int.up),
                 nav.GetNodeAt(gridPos +  Vector2Int.up),
@@ -67,9 +74,9 @@ public class GridNav : MonoBehaviour
     Vector2 origin;
     void InitGrid()
     {
-        width = Mathf.CeilToInt( transform.localScale.x / UnitSize);
-        height = Mathf.CeilToInt(transform.localScale.y / UnitSize);
-        origin = new Vector2(transform.position.x - transform.localScale.x * .5f, transform.position.y - transform.localScale.y * .5f);
+        width = Mathf.CeilToInt( transform.lossyScale.x / UnitSize);
+        height = Mathf.CeilToInt(transform.lossyScale.y / UnitSize);
+        origin = new Vector2(transform.position.x - transform.lossyScale.x * .5f, transform.position.y - transform.lossyScale.y * .5f);
 
         Nodes = new Node[width, height];
         for (int iX = 0; iX < width; iX++)

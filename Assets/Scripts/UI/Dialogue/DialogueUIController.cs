@@ -142,10 +142,11 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
                     StartCoroutine(DialogueShake(NewLine.DialogueShake,10));
             }
         }
-        if (NewLine.Wait > 0)
+        float Wait = .5f + NewLine.Quote.Length * .1f;
+        if (Wait > 0)
         {
             SkipLine = false;
-            yield return SkippableWait(NewLine.Wait);
+            yield return SkippableWait(Wait);
         }
     }
     bool SkipLine = false;
@@ -208,9 +209,19 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
     }
     public void EmoteCharacter(DialogueScriptSO.CharacterEmotion emotion)
     {
-        if (Character != null && emotion != DialogueScriptSO.CharacterEmotion.none)
+        if (Character != null)
         {
-            Face.sprite = Character.Faces[(int)emotion];
+            if (emotion != DialogueScriptSO.CharacterEmotion.none)
+            {
+                Face.sprite = Character.Faces[(int)emotion];
+                Face.enabled = true;
+            }
+            else
+            {
+
+                Face.enabled = false;
+            }
+                
         }
     }
 

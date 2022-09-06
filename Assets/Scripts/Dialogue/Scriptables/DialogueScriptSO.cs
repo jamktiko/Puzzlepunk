@@ -28,7 +28,6 @@ public class DialogueScriptSO : ScriptableObject
 
         [Header("What Is Said")]
         public string Quote;
-        public float Wait;
 
         [Header("Effects")]
         public AudioPlayType PlayType = AudioPlayType.never;

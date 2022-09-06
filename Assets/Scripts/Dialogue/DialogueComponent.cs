@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueController : MonoBehaviour
+public class DialogueComponent : MonoBehaviour
 {
 
     [Header("Settings")]
