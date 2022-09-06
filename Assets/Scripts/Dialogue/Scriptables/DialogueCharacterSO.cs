@@ -8,9 +8,6 @@ public class DialogueCharacterSO : ScriptableObject
 
     public string CharacterName;
 
-    public Sprite Base;
-    [Header("Eyes")]
-    public Sprite[] Eyes;
-    [Header("Mouth")]
-    public Sprite[] Mouths;
+    public Sprite Head;
+    public Sprite[] Faces;
 }

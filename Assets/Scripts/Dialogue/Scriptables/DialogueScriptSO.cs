@@ -5,13 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DialogueScriptSO", menuName = "Dialogue/DialogueScriptSO")]
 public class DialogueScriptSO : ScriptableObject
 {
-    public enum CharacterEyePosition
+    public enum CharacterEmotion
     {
-        normal = 0,
-        angry = 1
-    }
-    public enum CharacterMouthPosition
-    {
+        none = -1,
         normal = 0,
         angry = 1
     }
@@ -26,12 +22,9 @@ public class DialogueScriptSO : ScriptableObject
     public class DialogueLine
     {
         public string name;
-        [Header("Character Data")]
+        [Header("Character")]
         public DialogueCharacterSO Character;
-
-        [Header("Emote")]
-        public CharacterEyePosition Eyes;
-        public CharacterMouthPosition Mouth;
+        public CharacterEmotion Emotion;
 
         [Header("What Is Said")]
         public string Quote;

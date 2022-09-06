@@ -4,12 +4,9 @@ using UnityEngine;
 
 public abstract class ChoiceSO : ScriptableObject
 {
-    [Header("Character Data")]
+    [Header("Character")]
     public DialogueCharacterSO Character;
-
-    [Header("Emote")]
-    public DialogueScriptSO.CharacterEyePosition Eyes;
-    public DialogueScriptSO.CharacterMouthPosition Mouth;
+    public DialogueScriptSO.CharacterEmotion Emote;
 
     [Header("Dialoge")]
     public string DialogueQuestion;

@@ -9,11 +9,10 @@ using static PlayerClueController;
 public class DialogueUIController : MonoBehaviour, IPointerClickHandler
 {
 
-    [Header("Portrait 1")]
-    DialogueCharacterSO Char1;
-    public Image Head1;
-    public Image Eyes1;
-    public Image Mouth1;
+    [Header("Portrait")]
+    DialogueCharacterSO Character;
+    public Image Head;
+    public Image Face;
 
     [Header("Components")]
 
@@ -123,8 +122,7 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
         {
             ChangeCharacter(NewLine.Character);
         }
-        EmoteCharacter(NewLine.Eyes);
-        EmoteCharacter(NewLine.Mouth);
+        EmoteCharacter(NewLine.Emotion);
 
         if (NewLine.PlayType == DialogueScriptSO.AudioPlayType.before)
         {
@@ -192,34 +190,28 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void ChangeCharacter( DialogueCharacterSO character)
+    public void ChangeCharacter(DialogueCharacterSO character)
     {
-                if (Char1 == character)
-                    return;
-                Char1 = character;
-                Head1.gameObject.SetActive(Char1 != null);
-                Eyes1.gameObject.SetActive(Char1 != null);
-                Mouth1.gameObject.SetActive(Char1 != null);
-                if (Char1 != null)
-                {
-                    Head1.sprite = Char1.Base;
-                    Eyes1.sprite = Char1.Eyes[0];
-                    Mouth1.sprite = Char1.Mouths[0];
-                }
+        if (Character == character)
+            return;
+        Character = character;
+        Head.gameObject.SetActive(Character != null);
+        Face.gameObject.SetActive(Character != null);
+        if (Character != null)
+        {
+            Head.sprite = Character.Head;
+            if (Character.Faces.Length > 0)
+                Face.sprite = Character.Faces[0];
+            else
+                Face.sprite = null;
+        }
     }
-    public void EmoteCharacter(DialogueScriptSO.CharacterMouthPosition emotion)
+    public void EmoteCharacter(DialogueScriptSO.CharacterEmotion emotion)
     {
-                if (Char1 != null)
-                {
-                    Mouth1.sprite = Char1.Mouths[(int)emotion];
-                }
-    }
-    public void EmoteCharacter( DialogueScriptSO.CharacterEyePosition emotion)
-    {
-                if (Char1 != null)
-                {
-                    Eyes1.sprite = Char1.Eyes[(int)emotion];
-                }
+        if (Character != null && emotion != DialogueScriptSO.CharacterEmotion.none)
+        {
+            Face.sprite = Character.Faces[(int)emotion];
+        }
     }
 
     public void PlaySound(AudioClip clip, float volume = 1f, float pitch = 1f)
@@ -329,8 +321,8 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
         if (talkingNPC != null)
         {
             ChangeCharacter(talkingNPC.CharacterFile);
-            EmoteCharacter(DialogueScriptSO.CharacterEyePosition.normal);
-            EmoteCharacter(DialogueScriptSO.CharacterEyePosition.normal);
+            EmoteCharacter(DialogueScriptSO.CharacterEmotion.normal);
+            EmoteCharacter(DialogueScriptSO.CharacterEmotion.normal);
 
             if (talkingNPC.WelcomeLines.Length > 0)
             {
