@@ -142,7 +142,7 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
                     StartCoroutine(DialogueShake(NewLine.DialogueShake,10));
             }
         }
-        float Wait = .5f + NewLine.Quote.Length * .1f;
+        float Wait = GetWaitValue(NewLine.Quote);
         if (Wait > 0)
         {
             SkipLine = false;
@@ -180,6 +180,10 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
         }
         dialogText.text = dialog;
     }
+    float GetWaitValue(string line)
+    {
+        return 2f + line.Length * .03f; 
+    }
     IEnumerator SkippableWait(float Dur)
     {
         float Wait = Time.time + Dur;
@@ -201,6 +205,7 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
         if (Character != null)
         {
             Head.sprite = Character.Head;
+            EmoteCharacter(DialogueScriptSO.CharacterEmotion.none);
             if (Character.Faces.Length > 0)
                 Face.sprite = Character.Faces[0];
             else
@@ -211,7 +216,7 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
     {
         if (Character != null)
         {
-            if (emotion != DialogueScriptSO.CharacterEmotion.none)
+            if (emotion >= 0 && (int)emotion < Character.Faces.Length)
             {
                 Face.sprite = Character.Faces[(int)emotion];
                 Face.enabled = true;
@@ -338,7 +343,7 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
             if (talkingNPC.WelcomeLines.Length > 0)
             {
                 yield return TypeDialog(Dialogue);
-                float Wait = .5f + Dialogue.Length * .1f;
+                float Wait = GetWaitValue(Dialogue);
                 if (Wait > 0)
                 {
                     SkipLine = false;

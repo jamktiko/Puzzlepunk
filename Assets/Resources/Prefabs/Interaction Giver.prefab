@@ -112,7 +112,8 @@ GameObject:
   - component: {fileID: 7417227034108368629}
   - component: {fileID: 7417227034108368630}
   - component: {fileID: 7417227034108368631}
-  - component: {fileID: 7417227034108368628}
+  - component: {fileID: -5059014199890080154}
+  - component: {fileID: -1105413247490647273}
   m_Layer: 0
   m_Name: Interaction Giver
   m_TagString: Untagged
@@ -204,7 +205,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &7417227034108368628
+--- !u!114 &-5059014199890080154
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,11 +214,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 7417227034108368634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be7e7dafed2ace642bc8ea8161d41c55, type: 3}
+  m_Script: {fileID: 11500000, guid: 83947639945806e418154d142ac060ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   RequiresMoveInRange: 0
   InteractRange: 1
   SingleUse: 0
   Outline: {fileID: 7417227032197920527}
-  Cutscene: {fileID: 11400000, guid: ec898ee3651060d45ac3c793e611ef07, type: 2}
+  uEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -1105413247490647273}
+        m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-1105413247490647273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7417227034108368634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f85e1feb1060e4cbee02e9900a0acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayOnStart: 0
+  OnlyTriggerOnce: 0
+  CutsceneScript: {fileID: 0}

@@ -21,7 +21,7 @@ public class DialogueComponent : MonoBehaviour
     }
     public void Play()
     {
-        if (enabled)
+        if (enabled && CutsceneScript!=null)
             StartCoroutine(CinemaCoroutine());
     }
 

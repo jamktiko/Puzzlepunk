@@ -10,16 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0faf04322e76f9744b7ad398a9e40df4, type: 3}
-  m_Name: Interact Sphere
+  m_Name: SurgeryTools LookAt
   m_EditorClassIdentifier: 
   Dialogue:
-  - name: First
-    Character: {fileID: 11400000, guid: 22f0e373466d95042925f81510c5f5ba, type: 2}
-    Eyes: 0
-    Mouth: 0
-    Quote: It's A Sphere!
-    Wait: 1
+  - name: 
+    Character: {fileID: 11400000, guid: 5ad905a5fc265c6429a27d825589f904, type: 2}
+    Emotion: -1
+    Quote: Surgery Tools
     PlayType: 0
     AudioClip: {fileID: 0}
     DialogueShake: 0
-  EndChoice: {fileID: 11400000, guid: 502404422ed97524bbc3d96191146536, type: 2}
+  EndChoice: {fileID: 0}
