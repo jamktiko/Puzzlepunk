@@ -29,6 +29,7 @@ public class ThoughtLabel : MonoBehaviour
     public void SetRevealed(bool Value)
     {
         TextComponent.color = Value ? enabledColor : disabledColor;
+        enabled = Value;
     }
     void InitButton()
     {
@@ -41,6 +42,8 @@ public class ThoughtLabel : MonoBehaviour
     }
     void OnButtonClick()
     {
+        if (!enabled)
+            return;
         var puzzleBar = UIController.main.IdeaManagerWindow.PuzzleBar;
         if (puzzleBar.Puzzle != null || UIController.main.dialogueController.talkingNPC!=null)
         {

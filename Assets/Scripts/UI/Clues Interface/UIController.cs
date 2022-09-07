@@ -36,9 +36,6 @@ public class UIController : MonoBehaviour
         {
             flyingTextController = GetComponentInChildren<FlyingTextUI>();
         }
-    }
-    private void Start()
-    {
         CloseWindow();
         flyingTextController.Hide();
     }

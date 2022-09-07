@@ -22,35 +22,12 @@ public class DialogueComponent : MonoBehaviour
     public void Play()
     {
         if (enabled && CutsceneScript!=null)
-            StartCoroutine(CinemaCoroutine());
-    }
-
-    public IEnumerator CinemaCoroutine()
-    {
-        /*yield return new WaitUntil(() =>
         {
-            return PlayerClass.main != null;
-        });*/
-        OnEnterCinematic();
-        UIController.main.dialogueController.PlayCutscene(CutsceneScript);
 
-            yield return new WaitUntil(() => {
-                return !UIController.main.dialogueController.IsCutscenePlaying();
-            });
-            OnExitCinematic();
+            UIController.main.dialogueController.PlayCutscene(CutsceneScript);
             if (OnlyTriggerOnce)
                 enabled = false;
+        }
     }
 
-    public void OnEnterCinematic()
-    {
-       // WindowController.main.DialogueMenuWindow.SetActive(true);
-       // PlayerClass.main.SetCinematicMode(true);
-    }
-
-    public void OnExitCinematic()
-    {
-       // WindowController.main.DialogueMenuWindow.SetActive(false);
-       // PlayerClass.main.SetCinematicMode(false);
-    }
 }
