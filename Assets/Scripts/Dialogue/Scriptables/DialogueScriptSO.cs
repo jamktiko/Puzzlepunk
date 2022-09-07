@@ -9,7 +9,11 @@ public class DialogueScriptSO : ScriptableObject
     {
         none = -1,
         normal = 0,
-        angry = 1
+        smile = 1,
+        laugh = 2,
+        ask = 3,
+        think = 4,
+        worry = 5,
     }
     public enum AudioPlayType
     {
