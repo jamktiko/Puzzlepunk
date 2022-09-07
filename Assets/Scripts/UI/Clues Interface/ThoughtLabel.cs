@@ -11,21 +11,24 @@ public class ThoughtLabel : MonoBehaviour
         important,
         conclusion
     }
-    public TMPro.TextMeshProUGUI text;
+    public TMPro.TextMeshProUGUI TextComponent;
     public Button btn;
     public string IdeaID = "-";
     public ThoughtType Thought = ThoughtType.important;
 
+    public Color enabledColor = Color.black;
+    public Color disabledColor = Color.clear;
+
     private void Awake()
     {
-        if (text == null)
-            text = GetComponent<TMPro.TextMeshProUGUI>();
+        if (TextComponent == null)
+            TextComponent = GetComponent<TMPro.TextMeshProUGUI>();
         InitButton();
         SetRevealed(false);
     }
     public void SetRevealed(bool Value)
     {
-        text.enabled = Value;
+        TextComponent.color = Value ? enabledColor : disabledColor;
     }
     void InitButton()
     {
@@ -41,7 +44,7 @@ public class ThoughtLabel : MonoBehaviour
         var puzzleBar = UIController.main.IdeaManagerWindow.PuzzleBar;
         if (puzzleBar.Puzzle != null || UIController.main.dialogueController.talkingNPC!=null)
         {
-            puzzleBar.InsertClue(text.text, IdeaID);
+            puzzleBar.InsertClue(TextComponent.text, IdeaID);
         }
     }
 }

@@ -18,7 +18,7 @@ public class PlayerClueController : MonoBehaviour
         {
             if (clue.IdeaID != "" && clue.IdeaID!= "-")
             {
-                PlayerClues.Add (clue.IdeaID.ToLower(), new Clue(clue.IdeaID.ToLower(), clue.Thought == ThoughtLabel.ThoughtType.conclusion, clue.Thought == ThoughtLabel.ThoughtType.important));
+                PlayerClues.Add (clue.IdeaID.ToLower(), new Clue(clue, clue.Thought == ThoughtLabel.ThoughtType.conclusion, clue.Thought == ThoughtLabel.ThoughtType.important));
             }
         }
     }
@@ -37,7 +37,7 @@ public class PlayerClueController : MonoBehaviour
                 if (cl.revealed)
                 {
                     HasNewClues = true;
-                    UIController.main.flyingTextController.RevealClue(clueID, Input.mousePosition);
+                    UIController.main.flyingTextController.RevealClue(cl.GetName(), Input.mousePosition);
                 }
                 UIController.main.IdeaManagerWindow.OnNewClueRevealed();
             }
@@ -66,15 +66,23 @@ public class PlayerClueController : MonoBehaviour
     }
     public class Clue
     {
-        public string ID;
+        public ThoughtLabel ThoughtLabel;
         public bool revealed;
         public bool important;
 
-        public Clue(string iD, bool revealed, bool important)
+        public Clue(ThoughtLabel l, bool revealed, bool important)
         {
-            ID = iD;
+            ThoughtLabel = l;
             this.revealed = revealed;
             this.important = important;
+        }
+        public string GetName()
+        {
+            return ThoughtLabel.TextComponent.text;
+        }
+        public string GetID()
+        {
+            return ThoughtLabel.IdeaID.ToLower();
         }
     }
 }
