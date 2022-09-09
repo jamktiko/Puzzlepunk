@@ -62,9 +62,9 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
 
         CutsceneCoroutine = StartCoroutine(PlayCutsceneCoroutine(Script));
     }
-    public bool IsCutscenePlaying()
+    public bool IsInDialogueMode()
     {
-        return gameObject.activeSelf && CutsceneCoroutine != null;
+        return gameObject.activeSelf && CutsceneCoroutine != null || MultipleChoice.gameObject.activeSelf;
     }
     IEnumerator PlayCutsceneCoroutine(DialogueScriptSO Script)
     {
@@ -75,33 +75,13 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
             yield return LoadDialogueLine(Script.Dialogue[quote]);
             quote++;
         }
-        if (Script.EndChoice != null)
+        if (talkingNPC == null)
         {
-            if (Script.EndChoice.GetType() == typeof(MultipleChoiceSO))
-            {
-                ShowMultipleChoice((MultipleChoiceSO)Script.EndChoice);
-            }
-            if (Script.EndChoice.GetType() == typeof(ClueChoiceSO))
-            {
-                Close();
-                UIController.main.IdeaManagerWindow.PuzzleBar.LoadChoices((ClueChoiceSO)Script.EndChoice);
-                UIController.main.IdeaManagerWindow.gameObject.SetActive(true);
-            }
-
-        waitloop:
-            yield return new WaitForEndOfFrame();
-            goto waitloop;
+            Close();
         }
         else
         {
-            if (talkingNPC == null)
-            {
-                Close();
-            }
-            else
-            {
-                yield return LoadNPCQuery();
-            }
+            yield return LoadNPCQuery();
         }
     }
     public void Close()
@@ -112,7 +92,46 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
 
         UIController.main.CloseWindow();
     }
-    public IEnumerator LoadDialogueLine(DialogueScriptSO.DialogueLine NewLine)
+    public IEnumerator LoadDialogueLine(DialogueLineSO NewLine)
+    {
+        LoadDialogueCharacter(NewLine);
+
+        if (NewLine.GetType() == typeof(DialogueAudioSO))
+        {
+            DialogueAudioSO dialogueAudioSO = (DialogueAudioSO)NewLine;
+            if (dialogueAudioSO.PlayType == DialogueAudioSO.AudioPlayType.before)
+            {
+                if (dialogueAudioSO.AudioClip != null)
+                    PlaySound(dialogueAudioSO.AudioClip);
+            }
+            if (dialogueAudioSO.DialogueQuestion.Length > 0)
+            {
+                yield return TypeDialog(dialogueAudioSO.DialogueQuestion);
+                if (dialogueAudioSO.PlayType == DialogueAudioSO.AudioPlayType.after)
+                {
+                    if (dialogueAudioSO.AudioClip != null)
+                        PlaySound(dialogueAudioSO.AudioClip);
+                }
+                yield return PostLineWait(dialogueAudioSO.DialogueQuestion);
+            }
+        }
+        else if (NewLine.GetType() == typeof(MultipleChoiceSO))
+        {
+            ShowMultipleChoice((MultipleChoiceSO)NewLine);
+        }
+        else if (NewLine.GetType() == typeof(ClueChoiceSO))
+        {
+            Close();
+            UIController.main.IdeaManagerWindow.PuzzleBar.LoadChoices((ClueChoiceSO)NewLine);
+            UIController.main.IdeaManagerWindow.gameObject.SetActive(true);
+        }
+        else
+        {
+            yield return TypeDialog(NewLine.DialogueQuestion);
+            yield return PostLineWait(NewLine.DialogueQuestion);
+        }
+    }
+    void LoadDialogueCharacter(DialogueLineSO NewLine)
     {
         if (NewLine.Character == null && talkingNPC != null)
         {
@@ -122,34 +141,20 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
         {
             ChangeCharacter(NewLine.Character);
         }
-        EmoteCharacter(NewLine.Emotion);
+        EmoteCharacter(NewLine.Emote);
+    }
 
-        if (NewLine.PlayType == DialogueScriptSO.AudioPlayType.before)
-        {
-            if (NewLine.AudioClip != null)
-                PlaySound(NewLine.AudioClip);
-            if (NewLine.DialogueShake > 0)
-                StartCoroutine(DialogueShake(NewLine.DialogueShake, 10));
-        }
-        if (NewLine.Quote.Length > 0)
-        {
-            yield return TypeDialog(NewLine.Quote);
-            if (NewLine.PlayType == DialogueScriptSO.AudioPlayType.after)
-            {
-                if (NewLine.AudioClip != null)
-                    PlaySound(NewLine.AudioClip);
-                if (NewLine.DialogueShake > 0)
-                    StartCoroutine(DialogueShake(NewLine.DialogueShake,10));
-            }
-        }
-        float Wait = GetWaitValue(NewLine.Quote);
+
+    bool SkipLine = false;
+    IEnumerator PostLineWait(string line)
+    {
+        float Wait = GetWaitValue(line);
         if (Wait > 0)
         {
             SkipLine = false;
             yield return SkippableWait(Wait);
         }
     }
-    bool SkipLine = false;
     public IEnumerator TypeDialog(string dialog)
     {
         SkipLine = false;
@@ -205,14 +210,14 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
         if (Character != null)
         {
             Head.sprite = Character.Head;
-            EmoteCharacter(DialogueScriptSO.CharacterEmotion.none);
+            EmoteCharacter(DialogueLineSO.CharacterEmotion.none);
             if (Character.Faces.Length > 0)
                 Face.sprite = Character.Faces[0];
             else
                 Face.sprite = null;
         }
     }
-    public void EmoteCharacter(DialogueScriptSO.CharacterEmotion emotion)
+    public void EmoteCharacter(DialogueLineSO.CharacterEmotion emotion)
     {
         if (Character != null)
         {
@@ -254,27 +259,6 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
         }
 
         Camera.main.transform.localPosition = originalPos;
-    }
-
-    public IEnumerator DialogueShake(float duration, float magnitude)
-    {
-        RectTransform tRect = GetComponent<RectTransform>();
-        Vector3 originalPos = tRect.anchoredPosition;
-        float timer = 0.0f;
-
-        while (timer < duration)
-        {
-            float x = (Random.Range(-1f, 1f) * magnitude);
-            float y = (Random.Range(-1f, 1f) * magnitude);
-
-            tRect.anchoredPosition = new Vector3(x, y, originalPos.z);
-
-            timer +=  Time.deltaTime;
-
-            yield return new WaitForEndOfFrame();
-        }
-
-        tRect.anchoredPosition = originalPos;
     }
 
     public void ShowMultipleChoice(MultipleChoiceSO choices)
@@ -337,8 +321,8 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
         if (talkingNPC != null)
         {
             ChangeCharacter(talkingNPC.CharacterFile);
-            EmoteCharacter(DialogueScriptSO.CharacterEmotion.normal);
-            EmoteCharacter(DialogueScriptSO.CharacterEmotion.normal);
+            EmoteCharacter(DialogueLineSO.CharacterEmotion.normal);
+            EmoteCharacter(DialogueLineSO.CharacterEmotion.normal);
 
             if (talkingNPC.WelcomeLines.Length > 0)
             {
