@@ -104,15 +104,16 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
                 if (dialogueAudioSO.AudioClip != null)
                     PlaySound(dialogueAudioSO.AudioClip);
             }
-            if (dialogueAudioSO.DialogueQuestion.Length > 0)
+            string line = dialogueAudioSO.GetDialogueLine();
+            if (line.Length > 0)
             {
-                yield return TypeDialog(dialogueAudioSO.DialogueQuestion);
+                yield return TypeDialog(line);
                 if (dialogueAudioSO.PlayType == DialogueAudioSO.AudioPlayType.after)
                 {
                     if (dialogueAudioSO.AudioClip != null)
                         PlaySound(dialogueAudioSO.AudioClip);
                 }
-                yield return PostLineWait(dialogueAudioSO.DialogueQuestion);
+                yield return PostLineWait(line);
             }
         }
         else if (NewLine.GetType() == typeof(MultipleChoiceSO))
@@ -127,8 +128,9 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            yield return TypeDialog(NewLine.DialogueQuestion);
-            yield return PostLineWait(NewLine.DialogueQuestion);
+            string DialogueQuestion = NewLine.GetDialogueLine();
+            yield return TypeDialog(DialogueQuestion);
+            yield return PostLineWait(DialogueQuestion);
         }
     }
     void LoadDialogueCharacter(DialogueLineSO NewLine)

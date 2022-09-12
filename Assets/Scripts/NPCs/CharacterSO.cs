@@ -9,8 +9,8 @@ public class CharacterSO : ScriptableObject
     public DialogueCharacterSO CharacterFile;
 
     [Header("Welcome Player")]
-    public string[] WelcomeLines;
-    public string[] Questions;
+    public DialogueLineSO WelcomeLine;
+    public DialogueLineSO Question;
 
     public DialogueScriptSO StandardReply;
     public NPCReaction[] Reactions;

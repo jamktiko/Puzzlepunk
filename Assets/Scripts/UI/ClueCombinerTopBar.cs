@@ -16,7 +16,7 @@ public class ClueCombinerTopBar : MonoBehaviour
     public void LoadChoices(ClueChoiceSO pzq)
     {
         Puzzle = pzq;
-        HeaderText.text = pzq.DialogueQuestion;
+        HeaderText.text = pzq.GetDialogueLine();
         Clear();
     }
     internal void InsertClue(string text, string clue)

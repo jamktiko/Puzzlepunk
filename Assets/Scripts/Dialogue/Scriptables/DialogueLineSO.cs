@@ -21,4 +21,9 @@ public class DialogueLineSO : ScriptableObject
 
     [Header("Dialoge")]
     public string DialogueQuestion;
+
+    public virtual string GetDialogueLine()
+    {
+        return DialogueQuestion;
+    }
 }
