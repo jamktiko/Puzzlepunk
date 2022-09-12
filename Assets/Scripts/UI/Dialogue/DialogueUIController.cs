@@ -81,7 +81,7 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            yield return ShowNPCDialogue(talkingNPC.Question);
+            yield return LoadDialogueLine(talkingNPC.Question);
         }
     }
     public void Close()
@@ -293,7 +293,7 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
     {
         if (talkingNPC.WelcomeLine != null)
         {
-            yield return ShowNPCDialogue(talkingNPC.WelcomeLine); 
+            yield return LoadDialogueLine(talkingNPC.WelcomeLine); 
         }
         /*Close();
         UIController.main.IdeaManagerWindow.PuzzleBar.LoadChoices((ClueChoiceSO)Script.EndChoice);
@@ -303,28 +303,7 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
 
         if (talkingNPC.Question != null )
         {
-            yield return ShowNPCDialogue(talkingNPC.Question);
-        }
-    }
-    public IEnumerator ShowNPCDialogue(DialogueLineSO Dialogue)
-    {
-        if (talkingNPC != null)
-        {
-            ChangeCharacter(talkingNPC.CharacterFile);
-            EmoteCharacter(DialogueLineSO.CharacterEmotion.normal);
-            EmoteCharacter(DialogueLineSO.CharacterEmotion.normal);
-
-            string label = Dialogue.GetDialogueLine();
-            if (label.Length > 0)
-            {
-                yield return TypeDialog(label);
-                float Wait = GetWaitValue(label);
-                if (Wait > 0)
-                {
-                    SkipLine = false;
-                    yield return SkippableWait(Wait);
-                }
-            }
+            yield return LoadDialogueLine(talkingNPC.Question);
         }
     }
     #endregion
