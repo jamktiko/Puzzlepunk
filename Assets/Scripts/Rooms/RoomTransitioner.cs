@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class RoomTransitioner : MonoBehaviour
 {
+
+    public static RoomTransitioner main;
+    private void Awake()
+    {
+        main = this;
+    }
+
     public RoomComponent StartingRoom;
     public Vector2 StartingPosition;
-    RoomComponent CurrentRoom;
-
     private void Start()
     {
         TransitionRoom(StartingRoom, StartingPosition);
     }
 
+    RoomComponent CurrentRoom;
     public void TransitionRoom(RoomComponent newRoom, Vector2 pointPosition)
     {
         CurrentRoom = newRoom;

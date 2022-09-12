@@ -6,4 +6,5 @@ using UnityEngine;
 public class DialogueScriptSO : ScriptableObject
 {
     public DialogueLineSO[] Dialogue;
+    public bool TriggerRoomTransition;
 }
