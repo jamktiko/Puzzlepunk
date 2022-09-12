@@ -81,7 +81,7 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            yield return LoadNPCQuery();
+            yield return ShowNPCDialogue(talkingNPC.Question);
         }
     }
     public void Close()
@@ -291,9 +291,9 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
     }
     IEnumerator HandleNPCTalk()
     {
-        if (talkingNPC.WelcomeLines.Length > 0)
+        if (talkingNPC.WelcomeLine != null)
         {
-            yield return LoadNPCWelcome();
+            yield return ShowNPCDialogue(talkingNPC.WelcomeLine); 
         }
         /*Close();
         UIController.main.IdeaManagerWindow.PuzzleBar.LoadChoices((ClueChoiceSO)Script.EndChoice);
@@ -301,24 +301,12 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
    */
         UIController.main.IdeaManagerWindow.gameObject.SetActive(true);
 
-        if (talkingNPC.Questions.Length > 0)
+        if (talkingNPC.Question != null )
         {
-            yield return LoadNPCQuery();
+            yield return ShowNPCDialogue(talkingNPC.Question);
         }
     }
-    IEnumerator LoadNPCWelcome()
-    {
-        int randomLine = Random.Range(0, talkingNPC.WelcomeLines.Length - 1);
-        string welcome = talkingNPC.WelcomeLines[randomLine];
-        yield return ShowNPCDialogue(welcome);
-    }
-    IEnumerator LoadNPCQuery()
-    {
-        int randomLine = Random.Range(0, talkingNPC.Questions.Length - 1);
-        string question = talkingNPC.Questions[randomLine];
-        yield return ShowNPCDialogue(question);
-    }
-    public IEnumerator ShowNPCDialogue(string Dialogue)
+    public IEnumerator ShowNPCDialogue(DialogueLineSO Dialogue)
     {
         if (talkingNPC != null)
         {
@@ -326,10 +314,11 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
             EmoteCharacter(DialogueLineSO.CharacterEmotion.normal);
             EmoteCharacter(DialogueLineSO.CharacterEmotion.normal);
 
-            if (talkingNPC.WelcomeLines.Length > 0)
+            string label = Dialogue.GetDialogueLine();
+            if (label.Length > 0)
             {
-                yield return TypeDialog(Dialogue);
-                float Wait = GetWaitValue(Dialogue);
+                yield return TypeDialog(label);
+                float Wait = GetWaitValue(label);
                 if (Wait > 0)
                 {
                     SkipLine = false;
