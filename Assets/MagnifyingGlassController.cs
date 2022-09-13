@@ -21,9 +21,7 @@ public class MagnifyingGlassController : MonoBehaviour
         if (PlayerCursor!=null)
         {
             PlayerCursor.transform.position = Input.mousePosition;
-
-            RectTransform rect = ZoomedInImage.GetComponent<RectTransform>();
-            ZoomedInImage.transform.position = new Vector3(Screen.width, Screen.height) -Input.mousePosition;
+            ZoomedInImage.transform.position = transform.position + (transform.position - Input.mousePosition) * (MagnifyingZoom-1);
         }
     }
 }
