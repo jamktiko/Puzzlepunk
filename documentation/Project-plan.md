@@ -56,11 +56,17 @@ Authors: Miles Do, Jerry Kovanen, Matti Mali, Jonas Marincic, Juho Ollila, Paul 
 
 ### Introduction
 
-\<Short description of the project and the document.>
+\<Short description of the project and the document.> 
+
+Bottomless is a story driven 2D puzzle game made in a pixel art style. 
+
+This project contains information related to the process and completion of this project. 
 
 ### Project Background and Objectives
 
 \<What is done and to who? What are the projects goals?>
+
+The goals of this project is to release a playable demo/teaser game containing the first chapter of Bottomless.
 
 ### End Products
 
@@ -77,6 +83,14 @@ Authors: Miles Do, Jerry Kovanen, Matti Mali, Jonas Marincic, Juho Ollila, Paul 
 ### Project Qualifications
 
 \<Write into this chapter what is the minimum for a passing project.>
+
+●	Playable demo
+
+●	That ncludes core mechanics
+
+●	That tells the events of the first chapter of our game
+
+●	Can be played on a Windows PC
 
 ## Plan of action
 
