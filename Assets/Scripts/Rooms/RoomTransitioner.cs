@@ -22,6 +22,7 @@ public class RoomTransitioner : MonoBehaviour
     public void TransitionRoom(RoomComponent newRoom, Vector2 pointPosition)
     {
         CurrentRoom = newRoom;
+        PlayerMovement.main.Stop();
         transform.position = newRoom.transform.position + (Vector3)pointPosition;
         GridNav.main = newRoom.grid;
         CameraController.main.SetBounds(newRoom.bounds);

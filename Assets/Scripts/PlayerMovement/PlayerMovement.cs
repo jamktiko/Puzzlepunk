@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         Stop();
         InteractObject = interactable;
     }
-    void Stop()
+    public void Stop()
     {
         InteractObject = null;
         walkPath = null;
