@@ -50,7 +50,6 @@ Authors: Miles Do, Jerry Kovanen, Matti Mali, Jonas Marincic, Juho Ollila, Paul 
 
 | Reference | Material                        |
 | --------- | ------------------------------- |
-| HLTP      | \<Link to HLTP document>        |
 | GDD       | \<link to game design document> |
 
 ## Project Contents
@@ -72,6 +71,8 @@ Authors: Miles Do, Jerry Kovanen, Matti Mali, Jonas Marincic, Juho Ollila, Paul 
 ●	Game Design Document
 
 ●	Sprint Backlog
+
+●	Playable Demo
 
 ### Project Qualifications
 
@@ -97,8 +98,14 @@ Authors: Miles Do, Jerry Kovanen, Matti Mali, Jonas Marincic, Juho Ollila, Paul 
 
 | Name           | Roles                   | Contact               |
 | -------------- | ----------------------- | --------------------- |
-| Martti Vainaa  | Scrum Master            | A1234@student.jamk.fi |
-| Kalevi Kuollut | Developer, testing lead | B1234@student.jamk.fi |
+| Miles Do   | Product Owner, Narrative design, Character art             | MISSING@student.jamk.fi |
+| Jerry Kovanen   | Animation, Business, In Engine implementation              | MISSING@student.jamk.fi |
+| Matti Mali   | Narrative, Dialogue, Sound Design             | MISSING@student.jamk.fi |
+| Jonas Marincic   | Level Art, Background Art            | MISSING@student.jamk.fi |
+| Juho Ollila  | Cutscene art, puzzle art, UI art            | MISSING@student.jamk.fi |
+| Paul Sendroiu  | Programming, Asset implementation, Puzzle Design, Marketing            | MISSING@student.jamk.fi |
+| Veikka Voutilainen   | Narrative, Design, Puzzle Design, Scrum Master            | MISSING@student.jamk.fi |
+
 		
 ### Steering Group
 
@@ -126,13 +133,9 @@ Authors: Miles Do, Jerry Kovanen, Matti Mali, Jonas Marincic, Juho Ollila, Paul 
 
 \<List all the tools which the project needs to succeed, software and hardware. If the client offers something, it needs to be mentioned on this chapter.>
 
-•	Servers?
+•	Unity Game Engine 
 
-•	Cloud services?
-
-•	Workstations?
-
-•	Etc.
+•	Microsoft Outlook 
 
 ### Timetable
 
@@ -165,13 +168,25 @@ Authors: Miles Do, Jerry Kovanen, Matti Mali, Jonas Marincic, Juho Ollila, Paul 
 
 \<Describe the communication channels project and the client have on their disposal during the project. If the business or the client has a system for conference calls for example, it needs to be mentioned here (user manual would be appreciated as well).>
 
+The team will communicate mainly on Discord between each other. 
+
+Outlook will be used to share documents and files. 
+
+Zenhub will be used to track progress and monitor work. 
+
+Github will be used to share versions of the game between each other. 
+
 ## Documentation
 
-\<Write here how project intends to document their work. Or will there be documentation at all?>
+\<Write here how project intends to document their work. Or will there be documentation at all?> 
+ 
+The initial idea of the project will be documented in a game design document.  
 
 ### Documentation Templates
 
 \<Describe which templates the documents use. Are the templates JAMK templates or project’s own templates or something else?>
+
+The documents will use JAMK’s default templates. 
 
 ### Document Control
 
