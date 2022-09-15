@@ -117,7 +117,7 @@ The goals of this project is to release a playable demo/teaser game containing t
 | Matti Mali   | Narrative, Dialogue, Sound Design             | MISSING@student.jamk.fi |
 | Jonas Marincic   | Level Art, Background Art            | MISSING@student.jamk.fi |
 | Juho Ollila  | Cutscene art, puzzle art, UI art            | MISSING@student.jamk.fi |
-| Paul Sendroiu  | Programming, Asset implementation, Puzzle Design, Marketing            | MISSING@student.jamk.fi |
+| Paul Sendroiu  | Programming, Asset implementation, Puzzle Design, Marketing            | AA2792@student.jamk.fi |
 | Veikka Voutilainen   | Narrative, Design, Puzzle Design, Scrum Master            | MISSING@student.jamk.fi |
 
 		
@@ -150,6 +150,10 @@ The goals of this project is to release a playable demo/teaser game containing t
 •	Unity Game Engine 
 
 •	Microsoft Outlook 
+
+•	Github
+
+•	Zenhub
 
 ### Timetable
 
