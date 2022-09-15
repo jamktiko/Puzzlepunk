@@ -6,4 +6,5 @@ using UnityEngine;
 public class RoomComponent : MonoBehaviour
 {
     public GridNav grid;
+    public CameraBounds bounds;
 }

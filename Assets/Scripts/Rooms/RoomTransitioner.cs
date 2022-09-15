@@ -24,7 +24,8 @@ public class RoomTransitioner : MonoBehaviour
         CurrentRoom = newRoom;
         transform.position = newRoom.transform.position + (Vector3)pointPosition;
         GridNav.main = newRoom.grid;
-        Camera.main.transform.position = newRoom.transform.position;
+        CameraController.main.ForceBounds(newRoom.bounds);
+
     }
 
     void OnDrawGizmosSelected()
