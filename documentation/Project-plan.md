@@ -98,9 +98,20 @@ The goals of this project is to release a playable demo/teaser game containing t
 
 ### Project Start
 
+At the start of the project, each team will work on various concepts. 
+* The narrative team will create a basic narrative for the whole game, and expand on the narrative of the first chapter
+* The art team will make concepts for the world, characters and different locations in the game
+* The programming team will make a prototype containing the core mechanics for a 2D adventure game
+
 ### Project Implementation
 
+
 ### Project Testing
+The project will be tested once a playable prototype is availabe. The publishing team will approach testers and try to establish an audience and try to get as many testers as possible. The purpose of the tests is the following:
+* Making sure all mechanics work as intended, hunt bugs
+* Come up with quality of life fixes and changes to make the game more accessible
+* Test the puzzles and their appeal, the general mechanics and how people interact with them
+* Test the difficulty of the puzzles, and make sure we have a lean difficulty curve
 
 ### Project Ending
 
