@@ -112,7 +112,7 @@ The goals of this project is to release a playable demo/teaser game containing t
 
 | Name           | Roles                   | Contact               |
 | -------------- | ----------------------- | --------------------- |
-| Miles Do   | Product Owner, Narrative design, Character art             | MISSING@student.jamk.fi |
+| Miles Do   | Product Owner, Narrative design, Character art             | AB7722@student.jamk.fi |
 | Jerry Kovanen   | Animation, Business, In Engine implementation              | MISSING@student.jamk.fi |
 | Matti Mali   | Narrative, Dialogue, Sound Design             | MISSING@student.jamk.fi |
 | Jonas Marincic   | Level Art, Background Art            | MISSING@student.jamk.fi |
