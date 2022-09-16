@@ -111,6 +111,7 @@ The project will be complete when the first chapter of the game will be implemen
 * The programming team will implement the core mechanics and puzzle mechanics for the first chapter
 * The puzzle design team will work with the narrative team to implement the puzzles smoothly into the narrative.
 * The audio team will make the sound effects and ambient music that will play during the first chapter 
+* The marketing team will start publishing material and raising awareness about the game
 
 ### Project Testing
 The project will be tested once a playable prototype is availabe. The publishing team will approach testers and try to establish an audience and try to get as many testers as possible. The purpose of the tests is the following:
@@ -119,8 +120,11 @@ The project will be tested once a playable prototype is availabe. The publishing
 * Test the puzzles and their appeal, the general mechanics and how people interact with them
 * Test the difficulty of the puzzles, and make sure we have a lean difficulty curve
 * The UI is usable, understandable and does not get in the way
+* The early prototype of the game will be published on Steam for testers and people to play
 
 ### Project Ending
+
+The project will end once the first chapter is complete and the team is satisfied with the changes made based on the feedback from the testing phases. The game will be released on the Steam store page, and will be accompanied by marketing material. Development of the other chapters may continue based off of feedback from our product.
 
 ## Project Resources
 
