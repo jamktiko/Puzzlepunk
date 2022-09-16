@@ -105,6 +105,12 @@ At the start of the project, each team will work on various concepts.
 
 ### Project Implementation
 
+The project will be complete when the first chapter of the game will be implemented.
+* The narrative team will work on the narrative of the first chapters, and flesh out the narrative of the first chapter
+* The graphic team will work on having all art, related to characters, environment and UI
+* The programming team will implement the core mechanics and puzzle mechanics for the first chapter
+* The puzzle design team will work with the narrative team to implement the puzzles smoothly into the narrative.
+* The audio team will make the sound effects and ambient music that will play during the first chapter 
 
 ### Project Testing
 The project will be tested once a playable prototype is availabe. The publishing team will approach testers and try to establish an audience and try to get as many testers as possible. The purpose of the tests is the following:
@@ -112,6 +118,7 @@ The project will be tested once a playable prototype is availabe. The publishing
 * Come up with quality of life fixes and changes to make the game more accessible
 * Test the puzzles and their appeal, the general mechanics and how people interact with them
 * Test the difficulty of the puzzles, and make sure we have a lean difficulty curve
+* The UI is usable, understandable and does not get in the way
 
 ### Project Ending
 
