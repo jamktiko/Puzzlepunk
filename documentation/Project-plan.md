@@ -130,7 +130,6 @@ The project will end once the first chapter is complete and the team is satisfie
 
 ### Project Organization
 
-\<The people included in the project and their main responsibilities. How is the project organized and what kind of groups are created? Also find out the roles and activities of the guidance and the client as well as other participants in the project.>
 
 | Name           | Roles                   | Contact               |
 | -------------- | ----------------------- | --------------------- |
