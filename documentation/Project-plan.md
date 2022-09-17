@@ -18,12 +18,10 @@
 	- [Project Organization](#project-organization)
 	- [Steering Group](#steering-group)
 	- [Work Groups](#work-groups)
-	- [Client's Responsibilites](#clients-responsibilites)
   - [Tools](#tools)
   - [Timetable](#timetable)
   - [Reporting and Communication](#reporting-and-communication)
   	- [Internal Reporting](#internal-reporting)
-  	- [Client Reporting](#client-reporting)
   	- [Daily Scrum Plan](#daily-scrum-plan)
   	- [Communication Channels](#communication-channels)
   - [Documentation](#documentation)
@@ -56,21 +54,18 @@ Authors: Miles Do, Jerry Kovanen, Matti Mali, Jonas Marincic, Juho Ollila, Paul 
 
 ### Introduction
 
-\<Short description of the project and the document.> 
-
 Bottomless is a story driven 2D puzzle game made in a pixel art style. 
 
 This project contains information related to the process and completion of this project. 
 
 ### Project Background and Objectives
 
-\<What is done and to who? What are the projects goals?>
+<What is done and to who? What are the projects goals?>
 
 The goals of this project is to release a playable demo/teaser game containing the first chapter of Bottomless.
 
 ### End Products
 
-\<Write here what project will produce over its lifespan. E.g.,>
 
 ●	Project Plan
 
@@ -82,7 +77,6 @@ The goals of this project is to release a playable demo/teaser game containing t
 
 ### Project Qualifications
 
-\<Write into this chapter what is the minimum for a passing project.>
 
 ●	Playable demo
 
@@ -114,7 +108,7 @@ The project will be complete when the first chapter of the game will be implemen
 * The marketing team will start publishing material and raising awareness about the game
 
 ### Project Testing
-The project will be tested once a playable prototype is availabe. The publishing team will approach testers and try to establish an audience and try to get as many testers as possible. The purpose of the tests is the following:
+The project will be tested once a playable prototype is availabe. The publishing team will approach testers and try to establish an audience and try to get as many testers as possible. The purpose of the tests is the following:  
 * Making sure all mechanics work as intended, hunt bugs
 * Come up with quality of life fixes and changes to make the game more accessible
 * Test the puzzles and their appeal, the general mechanics and how people interact with them
@@ -158,23 +152,13 @@ The project will end once the first chapter is complete and the team is satisfie
 | Martti Vainaa  | Scrum Master            | A1234@student.jamk.fi |
 | Kalevi Kuollut | Developer, testing lead | B1234@student.jamk.fi |
 
-### Client’s Responsibilities
-
-\<If you have a client!>
-
-\<In this chapter you will describe what responsibilities the client has towards the project. List all the resources which client will provide to the project in its different phases. These can be seen as client’s responsibilities so that the project can move forward. Remember to inform the client what is needed from them to make the project succeed.>
 
 ### Tools
 
-\<List all the tools which the project needs to succeed, software and hardware. If the client offers something, it needs to be mentioned on this chapter.>
-
-•	Unity Game Engine 
-
-•	Microsoft Outlook 
-
-•	Github
-
-•	Zenhub
+- Unity Game Engine 
+- Microsoft Outlook 
+- Github
+- Zenhub
 
 ### Timetable
 
@@ -195,10 +179,6 @@ The project will end once the first chapter is complete and the team is satisfie
 | Name | Role | Responsibilities |
 | ---- | ---- | ---------------- |
 		
-## Client Reporting
-
-\<Describe how project reports to its client and in what timeframe. Who is the recipient of the finished reports?>
-
 ## Daily Scrum Plan
 
 \<Project’s weekly meeting is held at xxx in xxx. During the meeting, all the finished work is checked, and upcoming work is planned. Meeting transcript is made from each meeting and it is contained in the project directory.>
