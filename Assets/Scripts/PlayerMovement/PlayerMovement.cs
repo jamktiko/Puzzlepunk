@@ -1,9 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.Intrinsics;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public enum Direction
+    {
+        up,
+        down,
+        left,
+        right
+    }
+    public Direction facing = Direction.down;
+
+    public GridNav grid;
+
     public static PlayerMovement main;
     public float MovementSpeed = 1f;
     private void Awake()
@@ -12,76 +24,110 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
+        if ((UIController.main != null && UIController.main.dialogueController.IsInDialogueMode()) || PlayerCinematicController.main.IsInCinematicMode())
+            return;
+        if (IsWalking())
+            return;
         HandleMovement();
+        HandleInteractCommand();
     }
-    public void IssueMoveOrder(Vector2 destination)
+    public void HandleInteractCommand()
     {
-        Stop();
-        walkPath = Pathfinder.SolvePath(GridNav.main, transform.position, destination);
+        if (Input.GetKeyDown(KeyCode.X))
+            PlayerInteract();
     }
-    public void IssueMoveOrder(InteractableBase interactable)
+
+    GridNav.Node mNode;
+    void MoveToPoint(Vector2 nPoint)
     {
-        Stop();
-        InteractObject = interactable;
+       // Vector2Int point = grid.TranslateCoordinate( nPoint);
+        mNode = grid.GetNodeDirection(transform.position, nPoint-(Vector2)transform.position, 1);
+        if (mNode == null || !mNode.passible)
+        {
+            mNode = null;
+        }
+        if (mNode != null)
+            moveCoroutine = StartCoroutine(Move());
+    }
+    void HandleMovement()
+    {
+        if (Input.GetAxisRaw("Horizontal") != 0)
+        {
+            MoveToPoint(transform.position + Vector3.right * Input.GetAxisRaw("Horizontal"));
+        }
+        else if (Input.GetAxisRaw("Vertical") != 0)
+        {
+            MoveToPoint(transform.position + Vector3.up * Input.GetAxisRaw("Vertical"));
+        }
+    }
+    Coroutine moveCoroutine;
+    IEnumerator Move()
+    {
+        Vector3 moveDestination = transform.position;
+        if (mNode!=null)
+            moveDestination = mNode.worldPos;
+
+        while (mNode != null)
+        {
+            Vector3 delta = moveDestination - transform.position;
+            if (delta.sqrMagnitude > MovementSpeed * MovementSpeed * Time.deltaTime * Time.deltaTime)
+            {
+                float speed = MovementSpeed * Time.deltaTime * (IsSprinting() ? SprintMultiplier : 1);
+                transform.position += delta.normalized * speed;
+            }
+            else
+            {
+                transform.position = moveDestination;
+                Stop();
+            }
+            yield return new WaitForEndOfFrame();
+        }
     }
     public void Stop()
     {
-        InteractObject = null;
-        walkPath = null;
+        mNode = null;
+        if (moveCoroutine != null)
+            StopCoroutine(moveCoroutine);
+        moveCoroutine = null;
     }
-    InteractableBase InteractObject;
-    Pathfinder.PathfinderPath walkPath;
-    void HandleMovement()
-    {
-        if (InteractObject!=null)
-        {
-            if ((transform.position - InteractObject.transform.position).sqrMagnitude <= InteractObject.InteractRange * InteractObject.InteractRange)
-            {
-                InteractObject.OnInteract();
-                Stop();
-            }
-            else if (walkPath == null)
-            {
-                walkPath = Pathfinder.SolvePath(GridNav.main, transform.position, InteractObject.transform.position);
-            }
-        }
-        if (walkPath != null)
-        {
-            if (walkPath.FailureType != Pathfinder.Failure.success)
-            {
-                Debug.Log(walkPath.FailureType);
-                Stop();
-            }
-            else {
-                Vector2 moveDestination = walkPath.Current().worldPos;
-                Vector2 delta = (Vector2)transform.position - moveDestination;
-                if (delta.sqrMagnitude > MovementSpeed * Time.deltaTime)
-                {
-                    facesRight = transform.position.x < moveDestination.x;
-                    transform.position = Vector3.MoveTowards(transform.position, moveDestination, MovementSpeed * Time.deltaTime * (IsSprinting() ? SprintMultiplier : 1));
-                }
-                else
-                {
-                    if (walkPath.Solved())
-                        walkPath = null;
-                    else
-                        walkPath.Next();
-                }
-            }
-        }
-    }
-    bool facesRight = true;
     public bool IsFacingRight()
     {
-        return facesRight;
+        return facing == Direction.right;
     }
     public bool IsWalking()
     {
-        return walkPath != null;
+        return mNode!=null &&  moveCoroutine != null;
     }
     public float SprintMultiplier = 2f;
     bool IsSprinting()
     {
         return Input.GetMouseButton(0);
+    }
+    public Vector3 GetForwardVector()
+    {
+        switch (facing)
+        {
+            case Direction.up:
+                return Vector3.up;
+            case Direction.down:
+                return Vector3.down;
+            case Direction.left:
+                return Vector3.left;
+            case Direction.right:
+                return Vector3.right;
+        }
+        return Vector3.down;
+    }
+    public void PlayerInteract()
+    {
+        Vector2 point = transform.position + GetForwardVector();
+        foreach (RaycastHit2D hit in Physics2D.CircleCastAll(point, .1f, Vector2.zero))
+        {
+            if (hit.transform.TryGetComponent(out InteractableBase interactable))
+            {
+                
+                    interactable.OnInteract();
+            }
+        }
     }
 }

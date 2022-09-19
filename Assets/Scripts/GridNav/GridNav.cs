@@ -105,6 +105,37 @@ public class GridNav : MonoBehaviour
             return null;
         return Nodes[pos.x, pos.y];
     }
+    public Node GetNodeDirection(Vector2 center, Vector2 direction, float maxLength)
+    {
+        Vector2Int dir = Vector2Int.zero;
+        if (direction.y > 0)
+            dir = Vector2Int.up;
+        else if (direction.y < 0)
+            dir = Vector2Int.down;
+        else if (direction.x > 0)
+            dir = Vector2Int.right;
+        else if (direction.x < 0)
+            dir = Vector2Int.left;
+
+        return GetNodeDirection(TranslateCoordinate(center), dir,Mathf.CeilToInt(maxLength / UnitSize));
+    }
+    public Node GetNodeDirection(Vector2Int center, Vector2Int direction, int maxLength)
+    {
+        Node oNode = GetNodeAt(center);
+        for (int i = 0; i< maxLength; i++)
+        {
+            Node temp = GetNodeAt(center + direction * maxLength);
+            if (temp!=null && temp.passible)
+            {
+                oNode = temp;
+            }
+            else
+            {
+                break;
+            }    
+        }
+        return oNode;
+    }
     void OnDrawGizmos()
     {
         if (Nodes!=null)
