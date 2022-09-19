@@ -371,7 +371,10 @@ MonoBehaviour:
   RectT: {fileID: 0}
   cImage: {fileID: 0}
   cText: {fileID: 0}
-  CoinNumber: 2
+  SwapRange: 100
+  CoinNumber: -1
+  IsImportant: 1
+  RequiresNumber: 2
 --- !u!114 &273444879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,7 +527,10 @@ MonoBehaviour:
   RectT: {fileID: 0}
   cImage: {fileID: 0}
   cText: {fileID: 0}
+  SwapRange: 100
   CoinNumber: 1
+  IsImportant: 1
+  RequiresNumber: 1
 --- !u!114 &496591716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -903,6 +909,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30059dc509a7c4147859c3a0b51bf212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSolved: 0
+  onSolved:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &818960434
 GameObject:
   m_ObjectHideFlags: 0
@@ -1134,7 +1144,10 @@ MonoBehaviour:
   RectT: {fileID: 0}
   cImage: {fileID: 26869671}
   cText: {fileID: 1129421114}
+  SwapRange: 150
   CoinNumber: -1
+  IsImportant: 0
+  RequiresNumber: 0
 --- !u!114 &942523163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1770,7 +1783,10 @@ MonoBehaviour:
   RectT: {fileID: 0}
   cImage: {fileID: 1520251698}
   cText: {fileID: 1422698271}
-  CoinNumber: -1
+  SwapRange: 150
+  CoinNumber: 3
+  IsImportant: 0
+  RequiresNumber: 0
 --- !u!114 &1208935164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2058,7 +2074,10 @@ MonoBehaviour:
   RectT: {fileID: 0}
   cImage: {fileID: 0}
   cText: {fileID: 0}
+  SwapRange: 100
   CoinNumber: 4
+  IsImportant: 1
+  RequiresNumber: 4
 --- !u!114 &1346838058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2690,7 +2709,10 @@ MonoBehaviour:
   RectT: {fileID: 0}
   cImage: {fileID: 0}
   cText: {fileID: 0}
-  CoinNumber: 3
+  SwapRange: 100
+  CoinNumber: 2
+  IsImportant: 1
+  RequiresNumber: 3
 --- !u!114 &1557589106
 MonoBehaviour:
   m_ObjectHideFlags: 0
