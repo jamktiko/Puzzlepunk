@@ -124,7 +124,7 @@ public class GridNav : MonoBehaviour
         Node oNode = GetNodeAt(center);
         for (int i = 0; i< maxLength; i++)
         {
-            Node temp = GetNodeAt(center + direction * maxLength);
+            Node temp = GetNodeAt(center + direction * i);
             if (temp!=null && temp.passible)
             {
                 oNode = temp;
