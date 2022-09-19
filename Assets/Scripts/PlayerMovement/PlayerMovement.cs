@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        if ((UIController.main != null && UIController.main.dialogueController.IsInDialogueMode()) || PlayerCinematicController.main.IsInCinematicMode())
+        if ((UIController.main != null && UIController.main.dialogueController.IsInDialogueMode()) || (PlayerCinematicController.main!= null && PlayerCinematicController.main.IsInCinematicMode()))
             return;
         if (IsWalking())
             return;

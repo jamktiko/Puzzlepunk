@@ -64,7 +64,7 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
     }
     public bool IsInDialogueMode()
     {
-        return gameObject.activeSelf && CutsceneCoroutine != null || MultipleChoice.gameObject.activeSelf;
+        return gameObject.activeSelf && (CutsceneCoroutine != null || MultipleChoice.gameObject.activeSelf);
     }
     IEnumerator PlayCutsceneCoroutine(DialogueScriptSO Script)
     {
