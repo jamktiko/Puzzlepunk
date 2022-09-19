@@ -4,9 +4,8 @@ using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using static PlayerClueController;
 
-public class DialogueUIController : MonoBehaviour, IPointerClickHandler
+public class DialogueUIController : MonoBehaviour
 {
 
     [Header("Portrait")]
@@ -119,12 +118,6 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
         else if (NewLine.GetType() == typeof(MultipleChoiceSO))
         {
             ShowMultipleChoice((MultipleChoiceSO)NewLine);
-        }
-        else if (NewLine.GetType() == typeof(ClueChoiceSO))
-        {
-            Close();
-            UIController.main.IdeaManagerWindow.PuzzleBar.LoadChoices((ClueChoiceSO)NewLine);
-            UIController.main.IdeaManagerWindow.gameObject.SetActive(true);
         }
         else
         {
@@ -295,11 +288,6 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
         {
             yield return LoadDialogueLine(talkingNPC.WelcomeLine); 
         }
-        /*Close();
-        UIController.main.IdeaManagerWindow.PuzzleBar.LoadChoices((ClueChoiceSO)Script.EndChoice);
-        UIController.main.IdeaManagerWindow.gameObject.SetActive(true);
-   */
-        UIController.main.IdeaManagerWindow.gameObject.SetActive(true);
 
         if (talkingNPC.Question != null )
         {
@@ -307,21 +295,4 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
         }
     }
     #endregion
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        int linkIndex = TMP_TextUtilities.FindIntersectingLink(dialogText, Input.mousePosition, null);
-        if (linkIndex >= 0 && linkIndex < dialogText.textInfo.linkInfo.Length)
-        HandleLinkFunctions( dialogText.textInfo.linkInfo[linkIndex].GetLinkID());
-    }
-    bool HandleLinkFunctions(string linkID)
-    {
-        if (linkID.Substring(0,4) == "var_")
-        {
-            Debug.Log(linkID);
-            Debug.Log(linkID.Substring(4, linkID.Length - 4));
-            PlayerClueController.main.RevealClue(linkID.Substring(4,linkID.Length-4).ToLower(), true);
-            return true;
-        }
-        return false;
-    }
 }
