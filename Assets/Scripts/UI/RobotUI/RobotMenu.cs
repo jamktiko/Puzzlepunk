@@ -21,6 +21,15 @@ public class RobotMenu : MonoBehaviour
     }
     public void HandleReset()
     {
-        myPuzzle.ResetPuzzle();
+        myPuzzle.Reset();
+    }
+    public bool IsPuzzleMode()
+    {
+        return gameObject.activeSelf && myPuzzle != null;
+    }
+    public void Close()
+    {
+        myPuzzle = null;
+        UIController.main.CloseWindow();
     }
 }
