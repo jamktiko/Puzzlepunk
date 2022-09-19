@@ -78,14 +78,15 @@ public class PlayerMovement : MonoBehaviour
             {
                 float speed = MovementSpeed * Time.deltaTime * (IsSprinting() ? SprintMultiplier : 1);
                 transform.position += delta.normalized * speed;
+                yield return new WaitForEndOfFrame();
             }
             else
             {
                 transform.position = moveDestination;
-                Stop();
+                break;
             }
-            yield return new WaitForEndOfFrame();
         }
+        Stop();
     }
     public void Stop()
     {
