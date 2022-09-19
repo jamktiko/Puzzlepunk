@@ -5,14 +5,15 @@ using UnityEngine;
 public class UIController : MonoBehaviour
 {
     public static UIController main { get; private set; }
-    [Header("Idea UI")]
+    [Header("Components")]
     public DialogueUIController dialogueController;
+    public RobotMenu robotController;
 
     public enum UIWindow
     {
         none,
         dialogue,
-        brain
+        robot
     }
     private void Awake()
     {
@@ -21,11 +22,16 @@ public class UIController : MonoBehaviour
         {
             dialogueController = GetComponentInChildren<DialogueUIController>();
         }
+        if (robotController == null)
+        {
+            robotController = GetComponentInChildren<RobotMenu>();
+        }
         CloseWindow();
     }
     public void OpenWindow(UIWindow nWindow)
     {
         dialogueController.gameObject.SetActive(nWindow == UIWindow.dialogue);
+        robotController.gameObject.SetActive(nWindow == UIWindow.robot);
     }
     public void CloseWindow()
     {

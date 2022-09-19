@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GridNav : MonoBehaviour
 {
-    public static GridNav main;
     public float UnitSize = 1;
 
     Node[,] Nodes;
@@ -60,10 +59,6 @@ public class GridNav : MonoBehaviour
                 return gridPos == p.gridPos;
             }
         }
-    }
-    private void Awake()
-    {
-        main = this;
     }
     private void Start()
     {

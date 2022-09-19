@@ -20,6 +20,7 @@ public class CameraController : MonoBehaviour
     }
     private void Update()
     {
+        if (PlayerMovement.main != null)
         MovePosition(PlayerMovement.main.transform.position);
     }
     void MovePosition(Vector3 center)
