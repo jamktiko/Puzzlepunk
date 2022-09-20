@@ -7,10 +7,12 @@ public class IconUI : MonoBehaviour
 {
     public Image[] RobotBorders;
     public Image[] RobotIcons;
+    public Button[] RobotButtons;
 
     private void Awake()
     {
         RobotBorders = new Image[transform.childCount];
+        RobotButtons = new Button[transform.childCount];
         RobotIcons = new Image[transform.childCount];
 
         int iC = 0;
@@ -18,6 +20,16 @@ public class IconUI : MonoBehaviour
         {
             RobotBorders[iC] = child.GetComponent<Image>();
             RobotIcons[iC] = child.GetChild(0).GetComponent<Image>();
+
+            RobotButtons[iC] = child.GetComponent<Button>();
+
+            int iSelection = iC;
+            RobotButtons[iC].onClick.AddListener(() =>
+            {
+                UIController.main.robotController.myPuzzle.Selection = iSelection;
+                OnSelectionChanged();
+            });
+
             iC++;
         }
     }
@@ -30,7 +42,7 @@ public class IconUI : MonoBehaviour
             if (RobotExists)
             {
                 RobotIcons[iI].sprite = puzzle.Robots[iI].GetSprite();
-                    }
+            }
             RobotBorders[iI].gameObject.SetActive(RobotExists);
         }
     }
@@ -39,7 +51,7 @@ public class IconUI : MonoBehaviour
         int sel = UIController.main.robotController.myPuzzle.Selection;
         for (int iI = 0; iI < RobotIcons.Length; iI++)
         {
-            RobotIcons[iI].color = ((iI == sel) ? Color.yellow : Color.gray);
+            RobotBorders[iI].color = ((iI == sel) ? Color.yellow : Color.gray);
         }
     }
 }

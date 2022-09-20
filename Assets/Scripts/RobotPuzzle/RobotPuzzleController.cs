@@ -13,6 +13,10 @@ public class RobotPuzzleController : MonoBehaviour
     {
         Init();
     }
+    private void Update()
+    {
+        HandlePlayerOrders();
+    }
     private void Init()
     {
         mGrid = GetComponentInChildren<GridNav>();
@@ -22,21 +26,54 @@ public class RobotPuzzleController : MonoBehaviour
         {
             rob.InitPuzzle( this);
         }
-        Reset();
+        OnReset(false);
     }
 
     public void RunPuzzle()
     {
         UIController.main.OpenWindow(UIController.UIWindow.robot);
         UIController.main.robotController.InitPuzzle(this);
-        Selection = 0;
+        ChangeSelection(0);
     }
-    public void Reset()
+    public void ChangeSelection(int sel)
+    {
+        Selection = sel;
+        UIController.main.robotController.OnSelectionChanged();
+    }
+    public void OnReset(bool soft)
     {
         foreach (RobotNPC rob in Robots)
         {
-            rob.Reset();
+            rob.OnReset(soft);
         }
     }
     public int Selection = 0;
+    public RobotNPC GetSelectedRobot()
+    {
+        return Robots[Selection];
+    }
+    public void HandlePlayerOrders()
+    {
+        if (GetSelectedRobot() == null)
+        {
+            RobotNPC.WalkDirection order = RobotNPC.WalkDirection.empty;
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                order = RobotNPC.WalkDirection.up;
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                order = RobotNPC.WalkDirection.down;
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                order = RobotNPC.WalkDirection.left;
+            }
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                order = RobotNPC.WalkDirection.right;
+            }
+            GetSelectedRobot().IssueOrder(order);
+        }
+    }
 }

@@ -20,9 +20,9 @@ public class RobotMenu : MonoBehaviour
         myPuzzle = puzzle;
         iconMenu.OnPuzzleStart();
     }
-    public void HandleReset()
+    public void OnReset(bool soft)
     {
-        myPuzzle.Reset();
+        myPuzzle.OnReset(soft);
     }
     public bool IsPuzzleMode()
     {
@@ -32,5 +32,30 @@ public class RobotMenu : MonoBehaviour
     {
         myPuzzle = null;
         UIController.main.CloseWindow();
+    }
+    public void OnSelectionChanged()
+    {
+        iconMenu.OnSelectionChanged();
+    }
+    public void PlaySolution()
+    {
+        if (PlayCoroutine!=null)
+        {
+            StopCoroutine(PlayCoroutine);
+            OnReset(true);
+        }
+        PlayCoroutine = StartCoroutine(PuzzleCoroutine());
+    }
+    Coroutine PlayCoroutine;
+    IEnumerator PuzzleCoroutine()
+    {
+        foreach (var robot in myPuzzle.Robots)
+        {
+            robot.Step();
+        }
+    }
+    IEnumerator Step()
+    {
+
     }
 }
