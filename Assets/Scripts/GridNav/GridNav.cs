@@ -60,7 +60,7 @@ public class GridNav : MonoBehaviour
             }
         }
     }
-    private void Start()
+    private void Awake()
     {
         InitGrid();
     }

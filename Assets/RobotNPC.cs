@@ -14,11 +14,11 @@ public class RobotNPC : MonoBehaviour
         puzzleParent = parent;
         OriginalNode = parent.mGrid.GetNodeAt(parent.mGrid.TranslateCoordinate(transform.position));
     }
-    public void OnReset(bool soft)
+    public void OnReset(bool hard)
     {
-        transform.position = OriginalNode.worldPos;
         EndStep();
-        if (soft)
+        transform.position = OriginalNode.worldPos;
+        if (hard)
             ClearOrders();
     }
     public Sprite GetSprite()
@@ -41,7 +41,7 @@ public class RobotNPC : MonoBehaviour
             if (orders[iO] == WalkDirection.empty)
             {
                 orders[iO] = order;
-                break;
+                return;
             }
         }
     }
@@ -60,35 +60,35 @@ public class RobotNPC : MonoBehaviour
     }
     public bool IsIdle()
     {
-
+        return cOrder <= orders.Length;
     }
     Coroutine MoveCoroutine;
     public void Step()
     {
-        if (cOrder <= orders.Length)
+        if (IsIdle())
         {
             EndStep();
 
-            Vector2 nPoint = Vector2.zero;
+            Vector3 nPoint = Vector3.zero;
             switch (orders[cOrder])
             {
                 case WalkDirection.up:
-                    nPoint = Vector2.up;
+                    nPoint = Vector3.up;
                     break;
                 case WalkDirection.down:
-                    nPoint = Vector2.down;
+                    nPoint = Vector3.down;
                     break;
                 case WalkDirection.left:
-                    nPoint = Vector2.left;
+                    nPoint = Vector3.left;
                     break;
                 case WalkDirection.right:
-                    nPoint = Vector2.right;
+                    nPoint = Vector3.right;
                     break;
             }
-
-            MoveToPoint(transform.position);
+            MoveToPoint(transform.position + nPoint);
             cOrder++;
         }
+
     }
     GridNav.Node mNode;
     void MoveToPoint(Vector2 nPoint)

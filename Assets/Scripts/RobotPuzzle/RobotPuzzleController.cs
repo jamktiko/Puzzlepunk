@@ -13,10 +13,6 @@ public class RobotPuzzleController : MonoBehaviour
     {
         Init();
     }
-    private void Update()
-    {
-        HandlePlayerOrders();
-    }
     private void Init()
     {
         mGrid = GetComponentInChildren<GridNav>();
@@ -40,11 +36,11 @@ public class RobotPuzzleController : MonoBehaviour
         Selection = sel;
         UIController.main.robotController.OnSelectionChanged();
     }
-    public void OnReset(bool soft)
+    public void OnReset(bool hard)
     {
         foreach (RobotNPC rob in Robots)
         {
-            rob.OnReset(soft);
+            rob.OnReset(hard);
         }
     }
     public int Selection = 0;
@@ -54,7 +50,7 @@ public class RobotPuzzleController : MonoBehaviour
     }
     public void HandlePlayerOrders()
     {
-        if (GetSelectedRobot() == null)
+        if (GetSelectedRobot() != null)
         {
             RobotNPC.WalkDirection order = RobotNPC.WalkDirection.empty;
             if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -73,7 +69,8 @@ public class RobotPuzzleController : MonoBehaviour
             {
                 order = RobotNPC.WalkDirection.right;
             }
-            GetSelectedRobot().IssueOrder(order);
+            if (order!= RobotNPC.WalkDirection.empty)
+                GetSelectedRobot().IssueOrder(order);
         }
     }
 }

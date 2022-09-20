@@ -15,14 +15,19 @@ public class RobotMenu : MonoBehaviour
         if (iconMenu == null)
             iconMenu = GetComponentInChildren<IconUI>();
     }
+    private void Update()
+    {
+        if (myPuzzle!=null)
+            myPuzzle.HandlePlayerOrders();
+    }
     public void InitPuzzle(RobotPuzzleController puzzle)
     {
         myPuzzle = puzzle;
         iconMenu.OnPuzzleStart();
     }
-    public void OnReset(bool soft)
+    public void OnReset(bool hard)
     {
-        myPuzzle.OnReset(soft);
+        myPuzzle.OnReset(hard);
     }
     public bool IsPuzzleMode()
     {
@@ -30,6 +35,7 @@ public class RobotMenu : MonoBehaviour
     }
     public void Close()
     {
+        EndPuzzle();
         myPuzzle = null;
         UIController.main.CloseWindow();
     }
@@ -39,23 +45,41 @@ public class RobotMenu : MonoBehaviour
     }
     public void PlaySolution()
     {
-        if (PlayCoroutine!=null)
-        {
-            StopCoroutine(PlayCoroutine);
-            OnReset(true);
-        }
+        EndPuzzle();
         PlayCoroutine = StartCoroutine(PuzzleCoroutine());
     }
     Coroutine PlayCoroutine;
     IEnumerator PuzzleCoroutine()
     {
-        foreach (var robot in myPuzzle.Robots)
+        for (int i = 0; i < 10; i++)
         {
-            robot.Step();
+            yield return Step();
         }
+        EndPuzzle();
     }
     IEnumerator Step()
     {
-
+        foreach (RobotNPC robot in myPuzzle.Robots)
+        {
+            robot.Step();
+        }
+        yield return new WaitForSeconds(1f);
+        yield return new WaitWhile(() =>
+        {
+            foreach (RobotNPC robot in myPuzzle.Robots)
+            {
+                if (robot.IsMoving())
+                    return true;
+            }
+            return false;
+        } );
+    }
+    private void EndPuzzle()
+    {
+        if (PlayCoroutine != null)
+        {
+            StopCoroutine(PlayCoroutine);
+        }
+        OnReset(false);
     }
 }
