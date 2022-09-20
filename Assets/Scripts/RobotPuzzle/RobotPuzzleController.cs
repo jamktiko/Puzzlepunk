@@ -29,6 +29,7 @@ public class RobotPuzzleController : MonoBehaviour
     {
         UIController.main.OpenWindow(UIController.UIWindow.robot);
         UIController.main.robotController.InitPuzzle(this);
+        Selection = 0;
     }
     public void Reset()
     {
@@ -37,4 +38,5 @@ public class RobotPuzzleController : MonoBehaviour
             rob.Reset();
         }
     }
+    public int Selection = 0;
 }

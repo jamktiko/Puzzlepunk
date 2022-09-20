@@ -16,4 +16,8 @@ public class RobotNPC : MonoBehaviour
     {
         transform.position = OriginalNode.worldPos;
     }
+    public Sprite GetSprite()
+    {
+        return GetComponent<SpriteRenderer>().sprite;
+    }
 }

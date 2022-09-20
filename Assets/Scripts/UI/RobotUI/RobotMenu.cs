@@ -18,6 +18,7 @@ public class RobotMenu : MonoBehaviour
     public void InitPuzzle(RobotPuzzleController puzzle)
     {
         myPuzzle = puzzle;
+        iconMenu.OnPuzzleStart();
     }
     public void HandleReset()
     {
