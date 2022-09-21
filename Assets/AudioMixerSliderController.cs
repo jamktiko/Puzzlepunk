@@ -10,6 +10,6 @@ public class AudioMixerSliderController : MonoBehaviour
     public void ChangeVolume (float nVolume)
     {
         if (AudioGroup != null)
-            AudioGroup.SetFloat("MasterVolume", nVolume);
+            AudioGroup.SetFloat("MasterVolume", nVolume);   //TODO audio mixer groups
     }
 }
