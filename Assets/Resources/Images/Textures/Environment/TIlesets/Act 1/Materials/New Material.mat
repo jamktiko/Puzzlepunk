@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Tilemap
+  m_Name: New Material
   m_Shader: {fileID: 4800000, guid: b9ed975f1d59041ff9af22197ac927ea, type: 3}
   m_ValidKeywords:
   - CURVATURE_ON
@@ -22,7 +22,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 49ff4f611bc7bcd4090a8c9892b8bfe3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1dcf1037b2e78334eb9b791fd781fcae, type: 3}
         m_Scale: {x: 0.16, y: 0.16}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -97,7 +97,7 @@ Material:
     m_Floats:
     - PixelSnap: 0
     - _BumpScale: 1
-    - _CurvatureDepth: 0.93
+    - _CurvatureDepth: 0.5
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DissolveBlend: 0
@@ -153,5 +153,5 @@ Material:
     - _Layer1Color: {r: 1, g: 1, b: 1, a: 1}
     - _Layer2Color: {r: 1, g: 1, b: 1, a: 1}
     - _Layer3Color: {r: 1, g: 1, b: 1, a: 1}
-    - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_BuildTextureStacks: []
