@@ -26,7 +26,7 @@ public class DialogueLineSO : ScriptableDialogue
     {
         return DialogueQuestion;
     }
-    public override IEnumerator Asd(DialogueUIController DC)
+    public override IEnumerator Run(DialogueUIController DC)
     {
         DC.LoadDialogueCharacter(this);
         string DialogueQuestion = GetDialogueLine();

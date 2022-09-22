@@ -6,7 +6,7 @@ using UnityEngine;
 public class ScriptableDialogueSound : ScriptableDialogue
 {
     public AudioClip Clip;
-    public override IEnumerator Asd(DialogueUIController DC)
+    public override IEnumerator Run(DialogueUIController DC)
     {
         DC.PlaySound(Clip);
         yield return null;

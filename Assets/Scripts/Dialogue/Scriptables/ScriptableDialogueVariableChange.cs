@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Variable Change", menuName = "Dialogue/Variable Change")]
 public class ScriptableDialogueVariableChange : ScriptableDialogue
 {
-    public VariableManager.Condition[] Changes;
-    public override IEnumerator Asd(DialogueUIController DC)
+    public VariableManager.Set[] Changes;
+    public override IEnumerator Run(DialogueUIController DC)
     {
         GameController.main.variables.Apply(Changes);
         yield return null;

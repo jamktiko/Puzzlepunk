@@ -87,15 +87,6 @@ public class VariableManager
             SetVariable(num.Key, num.Value.GetFloatValue());
         }
     }
-    public void Apply(Condition[] changes)
-    {
-        if (changes == null || changes.Length == 0)
-            return;
-        foreach (Condition num in changes)
-        {
-            SetVariable(num.variableName, num.value);
-        }
-    }
     public class Variable
     {
         float Value;
@@ -124,15 +115,97 @@ public class VariableManager
             return Value;
         }
     }
+    #region Set Variables
     [System.Serializable]
+    public class Set
+    {
+        public enum Case
+        {
+            set,
+            add,
+            substract,
+            min,
+            max,
+            multiply,
+            divide
+        }
+        public string variableName;
+        public float value;
+        public Case change;
+    }
+    public void Apply(Set change)
+    {
+        float original = GetVariable(change.variableName).GetFloatValue();
+        switch (change.change)
+        {
+            case Set.Case.set:
+                SetVariable(change.variableName, change.value);
+                break;
+            case Set.Case.add:
+                SetVariable(change.variableName, original + change.value);
+                break;
+            case Set.Case.substract:
+                SetVariable(change.variableName, original - change.value);
+                break;
+            case Set.Case.min:
+                SetVariable(change.variableName, Mathf.Min(original,change.value));
+                break;
+            case Set.Case.max:
+                SetVariable(change.variableName, Mathf.Max(original, change.value));
+                break;
+            case Set.Case.multiply:
+                SetVariable(change.variableName, original * change.value);
+                break;
+            case Set.Case.divide:
+                SetVariable(change.variableName, original / change.value);
+                break;
+        }
+    }
+    public void Apply(Set[] changes)
+    {
+        if (changes == null || changes.Length == 0)
+            return;
+        foreach (Set num in changes)
+        {
+            Apply(num);
+        }
+    }
+    #endregion
+    #region Conditions
     public class Condition
     {
+        public enum Check
+        {
+            equal,
+            less,
+            lesseq,
+            greater,
+            greatereg,
+            boolean,
+        }
         public string variableName;
-        public int value;
+        public float value;
+        public Check change;
     }
     public bool ConditionMet(Condition c)
     {
-        return GetVariable(c.variableName).GetFloatValue() == c.value;
+        float original = GetVariable(c.variableName).GetFloatValue();
+        switch (c.change)
+        {
+            case Condition.Check.equal:
+                return original == c.value;
+            case Condition.Check.boolean:
+                return original == 1;
+            case Condition.Check.less:
+                return original < c.value;
+            case Condition.Check.lesseq:
+                return original <= c.value;
+            case Condition.Check.greater:
+                return original > c.value;
+            case Condition.Check.greatereg:
+                return original >= c.value;
+        }
+        return true;
     }
     public bool AllConditionsMet(Condition[] cs)
     {
@@ -144,4 +217,5 @@ public class VariableManager
         }
         return true;
     }
+    #endregion
 }

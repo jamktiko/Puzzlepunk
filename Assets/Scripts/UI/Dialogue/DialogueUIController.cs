@@ -70,7 +70,7 @@ public class DialogueUIController : MonoBehaviour
         int quote = 0;
         while (quote< Script.Dialogue.Length)
         {
-            yield return Script.Dialogue[quote].Asd(this);
+            yield return Script.Dialogue[quote].Run(this);
             quote++;
         }
         if (talkingNPC == null)
@@ -79,7 +79,7 @@ public class DialogueUIController : MonoBehaviour
         }
         else
         {
-            yield return talkingNPC.Question.Asd(this);
+            yield return talkingNPC.Question.Run(this);
         }
     }
     void EndDialogue()
@@ -253,12 +253,12 @@ public class DialogueUIController : MonoBehaviour
     {
         if (talkingNPC.WelcomeLine != null)
         {
-            yield return talkingNPC.WelcomeLine.Asd(this); 
+            yield return talkingNPC.WelcomeLine.Run(this); 
         }
 
         if (talkingNPC.Question != null )
         {
-            yield return talkingNPC.Question.Asd(this);
+            yield return talkingNPC.Question.Run(this);
         }
     }
     #endregion

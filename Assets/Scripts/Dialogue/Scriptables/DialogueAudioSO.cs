@@ -16,7 +16,7 @@ public class DialogueAudioSO : DialogueLineSO
         before = 1,
         after = 2
     }
-    public override IEnumerator Asd(DialogueUIController DC)
+    public override IEnumerator Run(DialogueUIController DC)
     {
             if (PlayType == DialogueAudioSO.AudioPlayType.before)
             {

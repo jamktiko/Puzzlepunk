@@ -8,7 +8,7 @@ using UnityEngine.Events;
 public class ScriptableDialogueEvent : ScriptableDialogue
 {
     public UnityEvent Event;
-    public override IEnumerator Asd(DialogueUIController DC)
+    public override IEnumerator Run(DialogueUIController DC)
     {
         Event.Invoke();
         yield return null;

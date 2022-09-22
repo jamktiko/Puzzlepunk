@@ -15,7 +15,7 @@ public class MultipleChoiceSO : DialogueLineSO
         public string text;
         public DialogueScriptSO dialogue;
     }
-    public override IEnumerator Asd(DialogueUIController DC)
+    public override IEnumerator Run(DialogueUIController DC)
     {
         DC.ShowMultipleChoice(this);
         yield return null;
