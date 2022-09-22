@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class ResolutionManager : MonoBehaviour
 {
+    public bool AdaptOnStart = false;
     public ResolutionsSO resolutionsSO;
     public TMP_Dropdown dropDownComponent;
     public Toggle toggleComponent;
@@ -16,7 +17,7 @@ public class ResolutionManager : MonoBehaviour
     private void Start()
     {
         InitDropdownComponents();
-        LoadResolution();
+            LoadResolution(!AdaptOnStart);
     }
     void InitDropdownComponents()
     {
@@ -25,7 +26,7 @@ public class ResolutionManager : MonoBehaviour
             dropDownComponent.options.Add(new TMP_Dropdown.OptionData(res.name));
         }
     }
-    void LoadResolution()
+    void LoadResolution(bool UIonly)
     {
         int resValue = 0;
         if (PlayerPrefs.HasKey("ScreenFullscreen") && PlayerPrefs.HasKey("ScreenWidth") && PlayerPrefs.HasKey("ScreenHeight"))
@@ -43,7 +44,7 @@ public class ResolutionManager : MonoBehaviour
             }
             toggleComponent.SetIsOnWithoutNotify(PlayerPrefs.GetInt("ScreenFullscreen") == 1);
         }
-        else
+        else if (!UIonly)
         {
             current = resolutionsSO.AvailableResolutions[resValue];
             for (int I = 1; I < resolutionsSO.AvailableResolutions.Length; I++)
@@ -58,7 +59,8 @@ public class ResolutionManager : MonoBehaviour
             toggleComponent.SetIsOnWithoutNotify(true);
         }
         dropDownComponent.SetValueWithoutNotify(resValue);
-        UpdateResolution();
+        if (!UIonly)
+            UpdateResolution();
     }
     public void ChangeResolution (int value)
     {
