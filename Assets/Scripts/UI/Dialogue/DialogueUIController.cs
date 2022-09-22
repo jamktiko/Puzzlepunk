@@ -56,8 +56,7 @@ public class DialogueUIController : MonoBehaviour
         {
             UIController.main.OpenWindow(UIController.UIWindow.dialogue);
         }
-        if (CutsceneCoroutine!=null)
-            StopCoroutine(CutsceneCoroutine);
+        EndDialogue();
 
         CutsceneCoroutine = StartCoroutine(PlayCutsceneCoroutine(Script));
     }
@@ -71,7 +70,7 @@ public class DialogueUIController : MonoBehaviour
         int quote = 0;
         while (quote< Script.Dialogue.Length)
         {
-            yield return LoadDialogueLine(Script.Dialogue[quote]);
+            yield return Script.Dialogue[quote].Asd(this);
             quote++;
         }
         if (talkingNPC == null)
@@ -80,53 +79,21 @@ public class DialogueUIController : MonoBehaviour
         }
         else
         {
-            yield return LoadDialogueLine(talkingNPC.Question);
+            yield return talkingNPC.Question.Asd(this);
         }
+    }
+    void EndDialogue()
+    {
+        if (CutsceneCoroutine != null)
+            StopCoroutine(CutsceneCoroutine);
+        CutsceneCoroutine = null;
     }
     public void Close()
     {
-        if (CutsceneCoroutine!=null)
-        StopCoroutine(CutsceneCoroutine);
-        CutsceneCoroutine = null;
-
+        EndDialogue();
         UIController.main.CloseWindow();
     }
-    public IEnumerator LoadDialogueLine(DialogueLineSO NewLine)
-    {
-        LoadDialogueCharacter(NewLine);
-
-        if (NewLine.GetType() == typeof(DialogueAudioSO))
-        {
-            DialogueAudioSO dialogueAudioSO = (DialogueAudioSO)NewLine;
-            if (dialogueAudioSO.PlayType == DialogueAudioSO.AudioPlayType.before)
-            {
-                if (dialogueAudioSO.AudioClip != null)
-                    PlaySound(dialogueAudioSO.AudioClip);
-            }
-            string line = dialogueAudioSO.GetDialogueLine();
-            if (line.Length > 0)
-            {
-                yield return TypeDialog(line);
-                if (dialogueAudioSO.PlayType == DialogueAudioSO.AudioPlayType.after)
-                {
-                    if (dialogueAudioSO.AudioClip != null)
-                        PlaySound(dialogueAudioSO.AudioClip);
-                }
-                yield return PostLineWait(line);
-            }
-        }
-        else if (NewLine.GetType() == typeof(MultipleChoiceSO))
-        {
-            ShowMultipleChoice((MultipleChoiceSO)NewLine);
-        }
-        else
-        {
-            string DialogueQuestion = NewLine.GetDialogueLine();
-            yield return TypeDialog(DialogueQuestion);
-            yield return PostLineWait(DialogueQuestion);
-        }
-    }
-    void LoadDialogueCharacter(DialogueLineSO NewLine)
+    public void LoadDialogueCharacter(DialogueLineSO NewLine)
     {
         if (NewLine.Character == null && talkingNPC != null)
         {
@@ -141,7 +108,7 @@ public class DialogueUIController : MonoBehaviour
 
 
     bool SkipLine = false;
-    IEnumerator PostLineWait(string line)
+    public IEnumerator PostLineWait(string line)
     {
         float Wait = GetWaitValue(line);
         if (Wait > 0)
@@ -258,6 +225,7 @@ public class DialogueUIController : MonoBehaviour
 
     public void ShowMultipleChoice(MultipleChoiceSO choices)
     {
+        EndDialogue();
         MultipleChoice.gameObject.SetActive(true);
         MultipleChoice.LoadMultipleChoiceFunction(choices);
     }
@@ -273,8 +241,7 @@ public class DialogueUIController : MonoBehaviour
         talkingNPC = talker;
 
         UIController.main.OpenWindow(UIController.UIWindow.dialogue);
-        if (CutsceneCoroutine != null)
-            StopCoroutine(CutsceneCoroutine);
+        EndDialogue();
 
         CutsceneCoroutine = StartCoroutine(HandleNPCTalk());
     }
@@ -286,12 +253,12 @@ public class DialogueUIController : MonoBehaviour
     {
         if (talkingNPC.WelcomeLine != null)
         {
-            yield return LoadDialogueLine(talkingNPC.WelcomeLine); 
+            yield return talkingNPC.WelcomeLine.Asd(this); 
         }
 
         if (talkingNPC.Question != null )
         {
-            yield return LoadDialogueLine(talkingNPC.Question);
+            yield return talkingNPC.Question.Asd(this);
         }
     }
     #endregion

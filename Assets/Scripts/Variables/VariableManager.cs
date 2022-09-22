@@ -87,6 +87,15 @@ public class VariableManager
             SetVariable(num.Key, num.Value.GetFloatValue());
         }
     }
+    public void Apply(Condition[] changes)
+    {
+        if (changes == null || changes.Length == 0)
+            return;
+        foreach (Condition num in changes)
+        {
+            SetVariable(num.variableName, num.value);
+        }
+    }
     public class Variable
     {
         float Value;

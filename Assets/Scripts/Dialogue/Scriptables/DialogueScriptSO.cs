@@ -5,6 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DialogueScriptSO", menuName = "Dialogue/DialogueScriptSO")]
 public class DialogueScriptSO : ScriptableObject
 {
-    public DialogueLineSO[] Dialogue;
+    public ScriptableDialogue[] Dialogue;
     public bool TriggerRoomTransition;
 }

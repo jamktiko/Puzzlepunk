@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "DialogLineSO", menuName = "Dialogue/DialogLineSO")]
-public class DialogueLineSO : ScriptableObject
+[CreateAssetMenu(fileName = "Line", menuName = "Dialogue/Line")]
+public class DialogueLineSO : ScriptableDialogue
 {
     public enum CharacterEmotion
     {
@@ -25,5 +25,12 @@ public class DialogueLineSO : ScriptableObject
     public virtual string GetDialogueLine()
     {
         return DialogueQuestion;
+    }
+    public override IEnumerator Asd(DialogueUIController DC)
+    {
+        DC.LoadDialogueCharacter(this);
+        string DialogueQuestion = GetDialogueLine();
+        yield return DC.TypeDialog(DialogueQuestion);
+        yield return DC.PostLineWait(DialogueQuestion);
     }
 }

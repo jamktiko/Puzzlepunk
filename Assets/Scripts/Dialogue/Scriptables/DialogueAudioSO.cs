@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static DialogueScriptSO;
 
-[CreateAssetMenu(fileName = "DialogueAudioSO", menuName = "Dialogue/DialogueAudioSO")]
+[CreateAssetMenu(fileName = "Audio Line", menuName = "Dialogue/Audio Line")]
 public class DialogueAudioSO : DialogueLineSO
 {
         [Header("Effects")]
@@ -16,5 +16,23 @@ public class DialogueAudioSO : DialogueLineSO
         before = 1,
         after = 2
     }
-
+    public override IEnumerator Asd(DialogueUIController DC)
+    {
+            if (PlayType == DialogueAudioSO.AudioPlayType.before)
+            {
+                if (AudioClip != null)
+                DC.PlaySound(AudioClip);
+            }
+            string line = GetDialogueLine();
+            if (line.Length > 0)
+            {
+                yield return DC.TypeDialog(line);
+                if (PlayType == DialogueAudioSO.AudioPlayType.after)
+                {
+                    if (AudioClip != null)
+                    DC.PlaySound(AudioClip);
+                }
+                yield return DC.PostLineWait(line);
+            }
+    }
 }
