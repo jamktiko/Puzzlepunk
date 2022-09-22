@@ -197,10 +197,14 @@ public class DialogueUIController : MonoBehaviour
         }
     }
 
+    public AudioSource audiosrc;
     public void PlaySound(AudioClip clip, float volume = 1f, float pitch = 1f)
     {
-        //audiosrc.pitch = pitch;
-        //audiosrc.PlayOneShot(clip, volume);
+        if (audiosrc != null)
+        {
+            audiosrc.pitch = pitch;
+            audiosrc.PlayOneShot(clip, volume);
+        }
     }
 
     public IEnumerator CameraShake(float duration, float magnitude)
