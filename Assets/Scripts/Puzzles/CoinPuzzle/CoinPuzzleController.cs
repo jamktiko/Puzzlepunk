@@ -4,11 +4,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CoinPuzzleController : MonoBehaviour
+public class CoinPuzzleController : PuzzleController
 {
-    public bool IsSolved = false;
     CoinController[] coins;
-    public UnityEvent onSolved;
 
     private void Awake()
     {
@@ -30,9 +28,17 @@ public class CoinPuzzleController : MonoBehaviour
             }
         }
     }
+    private void OnEnable()
+    {
+        OnEnterPuzzle();
+    }
+    private void OnDisable()
+    {
+        OnExitPuzzle();
+    }
     public void CheckSolved()
     {
-        if (!IsSolved)
+        if (!WasSolved)
         {
             foreach (CoinController coin in coins)
             {
@@ -46,10 +52,10 @@ if (coin.IsImportant && coin.CoinNumber != coin.RequiresNumber)
     }
     void Solve()
     {
-        if (!IsSolved)
+        if (!WasSolved)
         {
-            IsSolved = true;
-            onSolved.Invoke();
+            WasSolved = true;
+            WasSolved.Invoke();
             Debug.Log("PUZZLE SOLVED!");
         }
     }

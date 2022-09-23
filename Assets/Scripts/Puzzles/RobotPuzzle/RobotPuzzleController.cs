@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class RobotPuzzleController : MonoBehaviour
+public class RobotPuzzleController : PuzzleController
 {
-    bool WasSolved = false;
-    public UnityEvent onSolve;
     public RobotNPC[] Robots;
     public GridNav mGrid;
     private void Start()
@@ -25,11 +23,12 @@ public class RobotPuzzleController : MonoBehaviour
         OnReset(false);
     }
 
-    public void RunPuzzle()
+    public override void OnEnterPuzzle()
     {
         UIController.main.OpenWindow(UIController.UIWindow.robot);
         UIController.main.robotController.InitPuzzle(this);
         ChangeSelection(0);
+        base.OnEnterPuzzle(); ;
     }
     public void ChangeSelection(int sel)
     {

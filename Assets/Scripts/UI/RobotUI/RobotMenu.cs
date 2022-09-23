@@ -36,6 +36,7 @@ public class RobotMenu : MonoBehaviour
     public void Close()
     {
         EndPuzzle();
+        myPuzzle.OnExitPuzzle();
         myPuzzle = null;
         UIController.main.CloseWindow();
     }
