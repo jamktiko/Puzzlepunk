@@ -55,7 +55,7 @@ if (coin.IsImportant && coin.CoinNumber != coin.RequiresNumber)
         if (!WasSolved)
         {
             WasSolved = true;
-            WasSolved.Invoke();
+            onSolve.Invoke();
             Debug.Log("PUZZLE SOLVED!");
         }
     }
