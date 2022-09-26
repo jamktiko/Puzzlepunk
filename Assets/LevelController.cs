@@ -11,14 +11,27 @@ rooms;
     void Awake()
     {
         main = this;
-        rooms = GetComponentsInChildren<RoomComponent>();
         navPoints = GetComponentsInChildren<NavPoint>();
+        rooms = GetComponentsInChildren<RoomComponent>();
+        foreach (RoomComponent room in rooms)
+        {
+            room.gameObject.SetActive(false);
+        }
     }
     private void Start()
     {
         InitPlayer();
     }
 
+    public NavPoint GetPointByName(string rName)
+    {
+        foreach (NavPoint p in navPoints)
+        {
+            if (p.PointID == rName)
+                return p;
+        }
+        return null;
+    }
     public RoomComponent GetRoomByName(string rName)
     {
         foreach (RoomComponent r in rooms)
@@ -43,16 +56,7 @@ rooms;
         if (StartingRoom != null)
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawSphere(StartingRoom.transform.position + (Vector3)StartingPosition, .33f);
+            Gizmos.DrawSphere(StartingRoom.transform.position + (Vector3)StartingPosition, .1f * transform.lossyScale.x);
         }
-    }
-    public NavPoint GetPointByName(string rName)
-    {
-        foreach (NavPoint p in navPoints)
-        {
-            if (p.PointID == rName)
-                return p;
-        }
-        return null;
     }
 }

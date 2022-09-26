@@ -30,8 +30,11 @@ public class UIController : MonoBehaviour
     }
     public void OpenWindow(UIWindow nWindow)
     {
+        if (dialogueController!=null)
         dialogueController.gameObject.SetActive(nWindow == UIWindow.dialogue);
-        robotController.gameObject.SetActive(nWindow == UIWindow.robot);
+
+        if (robotController != null)
+            robotController.gameObject.SetActive(nWindow == UIWindow.robot);
     }
     public void CloseWindow()
     {

@@ -137,7 +137,7 @@ public class GridNav : MonoBehaviour
         foreach (Node n in Nodes)
         {
             Gizmos.color = n.passible ? Color.green : Color.red;
-            Gizmos.DrawSphere(n.worldPos, .1f);
+            Gizmos.DrawSphere(n.worldPos, UnitSize * .5f);
         }
     }
     public Node GetClosestToPoint(Vector2Int point)

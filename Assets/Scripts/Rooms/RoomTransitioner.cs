@@ -21,11 +21,17 @@ public class RoomTransitioner : MonoBehaviour
     }
     public void TransitionRoom(RoomComponent newRoom, Vector2 pointPosition)
     {
+        if (CurrentRoom!=null)
+            CurrentRoom.gameObject.SetActive(false);
+
         CurrentRoom = newRoom;
+
         PlayerMovement.main.Stop();
         PlayerMovement.main.grid = newRoom.grid;
         transform.position = newRoom.transform.position + (Vector3)pointPosition;
-        CameraController.main.SetBounds(newRoom.bounds);
 
+        if (newRoom.bounds!=null)
+        CameraController.main.SetBounds(newRoom.bounds);
+        CurrentRoom.gameObject.SetActive(true);
     }
 }

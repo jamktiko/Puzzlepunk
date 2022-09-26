@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8145452365456011016}
   - component: {fileID: 8145452365456011023}
   - component: {fileID: 8145452365456011022}
-  - component: {fileID: 713581638170092210}
+  - component: {fileID: 4816717780821631940}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -106,7 +106,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &713581638170092210
+--- !u!114 &4816717780821631940
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8145452365456011017}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95b55cdd2872ff14a9331376bace754b, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e7c21fe8cd78b646b21f972eb0c629b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8145452366047622435
@@ -147,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 8145452366047622435}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.96, y: -3.66, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8145452365456011016}
@@ -218,6 +218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5058d8c2910fba94e928971478085d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  facing: 1
+  grid: {fileID: 0}
   MovementSpeed: 6
   SprintMultiplier: 2
 --- !u!114 &8145452366047622439
@@ -245,5 +247,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3732a2b5808f733419748c3a5352731a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingRoom: {fileID: 0}
-  StartingPosition: {x: 0, y: 0}

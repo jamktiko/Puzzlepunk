@@ -40,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
     GridNav.Node mNode;
     void MoveToPoint(Vector2 nPoint)
     {
+        if (grid == null)
+            return;
        // Vector2Int point = grid.TranslateCoordinate( nPoint);
         mNode = grid.GetNodeDirection(transform.position, nPoint-(Vector2)transform.position, 1);
         if (mNode == null || !mNode.passible)
