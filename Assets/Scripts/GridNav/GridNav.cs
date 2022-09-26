@@ -131,7 +131,7 @@ public class GridNav : MonoBehaviour
         }
         return oNode;
     }
-    void OnDrawGizmos()
+    void OnDrawGizmosSelected()
     {
         if (Nodes!=null)
         foreach (Node n in Nodes)

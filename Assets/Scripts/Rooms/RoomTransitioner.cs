@@ -11,7 +11,7 @@ public class RoomTransitioner : MonoBehaviour
         main = this;
     }
 
-    RoomComponent CurrentRoom;
+    public RoomComponent CurrentRoom;
     public void TransitionRoom(string newRoomName, Vector2 pointPosition)
     {
         if (LevelController.main != null && LevelController.main.GetRoomByName(newRoomName) != null)

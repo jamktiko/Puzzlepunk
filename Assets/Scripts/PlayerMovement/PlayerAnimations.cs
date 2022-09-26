@@ -28,6 +28,9 @@ public class PlayerAnimations : MonoBehaviour
     {
         animator.SetBool("walking", PlayerMovement.main.IsWalking());
         animator.SetBool("faceright", PlayerMovement.main.IsFacingRight());
+
+
+        spriteRenderer.sortingOrder = Mathf.RoundToInt((RoomTransitioner.main.CurrentRoom.transform.position.y - transform.position.y) * 10f);
     }
     public void PlayAnimation(string animationName)
     {
