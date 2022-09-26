@@ -7,10 +7,12 @@ public class LevelController : MonoBehaviour
     public static LevelController main;
     RoomComponent[]
 rooms;   
+    NavPoint    [] navPoints;
     void Awake()
     {
         main = this;
         rooms = GetComponentsInChildren<RoomComponent>();
+        navPoints = GetComponentsInChildren<NavPoint>();
     }
     private void Start()
     {
@@ -43,5 +45,14 @@ rooms;
             Gizmos.color = Color.green;
             Gizmos.DrawSphere(StartingRoom.transform.position + (Vector3)StartingPosition, .33f);
         }
+    }
+    public NavPoint GetPointByName(string rName)
+    {
+        foreach (NavPoint p in navPoints)
+        {
+            if (p.PointID == rName)
+                return p;
+        }
+        return null;
     }
 }
