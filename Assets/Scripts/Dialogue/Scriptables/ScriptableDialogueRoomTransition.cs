@@ -9,7 +9,7 @@ public class ScriptableDialogueRoomTransition : ScriptableDialogue
     public Vector2 RoomPoint = Vector2.zero;
     public override IEnumerator Run(DialogueUIController DC)
     {
-        RoomTransitioner.main.TransitionRoom(LevelController.main.GetRoomByName(RoomName), RoomPoint);
+        RoomTransitioner.main.TransitionRoom(RoomName, RoomPoint);
         yield return base.Run(DC);
     }
 }

@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     public static PlayerMovement main;
     public float MovementSpeed = 1f;
+    public float MovementDistance = 1f;
     private void Awake()
     {
         main = this;
@@ -43,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         if (grid == null)
             return;
        // Vector2Int point = grid.TranslateCoordinate( nPoint);
-        mNode = grid.GetNodeDirection(transform.position, nPoint-(Vector2)transform.position, 1);
+        mNode = grid.GetNodeDirection(transform.position, nPoint-(Vector2)transform.position, MovementDistance);
         if (mNode == null || !mNode.passible)
         {
             mNode = null;
@@ -57,13 +58,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (iV.x != 0)
         {
-            MoveToPoint(transform.position + Vector3.right * iV.x);
+            MoveToPoint(transform.position + Vector3.right * iV.x );
             facing = iV.x > 0 ? Direction.right : Direction.left;
         }
         else if (iV.y != 0)
         {
-            MoveToPoint(transform.position + Vector3.up * iV.y);
-            facing = iV.y > 0 ? Direction.up : Direction.down;
+            MoveToPoint(transform.position + Vector3.up * iV.y );
+                facing = iV.y > 0 ? Direction.up : Direction.down;
         }
     }
     Coroutine moveCoroutine;
