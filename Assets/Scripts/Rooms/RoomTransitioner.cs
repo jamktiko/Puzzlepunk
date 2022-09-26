@@ -11,14 +11,14 @@ public class RoomTransitioner : MonoBehaviour
         main = this;
     }
 
-    public RoomComponent StartingRoom;
-    public Vector2 StartingPosition;
-    private void Start()
-    {
-        TransitionRoom(StartingRoom, StartingPosition);
-    }
-
     RoomComponent CurrentRoom;
+    public void TransitionRoom(string newRoomName, Vector2 pointPosition)
+    {
+        if (LevelController.main != null && LevelController.main.GetRoomByName(newRoomName) != null)
+        {
+            TransitionRoom(LevelController.main.GetRoomByName(newRoomName), pointPosition);
+        }
+    }
     public void TransitionRoom(RoomComponent newRoom, Vector2 pointPosition)
     {
         CurrentRoom = newRoom;
@@ -27,14 +27,5 @@ public class RoomTransitioner : MonoBehaviour
         transform.position = newRoom.transform.position + (Vector3)pointPosition;
         CameraController.main.SetBounds(newRoom.bounds);
 
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        if (StartingRoom != null)
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawSphere(StartingRoom.transform.position + (Vector3)StartingPosition, .33f);
-        }
     }
 }
