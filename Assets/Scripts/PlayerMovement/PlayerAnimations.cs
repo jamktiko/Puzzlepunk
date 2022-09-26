@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class PlayerAnimations : MonoBehaviour
 {
+    public static PlayerAnimations main;
     public Animator animator;
+    public SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
+        main = this;
         if (animator == null)
         {
             animator = GetComponent<Animator>();
+        }
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
         }
     }
     private void Start()
