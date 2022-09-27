@@ -6,10 +6,11 @@ public class RoomTransition : MonoBehaviour
 {
     public RoomComponent destinationRoom;
     public Vector2 destination;
+    public bool instant;
 
     public void TriggerTransition()
     {
-        PlayerTransitionController.main.TransitionRoom(destinationRoom,destination);
+        PlayerTransitionController.main.TransitionRoom(destinationRoom,destination, instant);
     }
 
     void OnDrawGizmosSelected()
@@ -17,7 +18,7 @@ public class RoomTransition : MonoBehaviour
         if (destinationRoom != null)
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawSphere(destinationRoom.transform.position + (Vector3)destination, .33f);
+            Gizmos.DrawSphere(destinationRoom.transform.position + (Vector3)destination, .06f);
         }
     }
 }

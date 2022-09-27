@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour
 {
     Camera mCam;
     CameraBounds currentBounds;
+    Rect rBounds;
     public static CameraController main;
     private void Awake()
     {
@@ -17,6 +18,8 @@ public class CameraController : MonoBehaviour
     public void SetBounds(CameraBounds newbounds)
     {
         currentBounds = newbounds;
+        if (newbounds!=null)
+        rBounds = newbounds.GetBounds();
     }
     private void Update()
     {
@@ -26,21 +29,21 @@ public class CameraController : MonoBehaviour
     void MovePosition(Vector3 center)
     {
         if (currentBounds == null || mCam == null) return;
-        if (width * 2 > currentBounds.rBounds.width)
+        if (width * 2 > rBounds.width)
         {
-            center.x = currentBounds.rBounds.center.x;
+            center.x = rBounds.center.x;
         }
         else
         {
-            center.x = Mathf.Clamp(center.x, currentBounds.rBounds.xMin + width, currentBounds.rBounds.xMax - width);
+            center.x = Mathf.Clamp(center.x, rBounds.xMin + width, rBounds.xMax - width);
         }
-        if (height * 2 > currentBounds.rBounds.height)
+        if (height * 2 > rBounds.height)
         {
-            center.y = currentBounds.rBounds.center.y;
+            center.y = rBounds.center.y;
         }
         else
         {
-            center.y = Mathf.Clamp(center.y, currentBounds.rBounds.yMin + height, currentBounds.rBounds.yMax - height);
+            center.y = Mathf.Clamp(center.y, rBounds.yMin + height, rBounds.yMax - height);
         }
         transform.position = center;
     }

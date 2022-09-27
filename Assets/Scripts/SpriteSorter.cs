@@ -27,7 +27,7 @@ public class SpriteSorter : MonoBehaviour
 
     void Start()
     {
-        Sort(-transform.localPosition.y);
+        Sort(-transform.localPosition.y + DeltaY);
     }
     public void Sort(float delta)
     {

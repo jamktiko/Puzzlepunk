@@ -5,6 +5,7 @@ using UnityEngine;
 public class GridNav : MonoBehaviour
 {
     public float UnitSize = 1;
+    public float Borders = 1;
 
     Node[,] Nodes;
 
@@ -29,11 +30,19 @@ public class GridNav : MonoBehaviour
         public void Init(GridNav nav)
         {
             passible = true;
-            foreach (RaycastHit2D collision in Physics2D.CircleCastAll(worldPos, nav.UnitSize, Vector2.zero) )
+            if (gridPos.x < nav.Borders / nav.UnitSize || gridPos.y < nav.Borders / nav.UnitSize  || 
+                gridPos.x >= nav.width - nav.Borders / nav.UnitSize || gridPos.y >= nav.height - nav.Borders / nav.UnitSize)
             {
-                if (collision.transform.tag == "Obstacle")
+                passible = false;
+            }
+            else
+            {
+                foreach (RaycastHit2D collision in Physics2D.CircleCastAll(worldPos, nav.UnitSize, Vector2.zero))
                 {
-                    passible = false;
+                    if (collision.transform.tag == "Obstacle")
+                    {
+                        passible = false;
+                    }
                 }
             }
             neighbors = new Node[]{

@@ -8,6 +8,7 @@ public class UIController : MonoBehaviour
     [Header("Components")]
     public DialogueUIController dialogueController;
     public RobotMenu robotController;
+    public TransitionScreenController TransitionScreen;
 
     public enum UIWindow
     {
@@ -25,6 +26,10 @@ public class UIController : MonoBehaviour
         if (robotController == null)
         {
             robotController = GetComponentInChildren<RobotMenu>();
+        }
+        if (TransitionScreen == null)
+        {
+            TransitionScreen = GetComponentInChildren<TransitionScreenController>();
         }
         CloseWindow();
     }

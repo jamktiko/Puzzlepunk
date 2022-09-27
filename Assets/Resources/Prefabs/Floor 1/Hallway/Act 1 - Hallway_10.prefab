@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 9176139490362017500}
   - component: {fileID: 9176139490362017503}
   - component: {fileID: 1903287060}
-  - component: {fileID: 1903287059}
   - component: {fileID: 1903287058}
+  - component: {fileID: 2040287347}
   m_Layer: 0
   m_Name: Act 1 - Hallway_10
   m_TagString: Untagged
@@ -113,7 +113,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.37, y: 0.43}
   m_EdgeRadius: 0
---- !u!114 &1903287059
+--- !u!114 &1903287058
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,13 +122,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 9176139490362017502}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83947639945806e418154d142ac060ac, type: 3}
+  m_Script: {fileID: 11500000, guid: e10eda06b4246684b8fa507626fa2cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RequiresMoveInRange: 0
-  InteractRange: 1
-  SingleUse: 0
-  Outline: {fileID: 0}
+  destinationRoom: {fileID: 0}
+  destination: {x: 1.65, y: 0.57}
+--- !u!114 &2040287347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9176139490362017502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afaf64b857c16542948929e4579f7ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   uEvent:
     m_PersistentCalls:
       m_Calls:
@@ -144,17 +154,4 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1903287058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9176139490362017502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e10eda06b4246684b8fa507626fa2cca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destinationRoom: {fileID: 0}
-  destination: {x: 0, y: 0}
+  SingleUse: 0

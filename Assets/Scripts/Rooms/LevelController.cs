@@ -14,13 +14,13 @@ rooms;
         main = this;
         navPoints = GetComponentsInChildren<NavPoint>();
         rooms = GetComponentsInChildren<RoomComponent>();
+    }
+    private void Start()
+    {
         foreach (RoomComponent room in rooms)
         {
             room.gameObject.SetActive(false);
         }
-    }
-    private void Start()
-    {
         InitPlayer();
     }
 
@@ -49,7 +49,7 @@ rooms;
     {
         if (StartingRoom != null && PlayerTransitionController.main!=null)
         {
-            PlayerTransitionController.main.TransitionRoom(StartingRoom, StartingPosition);
+            PlayerTransitionController.main.TransitionRoom(StartingRoom, StartingPosition,true);
         }
         }
     void OnDrawGizmosSelected()

@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractWithNPC : InteractableBase
+public class InteractWithNPC : MonoBehaviour
 {
     public CharacterSO myNPC;
-    public override void OnInteract()
+    public  void OnInteract()
     {
         UIController.main.dialogueController.TalkWithNPC(myNPC);
-        base.OnInteract();
     }
 
 }

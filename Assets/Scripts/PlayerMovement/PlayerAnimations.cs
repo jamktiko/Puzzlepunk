@@ -36,7 +36,7 @@ public class PlayerAnimations : MonoBehaviour
 
 
         if (zSorter != null)
-            zSorter.Sort(PlayerTransitionController.main.CurrentRoom.transform.position.y - transform.position.y);
+            zSorter.Sort(PlayerTransitionController.main.CurrentRoom.transform.position.y - transform.position.y + zSorter.DeltaY);
     }
     public void PlayAnimation(string animationName)
     {

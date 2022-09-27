@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7581480704265090432}
   - component: {fileID: 8047714512326659964}
   - component: {fileID: 2383690214200205418}
-  - component: {fileID: 631116390843080026}
+  - component: {fileID: 612881786073975707}
   m_Layer: 0
   m_Name: Open Door
   m_TagString: Untagged
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destinationRoom: {fileID: 0}
   destination: {x: -5.27, y: 1.53}
---- !u!114 &631116390843080026
+--- !u!114 &612881786073975707
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,13 +136,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7581480704265090433}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83947639945806e418154d142ac060ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 5afaf64b857c16542948929e4579f7ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RequiresMoveInRange: 0
-  InteractRange: 1
-  SingleUse: 0
-  Outline: {fileID: 0}
   uEvent:
     m_PersistentCalls:
       m_Calls:
@@ -158,3 +154,4 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  SingleUse: 0
