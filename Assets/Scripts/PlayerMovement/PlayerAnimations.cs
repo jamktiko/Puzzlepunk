@@ -7,6 +7,7 @@ public class PlayerAnimations : MonoBehaviour
     public static PlayerAnimations main;
     public Animator animator;
     public SpriteRenderer spriteRenderer;
+    public SpriteSorter zSorter;
 
     private void Awake()
     {
@@ -19,6 +20,10 @@ public class PlayerAnimations : MonoBehaviour
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
+        if (zSorter == null)
+        {
+            zSorter = GetComponent<SpriteSorter>();
+        }
     }
     private void Start()
     {
@@ -30,7 +35,8 @@ public class PlayerAnimations : MonoBehaviour
         animator.SetBool("faceright", PlayerMovement.main.IsFacingRight());
 
 
-        spriteRenderer.sortingOrder = Mathf.RoundToInt((RoomTransitioner.main.CurrentRoom.transform.position.y - transform.position.y) * 10f);
+        if (zSorter != null)
+            zSorter.Sort(PlayerTransitionController.main.CurrentRoom.transform.position.y - transform.position.y);
     }
     public void PlayAnimation(string animationName)
     {

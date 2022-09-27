@@ -9,7 +9,7 @@ public class RoomTransition : MonoBehaviour
 
     public void TriggerTransition()
     {
-        RoomTransitioner.main.TransitionRoom(destinationRoom,destination);
+        PlayerTransitionController.main.TransitionRoom(destinationRoom,destination);
     }
 
     void OnDrawGizmosSelected()

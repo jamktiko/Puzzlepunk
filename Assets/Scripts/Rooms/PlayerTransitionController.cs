@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomTransitioner : MonoBehaviour
+public class PlayerTransitionController : MonoBehaviour
 {
 
-    public static RoomTransitioner main;
+    public static PlayerTransitionController main;
     private void Awake()
     {
         main = this;

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1637584635150019191}
   - component: {fileID: 1637584635150019190}
   - component: {fileID: 8916926898754271810}
+  - component: {fileID: 4103473434407901664}
   m_Layer: 0
   m_Name: Counter (Front)
   m_TagString: Obstacle
@@ -111,3 +112,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.33, y: 0.26}
   m_EdgeRadius: 0
+--- !u!114 &4103473434407901664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637584635150019188}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a5ff6924b42c1e4bb7871dae4235e62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeltaY: 0
+  spriteRenderer: {fileID: 0}
+  deltaOrder: 0

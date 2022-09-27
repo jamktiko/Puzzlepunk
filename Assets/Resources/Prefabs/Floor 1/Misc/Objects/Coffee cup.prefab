@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 30188629923075793}
   - component: {fileID: 30188629923075806}
+  - component: {fileID: 4219418915257221241}
   m_Layer: 0
   m_Name: Coffee cup
   m_TagString: Untagged
@@ -84,3 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4219418915257221241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30188629923075807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a5ff6924b42c1e4bb7871dae4235e62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeltaY: -0.18
+  spriteRenderer: {fileID: 30188629923075806}
+  deltaOrder: 5

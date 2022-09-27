@@ -47,9 +47,9 @@ rooms;
     public Vector2 StartingPosition;
     void InitPlayer()
     {
-        if (StartingRoom != null && RoomTransitioner.main!=null)
+        if (StartingRoom != null && PlayerTransitionController.main!=null)
         {
-            RoomTransitioner.main.TransitionRoom(StartingRoom, StartingPosition);
+            PlayerTransitionController.main.TransitionRoom(StartingRoom, StartingPosition);
         }
         }
     void OnDrawGizmosSelected()
