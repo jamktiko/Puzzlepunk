@@ -11347,6 +11347,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sink
       objectReference: {fileID: 0}
+    - target: {fileID: 778246847830754815, guid: 6133f7cb44114ad419f080fd1683e05e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 778246847830754815, guid: 6133f7cb44114ad419f080fd1683e05e, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6133f7cb44114ad419f080fd1683e05e, type: 3}
 --- !u!4 &1425036804 stripped
@@ -21696,11 +21704,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8536667795486367973, guid: 30e550c594c14e7439723ab09867d1a8, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1911212997}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30e550c594c14e7439723ab09867d1a8, type: 3}
 --- !u!4 &1911212994 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 514766659982535516, guid: 30e550c594c14e7439723ab09867d1a8, type: 3}
+  m_PrefabInstance: {fileID: 1911212993}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1911212997 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 514766659982535515, guid: 30e550c594c14e7439723ab09867d1a8, type: 3}
   m_PrefabInstance: {fileID: 1911212993}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1963850361

@@ -27,11 +27,11 @@ public class SpriteSorter : MonoBehaviour
 
     void Start()
     {
-        Sort(-transform.localPosition.y + DeltaY);
+        Sort(-transform.localPosition.y - DeltaY);
     }
     public void Sort(float delta)
     {
         if (spriteRenderer != null)
-            spriteRenderer.sortingOrder = Mathf.RoundToInt(delta * 20f);
+            spriteRenderer.sortingOrder = Mathf.RoundToInt((delta) * 20f);
     }
 }
