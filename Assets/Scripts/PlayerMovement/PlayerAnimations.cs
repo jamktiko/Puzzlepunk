@@ -31,8 +31,11 @@ public class PlayerAnimations : MonoBehaviour
     }
     private void Update()
     {
-        animator.SetBool("walking", PlayerMovement.main.IsWalking());
-        animator.SetBool("faceright", PlayerMovement.main.IsFacingRight());
+        animator.SetBool("Walking stop", !PlayerMovement.main.IsWalking());
+        animator.SetBool("Going Left", PlayerMovement.main.facing == PlayerMovement.Direction.left);
+        animator.SetBool("Going Right", PlayerMovement.main.facing == PlayerMovement.Direction.right);
+        animator.SetBool("Going Front", PlayerMovement.main.facing == PlayerMovement.Direction.up);
+        animator.SetBool("Going Back", PlayerMovement.main.facing == PlayerMovement.Direction.down);
 
 
         if (zSorter != null)

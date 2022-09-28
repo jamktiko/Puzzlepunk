@@ -98,10 +98,6 @@ public class PlayerMovement : MonoBehaviour
             StopCoroutine(moveCoroutine);
         moveCoroutine = null;
     }
-    public bool IsFacingRight()
-    {
-        return facing == Direction.right;
-    }
     public bool IsWalking()
     {
         return mNode!=null &&  moveCoroutine != null;
