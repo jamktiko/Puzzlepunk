@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
         left,
         right
     }
-    public Direction facing = Direction.down;
+    public Vector2 facing = Vector2.down;
 
     public GridNav grid;
 
@@ -44,21 +44,52 @@ public class PlayerMovement : MonoBehaviour
     {
         if (grid == null)
             return;
-       // Vector2Int point = grid.TranslateCoordinate( nPoint);
-        mNode = grid.GetNodeDirection(transform.position, nPoint-(Vector2)transform.position, MovementDistance);
-        if (mNode == null || !mNode.passible)
+
+        if (TryMoveDirection(nPoint - (Vector2)transform.position, out mNode))
         {
-            mNode = null;
+            if (mNode.passible)
+                moveCoroutine = StartCoroutine(Move());
+            else
+                mNode = null;
         }
-        if (mNode != null)
-            moveCoroutine = StartCoroutine(Move());
     }
+    bool TryMoveDirection ( Vector2 direction, out GridNav.Node possible)
+    {
+        possible = null;
+        if (direction.x == 0 || direction.y == 0)
+        {
+            possible = grid.GetNodeDirection(transform.position, direction, MovementDistance);
+            return possible!=null;
+        }
+        else 
+        {
+            if (grid.GetNodeAt((Vector2)transform.position + direction * grid.UnitSize, out possible) && possible.passible)
+                {
+                possible = grid.GetNodeDirection(transform.position, direction, MovementDistance);
+                return possible != null;
+            }
+            else if (grid.GetNodeAt((Vector2)transform.position + direction.x * Vector2.right * grid.UnitSize, out possible) && possible.passible)
+            {
+                possible = grid.GetNodeDirection(transform.position, direction.x * Vector2.right, MovementDistance);
+                return possible != null;
+            }
+            else if (grid.GetNodeAt((Vector2)transform.position + direction.y * Vector2.up * grid.UnitSize, out possible) && possible.passible)
+            {
+                possible = grid.GetNodeDirection(transform.position, direction.y * Vector2.up, MovementDistance);
+                return possible != null;
+            }
+
+            return false;
+        }
+    }
+
     public Vector2 moveInput = Vector2.zero;
     void HandleMovement()
     {
         moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         if (moveInput.x != 0  || moveInput.y != 0)
         {
+            facing = moveInput;
             MoveToPoint((Vector2)transform.position + moveInput);
         }
         /*if (moveInput.x != 0)
@@ -112,24 +143,9 @@ public class PlayerMovement : MonoBehaviour
     {
         return Input.GetMouseButton(0);
     }
-    public Vector3 GetForwardVector()
-    {
-        switch (facing)
-        {
-            case Direction.up:
-                return Vector3.up;
-            case Direction.down:
-                return Vector3.down;
-            case Direction.left:
-                return Vector3.left;
-            case Direction.right:
-                return Vector3.right;
-        }
-        return Vector3.down;
-    }
     public void PlayerInteract()
     {
-        Vector2 point = (Vector2)transform.position + moveInput * InteractDistance;
+        Vector2 point = (Vector2)transform.position + facing * InteractDistance;
         foreach (RaycastHit2D hit in Physics2D.CircleCastAll(point, .1f, Vector2.zero))
         {
             if (hit.transform.TryGetComponent(out InteractableBase interactable))

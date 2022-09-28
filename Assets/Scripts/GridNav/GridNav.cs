@@ -103,6 +103,11 @@ public class GridNav : MonoBehaviour
     {
         return height;
     }
+    public bool GetNodeAt(Vector2 pos, out GridNav.Node node)
+    {
+        node = GetNodeAt(TranslateCoordinate(pos));
+        return node != null;
+    }
     public Node GetNodeAt(Vector2Int pos)
     {
         if (pos.x < 0 || pos.y < 0 || pos.x >= Nodes.GetLength(0) || pos.y >= Nodes.GetLength(1))
@@ -112,15 +117,6 @@ public class GridNav : MonoBehaviour
     public Node GetNodeDirection(Vector2 center, Vector2 direction, float maxLength)
     {
         Vector2Int dir = Vector2Int.RoundToInt(direction);
-        /*if (direction.y > 0)
-            dir = Vector2Int.up;
-        else if (direction.y < 0)
-            dir = Vector2Int.down;
-        else if (direction.x > 0)
-            dir = Vector2Int.right;
-        else if (direction.x < 0)
-            dir = Vector2Int.left;
-        */
         return GetNodeDirection(TranslateCoordinate(center), dir,Mathf.CeilToInt(maxLength / UnitSize));
     }
     public Node GetNodeDirection(Vector2Int center, Vector2Int direction, int maxLength)
