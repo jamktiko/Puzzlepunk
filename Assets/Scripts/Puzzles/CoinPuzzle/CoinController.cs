@@ -56,7 +56,7 @@ public class CoinController : MonoBehaviour
         otherC.UpdateCoinDisplay();
 
         if (puzzleParent != null)
-            puzzleParent.CheckSolved();
+            puzzleParent.SetSolved();
     }
     public bool IsImportant = false;
     public int RequiresNumber = 0;

@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public static PlayerMovement main;
     public float MovementSpeed = 1f;
     public float MovementDistance = 1f;
+    public float InteractDistance = 1f;
     private void Awake()
     {
         main = this;
@@ -128,7 +129,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void PlayerInteract()
     {
-        Vector2 point = (Vector2)transform.position + moveInput * MovementDistance;
+        Vector2 point = (Vector2)transform.position + moveInput * InteractDistance;
         foreach (RaycastHit2D hit in Physics2D.CircleCastAll(point, .1f, Vector2.zero))
         {
             if (hit.transform.TryGetComponent(out InteractableBase interactable))

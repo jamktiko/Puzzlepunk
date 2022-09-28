@@ -7,12 +7,23 @@ using UnityEngine.Events;
 public class CoinPuzzleController : PuzzleController
 {
     CoinController[] coins;
+    CoinController[] objectivecoins;
 
     private void Awake()
     {
         coins = GetComponentsInChildren<CoinController>();
         foreach (CoinController c in coins)
             c.TieToPuzzle(this);
+
+
+        InitSolution();
+    }
+    void InitSolution()
+    {
+        List<CoinController> important = new List<CoinController>();
+        important.AddRange(coins);
+        important.RemoveAll((CoinController C) => { return !C.IsImportant; });
+        objectivecoins = important.ToArray();
     }
     public void TrySwapCoin(CoinController othercoin)
     {
@@ -36,23 +47,32 @@ public class CoinPuzzleController : PuzzleController
     {
         OnExitPuzzle();
     }
-    public void CheckSolved()
+    public bool CheckSolved()
     {
+
         if (!WasSolved)
         {
-            foreach (CoinController coin in coins)
+            for (int iA = 0; iA < objectivecoins.Length; iA++)
             {
-if (coin.IsImportant && coin.CoinNumber != coin.RequiresNumber)
+                bool solved = true;
+                for (int iB = 0; iB < objectivecoins.Length; iB++)
                 {
-                    return;
+                    CoinController coin = objectivecoins[(iB + iA) % objectivecoins.Length];
+                    if (coin.CoinNumber != objectivecoins[iB].RequiresNumber)
+                    {
+                        solved = false;
+                        break;
+                    }
                 }
+                if (solved)
+                    return true;
             }
         }
-        Solve();
+        return false;
     }
-    void Solve()
+    public void SetSolved()
     {
-        if (!WasSolved)
+        if (!WasSolved && CheckSolved())
         {
             WasSolved = true;
             onSolve.Invoke();
