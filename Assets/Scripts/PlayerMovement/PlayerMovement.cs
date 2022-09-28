@@ -56,8 +56,11 @@ public class PlayerMovement : MonoBehaviour
     void HandleMovement()
     {
         moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
-        if (moveInput.x != 0)
+        if (moveInput.x != 0  || moveInput.y != 0)
+        {
+            MoveToPoint((Vector2)transform.position + moveInput);
+        }
+        /*if (moveInput.x != 0)
         {
             MoveToPoint(transform.position + Vector3.right * moveInput.x );
             facing = moveInput.x > 0 ? Direction.right : Direction.left;
@@ -66,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
         {
             MoveToPoint(transform.position + Vector3.up * moveInput.y );
                 facing = moveInput.y > 0 ? Direction.up : Direction.down;
-        }
+        }*/
     }
     Coroutine moveCoroutine;
     IEnumerator Move()
@@ -125,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void PlayerInteract()
     {
-        Vector2 point = transform.position + GetForwardVector() * MovementDistance;
+        Vector2 point = (Vector2)transform.position + moveInput * MovementDistance;
         foreach (RaycastHit2D hit in Physics2D.CircleCastAll(point, .1f, Vector2.zero))
         {
             if (hit.transform.TryGetComponent(out InteractableBase interactable))
