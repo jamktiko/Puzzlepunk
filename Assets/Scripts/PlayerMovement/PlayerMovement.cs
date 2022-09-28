@@ -52,19 +52,20 @@ public class PlayerMovement : MonoBehaviour
         if (mNode != null)
             moveCoroutine = StartCoroutine(Move());
     }
+    public Vector2 moveInput = Vector2.zero;
     void HandleMovement()
     {
-        Vector2 iV = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-        if (iV.x != 0)
+        if (moveInput.x != 0)
         {
-            MoveToPoint(transform.position + Vector3.right * iV.x );
-            facing = iV.x > 0 ? Direction.right : Direction.left;
+            MoveToPoint(transform.position + Vector3.right * moveInput.x );
+            facing = moveInput.x > 0 ? Direction.right : Direction.left;
         }
-        else if (iV.y != 0)
+        else if (moveInput.y != 0)
         {
-            MoveToPoint(transform.position + Vector3.up * iV.y );
-                facing = iV.y > 0 ? Direction.up : Direction.down;
+            MoveToPoint(transform.position + Vector3.up * moveInput.y );
+                facing = moveInput.y > 0 ? Direction.up : Direction.down;
         }
     }
     Coroutine moveCoroutine;
