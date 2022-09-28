@@ -39,8 +39,8 @@ public class PlayerAnimations : MonoBehaviour
         }
         if (PlayerMovement.main.moveInput.y != 0)
         {
-            animator.SetBool("Going Front", PlayerMovement.main.moveInput.y > 0);
-            animator.SetBool("Going Back", PlayerMovement.main.moveInput.y < 0);
+            animator.SetBool("Going Front", PlayerMovement.main.moveInput.y < 0);
+            animator.SetBool("Going Back", PlayerMovement.main.moveInput.y > 0);
         }
 
 
