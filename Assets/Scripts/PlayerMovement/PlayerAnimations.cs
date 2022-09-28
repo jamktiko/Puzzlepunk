@@ -31,11 +31,16 @@ public class PlayerAnimations : MonoBehaviour
     }
     private void Update()
     {
-        animator.SetBool("Is Walking", PlayerMovement.main.IsWalking());
-        animator.SetBool("Going Left", PlayerMovement.main.facing == PlayerMovement.Direction.left);
-        animator.SetBool("Going Right", PlayerMovement.main.facing == PlayerMovement.Direction.right);
-        animator.SetBool("Going Front", PlayerMovement.main.facing == PlayerMovement.Direction.down);
-        animator.SetBool("Going Back", PlayerMovement.main.facing == PlayerMovement.Direction.up);
+        bool Walking = PlayerMovement.main.moveInput.x != 0 || PlayerMovement.main.moveInput.y != 0;
+        animator.SetBool("Is Walking", Walking);
+        if (Walking)
+        {
+                animator.SetBool("Going Left", PlayerMovement.main.moveInput.x < 0);
+                animator.SetBool("Going Right", PlayerMovement.main.moveInput.x > 0);
+            
+            animator.SetBool("Going Front", PlayerMovement.main.moveInput.y < 0);
+            animator.SetBool("Going Back", PlayerMovement.main.moveInput.y > 0);
+        }
 
 
         if (zSorter != null)
