@@ -34,8 +34,8 @@ public class PlayerAnimations : MonoBehaviour
         animator.SetBool("Is Walking", !PlayerMovement.main.IsWalking());
         animator.SetBool("Going Left", PlayerMovement.main.facing == PlayerMovement.Direction.left);
         animator.SetBool("Going Right", PlayerMovement.main.facing == PlayerMovement.Direction.right);
-        animator.SetBool("Going Front", PlayerMovement.main.facing == PlayerMovement.Direction.up);
-        animator.SetBool("Going Back", PlayerMovement.main.facing == PlayerMovement.Direction.down);
+        animator.SetBool("Going Front", PlayerMovement.main.facing == PlayerMovement.Direction.down);
+        animator.SetBool("Going Back", PlayerMovement.main.facing == PlayerMovement.Direction.up);
 
 
         if (zSorter != null)
