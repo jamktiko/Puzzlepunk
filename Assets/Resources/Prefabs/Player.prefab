@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 8145452366047622434}
   - component: {fileID: 8145452366047622439}
   - component: {fileID: 6815492021708701016}
+  - component: {fileID: 8184400089604133964}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -234,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5058d8c2910fba94e928971478085d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  facing: 1
+  facing: {x: 0, y: -1}
   grid: {fileID: 0}
   MovementSpeed: 1
   MovementDistance: 0.16
@@ -270,3 +271,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScreenTransitionTime: 0.2
   CurrentRoom: {fileID: 0}
+--- !u!114 &8184400089604133964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8145452366047622435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21a7f7c3a4a922d46b905f5a9f82ccc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
