@@ -58,7 +58,12 @@ public class PlayerTransitionController : MonoBehaviour
             PlayerMovement.main.Stop();
             PlayerMovement.main.grid = newRoom.grid;
         }
-        transform.position = newRoom.transform.position + (Vector3)pointPosition;
+
+        Vector3 teleportPosition = newRoom.transform.position + (Vector3)pointPosition;
+
+        var point = newRoom.grid.GetClosestToPoint(newRoom.grid.TranslateCoordinate(teleportPosition));
+
+        transform.position = point.worldPos;
 
         if (CurrentRoom.bounds != null)
             CameraController.main.SetBounds(CurrentRoom.bounds);
