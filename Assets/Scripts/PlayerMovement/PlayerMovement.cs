@@ -19,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
     public static PlayerMovement main;
     public float MovementSpeed = 1f;
     public float MovementDistance = 1f;
-    public float InteractDistance = 1f;
     private void Awake()
     {
         main = this;
@@ -31,12 +30,6 @@ public class PlayerMovement : MonoBehaviour
         if (IsWalking())
             return;
         HandleMovement();
-        HandleInteractCommand();
-    }
-    public void HandleInteractCommand()
-    {
-        if (Input.GetKeyDown(KeyCode.X))
-            PlayerInteract();
     }
 
     GridNav.Node mNode;
@@ -129,6 +122,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Stop()
     {
+        PlayerInteractions.main.UpdateCanInteract();
         mNode = null;
         if (moveCoroutine != null)
             StopCoroutine(moveCoroutine);
@@ -142,18 +136,5 @@ public class PlayerMovement : MonoBehaviour
     bool IsSprinting()
     {
         return Input.GetMouseButton(0);
-    }
-    public void PlayerInteract()
-    {
-        Vector2 point = (Vector2)transform.position + facing * InteractDistance;
-        foreach (RaycastHit2D hit in Physics2D.CircleCastAll(transform.position, .1f, facing , InteractDistance))
-        {
-            if (hit.transform.TryGetComponent(out InteractableBase interactable))
-            {
-                
-                    interactable.OnInteract();
-                return;
-            }
-        }
     }
 }

@@ -42,6 +42,7 @@ public class PlayerAnimations : MonoBehaviour
             animator.SetBool("Going Back", PlayerMovement.main.moveInput.y > 0);
         }
 
+        animator.SetBool("InteractPrompt", PlayerInteractions.main.CanInteract);
 
         if (zSorter != null)
             zSorter.Sort(PlayerTransitionController.main.CurrentRoom.transform.position.y - transform.position.y );
