@@ -146,12 +146,13 @@ public class PlayerMovement : MonoBehaviour
     public void PlayerInteract()
     {
         Vector2 point = (Vector2)transform.position + facing * InteractDistance;
-        foreach (RaycastHit2D hit in Physics2D.CircleCastAll(point, .1f, Vector2.zero))
+        foreach (RaycastHit2D hit in Physics2D.CircleCastAll(transform.position, .1f, facing , InteractDistance))
         {
             if (hit.transform.TryGetComponent(out InteractableBase interactable))
             {
                 
                     interactable.OnInteract();
+                return;
             }
         }
     }
