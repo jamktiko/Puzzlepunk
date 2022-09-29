@@ -172,6 +172,7 @@ public class VariableManager
     }
     #endregion
     #region Conditions
+    [System.Serializable]
     public class Condition
     {
         public enum Check
