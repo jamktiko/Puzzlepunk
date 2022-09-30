@@ -164,6 +164,10 @@ public class GridNav : MonoBehaviour
     {
         return Vector2Int.CeilToInt((point - origin - Vector2.one * .5f * UnitSize) / UnitSize);
     }
+    public Node[] GetNodesInCircle(Vector2 center, float radius)
+    {
+        return GetNodesInCircle(TranslateCoordinate(center), Mathf.RoundToInt(radius / UnitSize));
+    }
     public Node[] GetNodesInCircle(Vector2Int center, int radius)
     {
         Vector2Int start = center - radius * Vector2Int.one;
@@ -179,13 +183,17 @@ public class GridNav : MonoBehaviour
         }
         return nodes.ToArray();
     }
+    public Node[] GetNodesInBox(Vector2 start, Vector2 end)
+    {
+        return GetNodesInBox(TranslateCoordinate(start),TranslateCoordinate(end));
+    }
     public Node[] GetNodesInBox(Vector2Int start, Vector2Int end)
     {
         List<Node> nodes = new List<Node>();    
         for (Vector2Int pos = start; pos.y <= end.y; pos.x++)
         {
             nodes.Add(GetNodeAt(pos));
-            if (pos.x> end.x)
+            if (pos.x > end.x)
             { pos.x = start.x; pos.y++; }
         }
         return nodes.ToArray();
