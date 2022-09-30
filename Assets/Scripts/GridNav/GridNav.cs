@@ -174,12 +174,17 @@ public class GridNav : MonoBehaviour
         Vector2Int end = center + radius * Vector2Int.one;
 
         List<Node> nodes = new List<Node>();
-        for (Vector2Int pos = start; pos.y <= end.y; pos.x++)
+        for (Vector2Int pos = start; true; pos.x++)
         {
             if ((pos - center).sqrMagnitude < radius * radius)
             nodes.Add(GetNodeAt(pos));
             if (pos.x > end.x)
-            { pos.x = start.x; pos.y++; }
+            { pos.x = start.x; pos.y++; 
+            if (pos.y > end.y)
+            {
+                break;
+            }
+            }
         }
         return nodes.ToArray();
     }
@@ -190,11 +195,16 @@ public class GridNav : MonoBehaviour
     public Node[] GetNodesInBox(Vector2Int start, Vector2Int end)
     {
         List<Node> nodes = new List<Node>();    
-        for (Vector2Int pos = start; pos.y <= end.y; pos.x++)
+        for (Vector2Int pos = start; true; pos.x++)
         {
             nodes.Add(GetNodeAt(pos));
             if (pos.x > end.x)
-            { pos.x = start.x; pos.y++; }
+            { pos.x = start.x; pos.y++; 
+            if (pos.y > end.y)
+            {
+                break;
+            }
+            }
         }
         return nodes.ToArray();
     }

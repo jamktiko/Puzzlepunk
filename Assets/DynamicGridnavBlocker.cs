@@ -39,6 +39,11 @@ public class DynamicGridnavBlocker : MonoBehaviour
     {
         ClearNodes();
     }
+    public void OnMove()
+    {
+        ClearNodes();
+        BlockNodes(transform.position);
+    }
     void ClearNodes()
     {
         foreach (GridNav.Node node in blockedNodes)
@@ -54,12 +59,12 @@ public class DynamicGridnavBlocker : MonoBehaviour
             if (collider.GetType() == typeof(BoxCollider2D))
             {
                 BoxCollider2D BC = (BoxCollider2D)collider;
-                blockedNodes.AddRange(grid.GetNodesInBox(position - BC.size * .5f, position + BC.size * .5f));
+                blockedNodes.AddRange(grid.GetNodesInBox(position - BC.size * .5f + BC.offset, position + BC.size * .5f + BC.offset));
             }
             else if (collider.GetType() == typeof(CircleCollider2D))
             {
                 CircleCollider2D CC = (CircleCollider2D)collider;
-                blockedNodes.AddRange(grid.GetNodesInCircle(position , CC.radius));
+                blockedNodes.AddRange(grid.GetNodesInCircle(position + CC.offset , CC.radius));
             }
         }
         foreach (GridNav.Node node in blockedNodes)
