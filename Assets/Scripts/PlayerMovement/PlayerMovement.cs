@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (TryMoveDirection(nPoint - (Vector2)transform.position, out GridNav.Node node))
         {
-            if (node.passible)
+            if (node.IsPassible())
             {
                 mNode = node;
                 moveCoroutine = StartCoroutine(Move());
@@ -66,17 +66,17 @@ public class PlayerMovement : MonoBehaviour
         }
         else 
         {
-            if (grid.GetNodeAt((Vector2)transform.position + direction * grid.UnitSize, out possible) && possible.passible)
+            if (grid.GetNodeAt((Vector2)transform.position + direction * grid.UnitSize, out possible) && possible.IsPassible())
             {
                 possible = grid.GetNodeDirection(transform.position, direction, MovementDistance);
                 return possible != null;
             }
-            else if (grid.GetNodeAt((Vector2)transform.position + direction.x * Vector2.right * grid.UnitSize, out possible) && possible.passible)
+            else if (grid.GetNodeAt((Vector2)transform.position + direction.x * Vector2.right * grid.UnitSize, out possible) && possible.IsPassible())
             {
                 possible = grid.GetNodeDirection(transform.position, direction.x * Vector2.right, MovementDistance);
                 return possible != null;
             }
-            else if (grid.GetNodeAt((Vector2)transform.position + direction.y * Vector2.up * grid.UnitSize, out possible) && possible.passible)
+            else if (grid.GetNodeAt((Vector2)transform.position + direction.y * Vector2.up * grid.UnitSize, out possible) && possible.IsPassible())
             {
                 possible = grid.GetNodeDirection(transform.position, direction.y * Vector2.up, MovementDistance);
                 return possible != null;

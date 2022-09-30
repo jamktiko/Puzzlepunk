@@ -148,14 +148,14 @@ public class Pathfinder
         }
         UnityEngine.Debug.Log("Initializing Pathfinder");
         currentCell = new Node(grid.GetNodeAt(origin), GetDistanceBetweenTilesSquared(origin, dest), 0);
-        if (!currentCell.point.passible)
+        if (!currentCell.point.IsPassible())
         {
             UnityEngine.Debug.LogWarning("Origin Impassible");
             failure = Failure.impassible_origin;
             return;
         }
         openList.Add(currentCell);
-        if (grid.GetNodeAt(dest) == null || !grid.GetNodeAt(dest).passible && ApproachRange == 0)
+        if (grid.GetNodeAt(dest) == null || !grid.GetNodeAt(dest).IsPassible() && ApproachRange == 0)
         {
             UnityEngine.Debug.LogWarning("Target Impassible " + ApproachRange);
 
@@ -183,7 +183,7 @@ public class Pathfinder
             foreach (Node n in closedList)
             {
                 float dist = (n.point.gridPos - dest).sqrMagnitude;
-                if (n.point.passible && dist < sqrDist)
+                if (n.point.IsPassible() && dist < sqrDist)
                 {
                     newDest = n;
                     sqrDist = dist;
@@ -211,7 +211,7 @@ public class Pathfinder
 
         foreach (GridNav.Node n in currentCell.point.neighbors)
         {
-            if (n != null && n.passible )
+            if (n != null && n.IsPassible())
             {
                 bool exists = false;
                 foreach (var Zim in openList)
@@ -265,7 +265,7 @@ public class Pathfinder
             {
                 foreach (GridNav.Node neighbor in currentCell.point.neighbors)
                 {
-                    if (neighbor!=null && neighbor.passible)
+                    if (neighbor!=null && neighbor.IsPassible())
                     {
                         foreach (Node Gir in closedList)
                         {
