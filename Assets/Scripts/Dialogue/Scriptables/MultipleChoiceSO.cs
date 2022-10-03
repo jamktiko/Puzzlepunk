@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Multiple Choice", menuName = "Dialogue/Multiple Choice")]
+[CreateAssetMenu(fileName = "Multiple Choice", menuName = "Dialogue/Components/Multiple Choice")]
 public class MultipleChoiceSO : DialogueLineSO
 {
     [Header("Choices")]
