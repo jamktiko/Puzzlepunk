@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
     public static LevelController main;
-    RoomComponent[]
-rooms;   
+     RoomComponent[] rooms;   
     NavPoint    [] navPoints;
     void Awake()
     {
@@ -38,6 +38,15 @@ rooms;
         foreach (RoomComponent r in rooms)
         {
             if (r.name == rName)
+                return r;
+        }
+        return null;
+    }
+    public RoomComponent GetRoomByPoint(Vector2 point)
+    {
+        foreach (RoomComponent r in rooms)
+        {
+            if (r.grid.GetNodeAt(point, out GridNav.Node n))
                 return r;
         }
         return null;
