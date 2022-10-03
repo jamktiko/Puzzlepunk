@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Variable Change", menuName = "Dialogue/Variable Change")]
+[CreateAssetMenu(fileName = "Change Variable", menuName = "Dialogue/Components/Change Variable")]
 public class ScriptableDialogueVariableChange : ScriptableDialogue
 {
     public VariableManager.Set[] Changes;

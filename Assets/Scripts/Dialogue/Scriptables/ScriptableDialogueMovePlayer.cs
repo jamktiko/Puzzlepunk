@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Move Player", menuName = "Dialogue/Move Player")]
+[CreateAssetMenu(fileName = "Move Player", menuName = "Dialogue/Components/Move Player")]
 public class ScriptableDialogueMovePlayer : MonoBehaviour
 {
     public string PointName = "";

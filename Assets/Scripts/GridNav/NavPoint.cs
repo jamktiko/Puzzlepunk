@@ -10,10 +10,12 @@ public class NavPoint : MonoBehaviour
     public void Start()
     {
         if (PointID == "")
+        {
             PointID = name;
+        }
             FindRoom();
     }
-    void FindRoom()
+    public void FindRoom()
     {
         if (room == null)
             room = LevelController.main.GetRoomByPoint(transform.position);

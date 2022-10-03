@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static MultipleChoiceSO;
 
-[CreateAssetMenu(fileName = "RandomDialogueSO", menuName = "Dialogue/RandomDialogueSO")]
+[CreateAssetMenu(fileName = "Random Line", menuName = "Dialogue/Components/Random Line")]
 public class RandomDialogueSO : DialogueLineSO
 {
     [Header("Randomly Selected")]

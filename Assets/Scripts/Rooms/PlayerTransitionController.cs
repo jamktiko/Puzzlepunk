@@ -21,6 +21,10 @@ public class PlayerTransitionController : MonoBehaviour
     }
     public void TeleportToPoint(NavPoint roomPoint, bool skipCoroutine)
     {
+        if (roomPoint!=null)
+        {
+            roomPoint.FindRoom();
+        }
             if (roomPoint.room != null)
             {
                 TransitionRoom(roomPoint.room, roomPoint.GetRelativePosition(), skipCoroutine);
