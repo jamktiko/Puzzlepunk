@@ -31,7 +31,7 @@ public class CoinPuzzleController : PuzzleController
         {
             if (coin.IsEmpty() != othercoin.IsEmpty() && coin != othercoin)
             {
-                float MinDist = Mathf.Max(coin.SwapRange, othercoin.SwapRange);
+                float MinDist = Mathf.Max(coin.SwapRange, othercoin.SwapRange) * transform.localScale.y;
                     if ((coin.RectT.position - othercoin.RectT.position).sqrMagnitude < MinDist * MinDist){
                     othercoin.Swap(coin);
                     return;

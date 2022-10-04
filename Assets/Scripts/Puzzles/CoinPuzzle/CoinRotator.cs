@@ -23,6 +23,7 @@ public class CoinRotator : MonoBehaviour
     {
         if (RotationCoroutine != null)
             StopCoroutine(RotationCoroutine);
+
         RotationCoroutine = StartCoroutine(RotateDirection(RotationAngle * (Clockwise ? 1 : -1), RotationTime));
     }
 
@@ -31,7 +32,9 @@ public class CoinRotator : MonoBehaviour
     IEnumerator RotateDirection(float angle, float time)
     {
         DesiredAngle += angle;
-        float rTime = time;
+        float RotationTime = Mathf.DeltaAngle(transform.rotation.eulerAngles.z, DesiredAngle) / angle;
+
+        float rTime = time * RotationTime;
         while (rTime > 0)
         {
             rTime -= Time.deltaTime;
@@ -40,5 +43,6 @@ public class CoinRotator : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         transform.rotation = Quaternion.Euler(0, 0, DesiredAngle);
+        OnRotate();
     }
 }
