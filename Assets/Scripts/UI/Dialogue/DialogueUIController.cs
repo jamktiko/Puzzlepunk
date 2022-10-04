@@ -16,9 +16,17 @@ public class DialogueUIController : MonoBehaviour
     [Header("Components")]
 
     public int wordsPerSecond = 10;
+
+    [Header("Dialogue Box")]
     public TextMeshProUGUI dialogText;
     public TextMeshProUGUI nameText;
+
+    [Header("Multiple Choice")]
     public MultipleChoiceContainer MultipleChoice;
+
+    [Header("Exposition")]
+    public GameObject expositionBox;
+    public TextMeshProUGUI expositionText;
 
     Coroutine CutsceneCoroutine;
     private void Update()
@@ -121,6 +129,7 @@ public class DialogueUIController : MonoBehaviour
     {
         SkipLine = false;
         dialogText.text = "";
+        expositionText.text = "";
 
         char[] line = dialog.ToCharArray();
 
@@ -131,11 +140,17 @@ public class DialogueUIController : MonoBehaviour
                 bool writeWord = true;
                 while (iC < line.Length && writeWord)
                 {
+                    if (Character!=null)
                     dialogText.text += line[iC];
+                    else 
+                        expositionText.text += line[iC];
                     iC++;
                     if (iC < line.Length && line[iC] == ' ')
                     {
-                        dialogText.text += line[iC];
+                        if (Character != null)
+                            dialogText.text += line[iC];
+                        else
+                            expositionText.text += line[iC];
                         writeWord = false;
                     }
                 }
