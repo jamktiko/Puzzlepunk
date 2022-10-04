@@ -32,6 +32,6 @@ public class SpriteSorter : MonoBehaviour
     public void Sort(float delta)
     {
         if (spriteRenderer != null)
-            spriteRenderer.sortingOrder = Mathf.RoundToInt((delta) * 20f);
+            spriteRenderer.sortingOrder = Mathf.RoundToInt((delta) * 20f) + deltaOrder;
     }
 }
