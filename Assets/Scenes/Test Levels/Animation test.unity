@@ -3536,6 +3536,7 @@ GameObject:
   - component: {fileID: 1795334288}
   - component: {fileID: 1795334287}
   - component: {fileID: 1795334286}
+  - component: {fileID: 1795334289}
   m_Layer: 0
   m_Name: CoffeeCupFall-Sheet_0
   m_TagString: Untagged
@@ -3623,13 +3624,32 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795334285}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.0492783, y: 0.61452544, z: 0}
+  m_LocalPosition: {x: -6.82, y: -3.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &1795334289
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795334285}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 2f136358b195dc64bb028557a428d0ef, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 1114903341941164143, guid: 2f136358b195dc64bb028557a428d0ef, type: 2}
+    value: {fileID: 1795334286}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &1848435375
 GameObject:
   m_ObjectHideFlags: 0
