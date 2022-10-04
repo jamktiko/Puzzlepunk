@@ -4581,6 +4581,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coffee cup
       objectReference: {fileID: 0}
+    - target: {fileID: 4219418915257221241, guid: bde9c49c7d3f73d40a463cb888aa836b, type: 3}
+      propertyPath: deltaOrder
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bde9c49c7d3f73d40a463cb888aa836b, type: 3}
 --- !u!4 &559824643 stripped
@@ -11526,6 +11530,7 @@ GameObject:
   - component: {fileID: 1058100586}
   - component: {fileID: 1058100590}
   - component: {fileID: 1058100591}
+  - component: {fileID: 1058100592}
   m_Layer: 5
   m_Name: Lock Puzzle UI
   m_TagString: Untagged
@@ -11582,7 +11587,7 @@ Canvas:
   m_GameObject: {fileID: 1058100585}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -11590,8 +11595,8 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
+  m_AdditionalShaderChannelsFlag: -1
+  m_SortingLayerID: -2060628581
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1058100589
@@ -11687,6 +11692,20 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 11400000, guid: a01387b4ec5a7aa4cacd90255f2ec02e, type: 2}
+--- !u!114 &1058100592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058100585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d77c2036ea122f648a9daa4601345530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingLayer: UI
+  mCanvas: {fileID: 1058100588}
 --- !u!1001 &1062039456
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25057,6 +25076,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 731350673}
     m_Modifications:
+    - target: {fileID: 3806103860957550151, guid: 9fb7e627a9db7464a894aa8348c69908, type: 3}
+      propertyPath: deltaOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4161468785461173689, guid: 9fb7e627a9db7464a894aa8348c69908, type: 3}
       propertyPath: m_Name
       value: Mouse
