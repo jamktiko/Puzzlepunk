@@ -12,6 +12,25 @@ public class PlayerTransitionController : MonoBehaviour
     }
 
     public RoomComponent CurrentRoom;
+    public void TeleportToPoint(string pointName, bool skipCoroutine)
+    {
+        if (LevelController.main != null && LevelController.main.GetPointByName(pointName) != null)
+        {
+            TeleportToPoint( LevelController.main.GetPointByName(pointName), skipCoroutine);
+        }
+    }
+    public void TeleportToPoint(NavPoint roomPoint, bool skipCoroutine)
+    {
+        if (roomPoint!=null)
+        {
+            roomPoint.FindRoom();
+        }
+            if (roomPoint.room != null)
+            {
+                TransitionRoom(roomPoint.room, roomPoint.GetRelativePosition(), skipCoroutine);
+            }
+        
+    }
     public void TransitionRoom(string newRoomName, Vector2 pointPosition, bool skipCoroutine)
     {
         if (LevelController.main != null && LevelController.main.GetRoomByName(newRoomName) != null)
@@ -22,6 +41,9 @@ public class PlayerTransitionController : MonoBehaviour
     Coroutine TransitionCoroutine;
     public void TransitionRoom(RoomComponent newRoom, Vector2 pointPosition, bool skipCoroutine)
     {
+        if (newRoom == CurrentRoom)
+            return;
+
         if (skipCoroutine)
         {
             MovePlayerToNewRoom(newRoom, pointPosition);

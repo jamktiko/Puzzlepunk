@@ -13,7 +13,8 @@ public class GridNav : MonoBehaviour
     {
         public Vector2Int gridPos;
         public Vector2 worldPos;
-        public bool passible;
+         bool passible;
+         bool blocked;
         public Node[] neighbors;
 
         public Node(Vector2Int gridPos, Vector2 worldPos)
@@ -25,6 +26,10 @@ public class GridNav : MonoBehaviour
         public bool IsNeighboring(Node other)
         {
             return Mathf.Abs(other.gridPos.x - gridPos.x) <= 1 && Mathf.Abs(other.gridPos.y - gridPos.y) <= 1;
+        }
+        public bool IsPassible()
+        {
+            return passible && !blocked;
         }
 
         public void Init(GridNav nav)
@@ -56,17 +61,9 @@ public class GridNav : MonoBehaviour
                 nav.GetNodeAt(gridPos + Vector2Int.left + Vector2Int.down),
                 };
         }
-        public override bool Equals(object obj)
+        public void SetBlocked(bool value)
         {
-            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
-            {
-                return false;
-            }
-            else
-            {
-                Node p = (Node)obj;
-                return gridPos == p.gridPos;
-            }
+            blocked = value;
         }
     }
     private void Awake()
@@ -103,7 +100,7 @@ public class GridNav : MonoBehaviour
     {
         return height;
     }
-    public bool GetNodeAt(Vector2 pos, out GridNav.Node node)
+    public bool GetNodeAt(Vector2 pos, out Node node)
     {
         node = GetNodeAt(TranslateCoordinate(pos));
         return node != null;
@@ -125,7 +122,7 @@ public class GridNav : MonoBehaviour
         for (int i = 0; i< maxLength; i++)
         {
             Node temp = GetNodeAt(center + direction * i);
-            if (temp!=null && temp.passible)
+            if (temp!=null && temp.IsPassible())
             {
                 oNode = temp;
             }
@@ -141,7 +138,7 @@ public class GridNav : MonoBehaviour
         if (Nodes!=null)
         foreach (Node n in Nodes)
         {
-            Gizmos.color = n.passible ? Color.green : Color.red;
+            Gizmos.color = n.IsPassible() ? Color.green : Color.red;
             Gizmos.DrawSphere(n.worldPos, UnitSize * .5f);
         }
     }
@@ -151,7 +148,7 @@ public class GridNav : MonoBehaviour
         Node dest = null;
         foreach (Node n in Nodes)
         {
-            if (n.passible)
+            if (n.IsPassible())
             {
                 float dist = (n.gridPos - point).sqrMagnitude;
                 if (dist < sqrDist)
@@ -166,5 +163,49 @@ public class GridNav : MonoBehaviour
     public Vector2Int TranslateCoordinate(Vector2 point)
     {
         return Vector2Int.CeilToInt((point - origin - Vector2.one * .5f * UnitSize) / UnitSize);
+    }
+    public Node[] GetNodesInCircle(Vector2 center, float radius)
+    {
+        return GetNodesInCircle(TranslateCoordinate(center), Mathf.RoundToInt(radius / UnitSize));
+    }
+    public Node[] GetNodesInCircle(Vector2Int center, int radius)
+    {
+        Vector2Int start = center - radius * Vector2Int.one;
+        Vector2Int end = center + radius * Vector2Int.one;
+
+        List<Node> nodes = new List<Node>();
+        for (Vector2Int pos = start; true; pos.x++)
+        {
+            if ((pos - center).sqrMagnitude < radius * radius)
+            nodes.Add(GetNodeAt(pos));
+            if (pos.x > end.x)
+            { pos.x = start.x; pos.y++; 
+            if (pos.y > end.y)
+            {
+                break;
+            }
+            }
+        }
+        return nodes.ToArray();
+    }
+    public Node[] GetNodesInBox(Vector2 start, Vector2 end)
+    {
+        return GetNodesInBox(TranslateCoordinate(start),TranslateCoordinate(end));
+    }
+    public Node[] GetNodesInBox(Vector2Int start, Vector2Int end)
+    {
+        List<Node> nodes = new List<Node>();    
+        for (Vector2Int pos = start; true; pos.x++)
+        {
+            nodes.Add(GetNodeAt(pos));
+            if (pos.x > end.x)
+            { pos.x = start.x; pos.y++; 
+            if (pos.y > end.y)
+            {
+                break;
+            }
+            }
+        }
+        return nodes.ToArray();
     }
 }

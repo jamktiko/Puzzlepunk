@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Room Change", menuName = "Dialogue/Room Change")]
+[CreateAssetMenu(fileName = "Room Transition", menuName = "Dialogue/Components/Room Transition")]
 public class ScriptableDialogueRoomTransition : ScriptableDialogue
 {
     public string RoomName = "";

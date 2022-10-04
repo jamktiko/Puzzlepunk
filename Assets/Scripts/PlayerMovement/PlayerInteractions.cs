@@ -17,7 +17,7 @@ public class PlayerInteractions : MonoBehaviour
     }
     public void HandleInteractCommand()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        if (PlayerMovement.main.CanAct() && Input.GetKeyDown(KeyCode.X))
             PlayerInteract();
     }
 
