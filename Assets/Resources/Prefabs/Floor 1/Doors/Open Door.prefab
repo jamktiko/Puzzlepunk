@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7581480704265090435}
   - component: {fileID: 7581480704265090432}
   - component: {fileID: 8047714512326659964}
-  - component: {fileID: 2383690214200205418}
   - component: {fileID: 612881786073975707}
+  - component: {fileID: 4638916427530492852}
   m_Layer: 0
   m_Name: Open Door
   m_TagString: Untagged
@@ -113,21 +113,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.37}
   m_EdgeRadius: 0
---- !u!114 &2383690214200205418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7581480704265090433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e10eda06b4246684b8fa507626fa2cca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destinationRoom: {fileID: 0}
-  destination: {x: -5.27, y: 1.53}
-  instant: 0
 --- !u!114 &612881786073975707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,9 +128,9 @@ MonoBehaviour:
   uEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2383690214200205418}
-        m_TargetAssemblyTypeName: RoomTransition, Assembly-CSharp
-        m_MethodName: TriggerTransition
+      - m_Target: {fileID: 4638916427530492852}
+        m_TargetAssemblyTypeName: PointTransition, Assembly-CSharp
+        m_MethodName: MovePlayerToPoint
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -156,3 +141,17 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   SingleUse: 0
+--- !u!114 &4638916427530492852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7581480704265090433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0adb8f3d63d130d418bc32f6e6ee417c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navPoint: {fileID: 0}
+  instant: 0
