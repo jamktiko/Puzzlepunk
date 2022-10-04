@@ -21,12 +21,20 @@ public class DialogueComponent : MonoBehaviour
     }
     public void Play()
     {
-        if (enabled && CutsceneScript!=null)
+        if (enabled && CutsceneScript != null)
         {
 
             UIController.main.dialogueController.PlayCutscene(CutsceneScript);
             if (OnlyTriggerOnce)
                 enabled = false;
+        }
+    }
+    public void PlayScript(DialogueScriptSO Script)
+    {
+        if (enabled && Script != null)
+        {
+
+            UIController.main.dialogueController.PlayCutscene(Script);
         }
     }
 
