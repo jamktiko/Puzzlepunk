@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Line", menuName = "Dialogue/Line")]
+[CreateAssetMenu(fileName = "Line", menuName = "Dialogue/Components/Line")]
 public class DialogueLineSO : ScriptableDialogue
 {
     public enum CharacterEmotion

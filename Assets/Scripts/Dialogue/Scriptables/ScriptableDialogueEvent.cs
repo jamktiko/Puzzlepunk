@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "Event", menuName = "Dialogue/Event")]
+[CreateAssetMenu(fileName = "Event", menuName = "Dialogue/Components/Event")]
 
 public class ScriptableDialogueEvent : ScriptableDialogue
 {
