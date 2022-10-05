@@ -43,7 +43,7 @@ public class UIController : MonoBehaviour
         if (robotController != null)
             robotController.gameObject.SetActive(nWindow == UIWindow.robot);
 
-        if (nWindow != UIWindow.none && activeDirector != null)
+        if (nWindow != UIWindow.none && activeDirector != null && activeDirector.playableGraph.IsValid())
         {
             activeDirector.playableGraph.GetRootPlayable(0).SetSpeed(0);
         }
@@ -52,7 +52,7 @@ public class UIController : MonoBehaviour
     {
         OpenWindow(UIWindow.none);
         dialogueController.ForgetNPC();
-        if (activeDirector != null)
+        if (activeDirector != null && activeDirector.playableGraph.IsValid())
         {
             activeDirector.playableGraph.GetRootPlayable(0).SetSpeed(1);
             activeDirector = null;
