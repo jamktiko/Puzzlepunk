@@ -2201,7 +2201,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -713543363, guid: 5bf56ad2f1779054faa0c386eae52c37, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -11582,6 +11582,8 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: -6527797700291061013, guid: 5dbeb888a93b5e64581647850e74f140, type: 2}
     value: {fileID: 604272600}
+  - key: {fileID: 7464969296407396835, guid: 5dbeb888a93b5e64581647850e74f140, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &959028503
@@ -14623,6 +14625,26 @@ PrefabInstance:
       propertyPath: m_InitialState
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2456085013318153440, guid: bde9c49c7d3f73d40a463cb888aa836b, type: 3}
+      propertyPath: m_SceneBindings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456085013318153440, guid: bde9c49c7d3f73d40a463cb888aa836b, type: 3}
+      propertyPath: m_SceneBindings.Array.data[1].key
+      value: 
+      objectReference: {fileID: -2633417648008375815, guid: 2f136358b195dc64bb028557a428d0ef, type: 2}
+    - target: {fileID: 2456085013318153440, guid: bde9c49c7d3f73d40a463cb888aa836b, type: 3}
+      propertyPath: m_SceneBindings.Array.data[2].key
+      value: 
+      objectReference: {fileID: -4684288675758501053, guid: 2f136358b195dc64bb028557a428d0ef, type: 2}
+    - target: {fileID: 2456085013318153440, guid: bde9c49c7d3f73d40a463cb888aa836b, type: 3}
+      propertyPath: m_SceneBindings.Array.data[1].value
+      value: 
+      objectReference: {fileID: 218278989}
+    - target: {fileID: 2456085013318153440, guid: bde9c49c7d3f73d40a463cb888aa836b, type: 3}
+      propertyPath: m_SceneBindings.Array.data[2].value
+      value: 
+      objectReference: {fileID: 218278989}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bde9c49c7d3f73d40a463cb888aa836b, type: 3}
 --- !u!4 &1349403466 stripped
@@ -14690,8 +14712,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.06, y: 0.06}
+    pivot: {x: 0.88, y: 0.88}
+    oldSize: {x: 0.32, y: 0.4}
     newSize: {x: 0.06, y: 0.06}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
