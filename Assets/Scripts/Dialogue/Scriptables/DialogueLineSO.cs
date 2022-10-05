@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Line", menuName = "Dialogue/Components/Line")]
-public class DialogueLineSO : ScriptableDialogue
+public class DialogueLineSO : DialogueWait
 {
     public enum CharacterEmotion
     {
@@ -21,7 +21,6 @@ public class DialogueLineSO : ScriptableDialogue
 
     [Header("Dialoge")]
     public string DialogueQuestion;
-    public float WaitTime;
 
     public virtual string GetDialogueLine()
     {
@@ -32,9 +31,16 @@ public class DialogueLineSO : ScriptableDialogue
         DC.LoadDialogueCharacter(this);
         string DialogueQuestion = GetDialogueLine();
         yield return DC.TypeDialog(DialogueQuestion);
-        if (WaitTime>0)
-            yield return DC.PostLineWait(WaitTime);
-        else 
-        yield return DC.PostLineWait(DialogueQuestion);
+        if (WaitTime > 0)
+        {
+            yield return base.Run(DC);
+        }
+        else
+        {
+            if (Skippable)
+                yield return DC.PostLineWait(DialogueQuestion);
+            else
+                yield return new WaitForSeconds(WaitTime);
+        }
     }
 }
