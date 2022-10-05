@@ -55,6 +55,7 @@ public class UIController : MonoBehaviour
         if (activeDirector != null)
         {
             activeDirector.playableGraph.GetRootPlayable(0).SetSpeed(1);
+            activeDirector = null;
         }
     }
 
