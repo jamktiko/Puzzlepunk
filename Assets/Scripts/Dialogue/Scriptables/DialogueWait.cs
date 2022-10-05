@@ -7,7 +7,7 @@ public class DialogueWait : ScriptableDialogue
 {
     [Header("Waiting")]
     public float WaitTime;
-    public bool Skippable = false;
+    public bool Skippable = true;
     public override IEnumerator Run(DialogueUIController DC)
     {
         if (WaitTime > 0)

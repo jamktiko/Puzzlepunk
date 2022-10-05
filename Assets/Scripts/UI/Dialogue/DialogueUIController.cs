@@ -154,7 +154,7 @@ public class DialogueUIController : MonoBehaviour
         }
         dialogText.text = dialog;
     }
-    float GetWaitValue(string line)
+    public float GetWaitValue(string line)
     {
         return 2f + line.Length * .03f; 
     }

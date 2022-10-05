@@ -40,7 +40,7 @@ public class DialogueLineSO : DialogueWait
             if (Skippable)
                 yield return DC.PostLineWait(DialogueQuestion);
             else
-                yield return new WaitForSeconds(WaitTime);
+                yield return new WaitForSeconds(DC.GetWaitValue(DialogueQuestion));
         }
     }
 }
