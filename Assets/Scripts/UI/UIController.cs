@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class UIController : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class UIController : MonoBehaviour
     public DialogueUIController dialogueController;
     public RobotMenu robotController;
     public TransitionScreenController TransitionScreen;
+
 
     public enum UIWindow
     {
@@ -40,10 +42,22 @@ public class UIController : MonoBehaviour
 
         if (robotController != null)
             robotController.gameObject.SetActive(nWindow == UIWindow.robot);
+
+        if (nWindow != UIWindow.none && activeDirector != null && activeDirector.state == PlayState.Playing)
+            activeDirector.Pause();
     }
     public void CloseWindow()
     {
         OpenWindow( UIWindow.none);
         dialogueController.ForgetNPC();
+        if (activeDirector != null && activeDirector.state == PlayState.Paused)
+            activeDirector.Resume();
+    }
+
+
+    public PlayableDirector activeDirector;
+    public void AssignDirector(PlayableDirector nDirector)
+    {
+        activeDirector = nDirector;
     }
 }
