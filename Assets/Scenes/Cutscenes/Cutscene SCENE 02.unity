@@ -3608,6 +3608,7 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 11400000, guid: d1e8a6a41aca48f4099f9b54ded93e2a, type: 2}
+  Director: {fileID: 0}
 --- !u!114 &463193477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6643,7 +6644,11 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: 53a57ad62c305e7479777f7795a6e39e, type: 2}
-    - {fileID: 0}
+    - {fileID: 11400000, guid: 1cc2c00bbbc38214d98d0756cda9b416, type: 2}
+    - {fileID: 11400000, guid: f2f2870cf0c5bf54aa230de748435970, type: 2}
+    - {fileID: 11400000, guid: 032487017c09e1f4a8dea430cc094418, type: 2}
+    - {fileID: 11400000, guid: 72fd5d5e77b37cd42933a7c7ff725e5e, type: 2}
+    - {fileID: 11400000, guid: 86492edcc8853894fa5e4dfb20cdf1bd, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -6659,6 +6664,50 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 604272601}
+          m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+          m_MethodName: PlayScript
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 55812aec80c75d04b9114660db813111, type: 2}
+            m_ObjectArgumentAssemblyTypeName: DialogueScriptSO, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 604272601}
+          m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+          m_MethodName: PlayScript
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 901e488775feb3d47b2558623bf402fa, type: 2}
+            m_ObjectArgumentAssemblyTypeName: DialogueScriptSO, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 604272601}
+          m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+          m_MethodName: PlayScript
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 81a053510b094ad45beeb6592410798c, type: 2}
+            m_ObjectArgumentAssemblyTypeName: DialogueScriptSO, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls: []
     - m_PersistentCalls:
         m_Calls: []
 --- !u!114 &604272601
@@ -6676,6 +6725,7 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 0}
+  Director: {fileID: 0}
 --- !u!1001 &606559422
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10775,6 +10825,7 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 11400000, guid: e4a9dadd1abe761459c53f70efef4186, type: 2}
+  Director: {fileID: 0}
 --- !u!114 &869428149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11789,6 +11840,7 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 11400000, guid: d1016275582dac1459c152772bf227eb, type: 2}
+  Director: {fileID: 0}
 --- !u!1001 &1001620615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13311,6 +13363,7 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 11400000, guid: 58bbf11fb52fbcb498df723bf6ea9f91, type: 2}
+  Director: {fileID: 0}
 --- !u!1 &1224564583
 GameObject:
   m_ObjectHideFlags: 0
@@ -13639,6 +13692,7 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 11400000, guid: e4a9dadd1abe761459c53f70efef4186, type: 2}
+  Director: {fileID: 0}
 --- !u!1 &1312963563
 GameObject:
   m_ObjectHideFlags: 0
@@ -13794,6 +13848,7 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 11400000, guid: c3a6ff5171dcaef4ca477d44205b4837, type: 2}
+  Director: {fileID: 0}
 --- !u!114 &1338109904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15348,6 +15403,7 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 11400000, guid: 3361e527b7c1c5740af1b6beece2ac2c, type: 2}
+  Director: {fileID: 0}
 --- !u!1001 &1495251261
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24652,6 +24708,7 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 11400000, guid: 579325b7ad83b6140b0084470ab7b406, type: 2}
+  Director: {fileID: 0}
 --- !u!114 &1644406020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24785,6 +24842,7 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 11400000, guid: e4a9dadd1abe761459c53f70efef4186, type: 2}
+  Director: {fileID: 0}
 --- !u!1 &1660625180 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7559204460862756295, guid: 5e65a8a4c28faaf40b8f89ef03b0335a, type: 3}
@@ -24833,6 +24891,7 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 11400000, guid: 7d2f4e2d5cee6a145b2f0a7306ce9a05, type: 2}
+  Director: {fileID: 0}
 --- !u!1 &1668330414
 GameObject:
   m_ObjectHideFlags: 0
@@ -24977,6 +25036,7 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 11400000, guid: 26990749e57ec304aa6cac155f85a0af, type: 2}
+  Director: {fileID: 0}
 --- !u!61 &1688125439
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25450,6 +25510,7 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 11400000, guid: ba7d0227f401bac4cb8f6e91b5ee601e, type: 2}
+  Director: {fileID: 0}
 --- !u!1001 &1751849565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25594,6 +25655,7 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 11400000, guid: 9105d7146e111ad4593fa128b4bfbf3d, type: 2}
+  Director: {fileID: 0}
 --- !u!114 &1817908048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25753,6 +25815,7 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 11400000, guid: 0191a48189517c649a2e8595513feb8a, type: 2}
+  Director: {fileID: 0}
 --- !u!1 &1823345430
 GameObject:
   m_ObjectHideFlags: 0
@@ -26114,6 +26177,7 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 11400000, guid: 69481970ea3049349ba8ff645635b7be, type: 2}
+  Director: {fileID: 0}
 --- !u!1001 &1903287055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27262,6 +27326,7 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 11400000, guid: 6f422e291cafa4c49bb777f42aa52796, type: 2}
+  Director: {fileID: 0}
 --- !u!1001 &2044836128
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27401,6 +27466,7 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 11400000, guid: e4a9dadd1abe761459c53f70efef4186, type: 2}
+  Director: {fileID: 0}
 --- !u!114 &2047495555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29209,6 +29275,7 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 11400000, guid: c3a6ff5171dcaef4ca477d44205b4837, type: 2}
+  Director: {fileID: 0}
 --- !u!1 &2113270077
 GameObject:
   m_ObjectHideFlags: 0
