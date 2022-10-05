@@ -41,14 +41,14 @@ public class PlayerTransitionController : MonoBehaviour
     Coroutine TransitionCoroutine;
     public void TransitionRoom(RoomComponent newRoom, Vector2 pointPosition, bool skipCoroutine)
     {
-        if (newRoom == CurrentRoom)
-            return;
 
         if (skipCoroutine)
         {
             MovePlayerToNewRoom(newRoom, pointPosition);
             return;
         }
+        else if (newRoom == CurrentRoom)
+            return;
         if (TransitionCoroutine!=null)
         {
             StopCoroutine(TransitionCoroutine);

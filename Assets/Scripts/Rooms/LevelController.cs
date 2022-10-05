@@ -52,21 +52,12 @@ public class LevelController : MonoBehaviour
         return null;
     }
 
-    public RoomComponent StartingRoom;
-    public Vector2 StartingPosition;
+    public NavPoint StartingPoint;
     void InitPlayer()
     {
-        if (StartingRoom != null && PlayerTransitionController.main!=null)
+        if (StartingPoint != null && PlayerTransitionController.main!=null)
         {
-            PlayerTransitionController.main.TransitionRoom(StartingRoom, StartingPosition,true);
+            PlayerTransitionController.main.TeleportToPoint(StartingPoint, true);
         }
         }
-    void OnDrawGizmosSelected()
-    {
-        if (StartingRoom != null)
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawSphere(StartingRoom.transform.position + (Vector3)StartingPosition, .1f * transform.lossyScale.x);
-        }
-    }
 }

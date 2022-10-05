@@ -10,17 +10,22 @@ public class PlayerCinematicController : MonoBehaviour
         main = this;
     }
     bool CinematicMode = false;
+    public void EnableInvisibleMode()
+    {
+        SetCinematicMode(true,true);
+    }
     public void EnableCinematicMode()
     {
-        SetCinematicMode(true);
+        SetCinematicMode(true, false);
     }
     public void DisableCinematicMode()
     {
-        SetCinematicMode(false);
+        SetCinematicMode(false, false);
     }
-    public void SetCinematicMode(bool toValue)
+    public void SetCinematicMode(bool toValue, bool invisible)
     {
         CinematicMode= toValue;
+        gameObject.SetActive(!invisible);
         Debug.Log("Cinematic mode " + toValue);
     }
     public bool IsInCinematicMode()
