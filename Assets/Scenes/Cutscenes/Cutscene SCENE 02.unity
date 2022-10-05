@@ -6643,6 +6643,7 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: 53a57ad62c305e7479777f7795a6e39e, type: 2}
+    - {fileID: 0}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -6651,13 +6652,15 @@ MonoBehaviour:
           m_MethodName: PlayScript
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgument: {fileID: 11400000, guid: 44c62fa9d169a9f4a8e84c3af9984424, type: 2}
             m_ObjectArgumentAssemblyTypeName: DialogueScriptSO, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls: []
 --- !u!114 &604272601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12000,17 +12003,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9176139490362017502, guid: 0ccc187efb802bb4e98d0b76b1b01fa6, type: 3}
   m_PrefabInstance: {fileID: 118877237}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1051266110 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1903287058, guid: 0ccc187efb802bb4e98d0b76b1b01fa6, type: 3}
-  m_PrefabInstance: {fileID: 118877237}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1051266109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e10eda06b4246684b8fa507626fa2cca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1051266114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12026,7 +12018,7 @@ MonoBehaviour:
   uEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1051266110}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RoomTransition, Assembly-CSharp
         m_MethodName: TriggerTransition
         m_Mode: 1
