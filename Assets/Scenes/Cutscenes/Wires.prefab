@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4580882121197013275}
   - component: {fileID: 4580882121197013274}
-  - component: {fileID: 4580882121197013273}
   - component: {fileID: 4580882121197013272}
   m_Layer: 0
   m_Name: Wires
@@ -86,35 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!320 &4580882121197013273
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4580882121197013279}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 5dbeb888a93b5e64581647850e74f140, type: 2}
-  m_InitialState: 1
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: 1114903341941164143, guid: 2f136358b195dc64bb028557a428d0ef, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: 7691170557758793430, guid: 5dbeb888a93b5e64581647850e74f140, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: 3625174812130717993, guid: 5dbeb888a93b5e64581647850e74f140, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: 165912059413395220, guid: 5dbeb888a93b5e64581647850e74f140, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: -6527797700291061013, guid: 5dbeb888a93b5e64581647850e74f140, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: 7464969296407396835, guid: 5dbeb888a93b5e64581647850e74f140, type: 2}
-    value: {fileID: 0}
-  m_ExposedReferences:
-    m_References: []
 --- !u!95 &4580882121197013272
 Animator:
   serializedVersion: 4
