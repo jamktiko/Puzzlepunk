@@ -21,6 +21,7 @@ public class DialogueLineSO : ScriptableDialogue
 
     [Header("Dialoge")]
     public string DialogueQuestion;
+    public float WaitTime;
 
     public virtual string GetDialogueLine()
     {
@@ -31,6 +32,9 @@ public class DialogueLineSO : ScriptableDialogue
         DC.LoadDialogueCharacter(this);
         string DialogueQuestion = GetDialogueLine();
         yield return DC.TypeDialog(DialogueQuestion);
+        if (WaitTime>0)
+            yield return DC.PostLineWait(WaitTime);
+        else 
         yield return DC.PostLineWait(DialogueQuestion);
     }
 }

@@ -118,7 +118,10 @@ public class DialogueUIController : MonoBehaviour
     bool SkipLine = false;
     public IEnumerator PostLineWait(string line)
     {
-        float Wait = GetWaitValue(line);
+            yield return PostLineWait(GetWaitValue(line));        
+    }
+    public IEnumerator PostLineWait(float Wait)
+    {
         if (Wait > 0)
         {
             SkipLine = false;
