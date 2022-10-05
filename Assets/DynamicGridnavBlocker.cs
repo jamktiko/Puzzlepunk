@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DynamicGridnavBlocker : MonoBehaviour
+public class DynamicGridnavBlocker : MonoBehaviour, IOnMoved
 {
     public GridNav grid;
     public Collider2D collider;

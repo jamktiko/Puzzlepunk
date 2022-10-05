@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpriteSorter : MonoBehaviour
+public class SpriteSorter : MonoBehaviour, IOnMoved
 {
     int originalOrder = 0;
     public float DeltaY;
@@ -26,6 +26,10 @@ public class SpriteSorter : MonoBehaviour
 
 
     void Start()
+    {
+        OnMove();
+    }
+    public void OnMove()
     {
         Sort(-transform.localPosition.y - DeltaY);
     }
