@@ -4809,11 +4809,6 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 4580882121197013272, guid: 177d867f297f62d4e9c5d79c1f90b6f1, type: 3}
   m_PrefabInstance: {fileID: 4580882121494855388}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &526944927 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6533100814755294165, guid: a182196b918cb634a9bfe1ed7fd20412, type: 3}
-  m_PrefabInstance: {fileID: 6539645528646467139}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &560194194
 GameObject:
   m_ObjectHideFlags: 0
@@ -14194,32 +14189,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1349403472, guid: a182196b918cb634a9bfe1ed7fd20412, type: 3}
   m_PrefabInstance: {fileID: 6539645528646467139}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 526944927}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &1349403476
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 526944927}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 30794c0196809b9418cc650bfe8599d4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1359861382
 GameObject:
   m_ObjectHideFlags: 0
@@ -30875,7 +30850,7 @@ PrefabInstance:
     - target: {fileID: 8706787094646933994, guid: a182196b918cb634a9bfe1ed7fd20412, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value
       value: 
-      objectReference: {fileID: 1349403476}
+      objectReference: {fileID: 0}
     - target: {fileID: 8706787094646933994, guid: a182196b918cb634a9bfe1ed7fd20412, type: 3}
       propertyPath: m_SceneBindings.Array.data[1].value
       value: 
@@ -30902,6 +30877,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a182196b918cb634a9bfe1ed7fd20412, type: 3}
+--- !u!114 &6539645528646467140 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2381336535331905235, guid: a182196b918cb634a9bfe1ed7fd20412, type: 3}
+  m_PrefabInstance: {fileID: 6539645528646467139}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b06cdc459f52545bf0059d09dad2cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7739116182366476341
 PrefabInstance:
   m_ObjectHideFlags: 0
