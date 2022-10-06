@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 652655373462520160}
   - component: {fileID: 652655373462520161}
+  - component: {fileID: 2765187338355363591}
   m_Layer: 0
   m_Name: Scene02 start
   m_TagString: Untagged
@@ -42,7 +43,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 5dbeb888a93b5e64581647850e74f140, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 0
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -59,3 +60,18 @@ PlayableDirector:
     value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &2765187338355363591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652655373462520162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b06cdc459f52545bf0059d09dad2cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayOnAwake: 1
+  MakePlayerInvisible: 1
+  Director: {fileID: 652655373462520161}
