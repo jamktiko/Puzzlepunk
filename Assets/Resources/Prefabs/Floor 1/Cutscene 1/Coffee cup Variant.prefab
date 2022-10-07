@@ -56,10 +56,6 @@ PrefabInstance:
       value: Coffee cup Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2456085013318153440, guid: bde9c49c7d3f73d40a463cb888aa836b, type: 3}
-      propertyPath: m_WrapMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2456085013318153440, guid: bde9c49c7d3f73d40a463cb888aa836b, type: 3}
       propertyPath: m_InitialState
       value: 0
       objectReference: {fileID: 0}
@@ -139,7 +135,6 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 11400000, guid: 7e204d923c371fb438690ae83e7f8f65, type: 2}
-  Director: {fileID: 8706787094646933994}
 --- !u!114 &1349403470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +150,7 @@ MonoBehaviour:
   uEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2381336535331905235}
         m_TargetAssemblyTypeName: CinematicsController, Assembly-CSharp
         m_MethodName: StartCinematic
         m_Mode: 1
@@ -243,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23b06cdc459f52545bf0059d09dad2cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayOnAwake: 0
+  PlayOnStart: 0
   MakePlayerInvisible: 0
   Director: {fileID: 8706787094646933994}
   OnStart:

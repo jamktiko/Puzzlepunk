@@ -48,6 +48,7 @@ public class DynamicGridnavBlocker : MonoBehaviour, IOnMoved
     {
         foreach (GridNav.Node node in blockedNodes)
         {
+            if (node!=null)
             node.SetBlocked(false);
         }
         blockedNodes.Clear();
@@ -64,11 +65,12 @@ public class DynamicGridnavBlocker : MonoBehaviour, IOnMoved
             else if (collider.GetType() == typeof(CircleCollider2D))
             {
                 CircleCollider2D CC = (CircleCollider2D)collider;
-                blockedNodes.AddRange(grid.GetNodesInCircle(position + CC.offset , CC.radius));
+                blockedNodes.AddRange(grid.GetNodesInCircle(position + CC.offset , CC.radius * .5f));
             }
         }
         foreach (GridNav.Node node in blockedNodes)
         {
+            if (node!=null)
             node.SetBlocked(true);
         }
     }

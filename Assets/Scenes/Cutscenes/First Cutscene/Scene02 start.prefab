@@ -58,6 +58,8 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: 7464969296407396835, guid: 5dbeb888a93b5e64581647850e74f140, type: 2}
     value: {fileID: 0}
+  - key: {fileID: -5468948262424105712, guid: 5dbeb888a93b5e64581647850e74f140, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &2765187338355363591
@@ -72,7 +74,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23b06cdc459f52545bf0059d09dad2cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayOnAwake: 1
+  PlayOnAwake: 0
+  PlayOnEnable: 0
   MakePlayerInvisible: 1
   Director: {fileID: 652655373462520161}
   OnStart:
@@ -80,4 +83,16 @@ MonoBehaviour:
       m_Calls: []
   OnFinish:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

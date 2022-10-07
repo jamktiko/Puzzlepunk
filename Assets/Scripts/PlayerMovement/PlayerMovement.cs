@@ -27,14 +27,23 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         if (!CanAct())
+        {
+            if (IsWalking())
+                Stop();
             return;
+        }
         if (IsWalking())
             return;
         HandleMovement();
     }
     public bool CanAct()
     {
-        return !(UIController.main != null && (UIController.main.dialogueController.IsInDialogueMode() || UIController.main.robotController.IsPuzzleMode())) || (PlayerCinematicController.main != null && PlayerCinematicController.main.IsInCinematicMode());
+        if (UIController.main != null && (UIController.main.dialogueController.IsInDialogueMode() || UIController.main.robotController.IsPuzzleMode()))
+            return false;
+
+        if (PlayerCinematicController.main != null && PlayerCinematicController.main.IsInCinematicMode())
+            return false;
+        return true;
     }
 
 
@@ -145,6 +154,6 @@ public class PlayerMovement : MonoBehaviour
     public float SprintMultiplier = 2f;
     bool IsSprinting()
     {
-        return Input.GetMouseButton(0);
+        return Input.GetButton("Skip");
     }
 }
