@@ -34,7 +34,12 @@ public class PlayerMovement : MonoBehaviour
     }
     public bool CanAct()
     {
-        return !(UIController.main != null && (UIController.main.dialogueController.IsInDialogueMode() || UIController.main.robotController.IsPuzzleMode())) || (PlayerCinematicController.main != null && PlayerCinematicController.main.IsInCinematicMode());
+        if (UIController.main != null && (UIController.main.dialogueController.IsInDialogueMode() || UIController.main.robotController.IsPuzzleMode()))
+            return false;
+
+        if (PlayerCinematicController.main != null && PlayerCinematicController.main.IsInCinematicMode())
+            return false;
+        return true;
     }
 
 

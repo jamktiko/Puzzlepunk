@@ -55,7 +55,6 @@ public class UIController : MonoBehaviour
         if (CinematicsController.active != null)
         {
             CinematicsController.active.SetPlayMode( CinematicsController.PlayMode.playing);
-            CinematicsController.active = null;
         }
     }
 

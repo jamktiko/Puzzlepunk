@@ -24,31 +24,20 @@ public class CinematicsController : MonoBehaviour
     public UnityEvent OnStart;
     public UnityEvent OnFinish;
 
-    private void Start()
+    private void Awake()
     {
-        if (PlayOnStart)
-        {
-            StartCinematic();
-        }
         if (Director == null)
             Director = GetComponent<PlayableDirector>();
         if (Director != null)
             Director.stopped += EndCinematic;
     }
-    void OnEnable()
-    {
 
-        if (PlayOnStart && currentMode != PlayMode.stopped)
+    private void Start()
+    {
+        if (PlayOnStart && currentMode == PlayMode.stopped)
         {
             StartCinematic();
         }
-        active = this;
-    }
-
-    void OnDisable()
-    {
-        if (active == this)
-        active = null;
     }
     private void Update()
     {
@@ -63,6 +52,7 @@ public class CinematicsController : MonoBehaviour
     }
     public void StartCinematic()
     {
+        active = this;
         if (Director!=null)
         {
             Director.Play();
@@ -83,12 +73,15 @@ public class CinematicsController : MonoBehaviour
         }
         SetPlayMode(PlayMode.stopped);
         OnFinish.Invoke();
+        if (active == this)
+            active = null;
     }
-    PlayMode currentMode = PlayMode.playing;
+    PlayMode currentMode = PlayMode.stopped;
     public void SetPlayMode(PlayMode mode)
     {
         currentMode = mode;
-        if (currentMode> PlayMode.stopped && Director != null && Director.playableGraph.IsValid())
+        Debug.Log("Currentmode " + currentMode.ToString());
+        if (currentMode > PlayMode.stopped && Director != null && Director.playableGraph.IsValid())
         {
             Director.playableGraph.GetRootPlayable(0).SetSpeed((float)mode);
         }
