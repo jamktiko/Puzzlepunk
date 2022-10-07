@@ -31,7 +31,7 @@ public class PlayerAnimations : MonoBehaviour
     }
     private void Update()
     {
-        bool Walking = PlayerMovement.main.moveInput.x != 0 || PlayerMovement.main.moveInput.y != 0;
+        bool Walking = PlayerMovement.main.CanAct() && PlayerMovement.main.moveInput.x != 0 || PlayerMovement.main.moveInput.y != 0;
         animator.SetBool("Is Walking", Walking);
         if (Walking)
         {
