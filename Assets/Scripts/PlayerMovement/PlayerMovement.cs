@@ -145,6 +145,6 @@ public class PlayerMovement : MonoBehaviour
     public float SprintMultiplier = 2f;
     bool IsSprinting()
     {
-        return Input.GetMouseButton(0);
+        return Input.GetButton("Skip");
     }
 }

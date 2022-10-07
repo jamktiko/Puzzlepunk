@@ -20,6 +20,7 @@ public class DialogueUIController : MonoBehaviour
     [Header("Dialogue Box")]
     public TextMeshProUGUI dialogText;
     public TextMeshProUGUI nameText;
+    public TextMeshProUGUI skipText;
 
     [Header("Multiple Choice")]
     public MultipleChoiceContainer MultipleChoice;
@@ -29,29 +30,31 @@ public class DialogueUIController : MonoBehaviour
     {
         HandleExit();
     }
+    float skipPercent = 0;
     void HandleExit()
     {
         if (CutsceneCoroutine!=null) //TODO define skip key
         {
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetButton("FastForward"))
             {
                 SkipLine = true;
             }
-            /*if (Input.GetKey(KeyCode.X))
+            if (Input.GetButton("Skip"))
             {
                 skipPercent += Time.deltaTime;
+                if (skipText!=null)
                 skipText.color = new Color(1, 1, 1, skipPercent);
             }
             else
             {
                 skipPercent = 0;
-                skipText.color = Color.clear;
+                if (skipText != null)
+                    skipText.color = Color.clear;
             }
             if (skipPercent > 1)
             {
-                StopCoroutine(CutsceneCoroutine);
-                CutsceneCoroutine = null;
-            }*/
+                EndDialogue();
+            }
         }
     }
     public void PlayCutscene(DialogueScriptSO Script)
