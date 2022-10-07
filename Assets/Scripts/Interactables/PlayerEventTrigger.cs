@@ -11,10 +11,6 @@ public class PlayerEventTrigger : MonoBehaviour
         public UnityEvent onStay;
         public UnityEvent onEnter;
         public UnityEvent onExit;
-        public virtual void OnEnable()
-        {
-            has_triggered = false;
-        }
 
         protected bool has_triggered = false;
         protected virtual bool OnEnter()
