@@ -43,26 +43,20 @@ public class UIController : MonoBehaviour
         if (robotController != null)
             robotController.gameObject.SetActive(nWindow == UIWindow.robot);
 
-        if (nWindow != UIWindow.none && cinCon!=null)
+        if (nWindow != UIWindow.none && CinematicsController.active!=null)
         {
-            cinCon.SetPlayMode( CinematicsController.PlayMode.pause);
+            CinematicsController.active.SetPlayMode( CinematicsController.PlayMode.pause);
         }
     }
     public void CloseWindow()
     {
         OpenWindow(UIWindow.none);
         dialogueController.ForgetNPC();
-        if (cinCon != null)
+        if (CinematicsController.active != null)
         {
-            cinCon.SetPlayMode( CinematicsController.PlayMode.playing);
-            cinCon = null;
+            CinematicsController.active.SetPlayMode( CinematicsController.PlayMode.playing);
+            CinematicsController.active = null;
         }
     }
 
-
-    public CinematicsController cinCon;
-    public void AssignDirector(CinematicsController nDirector)
-    {
-        cinCon = nDirector;
-    }
 }

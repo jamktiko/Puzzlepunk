@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Playables;
@@ -7,45 +8,47 @@ using static UIController;
 
 public class CinematicsController : MonoBehaviour
 {
+    public static CinematicsController active;
     public enum PlayMode
     {
+        stopped = -1,
         pause = 0,
         playing = 1,
         fast = 2
     }
 
-
-    public bool PlayOnAwake = false;
+    public bool PlayOnStart = false;
     public bool MakePlayerInvisible = false;
     public PlayableDirector Director;
 
     public UnityEvent OnStart;
     public UnityEvent OnFinish;
 
-    private void Awake()
+    private void Start()
     {
-        if (PlayOnAwake)
+        if (PlayOnStart)
         {
             StartCinematic();
         }
-    }
-    void OnEnable()
-    {
         if (Director == null)
             Director = GetComponent<PlayableDirector>();
         if (Director != null)
             Director.stopped += EndCinematic;
+    }
+    void OnEnable()
+    {
 
-        if (PlayOnAwake)
+        if (PlayOnStart && currentMode != PlayMode.stopped)
         {
             StartCinematic();
         }
+        active = this;
     }
 
     void OnDisable()
     {
-        if (Director != null)
-            Director.stopped -= EndCinematic;
+        if (active == this)
+        active = null;
     }
     private void Update()
     {
@@ -60,7 +63,7 @@ public class CinematicsController : MonoBehaviour
     }
     public void StartCinematic()
     {
-        if (Director!=null && Director.state != PlayState.Playing)
+        if (Director!=null)
         {
             Director.Play();
             SetPlayMode(PlayMode.playing);
@@ -78,15 +81,16 @@ public class CinematicsController : MonoBehaviour
         {
             PlayerCinematicController.main.SetCinematicMode(false, false);
         }
+        SetPlayMode(PlayMode.stopped);
         OnFinish.Invoke();
     }
     PlayMode currentMode = PlayMode.playing;
     public void SetPlayMode(PlayMode mode)
     {
         currentMode = mode;
-        if (Director != null && Director.playableGraph.IsValid())
+        if (currentMode> PlayMode.stopped && Director != null && Director.playableGraph.IsValid())
         {
-            Director.playableGraph.GetRootPlayable(0).SetSpeed((int)mode);
+            Director.playableGraph.GetRootPlayable(0).SetSpeed((float)mode);
         }
     }
 }

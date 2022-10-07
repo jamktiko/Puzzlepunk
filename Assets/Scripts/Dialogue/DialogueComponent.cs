@@ -12,13 +12,9 @@ public class DialogueComponent : MonoBehaviour
     public bool OnlyTriggerOnce = false;
     public DialogueScriptSO CutsceneScript;
 
-    [Header("Playables")]
-    public CinematicsController CinCon;
 
     public void Start()
     {
-        if (CinCon == null)
-            CinCon = GetComponent<CinematicsController>();
         if (PlayOnStart)
         {
             Play();
@@ -28,7 +24,6 @@ public class DialogueComponent : MonoBehaviour
     {
         if (enabled && CutsceneScript != null)
         {
-            UIController.main.cinCon = CinCon;
             UIController.main.dialogueController.PlayCutscene(CutsceneScript);
             if (OnlyTriggerOnce)
                 enabled = false;
@@ -38,7 +33,6 @@ public class DialogueComponent : MonoBehaviour
     {
         if (enabled && Script != null)
         {
-            UIController.main.cinCon = CinCon;
             UIController.main.dialogueController.PlayCutscene(Script);
         }
     }
