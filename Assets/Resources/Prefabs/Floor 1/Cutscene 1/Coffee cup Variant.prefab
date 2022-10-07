@@ -139,7 +139,7 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 11400000, guid: 7e204d923c371fb438690ae83e7f8f65, type: 2}
-  Director: {fileID: 8706787094646933994}
+  CinCon: {fileID: 0}
 --- !u!114 &1349403470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
   uEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2381336535331905235}
         m_TargetAssemblyTypeName: CinematicsController, Assembly-CSharp
         m_MethodName: StartCinematic
         m_Mode: 1

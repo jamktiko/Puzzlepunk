@@ -35,7 +35,7 @@ public class DialogueUIController : MonoBehaviour
     {
         if (CutsceneCoroutine!=null) //TODO define skip key
         {
-            if (Input.GetButton("FastForward"))
+            if (Input.GetButtonDown("FastForward"))
             {
                 SkipLine = true;
             }
@@ -53,7 +53,7 @@ public class DialogueUIController : MonoBehaviour
             }
             if (skipPercent > 1)
             {
-                EndDialogue();
+                Close();
             }
         }
     }

@@ -16,14 +16,13 @@ public class CinematicsController : MonoBehaviour
 
 
     public bool PlayOnAwake = false;
-    public bool PlayOnEnable = false;
     public bool MakePlayerInvisible = false;
     public PlayableDirector Director;
 
     public UnityEvent OnStart;
     public UnityEvent OnFinish;
 
-    private void Start()
+    private void Awake()
     {
         if (PlayOnAwake)
         {
@@ -36,7 +35,8 @@ public class CinematicsController : MonoBehaviour
             Director = GetComponent<PlayableDirector>();
         if (Director != null)
             Director.stopped += EndCinematic;
-        if (PlayOnEnable)
+
+        if (PlayOnAwake)
         {
             StartCinematic();
         }
@@ -60,24 +60,24 @@ public class CinematicsController : MonoBehaviour
     }
     public void StartCinematic()
     {
-        if (Director!=null)
+        if (Director!=null && Director.state != PlayState.Playing)
         {
             Director.Play();
-            SetPlayMode( PlayMode.playing);
-        }
+            SetPlayMode(PlayMode.playing);
         if (PlayerCinematicController.main!=null)
         {
             PlayerCinematicController.main.SetCinematicMode(true, MakePlayerInvisible);
         }
         OnStart.Invoke();
+        }
     }
 
     void EndCinematic(PlayableDirector aDirector)
     {
-            if (PlayerCinematicController.main != null)
+        if (PlayerCinematicController.main != null)
         {
             PlayerCinematicController.main.SetCinematicMode(false, false);
-            }
+        }
         OnFinish.Invoke();
     }
     PlayMode currentMode = PlayMode.playing;
