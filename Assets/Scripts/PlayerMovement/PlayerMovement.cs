@@ -27,7 +27,11 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         if (!CanAct())
+        {
+            if (IsWalking())
+                Stop();
             return;
+        }
         if (IsWalking())
             return;
         HandleMovement();

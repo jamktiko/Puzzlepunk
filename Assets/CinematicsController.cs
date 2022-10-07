@@ -17,12 +17,14 @@ public class CinematicsController : MonoBehaviour
         fast = 2
     }
 
-    public bool PlayOnStart = false;
+    public bool PlayOnce = false;
     public bool MakePlayerInvisible = false;
     public PlayableDirector Director;
 
     public UnityEvent OnStart;
     public UnityEvent OnFinish;
+
+    bool hasPlayed = false;
 
     private void Awake()
     {
@@ -32,13 +34,6 @@ public class CinematicsController : MonoBehaviour
             Director.stopped += EndCinematic;
     }
 
-    private void Start()
-    {
-        if (PlayOnStart && currentMode == PlayMode.stopped)
-        {
-            StartCinematic();
-        }
-    }
     private void Update()
     {
         if (currentMode == PlayMode.playing && Input.GetButton("Skip"))
@@ -52,7 +47,10 @@ public class CinematicsController : MonoBehaviour
     }
     public void StartCinematic()
     {
+        if (hasPlayed && PlayOnce)
+            return;
         active = this;
+        OnStart.Invoke();
         if (Director!=null)
         {
             Director.Play();
@@ -61,18 +59,18 @@ public class CinematicsController : MonoBehaviour
         {
             PlayerCinematicController.main.SetCinematicMode(true, MakePlayerInvisible);
         }
-        OnStart.Invoke();
         }
     }
 
     void EndCinematic(PlayableDirector aDirector)
     {
+        hasPlayed = true;
+        OnFinish.Invoke();
+        SetPlayMode(PlayMode.stopped);
         if (PlayerCinematicController.main != null)
         {
             PlayerCinematicController.main.SetCinematicMode(false, false);
         }
-        SetPlayMode(PlayMode.stopped);
-        OnFinish.Invoke();
         if (active == this)
             active = null;
     }
