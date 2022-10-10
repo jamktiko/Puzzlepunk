@@ -87,6 +87,10 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[2].value
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4219418915257221241, guid: bde9c49c7d3f73d40a463cb888aa836b, type: 3}
+      propertyPath: DeltaY
+      value: -0.12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bde9c49c7d3f73d40a463cb888aa836b, type: 3}
 --- !u!1 &6533100814755294165 stripped
@@ -238,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23b06cdc459f52545bf0059d09dad2cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayOnStart: 0
+  PlayOnce: 0
   MakePlayerInvisible: 0
   Director: {fileID: 8706787094646933994}
   OnStart:
@@ -246,7 +250,31 @@ MonoBehaviour:
       m_Calls: []
   OnFinish:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DynamicGridnavBlocker, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SpriteSorter, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!320 &8706787094646933994 stripped
 PlayableDirector:
   m_CorrespondingSourceObject: {fileID: 2456085013318153440, guid: bde9c49c7d3f73d40a463cb888aa836b, type: 3}

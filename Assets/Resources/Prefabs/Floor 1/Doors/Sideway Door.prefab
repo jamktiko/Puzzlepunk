@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3314835244629317938}
   - component: {fileID: 7891449408859766249}
   - component: {fileID: 5746447300216203409}
-  - component: {fileID: 4575774110801168620}
-  - component: {fileID: 5903396664389667208}
+  - component: {fileID: 2018367756641256966}
+  - component: {fileID: 5960763788007074154}
   m_Layer: 0
   m_Name: Sideway Door
   m_TagString: Untagged
@@ -113,7 +113,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.06, y: 0.26}
   m_EdgeRadius: 0
---- !u!114 &4575774110801168620
+--- !u!114 &2018367756641256966
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,9 +128,9 @@ MonoBehaviour:
   uEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5903396664389667208}
-        m_TargetAssemblyTypeName: RoomTransition, Assembly-CSharp
-        m_MethodName: TriggerTransition
+      - m_Target: {fileID: 5960763788007074154}
+        m_TargetAssemblyTypeName: PointTransition, Assembly-CSharp
+        m_MethodName: MovePlayerToPoint
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -141,7 +141,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   SingleUse: 0
---- !u!114 &5903396664389667208
+--- !u!114 &5960763788007074154
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,9 +150,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6500201002985462021}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e10eda06b4246684b8fa507626fa2cca, type: 3}
+  m_Script: {fileID: 11500000, guid: 0adb8f3d63d130d418bc32f6e6ee417c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destinationRoom: {fileID: 0}
-  destination: {x: 0, y: 0}
+  navPoint: {fileID: 0}
   instant: 0
