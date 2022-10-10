@@ -29340,6 +29340,9 @@ MonoBehaviour:
   - variableName: elevator interact
     value: 1
     change: 0
+  - variableName: cleaner cutscene activated
+    value: 1
+    change: 0
   Action:
     m_PersistentCalls:
       m_Calls:
@@ -29664,7 +29667,7 @@ PrefabInstance:
     - target: {fileID: 5680101860089684257, guid: 82f4d4d3f1e682d4fb8421e342c14a30, type: 3}
       propertyPath: m_Events.m_Events.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2061709586}
+      objectReference: {fileID: 0}
     - target: {fileID: 5680101860089684257, guid: 82f4d4d3f1e682d4fb8421e342c14a30, type: 3}
       propertyPath: m_Events.m_Events.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -29733,7 +29736,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1605358324758299554, guid: 82f4d4d3f1e682d4fb8421e342c14a30, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 82f4d4d3f1e682d4fb8421e342c14a30, type: 3}
 --- !u!4 &2061709584 stripped
 Transform:
