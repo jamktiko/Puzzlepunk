@@ -18,6 +18,7 @@ public class DialogueUIController : MonoBehaviour
     public int wordsPerSecond = 10;
 
     [Header("Dialogue Box")]
+    public Image dialogImage;
     public TextMeshProUGUI dialogText;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI skipText;

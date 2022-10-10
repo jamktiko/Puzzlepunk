@@ -20,6 +20,7 @@ public class DialogueLineSO : DialogueWait
     public CharacterEmotion Emote;
 
     [Header("Dialoge")]
+    public Sprite DialogueImage;
     public string DialogueQuestion;
 
     public virtual string GetDialogueLine()
@@ -28,6 +29,15 @@ public class DialogueLineSO : DialogueWait
     }
     public override IEnumerator Run(DialogueUIController DC)
     {
+        if (DialogueImage!=null)
+        {
+            DC.dialogImage.sprite = DialogueImage;
+            DC.dialogImage.enabled = true;
+        }
+        else
+        {
+            DC.dialogImage.enabled = false;
+        }
         DC.LoadDialogueCharacter(this);
         string DialogueQuestion = GetDialogueLine();
         yield return DC.TypeDialog(DialogueQuestion);
@@ -42,5 +52,6 @@ public class DialogueLineSO : DialogueWait
             else
                 yield return new WaitForSeconds(DC.GetWaitValue(DialogueQuestion));
         }
+        DC.dialogImage.enabled = false;
     }
 }
