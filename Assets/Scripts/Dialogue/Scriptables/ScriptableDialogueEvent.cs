@@ -8,9 +8,13 @@ using UnityEngine.Events;
 public class ScriptableDialogueEvent : ScriptableDialogue
 {
     public UnityEvent Event;
-    public override IEnumerator Run(DialogueUIController DC)
+    public override void OnSkipped(DialogueUIController DC)
     {
         Event.Invoke();
+    }
+    public override IEnumerator Run(DialogueUIController DC)
+    {
+        OnSkipped(DC);
         yield return null;
     }
 }

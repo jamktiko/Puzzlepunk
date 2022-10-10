@@ -51,10 +51,6 @@ public class DialogueUIController : MonoBehaviour
                 if (skipText != null)
                     skipText.color = Color.clear;
             }
-            if (skipPercent > 1)
-            {
-                Close();
-            }
         }
     }
     public void PlayCutscene(DialogueScriptSO Script)
@@ -75,9 +71,16 @@ public class DialogueUIController : MonoBehaviour
     {
         HideMultipleChoice();
         int quote = 0;
-        while (quote< Script.Dialogue.Length)
+        while (quote < Script.Dialogue.Length)
         {
-            yield return Script.Dialogue[quote].Run(this);
+            if (skipPercent >= 1)
+            {
+                Script.Dialogue[quote].OnSkipped(this);
+            }
+            else
+            {
+                yield return Script.Dialogue[quote].Run(this);
+            }
             quote++;
         }
         if (talkingNPC == null)

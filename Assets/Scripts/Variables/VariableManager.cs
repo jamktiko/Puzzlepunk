@@ -17,6 +17,8 @@ public class VariableManager
 
     public Variable SetVariable(string vName, float nValue)
     {
+
+        Debug.Log("Set variable " + vName + " to " + nValue) ;
         if (EncodedVariables.ContainsKey(vName))
         {
             EncodedVariables[vName].SetFloatValue(nValue);
@@ -58,23 +60,30 @@ public class VariableManager
     {
             foreach (VariableReactionChange vrc in Reactors)
         {
-            bool tracksVariable = false;
             bool conditionMet = true;
 
+            Debug.Log("REACTORCHEC " + vrc.name+ "WITH "+ vrc.Conditions.Length+" CONDITIONS");
             if (vrc.Conditions != null && vrc.Conditions.Length > 0)
+            {
+                bool tracksVariable = false;
+
                 foreach (Condition c in vrc.Conditions)
                 {
+                    Debug.Log("CONDITIONCHECK " + c.variableName + " NEEDS TO BE " + c.value);
                     if (c.variableName == variable)
                         tracksVariable = true;
                     if (!ConditionMet(c))
                     {
+                        Debug.Log("CONDITIONCHECK FAILED " + c.variableName);
                         conditionMet = false;
                         break;
                     }
+                    Debug.Log("CONDITIONCHECK PASS " + c.variableName);
                 }
-            if (conditionMet && tracksVariable)
-            {
-                vrc.Action.Invoke();
+                if (tracksVariable && conditionMet)
+                {
+                    vrc.Action.Invoke();
+                }
             }
         }
     }

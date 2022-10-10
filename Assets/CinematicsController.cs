@@ -78,7 +78,6 @@ public class CinematicsController : MonoBehaviour
     public void SetPlayMode(PlayMode mode)
     {
         currentMode = mode;
-        Debug.Log("Currentmode " + currentMode.ToString());
         if (currentMode > PlayMode.stopped && Director != null && Director.playableGraph.IsValid())
         {
             Director.playableGraph.GetRootPlayable(0).SetSpeed((float)mode);

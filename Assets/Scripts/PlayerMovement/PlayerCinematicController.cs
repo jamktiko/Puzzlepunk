@@ -27,7 +27,9 @@ public class PlayerCinematicController : MonoBehaviour
         PlayerMovement.main.Stop();
         CinematicMode = toValue;
         gameObject.SetActive(!invisible);
-        Debug.Log("Cinematic mode " + toValue);
+
+        PlayerAnimations.main.SetWalking(false);
+        PlayerAnimations.main.SetCurious(false);
     }
     public bool IsInCinematicMode()
     {

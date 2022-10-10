@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerAnimations : MonoBehaviour
@@ -25,27 +26,34 @@ public class PlayerAnimations : MonoBehaviour
             zSorter = GetComponent<SpriteSorter>();
         }
     }
-    private void Start()
-    {
-        PlayAnimation("stand_up");
-    }
     private void Update()
     {
-        bool Walking = PlayerMovement.main.CanAct() && PlayerMovement.main.moveInput.x != 0 || PlayerMovement.main.moveInput.y != 0;
-        animator.SetBool("Is Walking", Walking);
-        if (Walking)
+        if (PlayerMovement.main.CanAct())
         {
+            bool Walking = PlayerMovement.main.moveInput.x != 0 || PlayerMovement.main.moveInput.y != 0;
+            SetWalking(Walking);
+            if (Walking)
+            {
                 animator.SetBool("Going Left", PlayerMovement.main.moveInput.x < 0);
                 animator.SetBool("Going Right", PlayerMovement.main.moveInput.x > 0);
-            
-            animator.SetBool("Going Front", PlayerMovement.main.moveInput.y < 0);
-            animator.SetBool("Going Back", PlayerMovement.main.moveInput.y > 0);
-        }
 
-        animator.SetBool("InteractPrompt", PlayerInteractions.main.CanInteract);
+                animator.SetBool("Going Front", PlayerMovement.main.moveInput.y < 0);
+                animator.SetBool("Going Back", PlayerMovement.main.moveInput.y > 0);
+            }
+
+            SetCurious(PlayerInteractions.main.CanInteract);
+        }
 
         if (zSorter != null)
             zSorter.Sort(PlayerTransitionController.main.CurrentRoom.transform.position.y - transform.position.y );
+    }
+    public void SetWalking(bool value)
+    {
+        animator.SetBool("Is Walking", value);
+    }
+    public void SetCurious(bool value)
+    {
+        animator.SetBool("InteractPrompt", value);
     }
     public void PlayAnimation(string animationName)
     {
