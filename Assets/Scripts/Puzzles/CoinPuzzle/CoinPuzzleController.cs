@@ -54,7 +54,7 @@ public class CoinPuzzleController : PuzzleController
     public bool CheckSolved()
     {
 
-        if (!WasSolved)
+        if (WasSolved)
             return true;
         for (int iA = 0; iA < objectivecoins.Length; iA++)
         {
@@ -70,7 +70,7 @@ public class CoinPuzzleController : PuzzleController
             }
             if (solved)
             {
-                foreach (var Rotator in pieces)
+                foreach (CoinRotator Rotator in pieces)
                 {
                     if (!Rotator.IsInRequiredRotation(iA))
                         return false;
