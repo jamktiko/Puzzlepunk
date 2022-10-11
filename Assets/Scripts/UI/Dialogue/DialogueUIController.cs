@@ -10,6 +10,7 @@ public class DialogueUIController : MonoBehaviour
 
     [Header("Portrait")]
     DialogueCharacterSO Character;
+    public GameObject Portrait;
     public Image Head;
     public Image Face;
 
@@ -143,12 +144,14 @@ public class DialogueUIController : MonoBehaviour
         if (exposition)
         {
             ExpositionBox.SetActive(true);
+            Portrait.SetActive(false);
             DialogueBox.SetActive(false);
             expositionText.text = "";
         }
         else
         {
             ExpositionBox.SetActive(false);
+            Portrait.SetActive(true);
             DialogueBox.SetActive(true);
             dialogText.text = "";
         }
