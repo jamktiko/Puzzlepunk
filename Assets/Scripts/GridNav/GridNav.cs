@@ -198,9 +198,9 @@ public class GridNav : MonoBehaviour
         for (Vector2Int pos = start; true; pos.x++)
         {
             nodes.Add(GetNodeAt(pos));
-            if (pos.x > end.x)
+            if (pos.x >= end.x)
             { pos.x = start.x; pos.y++; 
-            if (pos.y > end.y)
+            if (pos.y >= end.y)
             {
                 break;
             }

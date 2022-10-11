@@ -60,7 +60,7 @@ public class DynamicGridnavBlocker : MonoBehaviour, IOnMoved
             if (collider.GetType() == typeof(BoxCollider2D))
             {
                 BoxCollider2D BC = (BoxCollider2D)collider;
-                blockedNodes.AddRange(grid.GetNodesInBox(position - BC.size * .5f + BC.offset, position + BC.size * .5f + BC.offset));
+                blockedNodes.AddRange(grid.GetNodesInBox(position - BC.size * .25f + BC.offset * .5f, position + BC.size * .25f + BC.offset * .5f));
             }
             else if (collider.GetType() == typeof(CircleCollider2D))
             {

@@ -36,7 +36,7 @@ public class DialogueUIController : MonoBehaviour
     {
         if (CutsceneCoroutine!=null) //TODO define skip key
         {
-            if (Input.GetButtonDown("FastForward"))
+            if (Input.GetButtonDown("Interact"))
             {
                 SkipLine = true;
             }

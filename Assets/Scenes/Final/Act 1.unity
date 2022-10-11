@@ -28480,6 +28480,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 218278986}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1941374383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32749,6 +32761,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6939800529046830451, guid: a182196b918cb634a9bfe1ed7fd20412, type: 3}
+      propertyPath: deltaOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8706787094646933994, guid: a182196b918cb634a9bfe1ed7fd20412, type: 3}
       propertyPath: m_SceneBindings.Array.size
       value: 5
@@ -32802,6 +32818,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2096059133}
     m_Modifications:
+    - target: {fileID: 442436613115877761, guid: 523e578af324c9d4da9a8c12d739552b, type: 3}
+      propertyPath: deltaOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7739116182148281444, guid: 523e578af324c9d4da9a8c12d739552b, type: 3}
       propertyPath: grid
       value: 
@@ -32853,6 +32873,10 @@ PrefabInstance:
     - target: {fileID: 7739116182148281471, guid: 523e578af324c9d4da9a8c12d739552b, type: 3}
       propertyPath: m_Name
       value: RobotIR
+      objectReference: {fileID: 0}
+    - target: {fileID: 7739116182148281471, guid: 523e578af324c9d4da9a8c12d739552b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 523e578af324c9d4da9a8c12d739552b, type: 3}
