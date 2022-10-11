@@ -6,15 +6,19 @@ using UnityEngine.Events;
 
 public class CoinPuzzleController : PuzzleController
 {
+
     CoinController[] coins;
     CoinController[] objectivecoins;
+    CoinRotator[] pieces;
 
     private void Awake()
     {
         coins = GetComponentsInChildren<CoinController>();
         foreach (CoinController c in coins)
             c.TieToPuzzle(this);
-
+        pieces = GetComponentsInChildren<CoinRotator>();
+        foreach (CoinRotator r in pieces)
+            r.TieToPuzzle(this);
 
         InitSolution();
     }
@@ -51,23 +55,30 @@ public class CoinPuzzleController : PuzzleController
     {
 
         if (!WasSolved)
+            return true;
+        for (int iA = 0; iA < objectivecoins.Length; iA++)
         {
-            for (int iA = 0; iA < objectivecoins.Length; iA++)
+            bool solved = true;
+            for (int iB = 0; iB < objectivecoins.Length; iB++)
             {
-                bool solved = true;
-                for (int iB = 0; iB < objectivecoins.Length; iB++)
+                CoinController coin = objectivecoins[(iB + iA) % objectivecoins.Length];
+                if (coin.CoinNumber != objectivecoins[iB].RequiresNumber)
                 {
-                    CoinController coin = objectivecoins[(iB + iA) % objectivecoins.Length];
-                    if (coin.CoinNumber != objectivecoins[iB].RequiresNumber)
-                    {
-                        solved = false;
-                        break;
-                    }
+                    solved = false;
+                    break;
                 }
-                if (solved)
-                    return true;
+            }
+            if (solved)
+            {
+                foreach (var Rotator in pieces)
+                {
+                    if (!Rotator.IsInRequiredRotation(iA))
+                        return false;
+                }
+                return true;
             }
         }
+        
         return false;
     }
     public void SetSolved()

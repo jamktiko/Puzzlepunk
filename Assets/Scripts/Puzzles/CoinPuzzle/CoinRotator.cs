@@ -8,6 +8,14 @@ public class CoinRotator : MonoBehaviour
     public float RotationTime = 1f;    
     CoinController[] coins;
 
+    
+
+    public CoinPuzzleController puzzleParent;
+    public void TieToPuzzle(CoinPuzzleController parent)
+    {
+        puzzleParent = parent;
+    }
+
     private void Awake()
     {
         coins = GetComponentsInChildren<CoinController>();
@@ -18,12 +26,11 @@ public class CoinRotator : MonoBehaviour
         {
             c.transform.rotation = Quaternion.identity;
         }
+        puzzleParent.SetSolved();
     }
     public void Rotate(bool Clockwise)
     {
-        if (RotationCoroutine != null)
-            StopCoroutine(RotationCoroutine);
-
+        if (RotationCoroutine == null)
         RotationCoroutine = StartCoroutine(RotateDirection(RotationAngle * (Clockwise ? 1 : -1), RotationTime));
     }
 
@@ -44,5 +51,17 @@ public class CoinRotator : MonoBehaviour
         }
         transform.rotation = Quaternion.Euler(0, 0, DesiredAngle);
         OnRotate();
+        RotationCoroutine = null;
+    }
+    public bool IsInRequiredRotation(int iR)
+    {
+        float mRot = transform.rotation.eulerAngles.z;
+        float coinDiff = 360f / coins.Length;
+
+        if (mRot - coinDiff * iR == 0)
+        {
+            return true;
+        }
+        return false;
     }
 }

@@ -50,7 +50,6 @@ public class CinematicsController : MonoBehaviour
         if (hasPlayed && PlayOnce)
             return;
         active = this;
-        OnStart.Invoke();
         if (Director!=null)
         {
             Director.Play();
@@ -60,6 +59,7 @@ public class CinematicsController : MonoBehaviour
             PlayerCinematicController.main.SetCinematicMode(true, MakePlayerInvisible);
         }
         }
+        OnStart.Invoke();
     }
 
     void EndCinematic(PlayableDirector aDirector)
