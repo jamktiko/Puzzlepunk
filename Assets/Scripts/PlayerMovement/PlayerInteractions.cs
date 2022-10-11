@@ -17,7 +17,7 @@ public class PlayerInteractions : MonoBehaviour
     }
     public void HandleInteractCommand()
     {
-        if (PlayerMovement.main.CanAct() && Input.GetButton("Interact"))
+        if (PlayerMovement.main.CanAct() && Input.GetButtonDown("Interact"))
             PlayerInteract();
     }
 
