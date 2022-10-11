@@ -40,7 +40,7 @@ public class DialogueLineSO : DialogueWait
         }
         DC.LoadDialogueCharacter(this);
         string DialogueQuestion = GetDialogueLine();
-        yield return DC.TypeDialog(DialogueQuestion);
+        yield return DC.TypeDialog(DialogueQuestion, Character == null);
         if (WaitTime > 0)
         {
             yield return base.Run(DC);

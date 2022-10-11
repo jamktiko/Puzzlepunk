@@ -18,8 +18,12 @@ public class DialogueUIController : MonoBehaviour
     public int wordsPerSecond = 10;
 
     [Header("Dialogue Box")]
+    public GameObject DialogueBox;
+    public GameObject ExpositionBox;
+
     public Image dialogImage;
     public TextMeshProUGUI dialogText;
+    public TextMeshProUGUI expositionText;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI skipText;
 
@@ -132,10 +136,22 @@ public class DialogueUIController : MonoBehaviour
             yield return SkippableWait(Wait);
         }
     }
-    public IEnumerator TypeDialog(string dialog)
+    public IEnumerator TypeDialog(string dialog, bool exposition)
     {
         SkipLine = false;
-        dialogText.text = "";
+
+        if (exposition)
+        {
+            ExpositionBox.SetActive(true);
+            DialogueBox.SetActive(false);
+            expositionText.text = "";
+        }
+        else
+        {
+            ExpositionBox.SetActive(false);
+            DialogueBox.SetActive(true);
+            dialogText.text = "";
+        }
 
         char[] line = dialog.ToCharArray();
 
@@ -146,21 +162,42 @@ public class DialogueUIController : MonoBehaviour
                 bool writeWord = true;
                 while (iC < line.Length && writeWord)
                 {
-                    dialogText.text += line[iC];
+                    if (exposition)
+                    {
+                        expositionText.text += line[iC];
+                    }
+                    else
+                    {
+                        dialogText.text += line[iC];
+                    }
                     iC++;
                     if (iC < line.Length && line[iC] == ' ')
                     {
+                        if (exposition)
+                        {
+                            expositionText.text += line[iC];
+                        }
+                        else
+                        {
                             dialogText.text += line[iC];
+                        }
                         writeWord = false;
                     }
                 }
             }
 
-            if (SkipLine)
+            if (SkipLine || skipPercent>=1)
                 break;
             yield return SkippableWait(1f / wordsPerSecond);
         }
-        dialogText.text = dialog;
+        if (exposition)
+        {
+            expositionText.text = dialog;
+        }
+        else
+        {
+            dialogText.text = dialog;
+        }
     }
     public float GetWaitValue(string line)
     {
@@ -171,7 +208,7 @@ public class DialogueUIController : MonoBehaviour
         float Wait = Time.time + Dur;
         while (Wait > Time.time)
         {
-            if (SkipLine)
+            if (SkipLine || skipPercent >= 1)
                 break;
             yield return new WaitForEndOfFrame();
         }
