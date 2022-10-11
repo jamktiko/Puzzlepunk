@@ -7225,6 +7225,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 1498876284}
   bounds: {fileID: 459382467}
+--- !u!1 &653936870 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8655997282503682342, guid: c0c6c80cf2d273141a857528ba315f3e, type: 3}
+  m_PrefabInstance: {fileID: 1413584564}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &692511777
 GameObject:
   m_ObjectHideFlags: 0
@@ -12932,6 +12937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30059dc509a7c4147859c3a0b51bf212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ForceCinematic: 1
   onSolve:
     m_PersistentCalls:
       m_Calls:
@@ -15499,6 +15505,75 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8655997282503682340, guid: c0c6c80cf2d273141a857528ba315f3e, type: 3}
   m_PrefabInstance: {fileID: 1413584564}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1413584567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653936870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f85e1feb1060e4cbee02e9900a0acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayOnStart: 0
+  OnlyTriggerOnce: 0
+  CutsceneScript: {fileID: 11400000, guid: e95f37c07ba1bd24ebc9ce445bfaf744, type: 2}
+--- !u!114 &1413584568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653936870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afaf64b857c16542948929e4579f7ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1413584567}
+        m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  SingleUse: 0
+--- !u!61 &1413584569
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653936870}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.13, y: 0.24}
+    newSize: {x: 0.13, y: 0.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.13, y: 0.24}
+  m_EdgeRadius: 0
 --- !u!1 &1422698269
 GameObject:
   m_ObjectHideFlags: 0
