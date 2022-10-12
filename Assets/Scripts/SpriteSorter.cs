@@ -6,6 +6,7 @@ public class SpriteSorter : MonoBehaviour, IOnMoved
 {
     int originalOrder = 0;
     public float DeltaY;
+    public bool AlwaysUpdate = false;
     public SpriteRenderer spriteRenderer;
     public int deltaOrder = 0;
 
@@ -28,6 +29,11 @@ public class SpriteSorter : MonoBehaviour, IOnMoved
     void Start()
     {
         OnMove();
+    }
+    void Update()
+    {
+        if (AlwaysUpdate)
+            OnMove();
     }
     public void OnMove()
     {
