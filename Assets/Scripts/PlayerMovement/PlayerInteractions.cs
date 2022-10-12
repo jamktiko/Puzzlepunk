@@ -45,8 +45,8 @@ public class PlayerInteractions : MonoBehaviour
         {
             if (hit.transform.TryGetComponent(out InteractableBase interactable))
             {
-
-                return true;
+                if (interactable.CanBeInteractedWith())
+                    return true;
             }
         }
         return false;

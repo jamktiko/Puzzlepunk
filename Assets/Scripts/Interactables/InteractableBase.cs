@@ -9,9 +9,12 @@ public class InteractableBase : MonoBehaviour
     public UnityEvent uEvent;
     new Collider2D collider;
     public bool SingleUse = false;
+    bool usable = true;
     public virtual void OnInteract()
     {
-        if (SingleUse)
+        if (!CanBeInteractedWith())
+            return;
+            if (SingleUse)
             EnableDisable(false);
         uEvent.Invoke();
     }
@@ -24,10 +27,11 @@ public class InteractableBase : MonoBehaviour
     }
     public virtual void EnableDisable(bool value)
     {
-        if (collider!=null)
-        {
-            collider.enabled = value;
-        }
+        usable = value;
+    }
+    public bool CanBeInteractedWith()
+    {
+        return usable;
     }
 }
 
