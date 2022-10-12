@@ -6930,7 +6930,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -26417,6 +26417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeltaY: -0.15
+  AlwaysUpdate: 0
   spriteRenderer: {fileID: 1688125435}
   deltaOrder: 0
 --- !u!114 &1688125437
@@ -33142,6 +33143,14 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1349403471, guid: a182196b918cb634a9bfe1ed7fd20412, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349403471, guid: a182196b918cb634a9bfe1ed7fd20412, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349403471, guid: a182196b918cb634a9bfe1ed7fd20412, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 0.06
       objectReference: {fileID: 0}
@@ -33225,10 +33234,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6939800529046830451, guid: a182196b918cb634a9bfe1ed7fd20412, type: 3}
-      propertyPath: deltaOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8706787094646933994, guid: a182196b918cb634a9bfe1ed7fd20412, type: 3}
       propertyPath: m_SceneBindings.Array.size
       value: 5
@@ -33283,8 +33288,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 2096059133}
     m_Modifications:
     - target: {fileID: 442436613115877761, guid: 523e578af324c9d4da9a8c12d739552b, type: 3}
-      propertyPath: deltaOrder
-      value: 2
+      propertyPath: AlwaysUpdate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7739116182148281444, guid: 523e578af324c9d4da9a8c12d739552b, type: 3}
       propertyPath: grid
