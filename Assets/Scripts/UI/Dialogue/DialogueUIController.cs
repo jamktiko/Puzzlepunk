@@ -226,6 +226,8 @@ public class DialogueUIController : MonoBehaviour
         Face.gameObject.SetActive(Character != null);
         if (Character != null)
         {
+            if (nameText != null)
+                nameText.text = Character.CharacterName;
             Head.sprite = Character.Head;
             EmoteCharacter(DialogueLineSO.CharacterEmotion.none);
             if (Character.Faces.Length > 0)
