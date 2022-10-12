@@ -230,6 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeltaY: -0.12
+  AlwaysUpdate: 0
   spriteRenderer: {fileID: 8145452365456011023}
   deltaOrder: 0
 --- !u!1 &8145452366047622435
@@ -338,8 +339,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facing: {x: 0, y: -1}
   grid: {fileID: 0}
-  MovementSpeed: 1
-  MovementDistance: 0.16
+  MovementSpeed: 0.8
+  MovementDistance: 0.05
+  BlockerMask:
+    serializedVersion: 2
+    m_Bits: 0
   moveInput: {x: 0, y: 0}
   SprintMultiplier: 2
 --- !u!114 &8145452366047622439
