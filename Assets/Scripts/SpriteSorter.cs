@@ -35,6 +35,10 @@ public class SpriteSorter : MonoBehaviour, IOnMoved
         if (AlwaysUpdate)
             OnMove();
     }
+    public void ToggleAlwaysUpdate(bool value)
+    {
+        AlwaysUpdate = value;
+    }
     public void OnMove()
     {
         Sort(-transform.localPosition.y - DeltaY);
