@@ -26,7 +26,6 @@ public class CoinRotator : MonoBehaviour
         {
             c.transform.rotation = Quaternion.identity;
         }
-        puzzleParent.SetSolved();
     }
     public void Rotate(bool Clockwise)
     {
@@ -51,6 +50,7 @@ public class CoinRotator : MonoBehaviour
         }
         transform.rotation = Quaternion.Euler(0, 0, DesiredAngle);
         OnRotate();
+        puzzleParent.SetSolved();
         RotationCoroutine = null;
     }
     public bool IsInRequiredRotation(int iR)
@@ -58,10 +58,6 @@ public class CoinRotator : MonoBehaviour
         float mRot = transform.rotation.eulerAngles.z;
         float coinDiff = 360f / coins.Length;
 
-        if (mRot - coinDiff * iR == 0)
-        {
-            return true;
-        }
-        return false;
+        return (Mathf.Round(mRot - coinDiff * iR) %360 == 0);
     }
 }
