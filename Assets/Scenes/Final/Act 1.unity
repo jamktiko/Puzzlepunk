@@ -12932,6 +12932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30059dc509a7c4147859c3a0b51bf212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ForceCinematic: 1
   onSolve:
     m_PersistentCalls:
       m_Calls:
@@ -32381,6 +32382,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 652655373462520161, guid: 0cf23ddfff487a243b46b6178cbd04eb, type: 3}
+      propertyPath: m_SceneBindings.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 652655373462520161, guid: 0cf23ddfff487a243b46b6178cbd04eb, type: 3}
+      propertyPath: m_SceneBindings.Array.data[6].key
+      value: 
+      objectReference: {fileID: 9061861976710690768, guid: 5dbeb888a93b5e64581647850e74f140, type: 2}
+    - target: {fileID: 652655373462520161, guid: 0cf23ddfff487a243b46b6178cbd04eb, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value
       value: 
       objectReference: {fileID: 604272610}
@@ -32404,6 +32413,10 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[5].value
       value: 
       objectReference: {fileID: 467372701}
+    - target: {fileID: 652655373462520161, guid: 0cf23ddfff487a243b46b6178cbd04eb, type: 3}
+      propertyPath: m_SceneBindings.Array.data[6].value
+      value: 
+      objectReference: {fileID: 604272610}
     - target: {fileID: 652655373462520162, guid: 0cf23ddfff487a243b46b6178cbd04eb, type: 3}
       propertyPath: m_Name
       value: Scene02 start
@@ -32588,15 +32601,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5680101860089684270, guid: 82f4d4d3f1e682d4fb8421e342c14a30, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5680101860089684270, guid: 82f4d4d3f1e682d4fb8421e342c14a30, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5680101860089684270, guid: 82f4d4d3f1e682d4fb8421e342c14a30, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5680101860089684270, guid: 82f4d4d3f1e682d4fb8421e342c14a30, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
