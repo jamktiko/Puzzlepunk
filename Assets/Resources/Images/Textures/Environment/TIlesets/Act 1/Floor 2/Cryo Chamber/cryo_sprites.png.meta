@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 32f67da108f456641945f307c4acbf7e
+guid: 5e3f6eb2ed7fa0b4cb47ced3ce49f1f6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -102,7 +102,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Windows Store Apps
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -115,301 +127,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: cryo_sprites_0
-      rect:
-        serializedVersion: 2
-        x: 50
-        y: 512
-        width: 82
-        height: 88
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3eb5b6be63525474f9b8b375f3181873
-      internalID: 1367110853
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cryo_sprites_1
-      rect:
-        serializedVersion: 2
-        x: 136
-        y: 499
-        width: 79
-        height: 93
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 23a599302ad790b459d30f578aaeb217
-      internalID: 976232145
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cryo_sprites_2
-      rect:
-        serializedVersion: 2
-        x: 219
-        y: 479
-        width: 58
-        height: 113
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7784779631f28c142af55ded001eadf0
-      internalID: -792869806
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cryo_sprites_3
-      rect:
-        serializedVersion: 2
-        x: 296
-        y: 547
-        width: 11
-        height: 37
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c4f7f21d1bb538d4389dad6329b25983
-      internalID: -361844592
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cryo_sprites_4
-      rect:
-        serializedVersion: 2
-        x: 318
-        y: 547
-        width: 11
-        height: 37
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b4438161c90610043947713d7c2fcd82
-      internalID: 79388563
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cryo_sprites_5
-      rect:
-        serializedVersion: 2
-        x: 293
-        y: 499
-        width: 23
-        height: 37
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eb0356944283fc847bd9af551f8dcdc9
-      internalID: 951748408
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cryo_sprites_6
-      rect:
-        serializedVersion: 2
-        x: 329
-        y: 499
-        width: 23
-        height: 37
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1057b5c64ac980c46898b4fc5f6d5b61
-      internalID: 327589762
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cryo_sprites_7
-      rect:
-        serializedVersion: 2
-        x: 47
-        y: 391
-        width: 82
-        height: 88
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 474afd5ce6b88a84c8be9c7739899814
-      internalID: 1183332773
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cryo_sprites_8
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 129
-        width: 301
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a618f4d0dc7d51b4b878fe4d715b9f70
-      internalID: -1009095457
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cryo_sprites_9
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 9
-        width: 301
-        height: 104
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b5cfc4cfeecd7744dbac5a5ea4bba3ec
-      internalID: 75822922
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cryo_sprites_10
-      rect:
-        serializedVersion: 2
-        x: 164
-        y: 393
-        width: 97
-        height: 86
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8c16d26223a28d548aad1d8f90a4d91e
-      internalID: -1370106693
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cryo_sprites_11
-      rect:
-        serializedVersion: 2
-        x: 269
-        y: 402
-        width: 14
-        height: 29
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9879b659a62be88438499fae0b2f3eaf
-      internalID: 983038688
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cryo_sprites_13
-      rect:
-        serializedVersion: 2
-        x: 62
-        y: 283
-        width: 48
-        height: 93
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e50c592645738734db1f562855dd4b45
-      internalID: -657332418
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cryo_sprites_14
-      rect:
-        serializedVersion: 2
-        x: 121
-        y: 263
-        width: 50
-        height: 113
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: beb2424d6c3bf164c8f48f1e70d16744
-      internalID: 1444030274
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -420,22 +138,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      cryo_sprites_10: -1370106693
-      cryo_sprites_5: 951748408
-      cryo_sprites_1: 976232145
-      cryo_sprites_8: -1009095457
-      cryo_sprites_2: -792869806
-      cryo_sprites_3: -361844592
-      cryo_sprites_4: 79388563
-      cryo_sprites_6: 327589762
-      cryo_sprites_14: 1444030274
-      cryo_sprites_12: -723719542
-      cryo_sprites_13: -657332418
-      cryo_sprites_7: 1183332773
-      cryo_sprites_0: 1367110853
-      cryo_sprites_11: 983038688
-      cryo_sprites_9: 75822922
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

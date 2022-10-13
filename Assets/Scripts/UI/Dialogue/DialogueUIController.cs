@@ -10,14 +10,25 @@ public class DialogueUIController : MonoBehaviour
 
     [Header("Portrait")]
     DialogueCharacterSO Character;
+    public GameObject Portrait;
     public Image Head;
     public Image Face;
 
     [Header("Components")]
 
     public int wordsPerSecond = 10;
+
+    [Header("Dialogue Box")]
+    public GameObject DialogueBox;
+    public GameObject ExpositionBox;
+
+    public Image dialogImage;
     public TextMeshProUGUI dialogText;
+    public TextMeshProUGUI expositionText;
     public TextMeshProUGUI nameText;
+    public TextMeshProUGUI skipText;
+
+    [Header("Multiple Choice")]
     public MultipleChoiceContainer MultipleChoice;
 
     Coroutine CutsceneCoroutine;
@@ -25,29 +36,27 @@ public class DialogueUIController : MonoBehaviour
     {
         HandleExit();
     }
+    float skipPercent = 0;
     void HandleExit()
     {
         if (CutsceneCoroutine!=null) //TODO define skip key
         {
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetButtonDown("Interact"))
             {
                 SkipLine = true;
             }
-            /*if (Input.GetKey(KeyCode.X))
+            if (Input.GetButton("Skip"))
             {
                 skipPercent += Time.deltaTime;
+                if (skipText!=null)
                 skipText.color = new Color(1, 1, 1, skipPercent);
             }
             else
             {
                 skipPercent = 0;
-                skipText.color = Color.clear;
+                if (skipText != null)
+                    skipText.color = Color.clear;
             }
-            if (skipPercent > 1)
-            {
-                StopCoroutine(CutsceneCoroutine);
-                CutsceneCoroutine = null;
-            }*/
         }
     }
     public void PlayCutscene(DialogueScriptSO Script)
@@ -67,10 +76,18 @@ public class DialogueUIController : MonoBehaviour
     IEnumerator PlayCutsceneCoroutine(DialogueScriptSO Script)
     {
         HideMultipleChoice();
+        skipPercent = 0;
         int quote = 0;
-        while (quote< Script.Dialogue.Length)
+        while (quote < Script.Dialogue.Length)
         {
-            yield return Script.Dialogue[quote].Run(this);
+            if (skipPercent >= 1)
+            {
+                Script.Dialogue[quote].OnSkipped(this);
+            }
+            else
+            {
+                yield return Script.Dialogue[quote].Run(this);
+            }
             quote++;
         }
         if (talkingNPC == null)
@@ -110,17 +127,34 @@ public class DialogueUIController : MonoBehaviour
     bool SkipLine = false;
     public IEnumerator PostLineWait(string line)
     {
-        float Wait = GetWaitValue(line);
+            yield return PostLineWait(GetWaitValue(line));        
+    }
+    public IEnumerator PostLineWait(float Wait)
+    {
         if (Wait > 0)
         {
             SkipLine = false;
             yield return SkippableWait(Wait);
         }
     }
-    public IEnumerator TypeDialog(string dialog)
+    public IEnumerator TypeDialog(string dialog, bool exposition)
     {
         SkipLine = false;
-        dialogText.text = "";
+
+        if (exposition)
+        {
+            ExpositionBox.SetActive(true);
+            Portrait.SetActive(false);
+            DialogueBox.SetActive(false);
+            expositionText.text = "";
+        }
+        else
+        {
+            ExpositionBox.SetActive(false);
+            Portrait.SetActive(true);
+            DialogueBox.SetActive(true);
+            dialogText.text = "";
+        }
 
         char[] line = dialog.ToCharArray();
 
@@ -131,23 +165,44 @@ public class DialogueUIController : MonoBehaviour
                 bool writeWord = true;
                 while (iC < line.Length && writeWord)
                 {
-                    dialogText.text += line[iC];
+                    if (exposition)
+                    {
+                        expositionText.text += line[iC];
+                    }
+                    else
+                    {
+                        dialogText.text += line[iC];
+                    }
                     iC++;
                     if (iC < line.Length && line[iC] == ' ')
                     {
-                        dialogText.text += line[iC];
+                        if (exposition)
+                        {
+                            expositionText.text += line[iC];
+                        }
+                        else
+                        {
+                            dialogText.text += line[iC];
+                        }
                         writeWord = false;
                     }
                 }
             }
 
-            if (SkipLine)
+            if (SkipLine || skipPercent>=1)
                 break;
             yield return SkippableWait(1f / wordsPerSecond);
         }
-        dialogText.text = dialog;
+        if (exposition)
+        {
+            expositionText.text = dialog;
+        }
+        else
+        {
+            dialogText.text = dialog;
+        }
     }
-    float GetWaitValue(string line)
+    public float GetWaitValue(string line)
     {
         return 2f + line.Length * .03f; 
     }
@@ -156,7 +211,7 @@ public class DialogueUIController : MonoBehaviour
         float Wait = Time.time + Dur;
         while (Wait > Time.time)
         {
-            if (SkipLine)
+            if (SkipLine || skipPercent >= 1)
                 break;
             yield return new WaitForEndOfFrame();
         }

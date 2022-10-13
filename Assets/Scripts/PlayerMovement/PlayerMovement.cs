@@ -19,18 +19,33 @@ public class PlayerMovement : MonoBehaviour
     public static PlayerMovement main;
     public float MovementSpeed = 1f;
     public float MovementDistance = 1f;
+    public LayerMask BlockerMask;
     private void Awake()
     {
         main = this;
     }
     private void Update()
     {
-        if ((UIController.main != null && (UIController.main.dialogueController.IsInDialogueMode() || UIController.main.robotController.IsPuzzleMode())) || (PlayerCinematicController.main!= null && PlayerCinematicController.main.IsInCinematicMode()))
+        if (!CanAct())
+        {
+            if (IsWalking())
+                Stop();
             return;
+        }
         if (IsWalking())
             return;
         HandleMovement();
     }
+    public bool CanAct()
+    {
+        if (UIController.main != null && (UIController.main.dialogueController.IsInDialogueMode() || UIController.main.robotController.IsPuzzleMode()))
+            return false;
+
+        if (PlayerCinematicController.main != null && PlayerCinematicController.main.IsInCinematicMode())
+            return false;
+        return true;
+    }
+
 
     GridNav.Node mNode;
     void MoveToPoint(Vector2 nPoint)
@@ -38,35 +53,39 @@ public class PlayerMovement : MonoBehaviour
         if (grid == null)
             return;
 
-        if (TryMoveDirection(nPoint - (Vector2)transform.position, out mNode))
+        if (TryMoveDirection(nPoint - (Vector2)transform.position, out GridNav.Node node))
         {
-            if (mNode.passible)
+            if (node.IsPassible())
+            {
+                mNode = node;
                 moveCoroutine = StartCoroutine(Move());
+            }
             else
+            {
                 mNode = null;
+            }
         }
     }
     bool TryMoveDirection ( Vector2 direction, out GridNav.Node possible)
     {
-        possible = null;
         if (direction.x == 0 || direction.y == 0)
         {
             possible = grid.GetNodeDirection(transform.position, direction, MovementDistance);
-            return possible!=null;
+                return possible!= null;
         }
         else 
         {
-            if (grid.GetNodeAt((Vector2)transform.position + direction * grid.UnitSize, out possible) && possible.passible)
-                {
+            if (grid.GetNodeAt((Vector2)transform.position + direction * grid.UnitSize, out possible) && possible.IsPassible())
+            {
                 possible = grid.GetNodeDirection(transform.position, direction, MovementDistance);
                 return possible != null;
             }
-            else if (grid.GetNodeAt((Vector2)transform.position + direction.x * Vector2.right * grid.UnitSize, out possible) && possible.passible)
+            else if (grid.GetNodeAt((Vector2)transform.position + direction.x * Vector2.right * grid.UnitSize, out possible) && possible.IsPassible())
             {
                 possible = grid.GetNodeDirection(transform.position, direction.x * Vector2.right, MovementDistance);
                 return possible != null;
             }
-            else if (grid.GetNodeAt((Vector2)transform.position + direction.y * Vector2.up * grid.UnitSize, out possible) && possible.passible)
+            else if (grid.GetNodeAt((Vector2)transform.position + direction.y * Vector2.up * grid.UnitSize, out possible) && possible.IsPassible())
             {
                 possible = grid.GetNodeDirection(transform.position, direction.y * Vector2.up, MovementDistance);
                 return possible != null;
@@ -130,11 +149,11 @@ public class PlayerMovement : MonoBehaviour
     }
     public bool IsWalking()
     {
-        return mNode!=null &&  moveCoroutine != null;
+        return mNode!=null && moveCoroutine != null;
     }
     public float SprintMultiplier = 2f;
     bool IsSprinting()
     {
-        return Input.GetMouseButton(0);
+        return Input.GetButton("Skip");
     }
 }

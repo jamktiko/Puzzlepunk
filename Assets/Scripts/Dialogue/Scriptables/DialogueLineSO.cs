@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Line", menuName = "Dialogue/Line")]
-public class DialogueLineSO : ScriptableDialogue
+[CreateAssetMenu(fileName = "Line", menuName = "Dialogue/Components/Line")]
+public class DialogueLineSO : DialogueWait
 {
     public enum CharacterEmotion
     {
@@ -20,6 +20,7 @@ public class DialogueLineSO : ScriptableDialogue
     public CharacterEmotion Emote;
 
     [Header("Dialoge")]
+    public Sprite DialogueImage;
     public string DialogueQuestion;
 
     public virtual string GetDialogueLine()
@@ -28,9 +29,29 @@ public class DialogueLineSO : ScriptableDialogue
     }
     public override IEnumerator Run(DialogueUIController DC)
     {
+        if (DialogueImage!=null)
+        {
+            DC.dialogImage.sprite = DialogueImage;
+            DC.dialogImage.enabled = true;
+        }
+        else
+        {
+            DC.dialogImage.enabled = false;
+        }
         DC.LoadDialogueCharacter(this);
         string DialogueQuestion = GetDialogueLine();
-        yield return DC.TypeDialog(DialogueQuestion);
-        yield return DC.PostLineWait(DialogueQuestion);
+        yield return DC.TypeDialog(DialogueQuestion, Character == null);
+        if (WaitTime > 0)
+        {
+            yield return base.Run(DC);
+        }
+        else
+        {
+            if (Skippable)
+                yield return DC.PostLineWait(DialogueQuestion);
+            else
+                yield return new WaitForSeconds(DC.GetWaitValue(DialogueQuestion));
+        }
+        DC.dialogImage.enabled = false;
     }
 }

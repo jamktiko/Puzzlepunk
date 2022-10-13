@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Variable Change", menuName = "Dialogue/Variable Change")]
+[CreateAssetMenu(fileName = "Change Variable", menuName = "Dialogue/Components/Change Variable")]
 public class ScriptableDialogueVariableChange : ScriptableDialogue
 {
     public VariableManager.Set[] Changes;
-    public override IEnumerator Run(DialogueUIController DC)
+    public override void OnSkipped(DialogueUIController DC)
     {
         GameController.main.variables.Apply(Changes);
+    }
+    public override IEnumerator Run(DialogueUIController DC)
+    {
+        OnSkipped(DC);
         yield return null;
     }
 }

@@ -95,7 +95,7 @@ public class RobotNPC : MonoBehaviour
     {
         // Vector2Int point = grid.TranslateCoordinate( nPoint);
         mNode = puzzleParent.mGrid.GetNodeDirection(transform.position, nPoint - (Vector2)transform.position, 1);
-        if (mNode == null || !mNode.passible)
+        if (mNode == null || !mNode.IsPassible())
         {
             mNode = null;
         }

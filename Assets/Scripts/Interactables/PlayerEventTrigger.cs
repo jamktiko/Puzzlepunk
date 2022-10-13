@@ -11,10 +11,6 @@ public class PlayerEventTrigger : MonoBehaviour
         public UnityEvent onStay;
         public UnityEvent onEnter;
         public UnityEvent onExit;
-        public virtual void OnEnable()
-        {
-            has_triggered = false;
-        }
 
         protected bool has_triggered = false;
         protected virtual bool OnEnter()
@@ -22,27 +18,27 @@ public class PlayerEventTrigger : MonoBehaviour
             if (TriggerOnce && has_triggered)
                 return false;
             Debug.Log("Player triggered " + name);
-            onEnter.Invoke();
             has_triggered = true;
-            return true;
+        onEnter.Invoke();
+        return true;
         }
         protected virtual bool OnExit()
         {
             if (TriggerOnce && has_triggered)
                 return false;
             Debug.Log("Player triggered " + name);
-            onExit.Invoke();
             has_triggered = true;
-            return true;
+        onExit.Invoke();
+        return true;
         }
         protected virtual bool OnStay()
         {
             if (TriggerOnce && has_triggered)
                 return false;
             Debug.Log("Player triggered " + name);
-            onStay.Invoke();
             has_triggered = true;
-            return true;
+        onStay.Invoke();
+        return true;
         }
     
     void OnTriggerEnter2D(Collider2D other)

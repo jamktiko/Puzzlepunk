@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static DialogueScriptSO;
 
-[CreateAssetMenu(fileName = "Audio Line", menuName = "Dialogue/Audio Line")]
+[CreateAssetMenu(fileName = "Audio Line", menuName = "Dialogue/Components/Audio Line")]
 public class DialogueAudioSO : DialogueLineSO
 {
         [Header("Effects")]
@@ -26,7 +26,7 @@ public class DialogueAudioSO : DialogueLineSO
             string line = GetDialogueLine();
             if (line.Length > 0)
             {
-                yield return DC.TypeDialog(line);
+                yield return DC.TypeDialog(line, Character == null);
                 if (PlayType == DialogueAudioSO.AudioPlayType.after)
                 {
                     if (AudioClip != null)

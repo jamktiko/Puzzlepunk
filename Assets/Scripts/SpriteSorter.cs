@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpriteSorter : MonoBehaviour
+public class SpriteSorter : MonoBehaviour, IOnMoved
 {
     int originalOrder = 0;
     public float DeltaY;
+    public bool AlwaysUpdate = false;
     public SpriteRenderer spriteRenderer;
     public int deltaOrder = 0;
 
@@ -26,6 +27,19 @@ public class SpriteSorter : MonoBehaviour
 
 
     void Start()
+    {
+        OnMove();
+    }
+    void Update()
+    {
+        if (AlwaysUpdate)
+            OnMove();
+    }
+    public void ToggleAlwaysUpdate(bool value)
+    {
+        AlwaysUpdate = value;
+    }
+    public void OnMove()
     {
         Sort(-transform.localPosition.y - DeltaY);
     }
