@@ -32,7 +32,7 @@ public class DialogueAudioSO : DialogueLineSO
                     if (AudioClip != null)
                     DC.PlaySound(AudioClip);
                 }
-                yield return DC.PostLineWait(line);
+                yield return DC.PostLineWait();
             }
     }
 }

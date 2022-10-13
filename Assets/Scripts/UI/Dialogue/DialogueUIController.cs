@@ -123,23 +123,14 @@ public class DialogueUIController : MonoBehaviour
         EmoteCharacter(NewLine.Emote);
     }
 
-
     bool SkipLine = false;
-    public IEnumerator PostLineWait(string line)
+    public IEnumerator PostLineWait()
     {
-            yield return PostLineWait(GetWaitValue(line));        
-    }
-    public IEnumerator PostLineWait(float Wait)
-    {
-        if (Wait > 0)
-        {
-            SkipLine = false;
-            yield return SkippableWait(Wait);
-        }
+            yield return SkippableWait();
+        
     }
     public IEnumerator TypeDialog(string dialog, bool exposition)
     {
-        SkipLine = false;
 
         if (exposition)
         {
@@ -189,9 +180,9 @@ public class DialogueUIController : MonoBehaviour
                 }
             }
 
-            if (SkipLine || skipPercent>=1)
+            if (Input.GetButtonDown("Interact") || skipPercent>=1)
                 break;
-            yield return SkippableWait(1f / wordsPerSecond);
+            yield return new WaitForSeconds(1f / wordsPerSecond);
         }
         if (exposition)
         {
@@ -206,15 +197,13 @@ public class DialogueUIController : MonoBehaviour
     {
         return 2f + line.Length * .03f; 
     }
-    IEnumerator SkippableWait(float Dur)
+    IEnumerator SkippableWait()
     {
-        float Wait = Time.time + Dur;
-        while (Wait > Time.time)
+        while (!SkipLine && skipPercent < 1)
         {
-            if (SkipLine || skipPercent >= 1)
-                break;
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForFixedUpdate();
         }
+        SkipLine = false;
     }
 
     public void ChangeCharacter(DialogueCharacterSO character)
