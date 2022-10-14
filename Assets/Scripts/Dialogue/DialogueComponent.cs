@@ -13,7 +13,7 @@ public class DialogueComponent : MonoBehaviour
     public DialogueScriptSO CutsceneScript;
 
 
-    public void Start()
+     void Start()
     {
         if (PlayOnStart)
         {
