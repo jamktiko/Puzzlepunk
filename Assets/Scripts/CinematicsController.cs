@@ -35,11 +35,12 @@ public class CinematicsController : MonoBehaviour
 
     private void Update()
     {
-        if (currentMode == PlayMode.playing && Input.GetButton("Skip"))
+        bool skip = PlayerInputListener.control.ZoePlayer.Skip.ReadValue<bool>();
+        if (currentMode == PlayMode.playing && skip)
         {
             SetPlayMode(PlayMode.fast);
         }
-        if (currentMode == PlayMode.fast && !Input.GetButton("Skip"))
+        if (currentMode == PlayMode.fast && !skip)
         {
             SetPlayMode(PlayMode.playing);
         }

@@ -10,6 +10,7 @@ public class PlayerInteractions : MonoBehaviour
         main = this;
     }
     public float InteractDistance = 1f;
+    public float InteractRadius = 1f;
     private void Update()
     {
         HandleInteractCommand();
@@ -17,7 +18,7 @@ public class PlayerInteractions : MonoBehaviour
     }
     public void HandleInteractCommand()
     {
-        if (PlayerMovement.main.CanAct() && Input.GetButtonDown("Interact"))
+        if (PlayerMovement.main.CanAct() && PlayerInputListener.control.ZoePlayer.Interact.WasPressedThisFrame())
             PlayerInteract();
     }
 
@@ -41,7 +42,7 @@ public class PlayerInteractions : MonoBehaviour
     }
     bool CheckInteractables()
     {
-        foreach (RaycastHit2D hit in Physics2D.CircleCastAll(transform.position, .05f, PlayerMovement.main.facing, InteractDistance))
+        foreach (RaycastHit2D hit in Physics2D.CircleCastAll(transform.position, InteractRadius, PlayerMovement.main.facing, InteractDistance))
         {
             if (hit.transform.TryGetComponent(out InteractableBase interactable))
             {
@@ -50,5 +51,9 @@ public class PlayerInteractions : MonoBehaviour
             }
         }
         return false;
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position + InteractDistance * (Vector3)(PlayerMovement.main == null ? Vector2.down : PlayerMovement.main.facing), InteractRadius);
     }
 }

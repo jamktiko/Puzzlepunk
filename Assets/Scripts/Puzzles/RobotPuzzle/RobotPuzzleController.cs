@@ -51,20 +51,22 @@ public class RobotPuzzleController : PuzzleController
     {
         if (GetSelectedRobot() != null)
         {
+            Vector2 moveInput = PlayerInputListener.control.ZoePlayer.Movement.ReadValue<Vector2>();
+
             RobotNPC.WalkDirection order = RobotNPC.WalkDirection.empty;
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (moveInput.y > 0)
             {
                 order = RobotNPC.WalkDirection.up;
             }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            else if (moveInput.y < 0)
             {
                 order = RobotNPC.WalkDirection.down;
             }
-            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            else if (moveInput.x < 0)
             {
                 order = RobotNPC.WalkDirection.left;
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            else if (moveInput.x > 0)
             {
                 order = RobotNPC.WalkDirection.right;
             }

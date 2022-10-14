@@ -91,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 moveInput = Vector2.zero;
     void HandleMovement()
     {
-        moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        moveInput = PlayerInputListener.control.ZoePlayer.Movement.ReadValue<Vector2>();
         if (moveInput.x != 0  || moveInput.y != 0)
         {
             facing = moveInput;
@@ -147,7 +147,7 @@ public class PlayerMovement : MonoBehaviour
     public float SprintMultiplier = 2f;
     bool IsSprinting()
     {
-        return Input.GetButton("Skip");
+        return PlayerInputListener.control.ZoePlayer.Skip.ReadValue<bool>();
     }
     public void SetOrientation(Orientation nO)
     {

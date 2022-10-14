@@ -41,11 +41,11 @@ public class DialogueUIController : MonoBehaviour
     {
         if (CutsceneCoroutine!=null) //TODO define skip key
         {
-            if (Input.GetButtonDown("Interact"))
+            if (PlayerInputListener.control.ZoePlayer.Submit.WasPressedThisFrame())
             {
                 SkipLine = true;
             }
-            if (Input.GetButton("Skip"))
+            if (PlayerInputListener.control.ZoePlayer.Skip.ReadValue<bool>())
             {
                 skipPercent += Time.deltaTime;
                 if (skipText!=null)
