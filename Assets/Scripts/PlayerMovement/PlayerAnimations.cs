@@ -34,11 +34,7 @@ public class PlayerAnimations : MonoBehaviour
             SetWalking(Walking);
             if (Walking)
             {
-                animator.SetBool("Going Left", PlayerMovement.main.moveInput.x < 0);
-                animator.SetBool("Going Right", PlayerMovement.main.moveInput.x > 0);
-
-                animator.SetBool("Going Front", PlayerMovement.main.moveInput.y < 0);
-                animator.SetBool("Going Back", PlayerMovement.main.moveInput.y > 0);
+                UpdateOrientation();
             }
 
             SetCurious(PlayerInteractions.main.CanInteract);
@@ -46,6 +42,14 @@ public class PlayerAnimations : MonoBehaviour
 
         if (zSorter != null && PlayerTransitionController.main != null && PlayerTransitionController.main.CurrentRoom!=null)
             zSorter.Sort(PlayerTransitionController.main.CurrentRoom.transform.position.y - transform.position.y );
+    }
+    public void UpdateOrientation()
+    {
+        animator.SetBool("Going Left", PlayerMovement.main.facing.x < 0);
+        animator.SetBool("Going Right", PlayerMovement.main.facing.x > 0);
+
+        animator.SetBool("Going Front", PlayerMovement.main.facing.y < 0);
+        animator.SetBool("Going Back", PlayerMovement.main.facing.y > 0);
     }
     public void SetWalking(bool value)
     {

@@ -5,13 +5,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public enum Direction
-    {
-        up,
-        down,
-        left,
-        right
-    }
     public Vector2 facing = Vector2.down;
 
     public GridNav grid;
@@ -155,5 +148,46 @@ public class PlayerMovement : MonoBehaviour
     bool IsSprinting()
     {
         return Input.GetButton("Skip");
+    }
+    public void SetOrientation(Orientation nO)
+    {
+        switch (nO)
+        {
+            case Orientation.up:
+                facing = Vector2.up;
+                break;
+            case Orientation.down:
+                facing = Vector2.down;
+                break;
+            case Orientation.right:
+                facing = Vector2.right;
+                break;
+            case Orientation.left:
+                facing = Vector2.left;
+                break;
+            case Orientation.upleft:
+                facing = Vector2.up + Vector2.left;
+                break;
+            case Orientation.downleft:
+                facing = Vector2.down + Vector2.left;
+                break;
+            case Orientation.upright:
+                facing = Vector2.down + Vector2.right;
+                break;
+            case Orientation.downright:
+                facing = Vector2.down + Vector2.right;
+                break;
+        }
+    }
+    public enum Orientation
+    {
+        up,
+        down,
+        left,
+        upleft,
+        downleft,
+        right,
+        upright,
+        downright
     }
 }
