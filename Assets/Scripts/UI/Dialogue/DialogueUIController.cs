@@ -99,7 +99,11 @@ public class DialogueUIController : MonoBehaviour
             yield return talkingNPC.Question.Run(this);
         }
     }
-    void EndDialogue()
+    public void ClearDialogue()
+    {
+        HideMultipleChoice(); ;
+    }
+    public void EndDialogue()
     {
         if (CutsceneCoroutine != null)
             StopCoroutine(CutsceneCoroutine);
