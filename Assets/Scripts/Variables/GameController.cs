@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -11,5 +12,11 @@ public class GameController : MonoBehaviour
     {
         main = this;
         variables = new VariableManager();
+        SceneManager.sceneLoaded += OnSceneChange;
     }
+   void OnSceneChange(Scene scene, LoadSceneMode mode)
+ {
+        variables.UpdateReactors();
+ }
+
 }

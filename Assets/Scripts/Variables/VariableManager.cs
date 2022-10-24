@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static VariableManager;
 
 public class VariableManager
 {
@@ -59,10 +58,17 @@ public class VariableManager
     }
     void OnVariableChange(string variable)
     {
-            foreach (VariableReactionChange vrc in Reactors)
+        foreach (VariableReactionChange vrc in Reactors)
         {
             CheckVars(vrc, variable);
         }
+    }
+    public void UpdateReactors()
+    {
+        Reactors.RemoveAll((VariableReactionChange vrc) =>
+        {
+            return vrc == null;
+        });
     }
     void CheckVars(VariableReactionChange vrc, string variable)
     {
