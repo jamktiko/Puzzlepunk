@@ -7,12 +7,14 @@ public class NavPoint : MonoBehaviour
     public string PointID;
 
     public RoomComponent room;
-    public void Start()
+    public void Awake()
     {
         if (PointID == "")
         {
             PointID = name;
         }
+    }
+        public void Start() { 
             FindRoom();
     }
     public void FindRoom()

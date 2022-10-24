@@ -1,6 +1,7 @@
 
 using UnityEngine;
 using UnityEngine.Events;
+using static VariableManager;
 
 public class VariableReactionChange : MonoBehaviour
 {

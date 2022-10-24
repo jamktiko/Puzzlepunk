@@ -23,7 +23,7 @@ public class PlayerInteractions : MonoBehaviour
 
     public void PlayerInteract()
     {
-        foreach (RaycastHit2D hit in Physics2D.CircleCastAll(transform.position, .1f, PlayerMovement.main.facing, InteractDistance))
+        foreach (RaycastHit2D hit in Physics2D.CircleCastAll(transform.position, .05f, PlayerMovement.main.facing, InteractDistance))
         {
             if (hit.transform.TryGetComponent(out InteractableBase interactable))
             {
@@ -41,7 +41,7 @@ public class PlayerInteractions : MonoBehaviour
     }
     bool CheckInteractables()
     {
-        foreach (RaycastHit2D hit in Physics2D.CircleCastAll(transform.position, .1f, PlayerMovement.main.facing, InteractDistance))
+        foreach (RaycastHit2D hit in Physics2D.CircleCastAll(transform.position, .05f, PlayerMovement.main.facing, InteractDistance))
         {
             if (hit.transform.TryGetComponent(out InteractableBase interactable))
             {

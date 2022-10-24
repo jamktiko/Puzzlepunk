@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static VariableManager;
 
 public class VariableManager
 {
@@ -60,30 +61,35 @@ public class VariableManager
     {
             foreach (VariableReactionChange vrc in Reactors)
         {
-            bool conditionMet = true;
+            CheckVars(vrc, variable);
+        }
+    }
+    void CheckVars(VariableReactionChange vrc, string variable)
+    {
 
-            Debug.Log("REACTORCHEC " + vrc.name+ "WITH "+ vrc.Conditions.Length+" CONDITIONS");
-            if (vrc.Conditions != null && vrc.Conditions.Length > 0)
+        bool conditionMet = true;
+
+        Debug.Log("REACTORCHEC " + vrc.name + "WITH " + vrc.Conditions.Length + " CONDITIONS");
+        if (vrc.Conditions != null && vrc.Conditions.Length > 0)
+        {
+            bool tracksVariable = false;
+
+            foreach (Condition c in vrc.Conditions)
             {
-                bool tracksVariable = false;
-
-                foreach (Condition c in vrc.Conditions)
+                Debug.Log("CONDITIONCHECK " + c.variableName + " NEEDS TO BE " + c.value);
+                if (c.variableName == variable)
+                    tracksVariable = true;
+                if (!ConditionMet(c))
                 {
-                    Debug.Log("CONDITIONCHECK " + c.variableName + " NEEDS TO BE " + c.value);
-                    if (c.variableName == variable)
-                        tracksVariable = true;
-                    if (!ConditionMet(c))
-                    {
-                        Debug.Log("CONDITIONCHECK FAILED " + c.variableName);
-                        conditionMet = false;
-                        break;
-                    }
-                    Debug.Log("CONDITIONCHECK PASS " + c.variableName);
+                    Debug.Log("CONDITIONCHECK FAILED " + c.variableName);
+                    conditionMet = false;
+                    break;
                 }
-                if (tracksVariable && conditionMet)
-                {
-                    vrc.Action.Invoke();
-                }
+                Debug.Log("CONDITIONCHECK PASS " + c.variableName);
+            }
+            if (tracksVariable && conditionMet)
+            {
+                vrc.Action.Invoke();
             }
         }
     }

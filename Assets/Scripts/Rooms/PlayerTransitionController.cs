@@ -25,6 +25,10 @@ public class PlayerTransitionController : MonoBehaviour
         {
             roomPoint.FindRoom();
         }
+        if (roomPoint == null) {
+            Debug.LogError("Point not found");
+                return;
+                }
             if (roomPoint.room != null)
             {
                 TransitionRoom(roomPoint.room, roomPoint.GetRelativePosition(), skipCoroutine);
