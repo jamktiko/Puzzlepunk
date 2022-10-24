@@ -31,7 +31,9 @@ public class SceneTransitionManager : MonoBehaviour
     public IEnumerator TransitionSceneCoroutine(string SceneName)
     {
         yield return SceneManager.LoadSceneAsync(LoadingScene);
+        yield return new WaitForSecondsRealtime(.5f);
         yield return SceneManager.LoadSceneAsync(SceneName, LoadSceneMode.Additive);
+        yield return new WaitForSecondsRealtime(.5f);
         SceneManager.UnloadSceneAsync(LoadingScene);
     }
     public void TransitionGameScene(string SceneName)
@@ -41,8 +43,10 @@ public class SceneTransitionManager : MonoBehaviour
     public IEnumerator TransitionGameSceneCoroutine(string SceneName)
     {
         yield return SceneManager.LoadSceneAsync(LoadingScene);
+        yield return new WaitForSecondsRealtime(.5f);
         yield return SceneManager.LoadSceneAsync(GameEssentials, LoadSceneMode.Additive);
         yield return SceneManager.LoadSceneAsync(SceneName, LoadSceneMode.Additive);
+        yield return new WaitForSecondsRealtime(.5f);
         SceneManager.UnloadSceneAsync(LoadingScene);
     }
 }
