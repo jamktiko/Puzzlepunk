@@ -44,7 +44,7 @@ public class PlayerAnimations : MonoBehaviour
             SetCurious(PlayerInteractions.main.CanInteract);
         }
 
-        if (zSorter != null)
+        if (zSorter != null && PlayerTransitionController.main != null && PlayerTransitionController.main.CurrentRoom!=null)
             zSorter.Sort(PlayerTransitionController.main.CurrentRoom.transform.position.y - transform.position.y );
     }
     public void SetWalking(bool value)
