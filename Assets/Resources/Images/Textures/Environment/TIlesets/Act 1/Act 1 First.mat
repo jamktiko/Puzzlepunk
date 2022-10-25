@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Tilemap
+  m_Name: Act 1 First
   m_Shader: {fileID: 4800000, guid: b9ed975f1d59041ff9af22197ac927ea, type: 3}
   m_ValidKeywords:
   - CURVATURE_ON
@@ -22,8 +22,8 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 49ff4f611bc7bcd4090a8c9892b8bfe3, type: 3}
-        m_Scale: {x: 0.16, y: 0.16}
+        m_Texture: {fileID: 2800000, guid: c79e989484af70945923c6fee9226f28, type: 3}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
@@ -46,7 +46,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Illum:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 571d0bb865de1c641bdf41b9b0599fd1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Layer1:
@@ -90,26 +90,26 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TransmissionTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 571d0bb865de1c641bdf41b9b0599fd1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - PixelSnap: 0
     - _BumpScale: 1
-    - _CurvatureDepth: 0.52
+    - _CurvatureDepth: 0.33
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DissolveBlend: 0
-    - _DissolveBorderWidth: 10
-    - _DissolveGlowStrength: 1
+    - _DissolveBorderWidth: 0
+    - _DissolveGlowStrength: 0
     - _DstBlend: 0
-    - _EmissionBlendAnimation1: 0
-    - _EmissionBlendAnimation2: 0
-    - _EmissionBlendAnimation3: 0
-    - _EmissionPulseSpeed1: 1
-    - _EmissionPulseSpeed2: 1
-    - _EmissionPulseSpeed3: 1
+    - _EmissionBlendAnimation1: 1
+    - _EmissionBlendAnimation2: 1
+    - _EmissionBlendAnimation3: 1
+    - _EmissionPulseSpeed1: 0
+    - _EmissionPulseSpeed2: 0
+    - _EmissionPulseSpeed3: 0.83
     - _EmissionStrength: 0
     - _EmissionStrength2: 0
     - _EmissionStrength3: 0
@@ -139,7 +139,7 @@ Material:
     - _Specular: 0.2
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _TransmissionDensity: 0
+    - _TransmissionDensity: 0.766
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
