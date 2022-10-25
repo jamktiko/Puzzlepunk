@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11145981673336645838492a2d98e247, type: 3}
-  m_Name: URP 2D_Renderer
+  m_Name: U2D_Renderer
   m_EditorClassIdentifier: 
-  <isInvalidated>k__BackingField: 1
-  debugShaders: {debugReplacementPS: {fileID: 4800000, guid: cf852408f2e174538bcd9b7fda1c5ae7, type: 3}}
+  debugShaders:
+    debugReplacementPS: {fileID: 4800000, guid: cf852408f2e174538bcd9b7fda1c5ae7, type: 3}
   m_RendererFeatures: []
-  m_RendererFeatureMap: []
+  m_RendererFeatureMap: 
   m_UseNativeRenderPass: 0
   m_TransparencySortMode: 0
   m_TransparencySortAxis: {x: 0, y: 1, z: 0}
@@ -25,26 +25,18 @@ MonoBehaviour:
   - name: Multiply
     maskTextureChannel: 0
     blendMode: 1
-    <isDirty>k__BackingField: 0
-    <hasRenderTarget>k__BackingField: 0
   - name: Additive
     maskTextureChannel: 0
     blendMode: 0
-    <isDirty>k__BackingField: 0
-    <hasRenderTarget>k__BackingField: 0
   - name: Multiply with Mask
     maskTextureChannel: 1
     blendMode: 1
-    <isDirty>k__BackingField: 0
-    <hasRenderTarget>k__BackingField: 0
   - name: Additive with Mask
     maskTextureChannel: 1
     blendMode: 0
-    <isDirty>k__BackingField: 0
-    <hasRenderTarget>k__BackingField: 0
   m_UseDepthStencilBuffer: 1
   m_UseCameraSortingLayersTexture: 0
-  m_CameraSortingLayersTextureBound: 0
+  m_CameraSortingLayersTextureBound: -1
   m_CameraSortingLayerDownsamplingMethod: 0
   m_MaxLightRenderTextureCount: 16
   m_MaxShadowRenderTextureCount: 1
@@ -61,13 +53,6 @@ MonoBehaviour:
   m_FallbackErrorShader: {fileID: 4800000, guid: e6e9a19c3678ded42a3bc431ebef7dbd, type: 3}
   m_PostProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   m_FallOffLookup: {fileID: 2800000, guid: 5688ab254e4c0634f8d6c8e0792331ca, type: 3}
-  <spriteSelfShadowMaterial>k__BackingField: []
-  <spriteUnshadowMaterial>k__BackingField: []
-  <geometryUnshadowMaterial>k__BackingField: []
-  <projectedShadowMaterial>k__BackingField: []
-  <stencilOnlyShadowMaterial>k__BackingField: []
-  <isNormalsRenderTargetValid>k__BackingField: 0
-  <normalsRenderTargetScale>k__BackingField: 0
   m_DefaultMaterialType: 0
   m_DefaultCustomMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_DefaultLitMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
