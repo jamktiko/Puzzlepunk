@@ -151,6 +151,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void SetOrientation(Orientation nO)
     {
+        Stop();
         switch (nO)
         {
             case Orientation.up:
@@ -178,6 +179,7 @@ public class PlayerMovement : MonoBehaviour
                 facing = Vector2.down + Vector2.right;
                 break;
         }
+        PlayerAnimations.main.UpdateOrientation();
     }
     public enum Orientation
     {

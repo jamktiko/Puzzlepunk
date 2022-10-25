@@ -11,6 +11,5 @@ public class PointTransition : MonoBehaviour
     {
         PlayerTransitionController.main.TeleportToPoint(navPoint, instant);
         PlayerMovement.main.SetOrientation(SetOrientation);
-        PlayerAnimations.main.UpdateOrientation();
     }
 }

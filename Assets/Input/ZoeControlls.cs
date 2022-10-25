@@ -200,7 +200,7 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""668fa3f7-f030-410d-a0be-6e4d21fd8cb1"",
-                    ""path"": ""<Keyboard>/minus"",
+                    ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard;Mouse + Keyboard"",
