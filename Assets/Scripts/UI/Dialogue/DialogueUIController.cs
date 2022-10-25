@@ -218,6 +218,7 @@ public class DialogueUIController : MonoBehaviour
     }
     IEnumerator SkippableWait()
     {
+        SkipLine = false;
         while (!SkipLine && skipPercent < 1)
         {
             yield return new WaitForFixedUpdate();
