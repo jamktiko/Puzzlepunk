@@ -6,14 +6,15 @@ using UnityEngine;
 using UnityEngine.TextCore.Text;
 
 [CreateAssetMenu(fileName = "Image Color", menuName = "Dialogue/Components/Image Color")]
-public class ScriptableDialogueChangeColorImage : ScriptableDialogue
+public class ScriptableDialogueChangeColorImage : ScriptableShowImage
 {
-    public Sprite DialogueImage;
     public Color StartColor = Color.white;
     public float Duration = 1;
     public Color FinalColor = Color.white;
     public override IEnumerator Run(DialogueUIController DC)
     {
+        if (HideText)
+            DC.HideDialogue();
         DC.dialogImage.enabled = true;
         DC.dialogImage.sprite = DialogueImage;
 
