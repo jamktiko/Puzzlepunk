@@ -45,7 +45,7 @@ public class DialogueUIController : MonoBehaviour
             {
                 SkipLine = true;
             }
-            if (PlayerInputListener.control.ZoePlayer.Skip.ReadValue<bool>())
+            if (PlayerInputListener.control.ZoePlayer.Skip.ReadValue<float>() > 0)
             {
                 skipPercent += Time.deltaTime;
                 if (skipText!=null)

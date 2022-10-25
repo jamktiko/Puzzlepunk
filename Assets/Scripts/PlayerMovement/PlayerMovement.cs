@@ -147,7 +147,7 @@ public class PlayerMovement : MonoBehaviour
     public float SprintMultiplier = 2f;
     bool IsSprinting()
     {
-        return PlayerInputListener.control.ZoePlayer.Skip.ReadValue<bool>();
+        return PlayerInputListener.control.ZoePlayer.Skip.ReadValue<float>() > 0;
     }
     public void SetOrientation(Orientation nO)
     {
