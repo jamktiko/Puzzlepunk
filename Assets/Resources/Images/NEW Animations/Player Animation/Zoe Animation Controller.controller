@@ -556,9 +556,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Going Back
     m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: InteractCurrently
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3037132746136928857}
   m_Solo: 0
@@ -647,9 +644,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: Going Back
     m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: InteractCurrently
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8015428791780738616}
   m_Solo: 0
@@ -710,9 +704,6 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: Going Front
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: InteractCurrently
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7177847886542178260}
@@ -826,9 +817,6 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: Is Walking
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: InteractCurrently
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7882789648817665377}
@@ -978,9 +966,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Is Walking
     m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: InteractCurrently
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6109599141624789721}
   m_Solo: 0
@@ -1067,11 +1052,8 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: Going Back
     m_EventTreshold: 0
-  - m_ConditionMode: 2
+  - m_ConditionMode: 1
     m_ConditionEvent: Is Walking
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: InteractCurrently
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3472347883958507193}
@@ -1162,9 +1144,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Going Back
     m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: InteractCurrently
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7745966716278569827}
   m_Solo: 0
@@ -1201,9 +1180,6 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: Is Walking
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: InteractCurrently
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1898614687404689256}
