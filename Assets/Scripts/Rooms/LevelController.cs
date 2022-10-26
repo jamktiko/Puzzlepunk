@@ -56,7 +56,7 @@ public class LevelController : MonoBehaviour
     {
         if (StartingPoint != null && PlayerTransitionController.main!=null)
         {
-            PlayerTransitionController.main.TeleportToPoint(StartingPoint, true);
+            PlayerTransitionController.main.TeleportToPoint(StartingPoint, PlayerMovement.Orientation.down, true);
         }
         }
 }

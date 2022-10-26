@@ -9,7 +9,6 @@ public class PointTransition : MonoBehaviour
     public PlayerMovement.Orientation SetOrientation = PlayerMovement.Orientation.down;
     public void MovePlayerToPoint()
     {
-        PlayerTransitionController.main.TeleportToPoint(navPoint, instant);
-        PlayerMovement.main.SetOrientation(SetOrientation);
+        PlayerTransitionController.main.TeleportToPoint(navPoint, SetOrientation,instant);
     }
 }

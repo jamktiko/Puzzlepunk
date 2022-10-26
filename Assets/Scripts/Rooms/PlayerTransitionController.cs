@@ -12,14 +12,14 @@ public class PlayerTransitionController : MonoBehaviour
     }
 
     public RoomComponent CurrentRoom;
-    public void TeleportToPoint(string pointName, bool skipCoroutine)
+    public void TeleportToPoint(string pointName, PlayerMovement.Orientation endOrientation, bool skipCoroutine)
     {
         if (LevelController.main != null && LevelController.main.GetPointByName(pointName) != null)
         {
-            TeleportToPoint( LevelController.main.GetPointByName(pointName), skipCoroutine);
+            TeleportToPoint( LevelController.main.GetPointByName(pointName), endOrientation,skipCoroutine);
         }
     }
-    public void TeleportToPoint(NavPoint roomPoint, bool skipCoroutine)
+    public void TeleportToPoint(NavPoint roomPoint, PlayerMovement.Orientation endOrientation, bool skipCoroutine)
     {
         if (roomPoint!=null)
         {
@@ -31,24 +31,25 @@ public class PlayerTransitionController : MonoBehaviour
                 }
             if (roomPoint.room != null)
             {
-                TransitionRoom(roomPoint.room, roomPoint.GetRelativePosition(), skipCoroutine);
+                TransitionRoom(roomPoint.room, roomPoint.GetRelativePosition(), endOrientation, skipCoroutine);
             }
         
     }
-    public void TransitionRoom(string newRoomName, Vector2 pointPosition, bool skipCoroutine)
+    public void TransitionRoom(string newRoomName, Vector2 pointPosition, PlayerMovement.Orientation endOrientation, bool skipCoroutine)
     {
         if (LevelController.main != null && LevelController.main.GetRoomByName(newRoomName) != null)
         {
-            TransitionRoom(LevelController.main.GetRoomByName(newRoomName), pointPosition, skipCoroutine);
+            TransitionRoom(LevelController.main.GetRoomByName(newRoomName), pointPosition, endOrientation, skipCoroutine);
         }
     }
     Coroutine TransitionCoroutine;
-    public void TransitionRoom(RoomComponent newRoom, Vector2 pointPosition, bool skipCoroutine)
+    public void TransitionRoom(RoomComponent newRoom, Vector2 pointPosition, PlayerMovement.Orientation endOrientation, bool skipCoroutine)
     {
 
         if (skipCoroutine)
         {
             MovePlayerToNewRoom(newRoom, pointPosition);
+            PlayerMovement.main.SetOrientation(endOrientation);
             return;
         }
         else if (newRoom == CurrentRoom)
@@ -57,20 +58,23 @@ public class PlayerTransitionController : MonoBehaviour
         {
             StopCoroutine(TransitionCoroutine);
         }
-        TransitionCoroutine = StartCoroutine(FadeCoroutine(newRoom, pointPosition));
+        TransitionCoroutine = StartCoroutine(FadeCoroutine(newRoom, endOrientation, pointPosition));
     }
-    public IEnumerator FadeCoroutine(RoomComponent newRoom, Vector2 pointPosition)
+    public IEnumerator FadeCoroutine(RoomComponent newRoom, PlayerMovement.Orientation endOrientation, Vector2 pointPosition)
     {
+        PlayerCinematicController.main.SetCinematicMode(true, false);
         if (UIController.main.TransitionScreen!=null)
         {
             UIController.main.TransitionScreen.StopAllCoroutines();
             yield return UIController.main.TransitionScreen.AwaitTransitionIn(ScreenTransitionTime);
         }
         MovePlayerToNewRoom(newRoom, pointPosition);
+        PlayerMovement.main.SetOrientation(endOrientation);
         if (UIController.main.TransitionScreen != null)
         {
             yield return UIController.main.TransitionScreen.AwaitTransitionOut(ScreenTransitionTime);
         }
+        PlayerCinematicController.main.SetCinematicMode(false, false);
     }
     void MovePlayerToNewRoom(RoomComponent newRoom, Vector2 pointPosition)
     {

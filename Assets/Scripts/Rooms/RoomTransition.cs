@@ -7,10 +7,11 @@ public class RoomTransition : MonoBehaviour
     public RoomComponent destinationRoom;
     public Vector2 destination;
     public bool instant;
+    public PlayerMovement.Orientation SetOrientation = PlayerMovement.Orientation.down;
 
     public void TriggerTransition()
     {
-        PlayerTransitionController.main.TransitionRoom(destinationRoom,destination, instant);
+        PlayerTransitionController.main.TransitionRoom(destinationRoom,destination, SetOrientation, instant);
     }
 
     void OnDrawGizmosSelected()

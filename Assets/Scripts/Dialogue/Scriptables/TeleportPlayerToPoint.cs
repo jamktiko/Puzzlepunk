@@ -7,12 +7,13 @@ public class TeleportPlayerToPoint : ScriptableDialogue
 {
     public string PointName = "";
     public bool Instant = false;
+    public PlayerMovement.Orientation SetOrientation = PlayerMovement.Orientation.down;
     public override void OnSkipped(DialogueUIController DC)
     {
         NavPoint point = LevelController.main.GetPointByName(PointName);
         if (PointName != null)
         {
-            PlayerTransitionController.main.TeleportToPoint(point, Instant);
+            PlayerTransitionController.main.TeleportToPoint(point, SetOrientation,Instant);
         }
     }
     public override IEnumerator Run(DialogueUIController DC)
