@@ -45,6 +45,6 @@ public class SceneTransitionManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(.5f);
         yield return SceneManager.LoadSceneAsync(GameEssentials, LoadSceneMode.Additive);
         yield return SceneManager.LoadSceneAsync(SceneName, LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync(LoadingScene);
+        yield return SceneManager.UnloadSceneAsync(LoadingScene);
     }
 }
