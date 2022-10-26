@@ -14,6 +14,9 @@ public class LevelController : MonoBehaviour
         main = this;
         navPoints = GetComponentsInChildren<NavPoint>();
         rooms = GetComponentsInChildren<RoomComponent>();
+
+        Reactors = new List<VariableReactionChange>();
+        Reactors.AddRange(GetComponentsInChildren<VariableReactionChange>());
     }
     private void Start()
     {
@@ -60,4 +63,9 @@ public class LevelController : MonoBehaviour
         }
         OnGameStarted.Invoke();
     }
+    #region Variable Reactors
+
+    public List<VariableReactionChange> Reactors = new List<VariableReactionChange>();
+
+    #endregion
 }

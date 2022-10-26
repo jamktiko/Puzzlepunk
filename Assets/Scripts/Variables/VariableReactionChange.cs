@@ -9,6 +9,6 @@ public class VariableReactionChange : MonoBehaviour
     public UnityEvent Action;
     void Start()
     {
-        GameController.main.variables.Reactors.Add(this);
+        LevelController.main.Reactors.Add(this);
     }
 }

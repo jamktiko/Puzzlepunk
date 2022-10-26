@@ -5,7 +5,6 @@ using UnityEngine;
 public class VariableManager
 {
     public Dictionary<string, Variable> EncodedVariables = new Dictionary<string, Variable>();
-    public List<VariableReactionChange> Reactors = new List<VariableReactionChange>();
     public Variable GetVariable(string vName)
     {
         if (EncodedVariables.ContainsKey(vName))
@@ -58,17 +57,10 @@ public class VariableManager
     }
     void OnVariableChange(string variable)
     {
-        foreach (VariableReactionChange vrc in Reactors)
+        foreach (VariableReactionChange vrc in LevelController.main.Reactors)
         {
             CheckVars(vrc, variable);
         }
-    }
-    public void UpdateReactors()
-    {
-        Reactors.RemoveAll((VariableReactionChange vrc) =>
-        {
-            return vrc == null;
-        });
     }
     void CheckVars(VariableReactionChange vrc, string variable)
     {

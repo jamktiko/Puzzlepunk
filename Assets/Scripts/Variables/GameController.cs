@@ -12,12 +12,14 @@ public class GameController : MonoBehaviour
     {
         main = this;
         variables = new VariableManager();
-        SceneManager.sceneLoaded += OnSceneChange;
-        gameObject.SetActive(false);
     }
-    void OnSceneChange(Scene scene, LoadSceneMode mode)
+    private void Start()
     {
-        variables.UpdateReactors();
+
+        if (LoadingScreenManager.main == null)
+            StartGame();
+        else
+            gameObject.SetActive(false);
     }
     public void StartGame()
     {
