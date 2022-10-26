@@ -16,11 +16,15 @@ public class TransitionScreenController : MonoBehaviour
     }
     private void Start()
     {
-        StartCoroutine(FadeOut(1));
+        StartCoroutine(FadeOut(0));
     }
 
     Coroutine TransitionCoroutine;
 
+    public void TransitionIn(float dur)
+    {
+        StartCoroutine(FadeIn(dur));
+    }
     public IEnumerator AwaitTransitionIn(float dur)
     {
         yield return StartCoroutine(FadeIn(dur));
@@ -38,6 +42,10 @@ public class TransitionScreenController : MonoBehaviour
         }
         FOIcolor.a = 1;
         FadeOutImage.color = FOIcolor;
+    }
+    public void TransitionOut(float dur)
+    {
+         StartCoroutine(FadeOut(dur));
     }
     public IEnumerator AwaitTransitionOut(float dur)
     {

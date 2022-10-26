@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
@@ -20,7 +21,6 @@ public class LevelController : MonoBehaviour
         {
             room.gameObject.SetActive(false);
         }
-        InitPlayer();
     }
 
     public NavPoint GetPointByName(string rName)
@@ -50,13 +50,14 @@ public class LevelController : MonoBehaviour
         }
         return null;
     }
-
+    public UnityEvent OnGameStarted;
     public NavPoint StartingPoint;
-    void InitPlayer()
+    public void BeginGame()
     {
-        if (StartingPoint != null && PlayerTransitionController.main!=null)
+        if (StartingPoint != null && PlayerTransitionController.main != null)
         {
             PlayerTransitionController.main.TeleportToPoint(StartingPoint, PlayerMovement.Orientation.down, true);
         }
-        }
+        OnGameStarted.Invoke();
+    }
 }

@@ -13,10 +13,16 @@ public class GameController : MonoBehaviour
         main = this;
         variables = new VariableManager();
         SceneManager.sceneLoaded += OnSceneChange;
+        gameObject.SetActive(false);
     }
-   void OnSceneChange(Scene scene, LoadSceneMode mode)
- {
+    void OnSceneChange(Scene scene, LoadSceneMode mode)
+    {
         variables.UpdateReactors();
- }
+    }
+    public void StartGame()
+    {
+        gameObject.SetActive(true);
+        LevelController.main.BeginGame();
+    }
 
 }
