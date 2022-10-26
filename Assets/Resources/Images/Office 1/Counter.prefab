@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3953984303675572081}
   - component: {fileID: 1597482782606719032}
   - component: {fileID: 1681539876600736382}
+  - component: {fileID: 1321517867152680775}
   m_Layer: 0
   m_Name: Counter
   m_TagString: Obstacle
@@ -54,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -128,3 +129,30 @@ MonoBehaviour:
   AlwaysUpdate: 0
   spriteRenderer: {fileID: 3953984303675572081}
   deltaOrder: 0
+--- !u!114 &1321517867152680775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3953984303675572086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 0
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: ed8408e30000000031b8ffbf4511d0a99b4d2d85
+  m_ShapePath:
+  - {x: -0.06582451, y: -0.2581644, z: 0}
+  - {x: -0.06582451, y: 0.23246777, z: 0}
+  - {x: 0.07316589, y: 0.23980975, z: 0}
+  - {x: 0.07500076, y: -0.26, z: 0}
+  m_ShapePathHash: -1380882923
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -463542

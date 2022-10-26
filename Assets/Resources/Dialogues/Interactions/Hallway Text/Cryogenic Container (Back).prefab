@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4111892273851875909}
   - component: {fileID: 7869536457711703086}
   - component: {fileID: 1067303696568363000}
+  - component: {fileID: 4137156229102336817}
   m_Layer: 0
   m_Name: Cryogenic Container (Back)
   m_TagString: Obstacle
@@ -55,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -156,3 +157,32 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 11400000, guid: 44f80d0f1ca0c2e43abc2f27594162ae, type: 2}
+--- !u!114 &4137156229102336817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5500369443893752204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 0
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: ed8408e30000000031b8ffbf4511d0a99b4d2d85
+  m_ShapePath:
+  - {x: -0.1364193, y: -0.3527403, z: 0}
+  - {x: -0.1841774, y: -0.20443726, z: 0}
+  - {x: 0.045947075, y: -0.16932201, z: 0}
+  - {x: 0.2743883, y: -0.19382477, z: 0}
+  - {x: 0.17887115, y: -0.3421278, z: 0}
+  - {x: 0.024721146, y: -0.37096786, z: 0}
+  m_ShapePathHash: -740420163
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -425876
