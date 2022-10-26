@@ -28,7 +28,7 @@ public class PlayerInteractions : MonoBehaviour
         {
             if (hit.transform.TryGetComponent(out InteractableBase interactable))
             {
-
+                PlayerAnimations.main.SetWalking(false);
                 interactable.OnInteract();
                 return;
             }
