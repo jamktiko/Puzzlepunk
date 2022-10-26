@@ -779,7 +779,7 @@ TextureImporter:
         width: 6
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -800,7 +800,9 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures: []
+    secondaryTextures:
+    - texture: {fileID: 2800000, guid: 5b2433c0bec6d2243bb73ee165770d20, type: 3}
+      name: _NormalMap
     nameFileIdTable:
       Act 1 - Hallway_1: -227802492
       Act 1 - Hallway_21: 49228715
