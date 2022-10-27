@@ -242,6 +242,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8145452366047622432}
+  - component: {fileID: 8145452366881892119}
   - component: {fileID: 8145452366047622433}
   - component: {fileID: 8145452366047622434}
   - component: {fileID: 8145452366047622439}
@@ -251,7 +252,6 @@ GameObject:
   - component: {fileID: 1385073400}
   - component: {fileID: 1385073401}
   - component: {fileID: 4542243899558046695}
-  - component: {fileID: 8145452366881892119}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -275,6 +275,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8145452366881892119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8145452366047622435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c7153844aa3ba1428ab9c71df79334e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &8145452366047622433
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -471,15 +483,3 @@ MonoBehaviour:
   m_DefaultActionMap: Zoe Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &8145452366881892119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8145452366047622435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c7153844aa3ba1428ab9c71df79334e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

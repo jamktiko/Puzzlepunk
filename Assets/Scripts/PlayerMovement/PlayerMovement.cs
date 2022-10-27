@@ -89,6 +89,12 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public Vector2 moveInput = Vector2.zero;
+    private void OnEnable()
+    {
+        PlayerInputListener.control.ZoePlayer.Movement.started += _ => { HandleMovement(); };
+        PlayerInputListener.control.ZoePlayer.Movement.performed += _ => { HandleMovement(); };
+        PlayerInputListener.control.ZoePlayer.Movement.canceled += _ => { HandleMovement(); };
+    }
     void HandleMovement()
     {
         moveInput = PlayerInputListener.control.ZoePlayer.Movement.ReadValue<Vector2>();

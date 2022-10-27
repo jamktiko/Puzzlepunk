@@ -187,6 +187,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Interface Controlls",
+            "id": "fa6eeceb-0198-4770-87c1-2910c8cf1dbd",
+            "actions": [
+                {
+                    "name": "Show Help",
+                    "type": "Button",
+                    "id": "01a2f6bb-1e37-43b6-9bbf-60112a961571",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Menu",
+                    "type": "Button",
+                    "id": "7f3c4baa-41ac-47f3-9374-004732254a05",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b8e00810-1576-4d33-a175-dabeec921515",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard;Mouse + Keyboard",
+                    "action": "Show Help",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a94c51e1-3403-40e1-b8b9-3d0872b02347",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse + Keyboard;Keyboard",
+                    "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

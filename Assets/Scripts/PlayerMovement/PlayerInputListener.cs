@@ -8,11 +8,21 @@ public class PlayerInputListener : MonoBehaviour
     void Awake()
     {
         control = new ZoeControlls ();
-
+    }
+    private void OnEnable()
+    {
         control.ZoePlayer.Enable();
         control.ZoePlayer.Movement.Enable();
         control.ZoePlayer.Skip.Enable();
         control.ZoePlayer.Submit.Enable();
         control.ZoePlayer.Interact.Enable();
+    }
+    private void OnDisable()
+    {
+        control.ZoePlayer.Disable();
+        control.ZoePlayer.Movement.Disable();
+        control.ZoePlayer.Skip.Disable();
+        control.ZoePlayer.Submit.Disable();
+        control.ZoePlayer.Interact.Disable();
     }
 }
