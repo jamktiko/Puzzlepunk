@@ -136,6 +136,7 @@ public class DialogueUIController : MonoBehaviour
 
     public void HideDialogue()
     {
+        dialogImage.enabled = false;
         EnableDisableExposition(false);
         EnableDisableDialogue(false);
         HideMultipleChoice();
