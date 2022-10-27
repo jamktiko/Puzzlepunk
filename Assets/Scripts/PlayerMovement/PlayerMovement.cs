@@ -17,6 +17,14 @@ public class PlayerMovement : MonoBehaviour
     {
         main = this;
     }
+    private void Start()
+    {
+        if (PlayerInputListener.control != null)
+        {
+            PlayerInputListener.control.ZoePlayer.Skip.started += _ => { Sprinting = true; };
+            PlayerInputListener.control.ZoePlayer.Skip.canceled += _ => { Sprinting = false; };
+        }
+    }
     private void Update()
     {
         if (!CanAct())
@@ -145,9 +153,10 @@ public class PlayerMovement : MonoBehaviour
         return mNode!=null && moveCoroutine != null;
     }
     public float SprintMultiplier = 2f;
+    bool Sprinting = false;
     bool IsSprinting()
     {
-        return PlayerInputListener.control.ZoePlayer.Skip.ReadValue<float>() > 0;
+        return Sprinting;
     }
     public void SetOrientation(Orientation nO)
     {

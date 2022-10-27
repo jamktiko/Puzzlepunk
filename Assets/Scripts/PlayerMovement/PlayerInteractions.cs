@@ -11,19 +11,18 @@ public class PlayerInteractions : MonoBehaviour
     }
     public float InteractDistance = 1f;
     public float InteractRadius = 1f;
-    private void Update()
+    private void Start()
     {
-        HandleInteractCommand();
-
-    }
-    public void HandleInteractCommand()
-    {
-        if (PlayerMovement.main.CanAct() && PlayerInputListener.control.ZoePlayer.Interact.WasPressedThisFrame())
-            PlayerInteract();
+        if (PlayerInputListener.control!=null)
+        {
+            PlayerInputListener.control.ZoePlayer.Interact.started += _ => { PlayerInteract(); };
+        }
     }
 
     public void PlayerInteract()
     {
+        if (!PlayerMovement.main.CanAct())
+            return;
         foreach (RaycastHit2D hit in Physics2D.CircleCastAll(transform.position, .05f, PlayerMovement.main.facing, InteractDistance))
         {
             if (hit.transform.TryGetComponent(out InteractableBase interactable))
