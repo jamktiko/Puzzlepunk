@@ -46,6 +46,7 @@ public class DialogueUIController : MonoBehaviour
     {
         HandleExit();
     }
+    
     float skipPercent = 0;
     void HandleExit()
     {
@@ -53,6 +54,7 @@ public class DialogueUIController : MonoBehaviour
         {
             if (skipPercent > 0)
             {
+                skipPercent += Time.deltaTime;
                 if (skipText!=null)
                 skipText.color = new Color(1, 1, 1, skipPercent);
             }
