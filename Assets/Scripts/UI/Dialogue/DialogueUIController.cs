@@ -31,6 +31,16 @@ public class DialogueUIController : MonoBehaviour
     [Header("Multiple Choice")]
     public MultipleChoiceContainer MultipleChoice;
 
+    private void Start()
+    {
+     if (PlayerInputListener.control!=null)
+        {
+            PlayerInputListener.control.ZoePlayer.Submit.started += _ => { SkipLine = true; };
+            PlayerInputListener.control.ZoePlayer.Skip.performed += _ => { skipPercent += Time.deltaTime; };
+            PlayerInputListener.control.ZoePlayer.Skip.canceled += _ => { skipPercent = 0; };
+        }
+    }
+
     Coroutine CutsceneCoroutine;
     private void Update()
     {
@@ -41,19 +51,13 @@ public class DialogueUIController : MonoBehaviour
     {
         if (CutsceneCoroutine!=null) //TODO define skip key
         {
-            if (PlayerInputListener.control.ZoePlayer.Submit.WasPressedThisFrame())
+            if (skipPercent > 0)
             {
-                SkipLine = true;
-            }
-            if (PlayerInputListener.control.ZoePlayer.Skip.ReadValue<float>() > 0)
-            {
-                skipPercent += Time.deltaTime;
                 if (skipText!=null)
                 skipText.color = new Color(1, 1, 1, skipPercent);
             }
             else
             {
-                skipPercent = 0;
                 if (skipText != null)
                     skipText.color = Color.clear;
             }
