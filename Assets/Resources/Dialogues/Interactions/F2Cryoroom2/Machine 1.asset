@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 972c2ac44e160f649aebc97f4389cc0b, type: 3}
-  m_Name: Container2
+  m_Script: {fileID: 11500000, guid: 0faf04322e76f9744b7ad398a9e40df4, type: 3}
+  m_Name: Machine 1
   m_EditorClassIdentifier: 
-  Character: {fileID: 0}
-  Emote: 0
-  DialogueImage: {fileID: 0}
-  DialogueQuestion: '"12 - Lanniston, M. - Year 2068"'
+  Dialogue:
+  - {fileID: 11400000, guid: cb809d921f026ad449d48aec38422c1a, type: 2}
+  - {fileID: 11400000, guid: 9d8d27148bdd28042b6b8732f6f1759c, type: 2}
