@@ -18,6 +18,6 @@ public class MultipleChoiceSO : DialogueLineSO
     public override IEnumerator Run(DialogueUIController DC)
     {
         DC.ShowMultipleChoice(this);
-        yield return null;
+        yield return new WaitWhile(()=> { return true; });
     }
 }
