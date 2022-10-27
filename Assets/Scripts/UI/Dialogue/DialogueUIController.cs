@@ -206,7 +206,7 @@ public class DialogueUIController : MonoBehaviour
                 }
             }
 
-            if (Input.GetButtonDown("Interact") || skipPercent>=1)
+            if (SkipLine || skipPercent>=1)
                 break;
             yield return new WaitForSeconds(1f / wordsPerSecond);
         }
