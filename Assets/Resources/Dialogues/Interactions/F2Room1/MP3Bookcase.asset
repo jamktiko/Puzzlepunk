@@ -9,10 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 972c2ac44e160f649aebc97f4389cc0b, type: 3}
-  m_Name: Container6
+  m_Script: {fileID: 11500000, guid: 41f10aa779aaec54f8006c9f4936058c, type: 3}
+  m_Name: MP3Bookcase
   m_EditorClassIdentifier: 
   Character: {fileID: 0}
   Emote: 0
   DialogueImage: {fileID: 0}
-  DialogueQuestion: '"#22 - Cudigan, P. - Year 2133"'
+  DialogueQuestion: Read?
+  Choices:
+  - name: 
+    text: Yes
+    dialogue: {fileID: 11400000, guid: 277e34bbf9bf37345af5b2ec62812c34, type: 2}
+  - name: 
+    text: No
+    dialogue: {fileID: 0}
