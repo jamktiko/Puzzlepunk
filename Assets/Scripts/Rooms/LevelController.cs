@@ -54,13 +54,8 @@ public class LevelController : MonoBehaviour
         return null;
     }
     public UnityEvent OnGameStarted;
-    public NavPoint StartingPoint;
     public void BeginGame()
     {
-        if (StartingPoint != null && PlayerTransitionController.main != null)
-        {
-            PlayerTransitionController.main.TeleportToPoint(StartingPoint, PlayerMovement.Orientation.down, true);
-        }
         OnGameStarted.Invoke();
     }
     #region Variable Reactors

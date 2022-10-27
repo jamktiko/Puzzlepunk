@@ -994,6 +994,7 @@ GameObject:
   - component: {fileID: 84860241}
   - component: {fileID: 84860240}
   - component: {fileID: 84860242}
+  - component: {fileID: 84860243}
   m_Layer: 0
   m_Name: Rooms
   m_TagString: Untagged
@@ -1047,8 +1048,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnGameStarted:
     m_PersistentCalls:
-      m_Calls: []
-  StartingPoint: {fileID: 1976554207}
+      m_Calls:
+      - m_Target: {fileID: 84860243}
+        m_TargetAssemblyTypeName: PointTransition, Assembly-CSharp
+        m_MethodName: MovePlayerToPoint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 652655373040376952}
+        m_TargetAssemblyTypeName: CinematicsController, Assembly-CSharp
+        m_MethodName: StartCinematic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  Reactors: []
+--- !u!114 &84860243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84860239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0adb8f3d63d130d418bc32f6e6ee417c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navPoint: {fileID: 1976554207}
+  instant: 1
+  SetOrientation: 1
 --- !u!1001 &85107658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29107,42 +29147,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1446116709}
     m_Modifications:
-    - target: {fileID: 1898725072, guid: 0cf23ddfff487a243b46b6178cbd04eb, type: 3}
-      propertyPath: onStay.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1898725072, guid: 0cf23ddfff487a243b46b6178cbd04eb, type: 3}
-      propertyPath: onEnter.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1898725072, guid: 0cf23ddfff487a243b46b6178cbd04eb, type: 3}
-      propertyPath: onStay.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1898725072, guid: 0cf23ddfff487a243b46b6178cbd04eb, type: 3}
-      propertyPath: onEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1898725072, guid: 0cf23ddfff487a243b46b6178cbd04eb, type: 3}
-      propertyPath: onStay.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1898725074}
-    - target: {fileID: 1898725072, guid: 0cf23ddfff487a243b46b6178cbd04eb, type: 3}
-      propertyPath: onEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1898725074}
-    - target: {fileID: 1898725072, guid: 0cf23ddfff487a243b46b6178cbd04eb, type: 3}
-      propertyPath: onStay.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1898725072, guid: 0cf23ddfff487a243b46b6178cbd04eb, type: 3}
-      propertyPath: onEnter.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1898725072, guid: 0cf23ddfff487a243b46b6178cbd04eb, type: 3}
-      propertyPath: onEnter.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: CinematicsController, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 652655373462520160, guid: 0cf23ddfff487a243b46b6178cbd04eb, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -29311,8 +29315,21 @@ PrefabInstance:
       propertyPath: OnFinish.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1898725073, guid: 0cf23ddfff487a243b46b6178cbd04eb, type: 3}
+    - {fileID: 1898725072, guid: 0cf23ddfff487a243b46b6178cbd04eb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0cf23ddfff487a243b46b6178cbd04eb, type: 3}
+--- !u!114 &652655373040376952 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2765187338355363591, guid: 0cf23ddfff487a243b46b6178cbd04eb, type: 3}
+  m_PrefabInstance: {fileID: 652655373040376951}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821242974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b06cdc459f52545bf0059d09dad2cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4580882121494855388
 PrefabInstance:
   m_ObjectHideFlags: 0

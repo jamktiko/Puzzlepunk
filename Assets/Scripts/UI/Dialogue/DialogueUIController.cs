@@ -80,13 +80,16 @@ public class DialogueUIController : MonoBehaviour
         int quote = 0;
         while (quote < Script.Dialogue.Length)
         {
-            if (skipPercent >= 1)
+            if (Script.Dialogue[quote] != null)
             {
-                Script.Dialogue[quote].OnSkipped(this);
-            }
-            else
-            {
-                yield return Script.Dialogue[quote].Run(this);
+                if (skipPercent >= 1)
+                {
+                    Script.Dialogue[quote].OnSkipped(this);
+                }
+                else
+                {
+                    yield return Script.Dialogue[quote].Run(this);
+                }
             }
             quote++;
         }
