@@ -16,6 +16,8 @@ public class PlayerInputListener : MonoBehaviour
         control.ZoePlayer.Skip.Enable();
         control.ZoePlayer.Submit.Enable();
         control.ZoePlayer.Interact.Enable();
+        control.ZoePlayer.Menu.Enable();
+        control.ZoePlayer.ShowHelp.Enable();
     }
     private void OnDisable()
     {
@@ -24,5 +26,7 @@ public class PlayerInputListener : MonoBehaviour
         control.ZoePlayer.Skip.Disable();
         control.ZoePlayer.Submit.Disable();
         control.ZoePlayer.Interact.Disable();
+        control.ZoePlayer.Menu.Disable();
+        control.ZoePlayer.ShowHelp.Disable();
     }
 }

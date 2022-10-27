@@ -62,6 +62,24 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""45fbf130-12c2-42da-88ca-35ab1381edf7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Show Help"",
+                    ""type"": ""Button"",
+                    ""id"": ""2c1ee575-3e8f-41a0-858a-80bee8810ee0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -207,52 +225,37 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
                     ""action"": ""Skip"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""Interface Controlls"",
-            ""id"": ""fa6eeceb-0198-4770-87c1-2910c8cf1dbd"",
-            ""actions"": [
-                {
-                    ""name"": ""Show Help"",
-                    ""type"": ""Button"",
-                    ""id"": ""01a2f6bb-1e37-43b6-9bbf-60112a961571"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Menu"",
-                    ""type"": ""Button"",
-                    ""id"": ""7f3c4baa-41ac-47f3-9374-004732254a05"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""b8e00810-1576-4d33-a175-dabeec921515"",
-                    ""path"": ""<Keyboard>/h"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard;Mouse + Keyboard"",
-                    ""action"": ""Show Help"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a94c51e1-3403-40e1-b8b9-3d0872b02347"",
+                    ""id"": ""855362c9-021b-4138-89e8-e9719580248b"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Mouse + Keyboard;Keyboard"",
                     ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f0f19175-e325-425a-a8c0-5f260cbb56e9"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse + Keyboard;Keyboard"",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""82331efb-8531-475a-96e2-fcc910f3f361"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard;Mouse + Keyboard"",
+                    ""action"": ""Show Help"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -306,10 +309,8 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
         m_ZoePlayer_Interact = m_ZoePlayer.FindAction("Interact", throwIfNotFound: true);
         m_ZoePlayer_Submit = m_ZoePlayer.FindAction("Submit", throwIfNotFound: true);
         m_ZoePlayer_Skip = m_ZoePlayer.FindAction("Skip", throwIfNotFound: true);
-        // Interface Controlls
-        m_InterfaceControlls = asset.FindActionMap("Interface Controlls", throwIfNotFound: true);
-        m_InterfaceControlls_ShowHelp = m_InterfaceControlls.FindAction("Show Help", throwIfNotFound: true);
-        m_InterfaceControlls_Menu = m_InterfaceControlls.FindAction("Menu", throwIfNotFound: true);
+        m_ZoePlayer_Menu = m_ZoePlayer.FindAction("Menu", throwIfNotFound: true);
+        m_ZoePlayer_ShowHelp = m_ZoePlayer.FindAction("Show Help", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -373,6 +374,8 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
     private readonly InputAction m_ZoePlayer_Interact;
     private readonly InputAction m_ZoePlayer_Submit;
     private readonly InputAction m_ZoePlayer_Skip;
+    private readonly InputAction m_ZoePlayer_Menu;
+    private readonly InputAction m_ZoePlayer_ShowHelp;
     public struct ZoePlayerActions
     {
         private @ZoeControlls m_Wrapper;
@@ -381,6 +384,8 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_ZoePlayer_Interact;
         public InputAction @Submit => m_Wrapper.m_ZoePlayer_Submit;
         public InputAction @Skip => m_Wrapper.m_ZoePlayer_Skip;
+        public InputAction @Menu => m_Wrapper.m_ZoePlayer_Menu;
+        public InputAction @ShowHelp => m_Wrapper.m_ZoePlayer_ShowHelp;
         public InputActionMap Get() { return m_Wrapper.m_ZoePlayer; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -402,6 +407,12 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
                 @Skip.started -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnSkip;
                 @Skip.performed -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnSkip;
                 @Skip.canceled -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnSkip;
+                @Menu.started -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnMenu;
+                @Menu.performed -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnMenu;
+                @Menu.canceled -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnMenu;
+                @ShowHelp.started -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnShowHelp;
+                @ShowHelp.performed -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnShowHelp;
+                @ShowHelp.canceled -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnShowHelp;
             }
             m_Wrapper.m_ZoePlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -418,51 +429,16 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
                 @Skip.started += instance.OnSkip;
                 @Skip.performed += instance.OnSkip;
                 @Skip.canceled += instance.OnSkip;
+                @Menu.started += instance.OnMenu;
+                @Menu.performed += instance.OnMenu;
+                @Menu.canceled += instance.OnMenu;
+                @ShowHelp.started += instance.OnShowHelp;
+                @ShowHelp.performed += instance.OnShowHelp;
+                @ShowHelp.canceled += instance.OnShowHelp;
             }
         }
     }
     public ZoePlayerActions @ZoePlayer => new ZoePlayerActions(this);
-
-    // Interface Controlls
-    private readonly InputActionMap m_InterfaceControlls;
-    private IInterfaceControllsActions m_InterfaceControllsActionsCallbackInterface;
-    private readonly InputAction m_InterfaceControlls_ShowHelp;
-    private readonly InputAction m_InterfaceControlls_Menu;
-    public struct InterfaceControllsActions
-    {
-        private @ZoeControlls m_Wrapper;
-        public InterfaceControllsActions(@ZoeControlls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @ShowHelp => m_Wrapper.m_InterfaceControlls_ShowHelp;
-        public InputAction @Menu => m_Wrapper.m_InterfaceControlls_Menu;
-        public InputActionMap Get() { return m_Wrapper.m_InterfaceControlls; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(InterfaceControllsActions set) { return set.Get(); }
-        public void SetCallbacks(IInterfaceControllsActions instance)
-        {
-            if (m_Wrapper.m_InterfaceControllsActionsCallbackInterface != null)
-            {
-                @ShowHelp.started -= m_Wrapper.m_InterfaceControllsActionsCallbackInterface.OnShowHelp;
-                @ShowHelp.performed -= m_Wrapper.m_InterfaceControllsActionsCallbackInterface.OnShowHelp;
-                @ShowHelp.canceled -= m_Wrapper.m_InterfaceControllsActionsCallbackInterface.OnShowHelp;
-                @Menu.started -= m_Wrapper.m_InterfaceControllsActionsCallbackInterface.OnMenu;
-                @Menu.performed -= m_Wrapper.m_InterfaceControllsActionsCallbackInterface.OnMenu;
-                @Menu.canceled -= m_Wrapper.m_InterfaceControllsActionsCallbackInterface.OnMenu;
-            }
-            m_Wrapper.m_InterfaceControllsActionsCallbackInterface = instance;
-            if (instance != null)
-            {
-                @ShowHelp.started += instance.OnShowHelp;
-                @ShowHelp.performed += instance.OnShowHelp;
-                @ShowHelp.canceled += instance.OnShowHelp;
-                @Menu.started += instance.OnMenu;
-                @Menu.performed += instance.OnMenu;
-                @Menu.canceled += instance.OnMenu;
-            }
-        }
-    }
-    public InterfaceControllsActions @InterfaceControlls => new InterfaceControllsActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -496,10 +472,7 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnSubmit(InputAction.CallbackContext context);
         void OnSkip(InputAction.CallbackContext context);
-    }
-    public interface IInterfaceControllsActions
-    {
-        void OnShowHelp(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
+        void OnShowHelp(InputAction.CallbackContext context);
     }
 }

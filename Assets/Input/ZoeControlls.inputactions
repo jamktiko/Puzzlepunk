@@ -40,6 +40,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Menu",
+                    "type": "Button",
+                    "id": "45fbf130-12c2-42da-88ca-35ab1381edf7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Show Help",
+                    "type": "Button",
+                    "id": "2c1ee575-3e8f-41a0-858a-80bee8810ee0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -185,52 +203,37 @@
                     "action": "Skip",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Interface Controlls",
-            "id": "fa6eeceb-0198-4770-87c1-2910c8cf1dbd",
-            "actions": [
-                {
-                    "name": "Show Help",
-                    "type": "Button",
-                    "id": "01a2f6bb-1e37-43b6-9bbf-60112a961571",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Menu",
-                    "type": "Button",
-                    "id": "7f3c4baa-41ac-47f3-9374-004732254a05",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "b8e00810-1576-4d33-a175-dabeec921515",
-                    "path": "<Keyboard>/h",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard;Mouse + Keyboard",
-                    "action": "Show Help",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "a94c51e1-3403-40e1-b8b9-3d0872b02347",
+                    "id": "855362c9-021b-4138-89e8-e9719580248b",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "Mouse + Keyboard;Keyboard",
                     "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f0f19175-e325-425a-a8c0-5f260cbb56e9",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse + Keyboard;Keyboard",
+                    "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "82331efb-8531-475a-96e2-fcc910f3f361",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard;Mouse + Keyboard",
+                    "action": "Show Help",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
