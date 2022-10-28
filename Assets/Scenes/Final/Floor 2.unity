@@ -2540,6 +2540,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1113266500}
     m_Modifications:
+    - target: {fileID: 174232432, guid: eb7bc409f4b93144daf9c8fdc303ec1d, type: 3}
+      propertyPath: CutsceneScript
+      value: 
+      objectReference: {fileID: 11400000, guid: 2b79f3a3306f72e4d8e3f0b00faa1129, type: 2}
+    - target: {fileID: 174232433, guid: eb7bc409f4b93144daf9c8fdc303ec1d, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5080990193498073655, guid: eb7bc409f4b93144daf9c8fdc303ec1d, type: 3}
       propertyPath: m_Name
       value: Book Shelf
@@ -2934,6 +2942,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4866353331507757564, guid: ff6a08b72164b9c41ac23dd1711d7fca, type: 3}
+      propertyPath: CutsceneScript
+      value: 
+      objectReference: {fileID: 11400000, guid: 186efbabab640ee4f8212fc5dc6d949b, type: 2}
     - target: {fileID: 6416769084692046723, guid: ff6a08b72164b9c41ac23dd1711d7fca, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -35669,7 +35681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayOnStart: 0
   OnlyTriggerOnce: 0
-  CutsceneScript: {fileID: 11400000, guid: 44f80d0f1ca0c2e43abc2f27594162ae, type: 2}
+  CutsceneScript: {fileID: 11400000, guid: 7453591120454d24c8d1d610fb6a528a, type: 2}
 --- !u!114 &570313492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37519,6 +37531,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6990148980381613653, guid: 76d1cd0a2d35bb6488f388e53bca5bb3, type: 3}
+      propertyPath: CutsceneScript
+      value: 
+      objectReference: {fileID: 11400000, guid: 6cc8e3423804fb146b6e795708b8eea7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76d1cd0a2d35bb6488f388e53bca5bb3, type: 3}
 --- !u!4 &689843067 stripped
@@ -39076,6 +39092,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cryogenic Container (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 4205693932229476218, guid: 1d2b5d7234ed98846aea6e5875b79c39, type: 3}
+      propertyPath: CutsceneScript
+      value: 
+      objectReference: {fileID: 11400000, guid: 62543c5d15b59b247b1dd5920c009c87, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d2b5d7234ed98846aea6e5875b79c39, type: 3}
 --- !u!4 &766508961 stripped
@@ -44317,6 +44337,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1113266500}
     m_Modifications:
+    - target: {fileID: 1184054418, guid: e8d900f33485a494f90a32303cd686c8, type: 3}
+      propertyPath: CutsceneScript
+      value: 
+      objectReference: {fileID: 11400000, guid: 8a4ab579d196b7a419496f980a672287, type: 2}
     - target: {fileID: 465372298480867940, guid: e8d900f33485a494f90a32303cd686c8, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -47076,6 +47100,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7235615012441762497, guid: 8b7fa397045fb90429ac56cfc0fbcfce, type: 3}
+      propertyPath: CutsceneScript
+      value: 
+      objectReference: {fileID: 11400000, guid: 186efbabab640ee4f8212fc5dc6d949b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b7fa397045fb90429ac56cfc0fbcfce, type: 3}
 --- !u!4 &1256769843 stripped
@@ -47138,6 +47166,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pad (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 6226681439391590905, guid: d8e014377c95f374081b006835fd1921, type: 3}
+      propertyPath: CutsceneScript
+      value: 
+      objectReference: {fileID: 11400000, guid: 62543c5d15b59b247b1dd5920c009c87, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8e014377c95f374081b006835fd1921, type: 3}
 --- !u!4 &1261344624 stripped
@@ -58793,6 +58825,75 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8614454121600284192, guid: d32787f336406a74598c76522f88b364, type: 3}
   m_PrefabInstance: {fileID: 1310409447}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1310409450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275204012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afaf64b857c16542948929e4579f7ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1310409452}
+        m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  SingleUse: 0
+--- !u!61 &1310409451
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275204012}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.08, y: 0.41}
+    newSize: {x: 0.08, y: 0.41}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.08, y: 0.41}
+  m_EdgeRadius: 0
+--- !u!114 &1310409452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275204012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f85e1feb1060e4cbee02e9900a0acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayOnStart: 0
+  OnlyTriggerOnce: 0
+  CutsceneScript: {fileID: 11400000, guid: b0603219d51816840bcb290a56c3693c, type: 2}
 --- !u!1001 &1330946402
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58976,6 +59077,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cryogenic Container (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 4205693932229476218, guid: 1d2b5d7234ed98846aea6e5875b79c39, type: 3}
+      propertyPath: CutsceneScript
+      value: 
+      objectReference: {fileID: 11400000, guid: e3f4978f3cd169a4a8a574a26cf03d18, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d2b5d7234ed98846aea6e5875b79c39, type: 3}
 --- !u!4 &1340690739 stripped
@@ -59108,6 +59213,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pad (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 6226681439391590905, guid: d8e014377c95f374081b006835fd1921, type: 3}
+      propertyPath: CutsceneScript
+      value: 
+      objectReference: {fileID: 11400000, guid: 6cc8e3423804fb146b6e795708b8eea7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8e014377c95f374081b006835fd1921, type: 3}
 --- !u!4 &1345497865 stripped
@@ -59715,6 +59824,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6990148980381613653, guid: 76d1cd0a2d35bb6488f388e53bca5bb3, type: 3}
+      propertyPath: CutsceneScript
+      value: 
+      objectReference: {fileID: 11400000, guid: 6cc8e3423804fb146b6e795708b8eea7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76d1cd0a2d35bb6488f388e53bca5bb3, type: 3}
 --- !u!4 &1411098485 stripped
@@ -60032,6 +60145,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cryogenic Container (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 4205693932229476218, guid: 1d2b5d7234ed98846aea6e5875b79c39, type: 3}
+      propertyPath: CutsceneScript
+      value: 
+      objectReference: {fileID: 11400000, guid: 813544de4237fdb4f9cc6c0e0e955503, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d2b5d7234ed98846aea6e5875b79c39, type: 3}
 --- !u!4 &1440153666 stripped
@@ -62635,6 +62752,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pad (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 6226681439391590905, guid: d8e014377c95f374081b006835fd1921, type: 3}
+      propertyPath: CutsceneScript
+      value: 
+      objectReference: {fileID: 11400000, guid: 813544de4237fdb4f9cc6c0e0e955503, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8e014377c95f374081b006835fd1921, type: 3}
 --- !u!4 &1491003593 stripped
@@ -63874,6 +63995,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pad (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 6226681439391590905, guid: d8e014377c95f374081b006835fd1921, type: 3}
+      propertyPath: CutsceneScript
+      value: 
+      objectReference: {fileID: 11400000, guid: 6cc8e3423804fb146b6e795708b8eea7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8e014377c95f374081b006835fd1921, type: 3}
 --- !u!4 &1506779436 stripped
@@ -66859,6 +66984,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pad (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 6226681439391590905, guid: d8e014377c95f374081b006835fd1921, type: 3}
+      propertyPath: CutsceneScript
+      value: 
+      objectReference: {fileID: 11400000, guid: e3f4978f3cd169a4a8a574a26cf03d18, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8e014377c95f374081b006835fd1921, type: 3}
 --- !u!4 &1717725044 stripped
@@ -67360,6 +67489,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pad (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 6226681439391590905, guid: d8e014377c95f374081b006835fd1921, type: 3}
+      propertyPath: CutsceneScript
+      value: 
+      objectReference: {fileID: 11400000, guid: 6cc8e3423804fb146b6e795708b8eea7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8e014377c95f374081b006835fd1921, type: 3}
 --- !u!4 &1753250807 stripped
@@ -68318,6 +68451,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7261939145900717991, guid: 201cad2432b2d5a4a83e449a7bf2c7f0, type: 3}
+      propertyPath: CutsceneScript
+      value: 
+      objectReference: {fileID: 11400000, guid: 6cc8e3423804fb146b6e795708b8eea7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 201cad2432b2d5a4a83e449a7bf2c7f0, type: 3}
 --- !u!4 &1844576589 stripped
@@ -68553,6 +68690,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7261939145900717991, guid: 201cad2432b2d5a4a83e449a7bf2c7f0, type: 3}
+      propertyPath: CutsceneScript
+      value: 
+      objectReference: {fileID: 11400000, guid: 6cc8e3423804fb146b6e795708b8eea7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 201cad2432b2d5a4a83e449a7bf2c7f0, type: 3}
 --- !u!4 &1864626265 stripped
@@ -72993,6 +73134,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7261939145900717991, guid: 201cad2432b2d5a4a83e449a7bf2c7f0, type: 3}
+      propertyPath: CutsceneScript
+      value: 
+      objectReference: {fileID: 11400000, guid: 6cc8e3423804fb146b6e795708b8eea7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 201cad2432b2d5a4a83e449a7bf2c7f0, type: 3}
 --- !u!1001 &557620811406213517
@@ -73289,6 +73434,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ice Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 7828530974963712321, guid: 5e28c07e9664bb44c9c424a250d0459b, type: 3}
+      propertyPath: CutsceneScript
+      value: 
+      objectReference: {fileID: 11400000, guid: 1a69b7ba7d693ff48a68c5e7a1bd81f0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e28c07e9664bb44c9c424a250d0459b, type: 3}
 --- !u!1001 &2556522441188658215
@@ -73355,6 +73504,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1876464888}
     m_Modifications:
+    - target: {fileID: 1059734811982160811, guid: cecf63335533e4346ae4dbe477be1a9c, type: 3}
+      propertyPath: CutsceneScript
+      value: 
+      objectReference: {fileID: 11400000, guid: 37a1bb1452fb5e84da14cee745dca49b, type: 2}
     - target: {fileID: 2562282387009912723, guid: cecf63335533e4346ae4dbe477be1a9c, type: 3}
       propertyPath: m_RootOrder
       value: 23
@@ -73521,6 +73674,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6904692005028933037, guid: 0266441fed773384cb432f0d8b19feb5, type: 3}
+      propertyPath: CutsceneScript
+      value: 
+      objectReference: {fileID: 11400000, guid: eb852c9bc252ed14588e443c263b98fd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0266441fed773384cb432f0d8b19feb5, type: 3}
 --- !u!1001 &4573212731475152209
@@ -73578,6 +73735,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6990148980381613653, guid: 76d1cd0a2d35bb6488f388e53bca5bb3, type: 3}
+      propertyPath: CutsceneScript
+      value: 
+      objectReference: {fileID: 11400000, guid: 6cc8e3423804fb146b6e795708b8eea7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76d1cd0a2d35bb6488f388e53bca5bb3, type: 3}
 --- !u!4 &4573212731475152210 stripped

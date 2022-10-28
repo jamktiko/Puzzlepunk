@@ -17,7 +17,8 @@ public class MultipleChoiceSO : DialogueLineSO
     }
     public override IEnumerator Run(DialogueUIController DC)
     {
+        DC.HideDialogue();
         DC.ShowMultipleChoice(this);
-        yield return null;
+        yield return new WaitWhile(()=> { return true; });
     }
 }
