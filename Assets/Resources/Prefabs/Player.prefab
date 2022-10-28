@@ -262,7 +262,7 @@ MonoBehaviour:
   - {x: 0.27428058, y: -0.8818243, z: 0}
   m_ShapePathHash: 2098992130
   m_Mesh: {fileID: 0}
-  m_InstanceId: 107018
+  m_InstanceId: -18548
 --- !u!1 &8145452366047622435
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,14 +273,16 @@ GameObject:
   m_Component:
   - component: {fileID: 8145452366047622432}
   - component: {fileID: 8145452366047622433}
+  - component: {fileID: 5896124347933447402}
   - component: {fileID: 8145452366047622434}
   - component: {fileID: 8145452366047622439}
   - component: {fileID: 6815492021708701016}
   - component: {fileID: 693941169}
-  - component: {fileID: 5896124347933447402}
   - component: {fileID: 1385073400}
   - component: {fileID: 1385073401}
   - component: {fileID: -1524042938062194159}
+  - component: {fileID: 809904522}
+  - component: {fileID: 1257278413006709715}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -356,6 +358,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5896124347933447402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8145452366047622435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21a7f7c3a4a922d46b905f5a9f82ccc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8145452366047622434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,19 +433,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractDistance: 0.3
+  InteractRadius: 1
   CanInteract: 0
---- !u!114 &5896124347933447402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8145452366047622435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21a7f7c3a4a922d46b905f5a9f82ccc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &1385073400
 Rigidbody2D:
   serializedVersion: 4
@@ -497,4 +500,46 @@ MonoBehaviour:
   - {x: 0.0034331416, y: -0.34364578, z: 0}
   m_ShapePathHash: -139971277
   m_Mesh: {fileID: 0}
-  m_InstanceId: 107002
+  m_InstanceId: -18534
+--- !u!114 &809904522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8145452366047622435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 9b63f004cd798fa4fa0ebb0269e56aba, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Zoe Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &1257278413006709715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8145452366047622435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c7153844aa3ba1428ab9c71df79334e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
