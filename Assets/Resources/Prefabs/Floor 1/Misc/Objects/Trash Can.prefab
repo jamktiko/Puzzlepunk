@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6947536809736348629}
   - component: {fileID: 334369403}
   - component: {fileID: 334369402}
+  - component: {fileID: -6142792702095835918}
   m_Layer: 0
   m_Name: Trash Can
   m_TagString: Obstacle
@@ -128,3 +129,30 @@ MonoBehaviour:
   AlwaysUpdate: 0
   spriteRenderer: {fileID: 6947536809736348629}
   deltaOrder: 0
+--- !u!114 &-6142792702095835918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6947536809736348634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 0
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: ed8408e30000000031b8ffbf4511d0a99b4d2d85
+  m_ShapePath:
+  - {x: -0.03999999, y: -0.07500005, z: 0}
+  - {x: -0.037279904, y: -0.029269934, z: 0}
+  - {x: 0.038186595, y: -0.027909994, z: 0}
+  - {x: 0.03999999, y: -0.07500005, z: 0}
+  m_ShapePathHash: -899855743
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 49040
