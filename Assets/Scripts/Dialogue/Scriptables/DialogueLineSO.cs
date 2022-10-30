@@ -32,6 +32,7 @@ public class DialogueLineSO : ScriptableDialogue
         if (DialogueImage!=null)
         {
             DC.dialogImage.sprite = DialogueImage;
+            DC.dialogImage.color = Color.white;
             DC.dialogImage.enabled = true;
         }
         else
@@ -42,6 +43,11 @@ public class DialogueLineSO : ScriptableDialogue
         string DialogueQuestion = GetDialogueLine();
         yield return DC.TypeDialog(DialogueQuestion, Character == null);
         yield return DC.PostLineWait();
+        OnSkipped(DC);
+    }
+    public override void OnSkipped(DialogueUIController DC)
+    {
+        base.OnSkipped(DC);
         DC.dialogImage.enabled = false;
     }
 }

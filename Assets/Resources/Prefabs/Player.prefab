@@ -250,6 +250,8 @@ GameObject:
   - component: {fileID: 5896124347933447402}
   - component: {fileID: 1385073400}
   - component: {fileID: 1385073401}
+  - component: {fileID: 4542243899558046695}
+  - component: {fileID: 8145452366881892119}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -387,7 +389,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b463fc3531d8b764c8c342f685c37a77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractDistance: 0.3
+  InteractDistance: 0.1
+  InteractRadius: 0.05
   CanInteract: 0
 --- !u!114 &5896124347933447402
 MonoBehaviour:
@@ -438,3 +441,45 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49999997
+--- !u!114 &4542243899558046695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8145452366047622435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 9b63f004cd798fa4fa0ebb0269e56aba, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Zoe Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &8145452366881892119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8145452366047622435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c7153844aa3ba1428ab9c71df79334e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -41,11 +41,11 @@ public class DialogueUIController : MonoBehaviour
     {
         if (CutsceneCoroutine!=null) //TODO define skip key
         {
-            if (Input.GetButtonDown("Interact"))
+            if (PlayerInputListener.control.ZoePlayer.Submit.WasPressedThisFrame())
             {
                 SkipLine = true;
             }
-            if (Input.GetButton("Skip"))
+            if (PlayerInputListener.control.ZoePlayer.Skip.ReadValue<float>() > 0)
             {
                 skipPercent += Time.deltaTime;
                 if (skipText!=null)
@@ -99,7 +99,11 @@ public class DialogueUIController : MonoBehaviour
             yield return talkingNPC.Question.Run(this);
         }
     }
-    void EndDialogue()
+    public void ClearDialogue()
+    {
+        HideMultipleChoice(); ;
+    }
+    public void EndDialogue()
     {
         if (CutsceneCoroutine != null)
             StopCoroutine(CutsceneCoroutine);
@@ -129,21 +133,36 @@ public class DialogueUIController : MonoBehaviour
             yield return SkippableWait();
         
     }
+
+    public void HideDialogue()
+    {
+        EnableDisableExposition(false);
+        EnableDisableDialogue(false);
+        HideMultipleChoice();
+    }
+    void EnableDisableDialogue(bool value)
+    {
+        Portrait.SetActive(value);
+        DialogueBox.SetActive(value);
+    }
+    void EnableDisableExposition(bool value)
+    {
+        ExpositionBox.SetActive( value);
+    }
+
     public IEnumerator TypeDialog(string dialog, bool exposition)
     {
 
         if (exposition)
         {
-            ExpositionBox.SetActive(true);
-            Portrait.SetActive(false);
-            DialogueBox.SetActive(false);
+            EnableDisableExposition(true);
+            EnableDisableDialogue(false);
             expositionText.text = "";
         }
         else
         {
-            ExpositionBox.SetActive(false);
-            Portrait.SetActive(true);
-            DialogueBox.SetActive(true);
+            EnableDisableExposition(false);
+            EnableDisableDialogue(true);
             dialogText.text = "";
         }
 
@@ -199,6 +218,7 @@ public class DialogueUIController : MonoBehaviour
     }
     IEnumerator SkippableWait()
     {
+        SkipLine = false;
         while (!SkipLine && skipPercent < 1)
         {
             yield return new WaitForFixedUpdate();

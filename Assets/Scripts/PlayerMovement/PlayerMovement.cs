@@ -5,13 +5,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public enum Direction
-    {
-        up,
-        down,
-        left,
-        right
-    }
     public Vector2 facing = Vector2.down;
 
     public GridNav grid;
@@ -98,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 moveInput = Vector2.zero;
     void HandleMovement()
     {
-        moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        moveInput = PlayerInputListener.control.ZoePlayer.Movement.ReadValue<Vector2>();
         if (moveInput.x != 0  || moveInput.y != 0)
         {
             facing = moveInput;
@@ -154,6 +147,49 @@ public class PlayerMovement : MonoBehaviour
     public float SprintMultiplier = 2f;
     bool IsSprinting()
     {
-        return Input.GetButton("Skip");
+        return PlayerInputListener.control.ZoePlayer.Skip.ReadValue<float>() > 0;
+    }
+    public void SetOrientation(Orientation nO)
+    {
+        Stop();
+        switch (nO)
+        {
+            case Orientation.up:
+                facing = Vector2.up;
+                break;
+            case Orientation.down:
+                facing = Vector2.down;
+                break;
+            case Orientation.right:
+                facing = Vector2.right;
+                break;
+            case Orientation.left:
+                facing = Vector2.left;
+                break;
+            case Orientation.upleft:
+                facing = Vector2.up + Vector2.left;
+                break;
+            case Orientation.downleft:
+                facing = Vector2.down + Vector2.left;
+                break;
+            case Orientation.upright:
+                facing = Vector2.down + Vector2.right;
+                break;
+            case Orientation.downright:
+                facing = Vector2.down + Vector2.right;
+                break;
+        }
+        PlayerAnimations.main.UpdateOrientation();
+    }
+    public enum Orientation
+    {
+        up,
+        down,
+        left,
+        upleft,
+        downleft,
+        right,
+        upright,
+        downright
     }
 }
