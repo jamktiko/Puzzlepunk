@@ -37,15 +37,6 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Interact"",
-                    ""type"": ""Button"",
-                    ""id"": ""f3b91b19-d16b-4fd8-8686-974fd271fe0d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Submit"",
                     ""type"": ""Button"",
                     ""id"": ""d16d8406-a639-4e28-a794-48d71160b41b"",
@@ -64,13 +55,13 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Menu"",
+                    ""name"": ""Cancel"",
                     ""type"": ""Button"",
-                    ""id"": ""45fbf130-12c2-42da-88ca-35ab1381edf7"",
+                    ""id"": ""5e07b4d8-3fc9-471b-b3e0-c48455f49ac2"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""Show Help"",
@@ -195,17 +186,6 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""01fba9da-132f-4b13-9263-ce098c71bc45"",
-                    ""path"": ""<Keyboard>/x"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard;Mouse + Keyboard"",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""efcb342a-5e46-4b11-a9d8-8120b7ace09b"",
                     ""path"": ""<Keyboard>/x"",
                     ""interactions"": """",
@@ -228,34 +208,34 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""855362c9-021b-4138-89e8-e9719580248b"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Mouse + Keyboard;Keyboard"",
-                    ""action"": ""Menu"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f0f19175-e325-425a-a8c0-5f260cbb56e9"",
-                    ""path"": ""<Keyboard>/m"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Mouse + Keyboard;Keyboard"",
-                    ""action"": ""Menu"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""82331efb-8531-475a-96e2-fcc910f3f361"",
                     ""path"": ""<Keyboard>/h"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard;Mouse + Keyboard"",
                     ""action"": ""Show Help"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""855362c9-021b-4138-89e8-e9719580248b"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse + Keyboard;Keyboard"",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f0f19175-e325-425a-a8c0-5f260cbb56e9"",
+                    ""path"": ""<Keyboard>/backspace"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse + Keyboard;Keyboard"",
+                    ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -306,10 +286,9 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
         // Zoe Player
         m_ZoePlayer = asset.FindActionMap("Zoe Player", throwIfNotFound: true);
         m_ZoePlayer_Movement = m_ZoePlayer.FindAction("Movement", throwIfNotFound: true);
-        m_ZoePlayer_Interact = m_ZoePlayer.FindAction("Interact", throwIfNotFound: true);
         m_ZoePlayer_Submit = m_ZoePlayer.FindAction("Submit", throwIfNotFound: true);
         m_ZoePlayer_Skip = m_ZoePlayer.FindAction("Skip", throwIfNotFound: true);
-        m_ZoePlayer_Menu = m_ZoePlayer.FindAction("Menu", throwIfNotFound: true);
+        m_ZoePlayer_Cancel = m_ZoePlayer.FindAction("Cancel", throwIfNotFound: true);
         m_ZoePlayer_ShowHelp = m_ZoePlayer.FindAction("Show Help", throwIfNotFound: true);
     }
 
@@ -371,20 +350,18 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_ZoePlayer;
     private IZoePlayerActions m_ZoePlayerActionsCallbackInterface;
     private readonly InputAction m_ZoePlayer_Movement;
-    private readonly InputAction m_ZoePlayer_Interact;
     private readonly InputAction m_ZoePlayer_Submit;
     private readonly InputAction m_ZoePlayer_Skip;
-    private readonly InputAction m_ZoePlayer_Menu;
+    private readonly InputAction m_ZoePlayer_Cancel;
     private readonly InputAction m_ZoePlayer_ShowHelp;
     public struct ZoePlayerActions
     {
         private @ZoeControlls m_Wrapper;
         public ZoePlayerActions(@ZoeControlls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_ZoePlayer_Movement;
-        public InputAction @Interact => m_Wrapper.m_ZoePlayer_Interact;
         public InputAction @Submit => m_Wrapper.m_ZoePlayer_Submit;
         public InputAction @Skip => m_Wrapper.m_ZoePlayer_Skip;
-        public InputAction @Menu => m_Wrapper.m_ZoePlayer_Menu;
+        public InputAction @Cancel => m_Wrapper.m_ZoePlayer_Cancel;
         public InputAction @ShowHelp => m_Wrapper.m_ZoePlayer_ShowHelp;
         public InputActionMap Get() { return m_Wrapper.m_ZoePlayer; }
         public void Enable() { Get().Enable(); }
@@ -398,18 +375,15 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
                 @Movement.started -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnMovement;
-                @Interact.started -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnInteract;
-                @Interact.performed -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnInteract;
-                @Interact.canceled -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnInteract;
                 @Submit.started -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnSubmit;
                 @Submit.performed -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnSubmit;
                 @Submit.canceled -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnSubmit;
                 @Skip.started -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnSkip;
                 @Skip.performed -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnSkip;
                 @Skip.canceled -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnSkip;
-                @Menu.started -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnMenu;
-                @Menu.performed -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnMenu;
-                @Menu.canceled -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnMenu;
+                @Cancel.started -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnCancel;
+                @Cancel.performed -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnCancel;
+                @Cancel.canceled -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnCancel;
                 @ShowHelp.started -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnShowHelp;
                 @ShowHelp.performed -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnShowHelp;
                 @ShowHelp.canceled -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnShowHelp;
@@ -420,18 +394,15 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
-                @Interact.started += instance.OnInteract;
-                @Interact.performed += instance.OnInteract;
-                @Interact.canceled += instance.OnInteract;
                 @Submit.started += instance.OnSubmit;
                 @Submit.performed += instance.OnSubmit;
                 @Submit.canceled += instance.OnSubmit;
                 @Skip.started += instance.OnSkip;
                 @Skip.performed += instance.OnSkip;
                 @Skip.canceled += instance.OnSkip;
-                @Menu.started += instance.OnMenu;
-                @Menu.performed += instance.OnMenu;
-                @Menu.canceled += instance.OnMenu;
+                @Cancel.started += instance.OnCancel;
+                @Cancel.performed += instance.OnCancel;
+                @Cancel.canceled += instance.OnCancel;
                 @ShowHelp.started += instance.OnShowHelp;
                 @ShowHelp.performed += instance.OnShowHelp;
                 @ShowHelp.canceled += instance.OnShowHelp;
@@ -469,10 +440,9 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
     public interface IZoePlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
-        void OnInteract(InputAction.CallbackContext context);
         void OnSubmit(InputAction.CallbackContext context);
         void OnSkip(InputAction.CallbackContext context);
-        void OnMenu(InputAction.CallbackContext context);
+        void OnCancel(InputAction.CallbackContext context);
         void OnShowHelp(InputAction.CallbackContext context);
     }
 }

@@ -15,15 +15,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Interact",
-                    "type": "Button",
-                    "id": "f3b91b19-d16b-4fd8-8686-974fd271fe0d",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Submit",
                     "type": "Button",
                     "id": "d16d8406-a639-4e28-a794-48d71160b41b",
@@ -42,13 +33,13 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Menu",
+                    "name": "Cancel",
                     "type": "Button",
-                    "id": "45fbf130-12c2-42da-88ca-35ab1381edf7",
+                    "id": "5e07b4d8-3fc9-471b-b3e0-c48455f49ac2",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Show Help",
@@ -173,17 +164,6 @@
                 },
                 {
                     "name": "",
-                    "id": "01fba9da-132f-4b13-9263-ce098c71bc45",
-                    "path": "<Keyboard>/x",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard;Mouse + Keyboard",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "efcb342a-5e46-4b11-a9d8-8120b7ace09b",
                     "path": "<Keyboard>/x",
                     "interactions": "",
@@ -206,34 +186,34 @@
                 },
                 {
                     "name": "",
-                    "id": "855362c9-021b-4138-89e8-e9719580248b",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Mouse + Keyboard;Keyboard",
-                    "action": "Menu",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f0f19175-e325-425a-a8c0-5f260cbb56e9",
-                    "path": "<Keyboard>/m",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Mouse + Keyboard;Keyboard",
-                    "action": "Menu",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "82331efb-8531-475a-96e2-fcc910f3f361",
                     "path": "<Keyboard>/h",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard;Mouse + Keyboard",
                     "action": "Show Help",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "855362c9-021b-4138-89e8-e9719580248b",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse + Keyboard;Keyboard",
+                    "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f0f19175-e325-425a-a8c0-5f260cbb56e9",
+                    "path": "<Keyboard>/backspace",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse + Keyboard;Keyboard",
+                    "action": "Cancel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

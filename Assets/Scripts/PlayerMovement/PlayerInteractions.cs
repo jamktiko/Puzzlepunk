@@ -15,7 +15,7 @@ public class PlayerInteractions : MonoBehaviour
     {
         if (PlayerInputListener.control!=null)
         {
-            PlayerInputListener.control.ZoePlayer.Interact.started += _ => { PlayerInteract(); };
+            PlayerInputListener.control.ZoePlayer.Submit.started += _ => { PlayerInteract(); };
         }
     }
     private void Update()
