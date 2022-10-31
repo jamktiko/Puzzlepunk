@@ -18,12 +18,16 @@ public class PlayerInteractions : MonoBehaviour
             PlayerInputListener.control.ZoePlayer.Interact.started += _ => { PlayerInteract(); };
         }
     }
+    private void Update()
+    {
+        CheckInteractables();
+    }
 
     public void PlayerInteract()
     {
         if (!PlayerMovement.main.CanAct())
             return;
-        foreach (RaycastHit2D hit in Physics2D.CircleCastAll(transform.position, .05f, PlayerMovement.main.facing, InteractDistance))
+        /*foreach (RaycastHit2D hit in Physics2D.CircleCastAll(transform.position, InteractRadius, PlayerMovement.main.facing, InteractDistance))
         {
             if (hit.transform.TryGetComponent(out InteractableBase interactable))
             {
@@ -31,25 +35,39 @@ public class PlayerInteractions : MonoBehaviour
                 interactable.OnInteract();
                 return;
             }
+        }*/
+        if (myInteractable != null)
+        {
+            PlayerAnimations.main.SetWalking(false);
+            myInteractable.OnInteract();
+            return;
         }
     }
     
-    public bool CanInteract = false;
-    public void UpdateCanInteract()
+    public InteractableBase myInteractable = null;
+    public bool CanInteract()
     {
-        CanInteract = CheckInteractables();
+        return myInteractable != null ;
     }
-    bool CheckInteractables()
+    public void ClearInteractable()
+    {
+
+        myInteractable = null;
+    }
+    void CheckInteractables()
     {
         foreach (RaycastHit2D hit in Physics2D.CircleCastAll(transform.position, InteractRadius, PlayerMovement.main.facing, InteractDistance))
         {
             if (hit.transform.TryGetComponent(out InteractableBase interactable))
             {
                 if (interactable.CanBeInteractedWith())
-                    return true;
+                {
+                    myInteractable = interactable;
+                    return;
+                }
             }
         }
-        return false;
+        ClearInteractable();
     }
     private void OnDrawGizmosSelected()
     {

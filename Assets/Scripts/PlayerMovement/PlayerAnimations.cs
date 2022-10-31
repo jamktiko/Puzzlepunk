@@ -37,7 +37,7 @@ public class PlayerAnimations : MonoBehaviour
                 UpdateOrientation();
             }
 
-            SetCurious(PlayerInteractions.main.CanInteract);
+            SetCurious(PlayerInteractions.main.CanInteract());
         }
 
         if (zSorter != null && PlayerTransitionController.main != null && PlayerTransitionController.main.CurrentRoom!=null)

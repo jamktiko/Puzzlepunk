@@ -142,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Stop()
     {
-        PlayerInteractions.main.UpdateCanInteract();
+        PlayerInteractions.main.ClearInteractable();
         mNode = null;
         if (moveCoroutine != null)
             StopCoroutine(moveCoroutine);
