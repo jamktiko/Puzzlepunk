@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 972c2ac44e160f649aebc97f4389cc0b, type: 3}
-  m_Name: Robot Busy 1
+  m_Script: {fileID: 11500000, guid: 0faf04322e76f9744b7ad398a9e40df4, type: 3}
+  m_Name: Recyclebin
   m_EditorClassIdentifier: 
-  Character: {fileID: 11400000, guid: 65799b7ec8186ee45af7b19d52539a1b, type: 2}
-  Emote: 0
-  DialogueImage: {fileID: 0}
-  DialogueQuestion: Clean up in progress.
+  Dialogue:
+  - {fileID: 11400000, guid: d22b3e109c38f2c4784da4b04bfc0bac, type: 2}
+  - {fileID: 11400000, guid: 76f6d83d4408f9640b37cf3ed1d8fc88, type: 2}
