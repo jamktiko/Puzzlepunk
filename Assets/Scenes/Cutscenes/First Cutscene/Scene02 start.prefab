@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 652655373462520160}
   - component: {fileID: 652655373462520161}
   - component: {fileID: 2765187338355363591}
-  - component: {fileID: 1898725073}
-  - component: {fileID: 1898725072}
   m_Layer: 0
   m_Name: Scene02 start
   m_TagString: Untagged
@@ -97,54 +95,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!58 &1898725073
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 652655373462520162}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -10}
-  serializedVersion: 2
-  m_Radius: 12
---- !u!114 &1898725072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 652655373462520162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c62be90b8399320459250ddcc604d116, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CheckTag: Player
-  TriggerOnce: 1
-  onStay:
-    m_PersistentCalls:
-      m_Calls: []
-  onEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2765187338355363591}
-        m_TargetAssemblyTypeName: CinematicsController, Assembly-CSharp
-        m_MethodName: StartCinematic
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onExit:
-    m_PersistentCalls:
-      m_Calls: []
