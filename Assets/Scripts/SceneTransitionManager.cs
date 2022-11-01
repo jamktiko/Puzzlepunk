@@ -16,7 +16,7 @@ public class SceneTransitionManager : MonoBehaviour
         {
             main = this;
             GameObject.DontDestroyOnLoad(gameObject);
-            if (RequireGameEssentials && SceneManager.GetSceneByName(GameEssentials) ==null)
+            if (RequireGameEssentials)
                 SceneManager.LoadSceneAsync(GameEssentials, LoadSceneMode.Additive);
         }
         else
