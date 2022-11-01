@@ -18,6 +18,10 @@ public class MovementComponent : MonoBehaviour
     }
     public GridNav grid;
     Vector2Int gridPos;
+    public Vector2Int GetGridPosition()
+    {
+        return gridPos;
+    }
     GridNav.Node mNode;
     public void MoveToPoint(Vector2 nPoint)
     {

@@ -7,10 +7,15 @@ public class RobotNPC : MonoBehaviour
 {
     public int CommandID = 0;
     public int MaxMoves = 1;
-    public float MovementSpeed = 10;
     public RobotPuzzleController puzzleParent;
-    public GridNav.Node OriginalNode;    
 
+    public MovementComponent movement;
+    public GridNav.Node OriginalNode;
+
+    private void Awake()
+    {
+        movement = GetComponent<MovementComponent>();
+    }
     public void InitPuzzle(RobotPuzzleController parent)
     {
         puzzleParent = parent;
@@ -18,7 +23,7 @@ public class RobotNPC : MonoBehaviour
     }
     public void OnReset(bool hard)
     {
-        EndStep();
+        movement.Stop();
         transform.position = OriginalNode.worldPos;
         if (hard)
             ClearOrders();
@@ -77,70 +82,27 @@ public class RobotNPC : MonoBehaviour
     {
         if (IsIdle())
         {
-            EndStep();
+            movement.Stop();
 
-            Vector3 nPoint = Vector3.zero;
+            Vector2Int nPoint = Vector2Int.zero;
             switch (orders[cOrder])
             {
                 case WalkDirection.up:
-                    nPoint = Vector3.up;
+                    nPoint = Vector2Int.up;
                     break;
                 case WalkDirection.down:
-                    nPoint = Vector3.down;
+                    nPoint = Vector2Int.down;
                     break;
                 case WalkDirection.left:
-                    nPoint = Vector3.left;
+                    nPoint = Vector2Int.left;
                     break;
                 case WalkDirection.right:
-                    nPoint = Vector3.right;
+                    nPoint = Vector2Int.right;
                     break;
             }
-            MoveToPoint(transform.position + nPoint);
+            movement.MoveToPoint(movement.GetGridPosition() + nPoint);
             cOrder++;
         }
 
-    }
-    GridNav.Node mNode;
-    void MoveToPoint(Vector2 nPoint)
-    {
-        // Vector2Int point = grid.TranslateCoordinate( nPoint);
-        mNode = puzzleParent.mGrid.GetNodeDirection(transform.position, nPoint - (Vector2)transform.position, 1);
-        if (mNode == null || !mNode.IsPassible())
-        {
-            mNode = null;
-        }
-        if (mNode != null)
-            MoveCoroutine = StartCoroutine(StepCoroutine());
-    }
-    IEnumerator StepCoroutine()
-    {
-        Vector3 moveDestination = transform.position;
-        if (mNode != null)
-            moveDestination = mNode.worldPos;
-
-        while (mNode != null)
-        {
-            Vector3 delta = moveDestination - transform.position;
-            if (delta.sqrMagnitude > MovementSpeed * MovementSpeed * Time.deltaTime * Time.deltaTime)
-            {
-                float speed = MovementSpeed * Time.deltaTime;
-                transform.position += delta.normalized * speed;
-                yield return new WaitForEndOfFrame();
-            }
-            else
-            {
-                transform.position = moveDestination;
-                break;
-            }
-        }
-        EndStep();
-    }
-    public void EndStep()
-    {
-        if (MoveCoroutine!=null)
-        {
-            StopCoroutine(MoveCoroutine);
-            MoveCoroutine = null;
-        }
     }
 }
