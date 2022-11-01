@@ -7,6 +7,7 @@ public class RobotMenu : MonoBehaviour
     public RobotPuzzleController myPuzzle;
     public OrderUI orderMenu;
     public IconUI iconMenu;
+    public RobotInputListener input;
 
     private void Awake()
     {
@@ -14,6 +15,8 @@ public class RobotMenu : MonoBehaviour
             orderMenu = GetComponentInChildren<OrderUI>();
         if (iconMenu == null)
             iconMenu = GetComponentInChildren<IconUI>();
+        if (input == null)
+            input = GetComponentInChildren<RobotInputListener>();
     }
     private void Update()
     {
@@ -43,6 +46,7 @@ public class RobotMenu : MonoBehaviour
     public void OnSelectionChanged()
     {
         iconMenu.OnSelectionChanged();
+        orderMenu.UpdateOrders();
     }
     public void PlaySolution()
     {

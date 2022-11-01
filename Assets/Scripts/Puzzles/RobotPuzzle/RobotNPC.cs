@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class RobotNPC : MonoBehaviour
 {
+    public int CommandID = 0;
+    public int MaxMoves = 1;
     public float MovementSpeed = 10;
     public RobotPuzzleController puzzleParent;
     public GridNav.Node OriginalNode;    
@@ -28,10 +30,10 @@ public class RobotNPC : MonoBehaviour
     public enum WalkDirection
     {
         empty = 0,
-        up,
-        down,
-        left,
-        right
+        up = 1,
+        down = 2,
+        left = 3,
+        right = 4
     }
     WalkDirection[] orders = new WalkDirection[10];
     public void IssueOrder(WalkDirection order)
@@ -44,6 +46,12 @@ public class RobotNPC : MonoBehaviour
                 return;
             }
         }
+    }
+    public WalkDirection GetOrderAt(int iO)
+    {
+        if (iO < orders.Length)
+            return orders[iO];
+        return WalkDirection.empty;
     }
     public void ClearOrders()
     {

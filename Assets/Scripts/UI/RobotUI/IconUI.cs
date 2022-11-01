@@ -26,7 +26,7 @@ public class IconUI : MonoBehaviour
             int iSelection = iC;
             RobotButtons[iC].onClick.AddListener(() =>
             {
-                UIController.main.robotController.myPuzzle.Selection = iSelection;
+                UIController.main.robotController.myPuzzle.ChangeSelection(iSelection);
                 OnSelectionChanged();
             });
 

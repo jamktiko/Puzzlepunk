@@ -10,6 +10,10 @@ public abstract class PuzzleController : MonoBehaviour
     protected bool WasSolved = false;
     public UnityEvent onSolve;
 
+    public void BeginPuzzle()
+    {
+        OnEnterPuzzle();
+    }
     public virtual void OnEnterPuzzle()
     {
         main = this;

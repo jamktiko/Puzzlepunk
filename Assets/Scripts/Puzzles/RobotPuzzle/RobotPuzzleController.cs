@@ -7,6 +7,7 @@ public class RobotPuzzleController : PuzzleController
 {
     public RobotNPC[] Robots;
     public GridNav mGrid;
+    public CameraBounds cambounds;
     private void Start()
     {
         Init();
@@ -15,7 +16,7 @@ public class RobotPuzzleController : PuzzleController
     {
         mGrid = GetComponentInChildren<GridNav>();
 
-        Robots = GetComponentsInChildren<RobotNPC>();
+        Robots = GetComponentsInChildren<RobotNPC>();//Todo nullchecks
         foreach (RobotNPC rob in Robots)
         {
             rob.InitPuzzle( this);
@@ -25,10 +26,13 @@ public class RobotPuzzleController : PuzzleController
 
     public override void OnEnterPuzzle()
     {
+        base.OnEnterPuzzle();
         UIController.main.OpenWindow(UIController.UIWindow.robot);
         UIController.main.robotController.InitPuzzle(this);
         ChangeSelection(0);
-        base.OnEnterPuzzle(); ;
+        if (cambounds!=null)
+        CameraController.main.SetBounds(cambounds);
+
     }
     public void ChangeSelection(int sel)
     {
@@ -46,32 +50,5 @@ public class RobotPuzzleController : PuzzleController
     public RobotNPC GetSelectedRobot()
     {
         return Robots[Selection];
-    }
-    public void HandlePlayerOrders()
-    {
-        if (GetSelectedRobot() != null)
-        {
-            Vector2 moveInput = PlayerInputListener.control.ZoePlayer.Movement.ReadValue<Vector2>();
-
-            RobotNPC.WalkDirection order = RobotNPC.WalkDirection.empty;
-            if (moveInput.y > 0)
-            {
-                order = RobotNPC.WalkDirection.up;
-            }
-            else if (moveInput.y < 0)
-            {
-                order = RobotNPC.WalkDirection.down;
-            }
-            else if (moveInput.x < 0)
-            {
-                order = RobotNPC.WalkDirection.left;
-            }
-            else if (moveInput.x > 0)
-            {
-                order = RobotNPC.WalkDirection.right;
-            }
-            if (order!= RobotNPC.WalkDirection.empty)
-                GetSelectedRobot().IssueOrder(order);
-        }
     }
 }
