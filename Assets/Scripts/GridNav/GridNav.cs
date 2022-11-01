@@ -100,9 +100,13 @@ public class GridNav : MonoBehaviour
     {
         return height;
     }
-    public bool GetNodeAt(Vector2 pos, out Node node)
+    public bool TryGetWorldNodeAt(Vector2 pos, out Node node)
     {
-        node = GetNodeAt(TranslateCoordinate(pos));
+        return TryGetNodeAt(TranslateCoordinate(pos),out node);
+    }
+    public bool TryGetNodeAt(Vector2Int pos, out Node node)
+    {
+        node = GetNodeAt(pos);
         return node != null;
     }
     public Node GetNodeAt(Vector2Int pos)

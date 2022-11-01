@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
         if (moveInput.x != 0  || moveInput.y != 0)
         {
             facing = moveInput;
-            movement.MoveToPoint((Vector2)transform.position + moveInput);
+            movement.MoveToWorldPoint((Vector2)transform.position + moveInput);
         }
         /*if (moveInput.x != 0)
         {

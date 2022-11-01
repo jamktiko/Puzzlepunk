@@ -23,12 +23,12 @@ public class MovementComponent : MonoBehaviour
         return gridPos;
     }
     GridNav.Node mNode;
-    public void MoveToPoint(Vector2 nPoint)
+    public void MoveToWorldPoint(Vector2 nPoint)
     {
         if (grid == null)
             return;
 
-        if (TryMoveDirection(nPoint - (Vector2)transform.position, out GridNav.Node node))
+        if (TryMoveWorldDirection(nPoint - (Vector2)transform.position, out GridNav.Node node))
         {
             if (node.IsPassible())
             {
@@ -41,7 +41,7 @@ public class MovementComponent : MonoBehaviour
             }
         }
     }
-    bool TryMoveDirection(Vector2 direction, out GridNav.Node possible)
+    bool TryMoveWorldDirection(Vector2 direction, out GridNav.Node possible)
     {
         if (direction.x == 0 || direction.y == 0)
         {
@@ -50,17 +50,17 @@ public class MovementComponent : MonoBehaviour
         }
         else
         {
-            if (grid.GetNodeAt((Vector2)transform.position + direction * grid.UnitSize, out possible) && possible.IsPassible())
+            if (grid.TryGetWorldNodeAt((Vector2)transform.position + direction * grid.UnitSize, out possible) && possible.IsPassible())
             {
                 possible = grid.GetNodeDirection(transform.position, direction, MovementDistance);
                 return possible != null;
             }
-            else if (grid.GetNodeAt((Vector2)transform.position + direction.x * Vector2.right * grid.UnitSize, out possible) && possible.IsPassible())
+            else if (grid.TryGetWorldNodeAt((Vector2)transform.position + direction.x * Vector2.right * grid.UnitSize, out possible) && possible.IsPassible())
             {
                 possible = grid.GetNodeDirection(transform.position, direction.x * Vector2.right, MovementDistance);
                 return possible != null;
             }
-            else if (grid.GetNodeAt((Vector2)transform.position + direction.y * Vector2.up * grid.UnitSize, out possible) && possible.IsPassible())
+            else if (grid.TryGetWorldNodeAt((Vector2)transform.position + direction.y * Vector2.up * grid.UnitSize, out possible) && possible.IsPassible())
             {
                 possible = grid.GetNodeDirection(transform.position, direction.y * Vector2.up, MovementDistance);
                 return possible != null;
@@ -74,7 +74,7 @@ public class MovementComponent : MonoBehaviour
         if (grid == null)
             return;
 
-        if (TryMoveDirection(nPoint - (Vector2)transform.position, out GridNav.Node node))
+        if (TryMoveDirection(nPoint - gridPos, out GridNav.Node node))
         {
             if (node.IsPassible())
             {
@@ -91,19 +91,19 @@ public class MovementComponent : MonoBehaviour
     {
         if (direction.x == 0 || direction.y == 0)
         {
-            return grid.GetNodeAt(gridPos + direction,out possible);
+            return grid.TryGetNodeAt(gridPos + direction,out possible);
         }
         else
         {
-            if (grid.GetNodeAt(gridPos + direction, out possible) && possible.IsPassible())
+            if (grid.TryGetNodeAt(gridPos + direction, out possible) && possible.IsPassible())
             {
                 return possible != null;
             }
-            else if (grid.GetNodeAt(gridPos + direction.x * Vector2.right * grid.UnitSize, out possible) && possible.IsPassible())
+            else if (grid.TryGetWorldNodeAt(gridPos + direction.x * Vector2.right * grid.UnitSize, out possible) && possible.IsPassible())
             {
                 return possible != null;
             }
-            else if (grid.GetNodeAt(gridPos + direction.y * Vector2.up * grid.UnitSize, out possible) && possible.IsPassible())
+            else if (grid.TryGetWorldNodeAt(gridPos + direction.y * Vector2.up * grid.UnitSize, out possible) && possible.IsPassible())
             {
                 return possible != null;
             }

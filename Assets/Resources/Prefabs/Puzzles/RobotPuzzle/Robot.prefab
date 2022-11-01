@@ -100,8 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CommandID: 0
   MaxMoves: 5
-  MovementSpeed: 0
   puzzleParent: {fileID: 0}
+  movement: {fileID: 0}
 --- !u!114 &8228324417340447764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SprintMultiplier: 2
-  MovementSpeed: 10
+  MovementSpeed: 1
   MovementDistance: 1
   grid: {fileID: 0}

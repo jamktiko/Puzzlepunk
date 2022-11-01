@@ -48,7 +48,7 @@ public class LevelController : MonoBehaviour
     {
         foreach (RoomComponent r in rooms)
         {
-            if (r.grid.GetNodeAt(point, out GridNav.Node n))
+            if (r.grid.TryGetWorldNodeAt(point, out GridNav.Node n))
                 return r;
         }
         return null;

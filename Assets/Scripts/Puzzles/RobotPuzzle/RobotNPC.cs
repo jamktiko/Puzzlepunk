@@ -19,12 +19,16 @@ public class RobotNPC : MonoBehaviour
     public void InitPuzzle(RobotPuzzleController parent)
     {
         puzzleParent = parent;
+        movement.grid = parent.mGrid;
         OriginalNode = parent.mGrid.GetNodeAt(parent.mGrid.TranslateCoordinate(transform.position));
+        OnReset(true);
     }
     public void OnReset(bool hard)
     {
+        if (puzzleParent == null) return;
+        cOrder = 0;
         movement.Stop();
-        transform.position = OriginalNode.worldPos;
+        movement.JumpToPoint(OriginalNode);
         if (hard)
             ClearOrders();
     }
@@ -71,13 +75,12 @@ public class RobotNPC : MonoBehaviour
     int cOrder = 0;
     public bool IsMoving()
     {
-        return MoveCoroutine != null;
+        return movement.IsWalking();
     }
     public bool IsIdle()
     {
         return cOrder <= orders.Length;
     }
-    Coroutine MoveCoroutine;
     public void Step()
     {
         if (IsIdle())

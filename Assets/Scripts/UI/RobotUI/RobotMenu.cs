@@ -25,6 +25,7 @@ public class RobotMenu : MonoBehaviour
     }
     public void OnReset(bool hard)
     {
+        EndPuzzle();
         myPuzzle.OnReset(hard);
     }
     public bool IsPuzzleMode()
