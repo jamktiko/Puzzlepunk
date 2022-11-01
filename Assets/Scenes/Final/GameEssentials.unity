@@ -287,27 +287,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &249142074 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8145452366047622435, guid: dca83cdcfc0e6ae48b3e82e368c48a2f, type: 3}
-  m_PrefabInstance: {fileID: 8145452366881892107}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &249142087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 249142074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56d754ac0cdfccf48be370262920cf1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SprintMultiplier: 2
-  MovementSpeed: 0.8
-  MovementDistance: 0.3
-  grid: {fileID: 0}
 --- !u!43 &305217260
 Mesh:
   m_ObjectHideFlags: 0
@@ -1023,18 +1002,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 133664811}
-    - target: {fileID: -1524042938062194159, guid: dca83cdcfc0e6ae48b3e82e368c48a2f, type: 3}
-      propertyPath: m_InstanceId
-      value: -59608
-      objectReference: {fileID: 0}
     - target: {fileID: 1169989969415743097, guid: dca83cdcfc0e6ae48b3e82e368c48a2f, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 305217260}
-    - target: {fileID: 1169989969415743097, guid: dca83cdcfc0e6ae48b3e82e368c48a2f, type: 3}
-      propertyPath: m_InstanceId
-      value: -59626
-      objectReference: {fileID: 0}
     - target: {fileID: 8145452366047622432, guid: dca83cdcfc0e6ae48b3e82e368c48a2f, type: 3}
       propertyPath: m_RootOrder
       value: 3
