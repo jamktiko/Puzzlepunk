@@ -18,11 +18,6 @@ public class RobotMenu : MonoBehaviour
         if (input == null)
             input = GetComponentInChildren<RobotInputListener>();
     }
-    private void Update()
-    {
-        if (myPuzzle!=null)
-            myPuzzle.HandlePlayerOrders();
-    }
     public void InitPuzzle(RobotPuzzleController puzzle)
     {
         myPuzzle = puzzle;

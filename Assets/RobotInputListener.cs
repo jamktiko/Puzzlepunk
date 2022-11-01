@@ -7,12 +7,14 @@ public class RobotInputListener : MonoBehaviour
 {
     void OnEnable()
     {
-        PlayerInputListener.control.ZoePlayer.Movement.started += IssueOrder;
+        if (PlayerInputListener.control!=null)
+            PlayerInputListener.control.ZoePlayer.Movement.started += IssueOrder;
 
     }
     void OnDisable()
     {
-        PlayerInputListener.control.ZoePlayer.Movement.started -= IssueOrder;
+        if (PlayerInputListener.control != null)
+            PlayerInputListener.control.ZoePlayer.Movement.started -= IssueOrder;
     }
     void IssueOrder(InputAction.CallbackContext context)
     {

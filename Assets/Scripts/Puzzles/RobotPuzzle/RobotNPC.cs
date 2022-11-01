@@ -43,6 +43,8 @@ public class RobotNPC : MonoBehaviour
             if (orders[iO] == WalkDirection.empty)
             {
                 orders[iO] = order;
+                UIController.main.robotController.orderMenu.UpdateOrders();//todo nullcheck
+
                 return;
             }
         }
