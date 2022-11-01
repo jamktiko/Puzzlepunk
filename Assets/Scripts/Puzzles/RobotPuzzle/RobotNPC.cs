@@ -64,6 +64,17 @@ public class RobotNPC : MonoBehaviour
             return orders[iO];
         return WalkDirection.empty;
     }
+    public void ClearLastOrder()
+    {
+        for (int iO = 1; iO < orders.Length; iO++)
+        {
+            if (orders[iO] == WalkDirection.empty)
+            {
+                orders[iO - 1] = WalkDirection.empty;
+                break;
+            }
+        }
+    }
     public void ClearOrders()
     {
         cOrder = 0;

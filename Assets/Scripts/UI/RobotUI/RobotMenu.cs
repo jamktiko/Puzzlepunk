@@ -75,12 +75,11 @@ public class RobotMenu : MonoBehaviour
             return false;
         } );
     }
-    private void EndPuzzle()
+    public void EndPuzzle()
     {
         if (PlayCoroutine != null)
         {
             StopCoroutine(PlayCoroutine);
         }
-        OnReset(false);
     }
 }
