@@ -4189,6 +4189,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 13479149}
     m_Modifications:
+    - target: {fileID: 1999470443, guid: 0b21ee8b9d779ad45ae9b144724d9268, type: 3}
+      propertyPath: CutsceneScript
+      value: 
+      objectReference: {fileID: 11400000, guid: bc29f514f8221a2448d7b1cc07c2f219, type: 2}
     - target: {fileID: 774272924846623461, guid: 0b21ee8b9d779ad45ae9b144724d9268, type: 3}
       propertyPath: m_Name
       value: Headless Robot (1)
@@ -33591,32 +33595,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!1 &1278243028 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 176833404103002056, guid: f8478b5f20a29ae448d2ef1c1529afba, type: 3}
-  m_PrefabInstance: {fileID: 176833402972809245}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &1278243032 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 176833404103002059, guid: f8478b5f20a29ae448d2ef1c1529afba, type: 3}
-  m_PrefabInstance: {fileID: 176833402972809245}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1278243033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1278243028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a5ff6924b42c1e4bb7871dae4235e62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DeltaY: -0.09
-  AlwaysUpdate: 0
-  spriteRenderer: {fileID: 1278243032}
-  deltaOrder: 0
 --- !u!1001 &1279193556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63316,6 +63294,14 @@ PrefabInstance:
     - target: {fileID: 1701089294856198372, guid: c7a1dc411ab736e48bf32eade7b07e7f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7296354078908189649, guid: c7a1dc411ab736e48bf32eade7b07e7f, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7296354078908189649, guid: c7a1dc411ab736e48bf32eade7b07e7f, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -485980947
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7a1dc411ab736e48bf32eade7b07e7f, type: 3}

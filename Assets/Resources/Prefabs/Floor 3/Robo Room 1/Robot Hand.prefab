@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 176833402972809249}
   - component: {fileID: 176833402972809247}
   - component: {fileID: 176833402972809248}
+  - component: {fileID: 1278243033}
   m_Layer: 0
   m_Name: Robot Hand
   m_TagString: Obstacle
@@ -156,3 +157,19 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 11400000, guid: 74d4616a2cbeee84aaae285cef8a6290, type: 2}
+--- !u!114 &1278243033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176833404103002056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a5ff6924b42c1e4bb7871dae4235e62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeltaY: -0.09
+  AlwaysUpdate: 0
+  spriteRenderer: {fileID: 176833404103002059}
+  deltaOrder: 0
