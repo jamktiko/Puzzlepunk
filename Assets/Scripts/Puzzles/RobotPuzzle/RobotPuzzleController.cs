@@ -59,6 +59,7 @@ public class RobotPuzzleController : PuzzleController
         return Robots[Selection];
     }
     #region Play
+    bool PuzzleOver = false;
     public void PlaySolution()
     {
         EndPuzzle();
@@ -67,9 +68,16 @@ public class RobotPuzzleController : PuzzleController
     Coroutine PlayCoroutine;
     IEnumerator PuzzleCoroutine()
     {
+        PuzzleOver = false;
         for (int i = 0; i < 10; i++)
         {
             yield return Step();
+            if (PuzzleOver)
+            {
+                yield return new WaitForSeconds(.5f);
+                OnReset(false);
+                break;
+            }
         }
         EndPuzzle();
     }
@@ -89,6 +97,14 @@ public class RobotPuzzleController : PuzzleController
             }
             return false;
         });
+        foreach (RobotNPC robot in Robots)
+        {
+            if (robot.HasCrashed())
+            {
+                PuzzleOver = true;
+                break;
+            }
+        }
     }
     public void EndPuzzle()
     {
