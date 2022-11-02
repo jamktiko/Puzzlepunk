@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ButtonPawn : PuzzlePawn
 {
+    public int RequiresCommandID = -1;
     public override void InitPuzzle(RobotPuzzleController parent)
     {
         base.InitPuzzle(parent);
@@ -29,6 +30,7 @@ public class ButtonPawn : PuzzlePawn
     {
         if (collision.TryGetComponent(out RobotPawn robot))
         {
+            if (RequiresCommandID == -1 || RequiresCommandID == robot.CommandID)
             SetPressed( true);
         }
     }

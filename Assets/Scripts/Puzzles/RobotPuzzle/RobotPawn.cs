@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.Intrinsics;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class RobotPawn : PuzzlePawn
@@ -19,8 +20,8 @@ public class RobotPawn : PuzzlePawn
     {
         movement.grid = parent.mGrid;
         OriginalNode = parent.mGrid.GetNodeAt(parent.mGrid.TranslateCoordinate(transform.position));
-        parent.UpdateMoveLimit(MaxMoves);
         base.InitPuzzle(parent);
+        InitOrders();
     }
     public override void OnReset(bool hard)
     {
@@ -60,52 +61,75 @@ public class RobotPawn : PuzzlePawn
         }
         return WalkDirection.empty;
     }
-    WalkDirection[] orders = new WalkDirection[10];
-    public bool IssueOrder(WalkDirection order)
+    public class Memory
     {
-        WalkDirection lastDir = WalkDirection.empty;
-        for (int iO = 0; iO < orders.Length; iO++)
+        public WalkDirection[] orders;
+        public Memory(int nOrders)
         {
-            if (orders[iO] == WalkDirection.empty)
+            orders = new WalkDirection[nOrders];
+        }
+        public bool IssueOrder(WalkDirection order)
+        {
+            WalkDirection lastDir = WalkDirection.empty;
+            for (int iO = 0; iO < orders.Length; iO++)
             {
-                if (order != ReverseDirection(lastDir))
+                if (orders[iO] == WalkDirection.empty)
                 {
-                    orders[iO] = order;
-                    UIController.main.robotController.orderMenu.UpdateOrders();//todo nullcheck
-                    return true;
+                    if (order != ReverseDirection(lastDir))
+                    {
+                        orders[iO] = order;
+                        UIController.main.robotController.orderMenu.UpdateOrders();//todo nullcheck
+                        return true;
+                    }
+                }
+                else
+                {
+                    lastDir = orders[iO];
                 }
             }
-            else
-            {
-                lastDir = orders[iO];
-            }
+            return false;
         }
-        return false;
-    }
-    public WalkDirection GetOrderAt(int iO)
-    {
-        if (iO < orders.Length)
-            return orders[iO];
-        return WalkDirection.empty;
-    }
-    public void ClearLastOrder()
-    {
-        for (int iO = 1; iO < orders.Length; iO++)
+        public WalkDirection GetOrderAt(int iO)
         {
-            if (orders[iO] == WalkDirection.empty)
+            if (iO < orders.Length)
+                return orders[iO];
+            return WalkDirection.empty;
+        }
+        public void ClearLastOrder()
+        {
+            for (int iO = 1; iO < orders.Length; iO++)
             {
-                orders[iO - 1] = WalkDirection.empty;
-                break;
+                if (orders[iO] == WalkDirection.empty)
+                {
+                    orders[iO - 1] = WalkDirection.empty;
+                    break;
+                }
+            }
+        }
+        public void ClearOrders()
+        {
+            for (int iO = 0; iO < orders.Length; iO++)
+            {
+                orders[iO] = WalkDirection.empty;
             }
         }
     }
+    void InitOrders()
+    {
+        if (puzzleParent.RobotCommands.Count <= CommandID)            
+            puzzleParent.RobotCommands.Add( new Memory(MaxMoves));
+        else if (puzzleParent.RobotCommands[CommandID] == null)
+            puzzleParent.RobotCommands[CommandID] = new Memory(MaxMoves);
+        memory = puzzleParent.RobotCommands[CommandID];
+
+        puzzleParent.UpdateMoveLimit(MaxMoves);
+    }
+    Memory memory; //TODO nullchecks
     public void ClearOrders()
     {
+        if (memory == null || memory.orders == null) return;
         cOrder = 0;
-        for (int iO=0; iO<orders.Length; iO++)
-        {
-            orders[iO] = WalkDirection.empty;
-        }
+        memory.ClearOrders();
     }
     #endregion
     #region Moving Cycle
@@ -125,7 +149,7 @@ public class RobotPawn : PuzzlePawn
             movement.Stop();
 
             Vector2Int nPoint = Vector2Int.zero;
-            switch (orders[cOrder])
+            switch (memory.orders[cOrder])
             {
                 case WalkDirection.up:
                     nPoint = Vector2Int.up;
@@ -201,4 +225,5 @@ public class RobotPawn : PuzzlePawn
     }
 
     #endregion
+
 }

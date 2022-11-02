@@ -6,11 +6,19 @@ using UnityEngine.UI;
 
 public class RobotPuzzleController : PuzzleController
 {
-    public PuzzlePawn[] Pieces;
-    public RobotPawn[] Robots;
-    public ButtonPawn[] Objectives;
-    public GridNav mGrid;
     public CameraBounds cambounds;
+    public GridNav mGrid;
+
+    public PuzzlePawn[] Pieces;      
+    public ButtonPawn[] Objectives;
+
+    public RobotPawn[] Robots;
+    public List<RobotPawn.Memory> RobotCommands;
+
+    private void Awake()
+    {
+        RobotCommands = new List<RobotPawn.Memory>();   
+    }
     private void Start()
     {
         Init();
@@ -48,22 +56,24 @@ public class RobotPuzzleController : PuzzleController
         if (cambounds != null)
             CameraController.main.SetBounds(PlayerTransitionController.main.CurrentRoom.bounds);
     }
+    #region Selection
+    public int Selection = 0;
     public void ChangeSelection(int sel)
     {
         Selection = sel;
         UIController.main.robotController.OnSelectionChanged();
     }
+    public RobotPawn.Memory GetSelectedRobot()
+    {
+        return RobotCommands[Selection];
+    }
+    #endregion
     public void OnReset(bool hard)
     {
         foreach (PuzzlePawn rob in Pieces)
         {
             rob.OnReset(hard);
         }
-    }
-    public int Selection = 0;
-    public RobotPawn GetSelectedRobot()
-    {
-        return Robots[Selection];
     }
     #region Play
     bool PuzzleFailed = false;

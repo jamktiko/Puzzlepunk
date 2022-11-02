@@ -38,7 +38,7 @@ public class IconUI : MonoBehaviour
         var puzzle = UIController.main.robotController.myPuzzle;
         for (int iI = 0; iI< RobotIcons.Length; iI++)
         {
-            bool RobotExists = iI < puzzle.Robots.Length;
+            bool RobotExists = iI < puzzle.RobotCommands.Count;
             if (RobotExists)
             {
                 RobotIcons[iI].sprite = puzzle.Robots[iI].GetSprite();

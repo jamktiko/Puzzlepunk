@@ -17,11 +17,11 @@ public class OrderUI : MonoBehaviour
     {
         UpdateOrdersForRobot( ((RobotPuzzleController)RobotPuzzleController.main).GetSelectedRobot());  //TODO nullcheck
     }
-    void UpdateOrdersForRobot(RobotPawn mRobot)
+    void UpdateOrdersForRobot(RobotPawn.Memory mRobot)
     {
         for (int iDisplay = 0; iDisplay < OrderDisplays.Length; iDisplay++)
         {
-            if (iDisplay< mRobot.MaxMoves)
+            if (iDisplay< mRobot.orders.Length)
             {
                 OrderDisplays[iDisplay].gameObject.SetActive(true);
                 int order = (int)mRobot.GetOrderAt(iDisplay);
