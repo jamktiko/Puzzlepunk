@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using Unity.Burst.Intrinsics;
 using UnityEngine;
 
-public class RobotNPC : MonoBehaviour
+public class RobotPawn : PuzzlePawn
 {
     public int CommandID = 0;
     public int MaxMoves = 1;
-    public RobotPuzzleController puzzleParent;
 
     public MovementComponent movement;
     public GridNav.Node OriginalNode;
@@ -16,14 +15,14 @@ public class RobotNPC : MonoBehaviour
     {
         movement = GetComponent<MovementComponent>();
     }
-    public void InitPuzzle(RobotPuzzleController parent)
+    public override void InitPuzzle(RobotPuzzleController parent)
     {
-        puzzleParent = parent;
         movement.grid = parent.mGrid;
         OriginalNode = parent.mGrid.GetNodeAt(parent.mGrid.TranslateCoordinate(transform.position));
-        OnReset(true);
+        parent.UpdateMoveLimit(MaxMoves);
+        base.InitPuzzle(parent);
     }
-    public void OnReset(bool hard)
+    public override void OnReset(bool hard)
     {
         if (puzzleParent == null) return;
         cOrder = 0;
@@ -37,6 +36,7 @@ public class RobotNPC : MonoBehaviour
     {
         return GetComponent<SpriteRenderer>().sprite;
     }
+    #region Orders
     public enum WalkDirection
     {
         empty = 0,
@@ -107,6 +107,8 @@ public class RobotNPC : MonoBehaviour
             orders[iO] = WalkDirection.empty;
         }
     }
+    #endregion
+    #region Moving Cycle
     int cOrder = 0;
     public bool IsMoving()
     {
@@ -164,6 +166,7 @@ public class RobotNPC : MonoBehaviour
         }
 
     }
+    #endregion
     #region Crashing
     bool hasCrashed = false;
     void CheckCrash(Vector2Int node)
@@ -177,7 +180,7 @@ public class RobotNPC : MonoBehaviour
             return;
         }
 
-        foreach (RobotNPC robot in puzzleParent.Robots)
+        foreach (RobotPawn robot in puzzleParent.Robots)
         {
             if (robot != this && robot.movement.GetGridPosition() == node)
             {

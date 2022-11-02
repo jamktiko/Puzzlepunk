@@ -17,7 +17,7 @@ public class OrderUI : MonoBehaviour
     {
         UpdateOrdersForRobot( ((RobotPuzzleController)RobotPuzzleController.main).GetSelectedRobot());  //TODO nullcheck
     }
-    void UpdateOrdersForRobot(RobotNPC mRobot)
+    void UpdateOrdersForRobot(RobotPawn mRobot)
     {
         for (int iDisplay = 0; iDisplay < OrderDisplays.Length; iDisplay++)
         {

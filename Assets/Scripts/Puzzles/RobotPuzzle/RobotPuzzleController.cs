@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class RobotPuzzleController : PuzzleController
 {
-    public RobotNPC[] Robots;
+    public PuzzlePawn[] Pieces;
+    public RobotPawn[] Robots;
+    public ButtonPawn[] Objectives;
     public GridNav mGrid;
     public CameraBounds cambounds;
     private void Start()
@@ -16,12 +19,16 @@ public class RobotPuzzleController : PuzzleController
     {
         mGrid = GetComponentInChildren<GridNav>();
 
-        Robots = GetComponentsInChildren<RobotNPC>();//Todo nullchecks
-        foreach (RobotNPC rob in Robots)
+        Pieces = GetComponentsInChildren<PuzzlePawn>();
+        foreach (PuzzlePawn rob in Pieces)
         {
             rob.InitPuzzle( this);
         }
-        OnReset(false);
+
+        Objectives = GetComponentsInChildren<ButtonPawn>();
+        Robots = GetComponentsInChildren<RobotPawn>();//Todo nullchecks
+
+        OnReset(true);
     }
 
     public override void OnEnterPuzzle()
@@ -48,18 +55,18 @@ public class RobotPuzzleController : PuzzleController
     }
     public void OnReset(bool hard)
     {
-        foreach (RobotNPC rob in Robots)
+        foreach (PuzzlePawn rob in Pieces)
         {
             rob.OnReset(hard);
         }
     }
     public int Selection = 0;
-    public RobotNPC GetSelectedRobot()
+    public RobotPawn GetSelectedRobot()
     {
         return Robots[Selection];
     }
     #region Play
-    bool PuzzleOver = false;
+    bool PuzzleFailed = false;
     public void PlaySolution()
     {
         EndPuzzle();
@@ -68,11 +75,11 @@ public class RobotPuzzleController : PuzzleController
     Coroutine PlayCoroutine;
     IEnumerator PuzzleCoroutine()
     {
-        PuzzleOver = false;
-        for (int i = 0; i < 10; i++)
+        PuzzleFailed = false;
+        for (int i = 0; i < MaxMove; i++)
         {
             yield return Step();
-            if (PuzzleOver)
+            if (PuzzleFailed)
             {
                 yield return new WaitForSeconds(.5f);
                 OnReset(false);
@@ -83,27 +90,31 @@ public class RobotPuzzleController : PuzzleController
     }
     IEnumerator Step()
     {
-        foreach (RobotNPC robot in Robots)
+        foreach (RobotPawn robot in Robots)
         {
             robot.Step();
         }
         yield return new WaitForSeconds(1f);
         yield return new WaitWhile(() =>
         {
-            foreach (RobotNPC robot in Robots)
+            foreach (RobotPawn robot in Robots)
             {
                 if (robot.IsMoving())
                     return true;
             }
             return false;
         });
-        foreach (RobotNPC robot in Robots)
+        foreach (RobotPawn robot in Robots)
         {
             if (robot.HasCrashed())
             {
-                PuzzleOver = true;
+                PuzzleFailed = true;
                 break;
             }
+        }
+        if (!PuzzleFailed)
+        {
+            SetSolved();
         }
     }
     public void EndPuzzle()
@@ -114,5 +125,29 @@ public class RobotPuzzleController : PuzzleController
         }
     }
 
+    #endregion
+    #region MaxMove
+    int MaxMove = 1;
+    public void UpdateMoveLimit(int nLimit)
+    {
+        MaxMove = Mathf.Max(nLimit, MaxMove);
+    }
+    #endregion
+    #region Solution
+    public override bool CheckSolved()
+    {
+        if (base.CheckSolved())
+            return true;
+        bool solved = true;
+        foreach (ButtonPawn bp in Objectives)
+        {
+            if (!bp.IsPressed())
+            {
+                solved = false;
+                break;
+            }
+        }
+        return solved;
+    }
     #endregion
 }

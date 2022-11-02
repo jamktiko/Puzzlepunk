@@ -31,24 +31,24 @@ public class RobotInputListener : MonoBehaviour
         {
             //Vector2 moveInput = .ReadValue<Vector2>();
 
-            RobotNPC.WalkDirection order = RobotNPC.WalkDirection.empty;
+            RobotPawn.WalkDirection order = RobotPawn.WalkDirection.empty;
             if (moveInput.y > 0)
             {
-                order = RobotNPC.WalkDirection.up;
+                order = RobotPawn.WalkDirection.up;
             }
             else if (moveInput.y < 0)
             {
-                order = RobotNPC.WalkDirection.down;
+                order = RobotPawn.WalkDirection.down;
             }
             else if (moveInput.x < 0)
             {
-                order = RobotNPC.WalkDirection.left;
+                order = RobotPawn.WalkDirection.left;
             }
             else if (moveInput.x > 0)
             {
-                order = RobotNPC.WalkDirection.right;
+                order = RobotPawn.WalkDirection.right;
             }
-            if (order != RobotNPC.WalkDirection.empty)
+            if (order != RobotPawn.WalkDirection.empty)
                 myRob.IssueOrder(order);
         }
     }

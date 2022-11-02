@@ -26,4 +26,17 @@ public abstract class PuzzleController : MonoBehaviour
         if (ForceCinematic)
             PlayerCinematicController.main.SetCinematicMode(false, false);
     }
+    public virtual bool CheckSolved()
+    {
+        return WasSolved;
+    }
+    public virtual void SetSolved()
+    {
+        if (!WasSolved && CheckSolved())
+        {
+            WasSolved = true;
+            onSolve.Invoke();
+            Debug.Log("PUZZLE " + name.ToUpper() + " SOLVED!");
+        }
+    }
 }
