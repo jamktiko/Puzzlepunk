@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 652239794}
   m_Layer: 0
   m_Name: Tray
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_HasRenderer: 1
   m_UseRendererSilhouette: 0
-  m_CastsShadows: 1
+  m_CastsShadows: 0
   m_SelfShadows: 0
   m_ApplyToSortingLayers: ed8408e30000000031b8ffbf4511d0a99b4d2d85
   m_ShapePath:
@@ -114,7 +114,7 @@ MonoBehaviour:
   - {x: 0.14000034, y: -0.14999998, z: 0}
   m_ShapePathHash: -1435682795
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1364
+  m_InstanceId: -9982
 --- !u!61 &652239793
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -128,7 +128,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0035715103, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -139,7 +139,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.28, y: 0.3}
+  m_Size: {x: 0.35380363, y: 0.3}
   m_EdgeRadius: 0
 --- !u!114 &652239792
 MonoBehaviour:
