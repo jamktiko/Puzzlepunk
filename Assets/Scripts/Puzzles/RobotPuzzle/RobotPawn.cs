@@ -79,8 +79,7 @@ public class RobotPawn : PuzzlePawn
                     {
                         iOrder++;
                         orders[iO] = order;
-                        UIController.main.robotController.iconMenu.UpdateOrders();
-                        UIController.main.robotController.orderMenu.UpdateOrders();//todo nullcheck
+                        UIController.main.robotController.ResetOrderUI();//todo nullcheck
                         return true;
                     }
                 }

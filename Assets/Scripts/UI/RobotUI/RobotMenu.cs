@@ -5,8 +5,8 @@ using UnityEngine;
 public class RobotMenu : MonoBehaviour
 {
     public RobotPuzzleController myPuzzle;
-    public OrderUI orderMenu;
-    public IconUI iconMenu;
+     OrderUI orderMenu;
+     IconUI iconMenu;
     public RobotInputListener input;
 
     private void Awake()
@@ -27,13 +27,13 @@ public class RobotMenu : MonoBehaviour
     {
         myPuzzle.EndPuzzle();
         myPuzzle.OnReset(hard);
+        ResetOrderUI();
     }
     public void OnBackSpace()
     {
         if (myPuzzle.IsPlaying()) return;
         myPuzzle.GetSelectedRobot().ClearLastOrder();
-        iconMenu.UpdateOrders();
-        orderMenu.UpdateOrders();
+        ResetOrderUI();
     }
     public bool IsPuzzleMode()
     {
@@ -48,6 +48,10 @@ public class RobotMenu : MonoBehaviour
     public void OnSelectionChanged()
     {
         iconMenu.OnSelectionChanged();
+        ResetOrderUI();
+    }
+    public void ResetOrderUI()
+    {
         orderMenu.UpdateOrders();
         iconMenu.UpdateOrders();
     }
