@@ -29,6 +29,7 @@ public class RobotNPC : MonoBehaviour
         cOrder = 0;
         movement.Stop();
         movement.JumpToPoint(OriginalNode);
+        SetCrashed(false);
         if (hard)
             ClearOrders();
     }
@@ -44,19 +45,42 @@ public class RobotNPC : MonoBehaviour
         left = 3,
         right = 4
     }
-    WalkDirection[] orders = new WalkDirection[10];
-    public void IssueOrder(WalkDirection order)
+    public static WalkDirection ReverseDirection(WalkDirection dir)
     {
+        switch (dir)
+        {
+            case WalkDirection.up:
+                return WalkDirection.down;
+            case WalkDirection.down:
+                return WalkDirection.up;
+            case WalkDirection.left:
+                return WalkDirection.right;
+            case WalkDirection.right:
+                return WalkDirection.left;
+        }
+        return WalkDirection.empty;
+    }
+    WalkDirection[] orders = new WalkDirection[10];
+    public bool IssueOrder(WalkDirection order)
+    {
+        WalkDirection lastDir = WalkDirection.empty;
         for (int iO = 0; iO < orders.Length; iO++)
         {
             if (orders[iO] == WalkDirection.empty)
             {
-                orders[iO] = order;
-                UIController.main.robotController.orderMenu.UpdateOrders();//todo nullcheck
-
-                return;
+                if (order != ReverseDirection(lastDir))
+                {
+                    orders[iO] = order;
+                    UIController.main.robotController.orderMenu.UpdateOrders();//todo nullcheck
+                    return true;
+                }
+            }
+            else
+            {
+                lastDir = orders[iO];
             }
         }
+        return false;
     }
     public WalkDirection GetOrderAt(int iO)
     {
@@ -90,7 +114,7 @@ public class RobotNPC : MonoBehaviour
     }
     public bool IsIdle()
     {
-        return cOrder <= orders.Length;
+        return cOrder <= MaxMoves;
     }
     public void Step()
     {
@@ -113,10 +137,47 @@ public class RobotNPC : MonoBehaviour
                 case WalkDirection.right:
                     nPoint = Vector2Int.right;
                     break;
+                default:
+                    float randomValue = Random.value * 4;
+                    if (randomValue <= 1)
+                    {
+                        nPoint = Vector2Int.right;
+                    }
+                    else if (randomValue <= 2)
+                    {
+                        nPoint = Vector2Int.left;
+                    }
+                    else if (randomValue <= 3)
+                    {
+                        nPoint = Vector2Int.up;
+                    }
+                    else if (randomValue <= 4)
+                    {
+                        nPoint = Vector2Int.down;
+                    }
+                    break;
             }
-            movement.MoveToPoint(movement.GetGridPosition() + nPoint);
+            CheckCrash(movement.GetGridPosition() + nPoint);
+            if (!HasCrashed())
+                movement.MoveToPoint(movement.GetGridPosition() + nPoint);
             cOrder++;
         }
 
     }
+    #region Crashing
+    bool hasCrashed = false;
+    void CheckCrash(Vector2Int node)
+    {
+
+    }
+    public bool HasCrashed()
+    {
+        return hasCrashed;
+    }
+    void SetCrashed(bool value)
+    {
+        hasCrashed = value;
+    }
+
+    #endregion
 }
