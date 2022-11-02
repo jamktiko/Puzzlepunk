@@ -6,6 +6,7 @@ public class GridNav : MonoBehaviour
 {
     public float UnitSize = 1;
     public float Borders = 1;
+    public bool OnlyCheckChildren = false;
 
     Node[,] Nodes;
 
@@ -42,11 +43,24 @@ public class GridNav : MonoBehaviour
             }
             else
             {
-                foreach (RaycastHit2D collision in Physics2D.CircleCastAll(worldPos, nav.UnitSize, Vector2.zero))
+                if (nav.OnlyCheckChildren)
                 {
-                    if (collision.transform.tag == "Obstacle")
+                    foreach (Collider2D obstacle in nav.transform.GetComponentsInChildren<Collider2D>())
                     {
-                        passible = false;
+                        if (obstacle.tag == "Obstacle" && obstacle.Raycast(worldPos,new RaycastHit2D[0]) > 0)
+                        {
+                            passible = false;
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (RaycastHit2D collision in Physics2D.CircleCastAll(worldPos, nav.UnitSize, Vector2.zero))
+                    {
+                        if (collision.transform.tag == "Obstacle")
+                        {
+                            passible = false;
+                        }
                     }
                 }
             }
