@@ -5,12 +5,10 @@ using UnityEngine.UI;
 
 public class OrderUI : MonoBehaviour
 {
-    public Sprite[] Arrows;
-
-    Image[] OrderDisplays;
+    RobotOrderButton[] OrderDisplays;
     private void Awake()
     {
-        OrderDisplays = GetComponentsInChildren<Image>();
+        OrderDisplays = GetComponentsInChildren<RobotOrderButton>();
     }
 
     public void UpdateOrders()
@@ -19,17 +17,27 @@ public class OrderUI : MonoBehaviour
     }
     void UpdateOrdersForRobot(RobotPawn.Memory mRobot)
     {
+        RobotOrderButton.ButtonState currentState = RobotOrderButton.ButtonState.used;
+
         for (int iDisplay = 0; iDisplay < OrderDisplays.Length; iDisplay++)
         {
             if (iDisplay< mRobot.orders.Length)
             {
-                OrderDisplays[iDisplay].gameObject.SetActive(true);
                 int order = (int)mRobot.GetOrderAt(iDisplay);
-                OrderDisplays[iDisplay].sprite = Arrows[order];      //TODO nullcheck
+                OrderDisplays[iDisplay].ChangeOrder(order);      //TODO nullcheck
+                if (order == 0 && currentState == RobotOrderButton.ButtonState.used)
+                {
+                    OrderDisplays[iDisplay].ChangeState(RobotOrderButton.ButtonState.current);
+                    currentState = RobotOrderButton.ButtonState.remaining;
+                }
+                else
+                {
+                    OrderDisplays[iDisplay].ChangeState(currentState);
+                }
             }
             else
             {
-                OrderDisplays[iDisplay].gameObject.SetActive(false);
+                OrderDisplays[iDisplay].ChangeState(RobotOrderButton.ButtonState.inactive);
             }
         }
     }

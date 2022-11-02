@@ -28,6 +28,13 @@ public class RobotMenu : MonoBehaviour
         myPuzzle.EndPuzzle();
         myPuzzle.OnReset(hard);
     }
+    public void OnBackSpace()
+    {
+        if (myPuzzle.IsPlaying()) return;
+        myPuzzle.GetSelectedRobot().ClearLastOrder();
+        iconMenu.UpdateOrders();
+        orderMenu.UpdateOrders();
+    }
     public bool IsPuzzleMode()
     {
         return gameObject.activeSelf && myPuzzle != null;
@@ -42,6 +49,7 @@ public class RobotMenu : MonoBehaviour
     {
         iconMenu.OnSelectionChanged();
         orderMenu.UpdateOrders();
+        iconMenu.UpdateOrders();
     }
     public void PlaySolution()
     {

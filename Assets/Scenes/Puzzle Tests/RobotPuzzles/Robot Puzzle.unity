@@ -825,6 +825,7 @@ Transform:
   - {fileID: 642592367}
   - {fileID: 1735063844}
   - {fileID: 7428038544540514112}
+  - {fileID: 1891851758}
   m_Father: {fileID: 1172052321}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -881,13 +882,13 @@ MonoBehaviour:
   onSolve:
     m_PersistentCalls:
       m_Calls: []
+  cambounds: {fileID: 581252657}
+  mGrid: {fileID: 67913952}
   Pieces: []
+  Objectives: []
   Robots:
   - {fileID: 642592368}
   - {fileID: 1735063845}
-  Objectives: []
-  mGrid: {fileID: 67913952}
-  cambounds: {fileID: 581252657}
   Selection: 0
 --- !u!61 &1172052323
 BoxCollider2D:
@@ -1212,6 +1213,71 @@ Transform:
   m_Father: {fileID: 2070032910}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1626258244
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1038040077}
+    m_Modifications:
+    - target: {fileID: 5677688914323707531, guid: 8c33de7816fd9664bb4e00533c7fad66, type: 3}
+      propertyPath: MaxMoves
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677688914323707531, guid: 8c33de7816fd9664bb4e00533c7fad66, type: 3}
+      propertyPath: puzzleParent
+      value: 
+      objectReference: {fileID: 1172052322}
+    - target: {fileID: 5677688914323707540, guid: 8c33de7816fd9664bb4e00533c7fad66, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677688914323707540, guid: 8c33de7816fd9664bb4e00533c7fad66, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.302
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677688914323707540, guid: 8c33de7816fd9664bb4e00533c7fad66, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.232
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677688914323707540, guid: 8c33de7816fd9664bb4e00533c7fad66, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677688914323707540, guid: 8c33de7816fd9664bb4e00533c7fad66, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677688914323707540, guid: 8c33de7816fd9664bb4e00533c7fad66, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677688914323707540, guid: 8c33de7816fd9664bb4e00533c7fad66, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677688914323707540, guid: 8c33de7816fd9664bb4e00533c7fad66, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677688914323707540, guid: 8c33de7816fd9664bb4e00533c7fad66, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677688914323707540, guid: 8c33de7816fd9664bb4e00533c7fad66, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677688914323707540, guid: 8c33de7816fd9664bb4e00533c7fad66, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677688914323707541, guid: 8c33de7816fd9664bb4e00533c7fad66, type: 3}
+      propertyPath: m_Name
+      value: Robot (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8c33de7816fd9664bb4e00533c7fad66, type: 3}
 --- !u!114 &1708384341 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6339078111441159529, guid: 931b4b98a00c0a043b3294a85b9eb8a3, type: 3}
@@ -1238,6 +1304,10 @@ PrefabInstance:
     - target: {fileID: 5677688914323707531, guid: 8c33de7816fd9664bb4e00533c7fad66, type: 3}
       propertyPath: MaxMoves
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677688914323707531, guid: 8c33de7816fd9664bb4e00533c7fad66, type: 3}
+      propertyPath: CommandID
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5677688914323707531, guid: 8c33de7816fd9664bb4e00533c7fad66, type: 3}
       propertyPath: puzzleParent
@@ -1309,6 +1379,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 695ced0f4fcff4e46a2d7b482cd233ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1891851758 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5677688914323707540, guid: 8c33de7816fd9664bb4e00533c7fad66, type: 3}
+  m_PrefabInstance: {fileID: 1626258244}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2070032909
 GameObject:
   m_ObjectHideFlags: 0

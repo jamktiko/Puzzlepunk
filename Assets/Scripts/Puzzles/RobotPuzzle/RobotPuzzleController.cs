@@ -91,10 +91,13 @@ public class RobotPuzzleController : PuzzleController
             yield return Step();
             if (PuzzleFailed)
             {
-                yield return new WaitForSeconds(.5f);
-                OnReset(false);
                 break;
             }
+        }
+        if (!WasSolved)
+        {
+            yield return new WaitForSeconds(.5f);
+            OnReset(false);
         }
         EndPuzzle();
     }
@@ -127,9 +130,13 @@ public class RobotPuzzleController : PuzzleController
             SetSolved();
         }
     }
+    public bool IsPlaying()
+    {
+        return PlayCoroutine != null;
+    }
     public void EndPuzzle()
     {
-        if (PlayCoroutine != null)
+        if (IsPlaying())
         {
             StopCoroutine(PlayCoroutine);
         }

@@ -23,7 +23,7 @@ public class RobotInputListener : MonoBehaviour
     void HandlePlayerOrders(Vector2 moveInput)
     {
         RobotPuzzleController pzl = (RobotPuzzleController)PuzzleController.main;
-        if (pzl == null) return;
+        if (pzl == null || pzl.IsPlaying()) return;
 
         var myRob = pzl.GetSelectedRobot();
 

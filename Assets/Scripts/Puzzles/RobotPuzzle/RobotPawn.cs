@@ -9,6 +9,7 @@ public class RobotPawn : PuzzlePawn
     public int CommandID = 0;
     public int MaxMoves = 1;
 
+    public Sprite icon;
     public MovementComponent movement;
     public GridNav.Node OriginalNode;
 
@@ -32,10 +33,6 @@ public class RobotPawn : PuzzlePawn
         SetCrashed(false);
         if (hard)
             ClearOrders();
-    }
-    public Sprite GetSprite()
-    {
-        return GetComponent<SpriteRenderer>().sprite;
     }
     #region Orders
     public enum WalkDirection
@@ -63,11 +60,14 @@ public class RobotPawn : PuzzlePawn
     }
     public class Memory
     {
+        public Sprite icon;
         public WalkDirection[] orders;
-        public Memory(int nOrders)
+        public Memory(Sprite micon, int nOrders)
         {
+            icon = micon;
             orders = new WalkDirection[nOrders];
         }
+        public int iOrder = 0;
         public bool IssueOrder(WalkDirection order)
         {
             WalkDirection lastDir = WalkDirection.empty;
@@ -77,7 +77,9 @@ public class RobotPawn : PuzzlePawn
                 {
                     if (order != ReverseDirection(lastDir))
                     {
+                        iOrder++;
                         orders[iO] = order;
+                        UIController.main.robotController.iconMenu.UpdateOrders();
                         UIController.main.robotController.orderMenu.UpdateOrders();//todo nullcheck
                         return true;
                     }
@@ -97,10 +99,11 @@ public class RobotPawn : PuzzlePawn
         }
         public void ClearLastOrder()
         {
-            for (int iO = 1; iO < orders.Length; iO++)
+            for (int iO = 1; iO <= orders.Length; iO++)
             {
-                if (orders[iO] == WalkDirection.empty)
+                if (iO == orders.Length || orders[iO] == WalkDirection.empty)
                 {
+                    iOrder --;
                     orders[iO - 1] = WalkDirection.empty;
                     break;
                 }
@@ -108,6 +111,7 @@ public class RobotPawn : PuzzlePawn
         }
         public void ClearOrders()
         {
+            iOrder = 0;
             for (int iO = 0; iO < orders.Length; iO++)
             {
                 orders[iO] = WalkDirection.empty;
@@ -117,9 +121,9 @@ public class RobotPawn : PuzzlePawn
     void InitOrders()
     {
         if (puzzleParent.RobotCommands.Count <= CommandID)            
-            puzzleParent.RobotCommands.Add( new Memory(MaxMoves));
+            puzzleParent.RobotCommands.Add( new Memory(icon,MaxMoves));
         else if (puzzleParent.RobotCommands[CommandID] == null)
-            puzzleParent.RobotCommands[CommandID] = new Memory(MaxMoves);
+            puzzleParent.RobotCommands[CommandID] = new Memory(icon, MaxMoves);
         memory = puzzleParent.RobotCommands[CommandID];
 
         puzzleParent.UpdateMoveLimit(MaxMoves);
