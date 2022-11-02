@@ -114,7 +114,7 @@ public class RobotNPC : MonoBehaviour
     }
     public bool IsIdle()
     {
-        return cOrder <= MaxMoves;
+        return cOrder < MaxMoves;
     }
     public void Step()
     {
@@ -168,7 +168,23 @@ public class RobotNPC : MonoBehaviour
     bool hasCrashed = false;
     void CheckCrash(Vector2Int node)
     {
+        if (movement == null || movement.grid == null || puzzleParent == null)
+            return;
+        var nNode = movement.grid.GetNodeAt(node);
+        if (nNode == null || !nNode.IsPassible())
+        {
+            SetCrashed(true);
+            return;
+        }
 
+        foreach (RobotNPC robot in puzzleParent.Robots)
+        {
+            if (robot != this && robot.movement.GetGridPosition() == node)
+            {
+                SetCrashed(true);
+                return;
+            }
+        }
     }
     public bool HasCrashed()
     {
@@ -176,6 +192,8 @@ public class RobotNPC : MonoBehaviour
     }
     void SetCrashed(bool value)
     {
+        if (value)
+            Debug.Log(name + " HAS CRASHED! x.x");
         hasCrashed = value;
     }
 

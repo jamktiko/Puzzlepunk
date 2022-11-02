@@ -34,6 +34,13 @@ public class RobotPuzzleController : PuzzleController
         CameraController.main.SetBounds(cambounds);
 
     }
+    public override void OnExitPuzzle()
+    {
+        base.OnExitPuzzle();
+        EndPuzzle();
+        if (cambounds != null)
+            CameraController.main.SetBounds(PlayerTransitionController.main.CurrentRoom.bounds);
+    }
     public void ChangeSelection(int sel)
     {
         Selection = sel;
@@ -51,4 +58,45 @@ public class RobotPuzzleController : PuzzleController
     {
         return Robots[Selection];
     }
+    #region Play
+    public void PlaySolution()
+    {
+        EndPuzzle();
+        PlayCoroutine = StartCoroutine(PuzzleCoroutine());
+    }
+    Coroutine PlayCoroutine;
+    IEnumerator PuzzleCoroutine()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            yield return Step();
+        }
+        EndPuzzle();
+    }
+    IEnumerator Step()
+    {
+        foreach (RobotNPC robot in Robots)
+        {
+            robot.Step();
+        }
+        yield return new WaitForSeconds(1f);
+        yield return new WaitWhile(() =>
+        {
+            foreach (RobotNPC robot in Robots)
+            {
+                if (robot.IsMoving())
+                    return true;
+            }
+            return false;
+        });
+    }
+    public void EndPuzzle()
+    {
+        if (PlayCoroutine != null)
+        {
+            StopCoroutine(PlayCoroutine);
+        }
+    }
+
+    #endregion
 }

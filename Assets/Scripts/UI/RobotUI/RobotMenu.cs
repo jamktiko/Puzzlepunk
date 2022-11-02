@@ -25,7 +25,7 @@ public class RobotMenu : MonoBehaviour
     }
     public void OnReset(bool hard)
     {
-        EndPuzzle();
+        myPuzzle.EndPuzzle();
         myPuzzle.OnReset(hard);
     }
     public bool IsPuzzleMode()
@@ -34,7 +34,6 @@ public class RobotMenu : MonoBehaviour
     }
     public void Close()
     {
-        EndPuzzle();
         myPuzzle.OnExitPuzzle();
         myPuzzle = null;
         UIController.main.CloseWindow();
@@ -46,40 +45,6 @@ public class RobotMenu : MonoBehaviour
     }
     public void PlaySolution()
     {
-        EndPuzzle();
-        PlayCoroutine = StartCoroutine(PuzzleCoroutine());
-    }
-    Coroutine PlayCoroutine;
-    IEnumerator PuzzleCoroutine()
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            yield return Step();
-        }
-        EndPuzzle();
-    }
-    IEnumerator Step()
-    {
-        foreach (RobotNPC robot in myPuzzle.Robots)
-        {
-            robot.Step();
-        }
-        yield return new WaitForSeconds(1f);
-        yield return new WaitWhile(() =>
-        {
-            foreach (RobotNPC robot in myPuzzle.Robots)
-            {
-                if (robot.IsMoving())
-                    return true;
-            }
-            return false;
-        } );
-    }
-    public void EndPuzzle()
-    {
-        if (PlayCoroutine != null)
-        {
-            StopCoroutine(PlayCoroutine);
-        }
+        myPuzzle.PlaySolution();
     }
 }
