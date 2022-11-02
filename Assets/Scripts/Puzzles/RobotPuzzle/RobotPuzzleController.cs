@@ -70,6 +70,7 @@ public class RobotPuzzleController : PuzzleController
     #endregion
     public void OnReset(bool hard)
     {
+        if (WasSolved) return;
         foreach (PuzzlePawn rob in Pieces)
         {
             rob.OnReset(hard);
@@ -94,6 +95,7 @@ public class RobotPuzzleController : PuzzleController
                 break;
             }
         }
+        SetSolved();
         if (!WasSolved)
         {
             yield return new WaitForSeconds(.5f);
@@ -125,10 +127,7 @@ public class RobotPuzzleController : PuzzleController
                 break;
             }
         }
-        if (!PuzzleFailed)
-        {
-            SetSolved();
-        }
+        
     }
     public bool IsPlaying()
     {
@@ -140,6 +139,7 @@ public class RobotPuzzleController : PuzzleController
         {
             StopCoroutine(PlayCoroutine);
         }
+        PlayCoroutine = null;
     }
 
     #endregion
@@ -155,16 +155,21 @@ public class RobotPuzzleController : PuzzleController
     {
         if (base.CheckSolved())
             return true;
-        bool solved = true;
-        foreach (ButtonPawn bp in Objectives)
+
+        if (!PuzzleFailed)
         {
-            if (!bp.IsPressed())
+            bool solved = true;
+            foreach (ButtonPawn bp in Objectives)
             {
-                solved = false;
-                break;
+                if (!bp.IsPressed())
+                {
+                    solved = false;
+                    break;
+                }
             }
+            return solved;
         }
-        return solved;
+        return false;
     }
     #endregion
 }

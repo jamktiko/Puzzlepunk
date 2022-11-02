@@ -102,7 +102,7 @@ public class RobotPawn : PuzzlePawn
             {
                 if (iO == orders.Length || orders[iO] == WalkDirection.empty)
                 {
-                    iOrder --;
+                    iOrder = Mathf.Max(0,iOrder-1);
                     orders[iO - 1] = WalkDirection.empty;
                     break;
                 }
