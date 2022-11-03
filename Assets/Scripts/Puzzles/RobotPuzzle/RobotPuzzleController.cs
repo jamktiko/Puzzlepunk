@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class RobotPuzzleController : PuzzleController
 {
+    public float StepTime = .5f;
     public CameraBounds cambounds;
     public GridNav mGrid;
 
@@ -98,7 +99,7 @@ public class RobotPuzzleController : PuzzleController
         SetSolved();
         if (!WasSolved)
         {
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(StepTime);
             OnReset(false);
         }
         EndPuzzle();

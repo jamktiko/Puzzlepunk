@@ -20,6 +20,7 @@ public class RobotPawn : PuzzlePawn
     public override void InitPuzzle(RobotPuzzleController parent)
     {
         movement.grid = parent.mGrid;
+        movement.MovementSpeed = 1f / parent.StepTime;
         OriginalNode = parent.mGrid.GetNodeAt(parent.mGrid.TranslateCoordinate(transform.position));
         base.InitPuzzle(parent);
         InitOrders();
@@ -145,47 +146,51 @@ public class RobotPawn : PuzzlePawn
     {
         return cOrder < MaxMoves;
     }
+    Vector2Int GetNextStepDirection()
+    {
+        Vector2Int nPoint = Vector2Int.zero;
+        switch (memory.orders[cOrder])
+        {
+            case WalkDirection.up:
+                nPoint = Vector2Int.up;
+                break;
+            case WalkDirection.down:
+                nPoint = Vector2Int.down;
+                break;
+            case WalkDirection.left:
+                nPoint = Vector2Int.left;
+                break;
+            case WalkDirection.right:
+                nPoint = Vector2Int.right;
+                break;
+            default:
+                float randomValue = Random.value * 4;
+                if (randomValue <= 1)
+                {
+                    nPoint = Vector2Int.right;
+                }
+                else if (randomValue <= 2)
+                {
+                    nPoint = Vector2Int.left;
+                }
+                else if (randomValue <= 3)
+                {
+                    nPoint = Vector2Int.up;
+                }
+                else if (randomValue <= 4)
+                {
+                    nPoint = Vector2Int.down;
+                }
+                break;
+        }
+        return nPoint;
+    }
     public void Step()
     {
         if (IsIdle())
         {
             movement.Stop();
-
-            Vector2Int nPoint = Vector2Int.zero;
-            switch (memory.orders[cOrder])
-            {
-                case WalkDirection.up:
-                    nPoint = Vector2Int.up;
-                    break;
-                case WalkDirection.down:
-                    nPoint = Vector2Int.down;
-                    break;
-                case WalkDirection.left:
-                    nPoint = Vector2Int.left;
-                    break;
-                case WalkDirection.right:
-                    nPoint = Vector2Int.right;
-                    break;
-                default:
-                    float randomValue = Random.value * 4;
-                    if (randomValue <= 1)
-                    {
-                        nPoint = Vector2Int.right;
-                    }
-                    else if (randomValue <= 2)
-                    {
-                        nPoint = Vector2Int.left;
-                    }
-                    else if (randomValue <= 3)
-                    {
-                        nPoint = Vector2Int.up;
-                    }
-                    else if (randomValue <= 4)
-                    {
-                        nPoint = Vector2Int.down;
-                    }
-                    break;
-            }
+            Vector2Int nPoint = GetNextStepDirection();
             CheckCrash(movement.GetGridPosition() + nPoint);
             if (!HasCrashed())
                 movement.MoveToPoint(movement.GetGridPosition() + nPoint);
@@ -209,7 +214,7 @@ public class RobotPawn : PuzzlePawn
 
         foreach (RobotPawn robot in puzzleParent.Robots)
         {
-            if (robot != this && robot.movement.GetGridPosition() == node)
+            if (robot != this && robot.movement.GetGridPosition() + GetNextStepDirection() == node)
             {
                 SetCrashed(true);
                 return;
