@@ -6,8 +6,12 @@ using UnityEngine;
 
 public class RobotPawn : PuzzlePawn
 {
+    [Header("Configuration")]
     public int CommandID = 0;
     public int MaxMoves = 1;
+    public bool OppositeOrders = false;
+
+    [Header("Components")]
 
     public Sprite icon;
     public MovementComponent movement;
@@ -120,10 +124,13 @@ public class RobotPawn : PuzzlePawn
     }
     void InitOrders()
     {
-        if (puzzleParent.RobotCommands.Count <= CommandID)            
-            puzzleParent.RobotCommands.Add( new Memory(icon,MaxMoves));
+        if (puzzleParent.RobotCommands.Count <= CommandID)
+        {
+            puzzleParent.RobotCommands.Add(new Memory(icon, MaxMoves));
+        }
         else if (puzzleParent.RobotCommands[CommandID] == null)
             puzzleParent.RobotCommands[CommandID] = new Memory(icon, MaxMoves);
+        
         memory = puzzleParent.RobotCommands[CommandID];
 
         puzzleParent.UpdateMoveLimit(MaxMoves);
@@ -149,7 +156,12 @@ public class RobotPawn : PuzzlePawn
     Vector2Int GetNextStepDirection()
     {
         Vector2Int nPoint = Vector2Int.zero;
-        switch (memory.orders[cOrder])
+
+        WalkDirection walkDir = memory.orders[cOrder];
+        if (OppositeOrders)
+            walkDir = ReverseDirection(walkDir);
+
+        switch (walkDir)
         {
             case WalkDirection.up:
                 nPoint = Vector2Int.up;
