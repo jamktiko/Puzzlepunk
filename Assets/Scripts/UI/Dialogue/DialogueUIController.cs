@@ -82,7 +82,7 @@ public class DialogueUIController : MonoBehaviour
     }
     IEnumerator PlayCutsceneCoroutine(DialogueScriptSO Script)
     {
-        HideMultipleChoice();
+        HideDialogue();
         skipPercent = 0;
         int quote = 0;
         while (quote < Script.Dialogue.Length)
