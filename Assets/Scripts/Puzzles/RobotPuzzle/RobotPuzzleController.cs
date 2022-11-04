@@ -2,11 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class RobotPuzzleController : PuzzleController
 {
-    public RobotNPC[] Robots;
+    public float StepTime = .5f;
+    public CameraBounds cambounds;
     public GridNav mGrid;
+
+    public PuzzlePawn[] Pieces;      
+    public ButtonPawn[] Objectives;
+
+    public RobotPawn[] Robots;
+    public List<RobotPawn.Memory> RobotCommands;
+
+    private void Awake()
+    {
+        RobotCommands = new List<RobotPawn.Memory>();   
+    }
     private void Start()
     {
         Init();
@@ -15,63 +28,149 @@ public class RobotPuzzleController : PuzzleController
     {
         mGrid = GetComponentInChildren<GridNav>();
 
-        Robots = GetComponentsInChildren<RobotNPC>();
-        foreach (RobotNPC rob in Robots)
+        Pieces = GetComponentsInChildren<PuzzlePawn>();
+        foreach (PuzzlePawn rob in Pieces)
         {
             rob.InitPuzzle( this);
         }
-        OnReset(false);
+
+        Objectives = GetComponentsInChildren<ButtonPawn>();
+        Robots = GetComponentsInChildren<RobotPawn>();//Todo nullchecks
+
+        OnReset(true);
     }
 
     public override void OnEnterPuzzle()
     {
+        base.OnEnterPuzzle();
         UIController.main.OpenWindow(UIController.UIWindow.robot);
         UIController.main.robotController.InitPuzzle(this);
         ChangeSelection(0);
-        base.OnEnterPuzzle(); ;
+        if (cambounds!=null)
+        CameraController.main.SetBounds(cambounds);
+
     }
+    public override void OnExitPuzzle()
+    {
+        base.OnExitPuzzle();
+        EndPuzzle();
+        if (cambounds != null)
+            CameraController.main.SetBounds(PlayerTransitionController.main.CurrentRoom.bounds);
+    }
+    #region Selection
+    public int Selection = 0;
     public void ChangeSelection(int sel)
     {
         Selection = sel;
         UIController.main.robotController.OnSelectionChanged();
     }
+    public RobotPawn.Memory GetSelectedRobot()
+    {
+        return RobotCommands[Selection];
+    }
+    #endregion
     public void OnReset(bool hard)
     {
-        foreach (RobotNPC rob in Robots)
+        if (WasSolved) return;
+        foreach (PuzzlePawn rob in Pieces)
         {
             rob.OnReset(hard);
         }
     }
-    public int Selection = 0;
-    public RobotNPC GetSelectedRobot()
+    #region Play
+    bool PuzzleFailed = false;
+    public void PlaySolution()
     {
-        return Robots[Selection];
+        EndPuzzle();
+        PlayCoroutine = StartCoroutine(PuzzleCoroutine());
     }
-    public void HandlePlayerOrders()
+    Coroutine PlayCoroutine;
+    IEnumerator PuzzleCoroutine()
     {
-        if (GetSelectedRobot() != null)
+        PuzzleFailed = false;
+        for (int i = 0; i < MaxMove; i++)
         {
-            Vector2 moveInput = PlayerInputListener.control.ZoePlayer.Movement.ReadValue<Vector2>();
-
-            RobotNPC.WalkDirection order = RobotNPC.WalkDirection.empty;
-            if (moveInput.y > 0)
+            yield return Step();
+            if (PuzzleFailed)
             {
-                order = RobotNPC.WalkDirection.up;
+                break;
             }
-            else if (moveInput.y < 0)
-            {
-                order = RobotNPC.WalkDirection.down;
-            }
-            else if (moveInput.x < 0)
-            {
-                order = RobotNPC.WalkDirection.left;
-            }
-            else if (moveInput.x > 0)
-            {
-                order = RobotNPC.WalkDirection.right;
-            }
-            if (order!= RobotNPC.WalkDirection.empty)
-                GetSelectedRobot().IssueOrder(order);
         }
+        SetSolved();
+        if (!WasSolved)
+        {
+            yield return new WaitForSeconds(StepTime);
+            OnReset(false);
+        }
+        EndPuzzle();
     }
+    IEnumerator Step()
+    {
+        foreach (RobotPawn robot in Robots)
+        {
+            robot.Step();
+        }
+        yield return new WaitForSeconds(1f);
+        yield return new WaitWhile(() =>
+        {
+            foreach (RobotPawn robot in Robots)
+            {
+                if (robot.IsMoving())
+                    return true;
+            }
+            return false;
+        });
+        foreach (RobotPawn robot in Robots)
+        {
+            if (robot.HasCrashed())
+            {
+                PuzzleFailed = true;
+                break;
+            }
+        }
+        
+    }
+    public bool IsPlaying()
+    {
+        return PlayCoroutine != null;
+    }
+    public void EndPuzzle()
+    {
+        if (IsPlaying())
+        {
+            StopCoroutine(PlayCoroutine);
+        }
+        PlayCoroutine = null;
+    }
+
+    #endregion
+    #region MaxMove
+    int MaxMove = 1;
+    public void UpdateMoveLimit(int nLimit)
+    {
+        MaxMove = Mathf.Max(nLimit, MaxMove);
+    }
+    #endregion
+    #region Solution
+    public override bool CheckSolved()
+    {
+        if (base.CheckSolved())
+            return true;
+
+        if (!PuzzleFailed)
+        {
+            bool solved = true;
+            foreach (ButtonPawn bp in Objectives)
+            {
+                if (!bp.IsPressed())
+                {
+                    solved = false;
+                    break;
+                }
+            }
+            return solved;
+        }
+        return false;
+    }
+    #endregion
 }

@@ -51,10 +51,9 @@ public class CoinPuzzleController : PuzzleController
     {
         OnExitPuzzle();
     }
-    public bool CheckSolved()
+    public override bool CheckSolved()
     {
-
-        if (WasSolved)
+        if (base.CheckSolved())
             return true;
         for (int iA = 0; iA < objectivecoins.Length; iA++)
         {
@@ -80,14 +79,5 @@ public class CoinPuzzleController : PuzzleController
         }
         
         return false;
-    }
-    public void SetSolved()
-    {
-        if (!WasSolved && CheckSolved())
-        {
-            WasSolved = true;
-            onSolve.Invoke();
-            Debug.Log("PUZZLE SOLVED!");
-        }
     }
 }

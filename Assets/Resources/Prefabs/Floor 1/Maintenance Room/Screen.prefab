@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8115755849203601429}
   - component: {fileID: 8586123898133891161}
   - component: {fileID: 5094483736685103564}
+  - component: {fileID: 3445875755192153071}
   m_Layer: 0
   m_Name: Screen
   m_TagString: Untagged
@@ -56,7 +57,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -118,7 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayOnStart: 0
   OnlyTriggerOnce: 0
-  CutsceneScript: {fileID: 11400000, guid: 44f80d0f1ca0c2e43abc2f27594162ae, type: 2}
+  CutsceneScript: {fileID: 11400000, guid: 2718738bb4070154ba3f2617906be917, type: 2}
 --- !u!61 &8586123898133891161
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -160,9 +161,9 @@ MonoBehaviour:
   uEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5094483736685103564}
-        m_TargetAssemblyTypeName: InteractableBase, Assembly-CSharp
-        m_MethodName: OnInteract
+      - m_Target: {fileID: 8115755849203601429}
+        m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -173,3 +174,30 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   SingleUse: 0
+--- !u!114 &3445875755192153071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2260842701694477745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 0
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: ed8408e30000000031b8ffbf4511d0a99b4d2d85
+  m_ShapePath:
+  - {x: -0.12285161, y: -0.1004045, z: 0}
+  - {x: -0.12222254, y: -0.08131528, z: 0}
+  - {x: 0.12711132, y: -0.086806536, z: 0}
+  - {x: 0.12680745, y: -0.10651946, z: 0}
+  m_ShapePathHash: -1030431363
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 176790

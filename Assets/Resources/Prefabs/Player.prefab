@@ -262,7 +262,7 @@ MonoBehaviour:
   - {x: 0.27428058, y: -0.8818243, z: 0}
   m_ShapePathHash: 2098992130
   m_Mesh: {fileID: 0}
-  m_InstanceId: -18548
+  m_InstanceId: -5676
 --- !u!1 &8145452366047622435
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,6 +283,7 @@ GameObject:
   - component: {fileID: -1524042938062194159}
   - component: {fileID: 809904522}
   - component: {fileID: 1257278413006709715}
+  - component: {fileID: 249142087}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -383,14 +384,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   facing: {x: 0, y: -1}
-  grid: {fileID: 0}
-  MovementSpeed: 0.8
-  MovementDistance: 0.05
   BlockerMask:
     serializedVersion: 2
     m_Bits: 0
+  movement: {fileID: 0}
   moveInput: {x: 0, y: 0}
-  SprintMultiplier: 2
 --- !u!114 &8145452366047622439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,8 +431,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractDistance: 0.3
-  InteractRadius: 1
-  CanInteract: 0
+  InteractRadius: 0.01
+  myInteractable: {fileID: 0}
 --- !u!50 &1385073400
 Rigidbody2D:
   serializedVersion: 4
@@ -500,7 +498,7 @@ MonoBehaviour:
   - {x: 0.0034331416, y: -0.34364578, z: 0}
   m_ShapePathHash: -139971277
   m_Mesh: {fileID: 0}
-  m_InstanceId: -18534
+  m_InstanceId: -5656
 --- !u!114 &809904522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -543,3 +541,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c7153844aa3ba1428ab9c71df79334e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &249142087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8145452366047622435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d754ac0cdfccf48be370262920cf1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SprintMultiplier: 2
+  MovementSpeed: 0.8
+  MovementDistance: 0.05
+  grid: {fileID: 0}
