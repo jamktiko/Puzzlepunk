@@ -1254,8 +1254,8 @@ MonoBehaviour:
   cText: {fileID: 1105404741}
   SwapRange: 100
   CoinNumber: 4
-  IsImportant: 0
-  RequiresNumber: 0
+  IsImportant: 1
+  RequiresNumber: -1
 --- !u!114 &1970164946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1410,8 +1410,8 @@ MonoBehaviour:
   cText: {fileID: 563902443}
   SwapRange: 100
   CoinNumber: -1
-  IsImportant: 0
-  RequiresNumber: 0
+  IsImportant: 1
+  RequiresNumber: -1
 --- !u!114 &2005211681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2996,8 +2996,8 @@ MonoBehaviour:
   cText: {fileID: 1312308712474918369}
   SwapRange: 100
   CoinNumber: -1
-  IsImportant: 0
-  RequiresNumber: 0
+  IsImportant: 1
+  RequiresNumber: -1
 --- !u!114 &1312308713258542440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3854,7 +3854,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 7478153669576890510}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: 
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
