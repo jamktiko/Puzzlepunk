@@ -36,8 +36,8 @@ public class DialogueUIController : MonoBehaviour
      if (PlayerInputListener.control!=null)
         {
             PlayerInputListener.control.ZoePlayer.Submit.started += _ => { SkipLine = true; };
-            PlayerInputListener.control.ZoePlayer.Skip.performed += _ => { skipPercent += Time.deltaTime; };
-            PlayerInputListener.control.ZoePlayer.Skip.canceled += _ => { skipPercent = 0; };
+            PlayerInputListener.control.ZoePlayer.Skip.performed += _ => { Skipping = true; };
+            PlayerInputListener.control.ZoePlayer.Skip.canceled += _ => { Skipping = false; };
         }
     }
 
@@ -46,13 +46,13 @@ public class DialogueUIController : MonoBehaviour
     {
         HandleExit();
     }
-    
+    bool Skipping = false;
     float skipPercent = 0;
     void HandleExit()
     {
         if (CutsceneCoroutine!=null) //TODO define skip key
         {
-            if (skipPercent > 0)
+            if (Skipping)
             {
                 skipPercent += Time.deltaTime;
                 if (skipText!=null)
@@ -60,6 +60,7 @@ public class DialogueUIController : MonoBehaviour
             }
             else
             {
+                skipPercent = 0;
                 if (skipText != null)
                     skipText.color = Color.clear;
             }
@@ -81,8 +82,8 @@ public class DialogueUIController : MonoBehaviour
     }
     IEnumerator PlayCutsceneCoroutine(DialogueScriptSO Script)
     {
-        HideMultipleChoice();
-        skipPercent = (skipPercent > 0) ? 0.001f : 0;
+        HideDialogue();
+        skipPercent = 0;
         int quote = 0;
         while (quote < Script.Dialogue.Length)
         {

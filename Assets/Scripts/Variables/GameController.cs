@@ -15,7 +15,6 @@ public class GameController : MonoBehaviour
     }
     private void Start()
     {
-
         if (LoadingScreenManager.main == null)
             StartGame();
         else

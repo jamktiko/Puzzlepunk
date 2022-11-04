@@ -5,8 +5,9 @@ using UnityEngine;
 public class RobotMenu : MonoBehaviour
 {
     public RobotPuzzleController myPuzzle;
-    public OrderUI orderMenu;
-    public IconUI iconMenu;
+     OrderUI orderMenu;
+     IconUI iconMenu;
+    public RobotInputListener input;
 
     private void Awake()
     {
@@ -14,11 +15,8 @@ public class RobotMenu : MonoBehaviour
             orderMenu = GetComponentInChildren<OrderUI>();
         if (iconMenu == null)
             iconMenu = GetComponentInChildren<IconUI>();
-    }
-    private void Update()
-    {
-        if (myPuzzle!=null)
-            myPuzzle.HandlePlayerOrders();
+        if (input == null)
+            input = GetComponentInChildren<RobotInputListener>();
     }
     public void InitPuzzle(RobotPuzzleController puzzle)
     {
@@ -27,7 +25,15 @@ public class RobotMenu : MonoBehaviour
     }
     public void OnReset(bool hard)
     {
+        myPuzzle.EndPuzzle();
         myPuzzle.OnReset(hard);
+        ResetOrderUI();
+    }
+    public void OnBackSpace()
+    {
+        if (myPuzzle.IsPlaying()) return;
+        myPuzzle.GetSelectedRobot().ClearLastOrder();
+        ResetOrderUI();
     }
     public bool IsPuzzleMode()
     {
@@ -35,7 +41,6 @@ public class RobotMenu : MonoBehaviour
     }
     public void Close()
     {
-        EndPuzzle();
         myPuzzle.OnExitPuzzle();
         myPuzzle = null;
         UIController.main.CloseWindow();
@@ -43,44 +48,15 @@ public class RobotMenu : MonoBehaviour
     public void OnSelectionChanged()
     {
         iconMenu.OnSelectionChanged();
+        ResetOrderUI();
+    }
+    public void ResetOrderUI()
+    {
+        orderMenu.UpdateOrders();
+        iconMenu.UpdateOrders();
     }
     public void PlaySolution()
     {
-        EndPuzzle();
-        PlayCoroutine = StartCoroutine(PuzzleCoroutine());
-    }
-    Coroutine PlayCoroutine;
-    IEnumerator PuzzleCoroutine()
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            yield return Step();
-        }
-        EndPuzzle();
-    }
-    IEnumerator Step()
-    {
-        foreach (RobotNPC robot in myPuzzle.Robots)
-        {
-            robot.Step();
-        }
-        yield return new WaitForSeconds(1f);
-        yield return new WaitWhile(() =>
-        {
-            foreach (RobotNPC robot in myPuzzle.Robots)
-            {
-                if (robot.IsMoving())
-                    return true;
-            }
-            return false;
-        } );
-    }
-    private void EndPuzzle()
-    {
-        if (PlayCoroutine != null)
-        {
-            StopCoroutine(PlayCoroutine);
-        }
-        OnReset(false);
+        myPuzzle.PlaySolution();
     }
 }

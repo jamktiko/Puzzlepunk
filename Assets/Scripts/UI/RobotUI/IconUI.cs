@@ -5,28 +5,20 @@ using UnityEngine.UI;
 
 public class IconUI : MonoBehaviour
 {
-    public Image[] RobotBorders;
-    public Image[] RobotIcons;
-    public Button[] RobotButtons;
+    public RobotIconButton[] RobotButtons;
 
     private void Awake()
     {
-        RobotBorders = new Image[transform.childCount];
-        RobotButtons = new Button[transform.childCount];
-        RobotIcons = new Image[transform.childCount];
+        RobotButtons = GetComponentsInChildren<RobotIconButton>();
 
         int iC = 0;
-        foreach (Transform child in transform)
+        foreach (RobotIconButton child in RobotButtons)
         {
-            RobotBorders[iC] = child.GetComponent<Image>();
-            RobotIcons[iC] = child.GetChild(0).GetComponent<Image>();
-
-            RobotButtons[iC] = child.GetComponent<Button>();
 
             int iSelection = iC;
-            RobotButtons[iC].onClick.AddListener(() =>
+            child.RobotButton.onClick.AddListener(() =>
             {
-                UIController.main.robotController.myPuzzle.Selection = iSelection;
+                UIController.main.robotController.myPuzzle.ChangeSelection(iSelection);
                 OnSelectionChanged();
             });
 
@@ -35,23 +27,35 @@ public class IconUI : MonoBehaviour
     }
     public void OnPuzzleStart()
     {
-        var puzzle = UIController.main.robotController.myPuzzle;
-        for (int iI = 0; iI< RobotIcons.Length; iI++)
+        RobotPuzzleController puzzle = UIController.main.robotController.myPuzzle;
+        for (int iI = 0; iI< RobotButtons.Length; iI++)
         {
-            bool RobotExists = iI < puzzle.Robots.Length;
+            bool RobotExists = iI < puzzle.RobotCommands.Count;
             if (RobotExists)
             {
-                RobotIcons[iI].sprite = puzzle.Robots[iI].GetSprite();
+                RobotButtons[iI].ChangeIcon(puzzle.RobotCommands[iI].icon);
             }
-            RobotBorders[iI].gameObject.SetActive(RobotExists);
+            RobotButtons[iI].gameObject.SetActive(RobotExists);
         }
     }
     public void OnSelectionChanged()
     {
         int sel = UIController.main.robotController.myPuzzle.Selection;
-        for (int iI = 0; iI < RobotIcons.Length; iI++)
+        for (int iI = 0; iI < RobotButtons.Length; iI++)
         {
-            RobotBorders[iI].color = ((iI == sel) ? Color.yellow : Color.gray);
+            RobotButtons[iI].SetSelected(iI == sel);
+            //RobotButtons[iI].color = ((iI == sel) ? Color.yellow : Color.gray);
+        }
+    }
+    public void UpdateOrders()
+    {
+        var puzzle = UIController.main.robotController.myPuzzle;
+        for (int iI = 0; iI < RobotButtons.Length; iI++)
+        {
+            if (iI < puzzle.RobotCommands.Count)
+            {
+                RobotButtons[iI].ChangeLabel(puzzle.RobotCommands[iI].iOrder, puzzle.RobotCommands[iI].orders.Length);
+            }
         }
     }
 }
