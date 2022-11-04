@@ -250,25 +250,20 @@ public class DialogueUIController : MonoBehaviour
                 nameText.text = Character.CharacterName;
             Head.sprite = Character.Head;
             EmoteCharacter(DialogueLineSO.CharacterEmotion.none);
-            if (Character.Faces.Length > 0)
-                Face.sprite = Character.Faces[0];
-            else
-                Face.sprite = null;
         }
     }
     public void EmoteCharacter(DialogueLineSO.CharacterEmotion emotion)
     {
         if (Character != null)
         {
-            if (emotion >= 0 && (int)emotion < Character.Faces.Length)
+            Face.enabled = false;
+            foreach (DialogueCharacterSO.CharacterFace face in Character.Faces)
             {
-                Face.sprite = Character.Faces[(int)emotion];
-                Face.enabled = true;
-            }
-            else
-            {
-
-                Face.enabled = false;
+                if (face.Emotion == emotion)
+                {
+                    Face.sprite = face.Reaction;
+                    Face.enabled = true;
+                }
             }
                 
         }
