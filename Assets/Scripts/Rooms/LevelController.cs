@@ -16,7 +16,10 @@ public class LevelController : MonoBehaviour
         rooms = GetComponentsInChildren<RoomComponent>();
 
         Reactors = new List<VariableReactionChange>();
-        Reactors.AddRange(GetComponentsInChildren<VariableReactionChange>());
+        foreach (var posReactor in Resources.FindObjectsOfTypeAll(typeof(VariableReactionChange)))
+            if ((VariableReactionChange)posReactor != null)
+                RegisterReactor((VariableReactionChange)posReactor);
+
     }
     private void Start()
     {
@@ -61,6 +64,12 @@ public class LevelController : MonoBehaviour
     #region Variable Reactors
 
     public List<VariableReactionChange> Reactors = new List<VariableReactionChange>();
+
+    public void RegisterReactor(VariableReactionChange reactor)
+    {
+        if (!Reactors.Contains(reactor))
+            Reactors.Add(reactor);
+    }
 
     #endregion
 }
