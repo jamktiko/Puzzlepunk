@@ -14,6 +14,16 @@ public class DialogueLineSO : ScriptableDialogue
         ask = 3,
         think = 4,
         worry = 5,
+        evil,
+        annoyed, 
+        uhoh,
+        bellamylean,
+        shut,
+        menacing,
+        lookingdowntendril,
+        lookingdownhand,
+        friendly,
+
     }
     [Header("Character")]
     public DialogueCharacterSO Character;
