@@ -257,6 +257,7 @@ public class DialogueUIController : MonoBehaviour
         if (Character != null)
         {
             Face.enabled = false;
+            if (emotion != DialogueLineSO.CharacterEmotion.none)
             foreach (DialogueCharacterSO.CharacterFace face in Character.Faces)
             {
                 if (face.Emotion == emotion)
