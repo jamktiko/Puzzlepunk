@@ -52,9 +52,9 @@ public class CoinPuzzleController : PuzzleController
     {
         OnExitPuzzle();
     }
-    public override bool TrySolve()
+    public override bool WasSolved()
     {
-        if (base.TrySolve())
+        if (base.WasSolved())
             return true;
         for (int iA = 0; iA < objectivecoins.Length; iA++)
         {

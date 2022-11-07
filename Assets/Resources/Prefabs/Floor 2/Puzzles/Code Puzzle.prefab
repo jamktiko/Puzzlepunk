@@ -360,6 +360,7 @@ GameObject:
   - component: {fileID: 1397508750630774281}
   - component: {fileID: 1397508750630774280}
   - component: {fileID: 1397508750630774279}
+  - component: {fileID: 4980360777513500394}
   m_Layer: 5
   m_Name: Code Puzzle
   m_TagString: Untagged
@@ -399,7 +400,7 @@ Canvas:
   m_GameObject: {fileID: 1397508750630774286}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -463,13 +464,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e46b1d174812b994796600110aa2a9dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CloseWithDialogue: 1
+  HardResetOnReenter: 1
   ForceCinematic: 1
-  AlwaysHardReset: 1
   onSolve:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1397508750630774279}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4980360777513500394}
+        m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   Pieces: []
-  Solution: 123456
+  Solution: 131831
 --- !u!114 &1397508750630774280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,7 +519,7 @@ AudioSource:
   m_GameObject: {fileID: 1397508750630774286}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 85573141e08b86141841432ab06b82fc, type: 2}
   m_audioClip: {fileID: 8300000, guid: 1caa7c18c22e7e94397114933555fb41, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -580,6 +606,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4980360777513500394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397508750630774286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f85e1feb1060e4cbee02e9900a0acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayOnStart: 0
+  OnlyTriggerOnce: 1
+  CutsceneScript: {fileID: 11400000, guid: 454e08448362e1a41b1a01c274de8c19, type: 2}
 --- !u!1001 &4056191840122635592
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2302,12 +2302,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30059dc509a7c4147859c3a0b51bf212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CloseWithDialogue: 1
+  HardResetOnReenter: 0
   ForceCinematic: 1
   onSolve:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+      - m_Target: {fileID: 31033053}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -2318,8 +2320,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+      - m_Target: {fileID: 3105046898126046105}
+        m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -2352,8 +2354,9 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
+  Pieces: []
 --- !u!114 &3105046898126046105
 MonoBehaviour:
   m_ObjectHideFlags: 0

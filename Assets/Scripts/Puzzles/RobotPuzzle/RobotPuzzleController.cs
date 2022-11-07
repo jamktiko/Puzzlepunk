@@ -78,7 +78,7 @@ public class RobotPuzzleController : PuzzleController
             }
         }
         CheckSolved();
-        if (!WasSolved)
+        if (!solved)
         {
             yield return new WaitForSeconds(StepTime);
             OnReset(false);
@@ -133,9 +133,9 @@ public class RobotPuzzleController : PuzzleController
     }
     #endregion
     #region Solution
-    public override bool TrySolve()
+    public override bool WasSolved()
     {
-        if (base.TrySolve())
+        if (base.WasSolved())
             return true;
 
         if (!PuzzleFailed)

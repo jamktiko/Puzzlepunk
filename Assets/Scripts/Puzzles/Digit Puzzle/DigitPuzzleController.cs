@@ -19,9 +19,9 @@ public class DigitPuzzleController : PuzzleController
     {
         OnExitPuzzle();
     }
-    public override bool TrySolve()
+    public override bool WasSolved()
     {
-        if (base.TrySolve())
+        if (base.WasSolved())
             return true;
         int checksolution = 0;
         for (int iDigit = 0; iDigit < numbers.Length; iDigit++)

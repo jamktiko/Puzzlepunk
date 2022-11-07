@@ -6,10 +6,13 @@ using UnityEngine.XR;
 
 public abstract class PuzzleController : MonoBehaviour
 {
-    public bool ForceCinematic = true;
     public static PuzzleController main;
-    protected bool WasSolved = false;
-    public bool AlwaysHardReset = false;
+    protected bool solved = false;
+
+    public bool CloseWithDialogue = false;
+    public bool HardResetOnReenter = false;
+    public bool ForceCinematic = true;
+
     public UnityEvent onSolve;
 
     public PuzzlePiece[] Pieces;
@@ -28,7 +31,7 @@ public abstract class PuzzleController : MonoBehaviour
     }
     public void OnReset(bool hard)
     {
-        if (WasSolved) return;
+        if (solved) return;
         foreach (PuzzlePiece rob in Pieces)
         {
             rob.OnReset(hard);
@@ -36,12 +39,13 @@ public abstract class PuzzleController : MonoBehaviour
     }
     public void BeginPuzzle()
     {
+        gameObject.SetActive(true);
         OnEnterPuzzle();
     }
     public virtual void OnEnterPuzzle()
     {
         main = this;
-        OnReset(AlwaysHardReset);
+        OnReset(HardResetOnReenter);
         
         if (ForceCinematic)
             PlayerCinematicController.main.SetCinematicMode(true, false);
@@ -53,15 +57,15 @@ public abstract class PuzzleController : MonoBehaviour
         if (ForceCinematic)
             PlayerCinematicController.main.SetCinematicMode(false, false);
     }
-    public virtual bool TrySolve()
+    public virtual bool WasSolved()
     {
-        return WasSolved;
+        return solved;
     }
     public virtual void CheckSolved()
     {
-        if (!WasSolved && TrySolve())
+        if (!solved && WasSolved())
         {
-            WasSolved = true;
+            solved = true;
             onSolve.Invoke();
             Debug.Log("PUZZLE " + name.ToUpper() + " SOLVED!");
         }
