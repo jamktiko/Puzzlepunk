@@ -3535,9 +3535,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412105e42df362b4fa7738759b120180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzleParent: {fileID: 4660513541289588010}
   RotationAngle: 45
   RotationTime: 0.33
-  puzzleParent: {fileID: 4660513541289588010}
 --- !u!1 &4660513541185462307
 GameObject:
   m_ObjectHideFlags: 0
@@ -3836,22 +3836,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30059dc509a7c4147859c3a0b51bf212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CloseWithDialogue: 1
+  HardResetOnReenter: 0
   ForceCinematic: 1
   onSolve:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4660513541289588011}
-        m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 7478153669576890510}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
@@ -3864,6 +3854,43 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4660513541289588011}
+        m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  Pieces: []
 --- !u!114 &4660513541289588011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3902,7 +3929,7 @@ AudioSource:
   m_GameObject: {fileID: 4660513541289588013}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 85573141e08b86141841432ab06b82fc, type: 2}
   m_audioClip: {fileID: 8300000, guid: 1caa7c18c22e7e94397114933555fb41, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1

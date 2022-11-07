@@ -123,6 +123,10 @@ public class DialogueUIController : MonoBehaviour
     {
         EndDialogue();
         UIController.main.CloseWindow();
+        if (PuzzleController.main != null && PuzzleController.main.CloseWithDialogue && PuzzleController.main.WasSolved())
+        {
+            PuzzleController.main.gameObject.SetActive(false);
+        }
     }
     public void LoadDialogueCharacter(DialogueLineSO NewLine)
     {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -11,19 +12,19 @@ public class CoinPuzzleController : PuzzleController
     CoinController[] objectivecoins;
     CoinRotator[] pieces;
 
-    private void Awake()
+    protected override void InitSolution()
     {
         coins = GetComponentsInChildren<CoinController>();
-        foreach (CoinController c in coins)
-            c.TieToPuzzle(this);
         pieces = GetComponentsInChildren<CoinRotator>();
+
+        /*foreach (CoinController c in coins)
+            c.TieToPuzzle(this);
         foreach (CoinRotator r in pieces)
             r.TieToPuzzle(this);
+        */
 
-        InitSolution();
-    }
-    void InitSolution()
-    {
+        base.InitSolution();
+
         List<CoinController> important = new List<CoinController>();
         important.AddRange(coins);
         important.RemoveAll((CoinController C) => { return !C.IsImportant; });
@@ -51,9 +52,9 @@ public class CoinPuzzleController : PuzzleController
     {
         OnExitPuzzle();
     }
-    public override bool CheckSolved()
+    public override bool WasSolved()
     {
-        if (base.CheckSolved())
+        if (base.WasSolved())
             return true;
         for (int iA = 0; iA < objectivecoins.Length; iA++)
         {

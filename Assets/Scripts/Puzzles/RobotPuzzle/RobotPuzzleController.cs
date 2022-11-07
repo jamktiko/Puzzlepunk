@@ -10,7 +10,6 @@ public class RobotPuzzleController : PuzzleController
     public CameraBounds cambounds;
     public GridNav mGrid;
 
-    public PuzzlePawn[] Pieces;      
     public ButtonPawn[] Objectives;
 
     public RobotPawn[] Robots;
@@ -20,24 +19,14 @@ public class RobotPuzzleController : PuzzleController
     {
         RobotCommands = new List<RobotPawn.Memory>();   
     }
-    private void Start()
-    {
-        Init();
-    }
-    private void Init()
+    protected override void InitSolution()
     {
         mGrid = GetComponentInChildren<GridNav>();
-
-        Pieces = GetComponentsInChildren<PuzzlePawn>();
-        foreach (PuzzlePawn rob in Pieces)
-        {
-            rob.InitPuzzle( this);
-        }
 
         Objectives = GetComponentsInChildren<ButtonPawn>();
         Robots = GetComponentsInChildren<RobotPawn>();//Todo nullchecks
 
-        OnReset(true);
+        base.InitSolution();
     }
 
     public override void OnEnterPuzzle()
@@ -69,14 +58,6 @@ public class RobotPuzzleController : PuzzleController
         return RobotCommands[Selection];
     }
     #endregion
-    public void OnReset(bool hard)
-    {
-        if (WasSolved) return;
-        foreach (PuzzlePawn rob in Pieces)
-        {
-            rob.OnReset(hard);
-        }
-    }
     #region Play
     bool PuzzleFailed = false;
     public void PlaySolution()
@@ -96,8 +77,8 @@ public class RobotPuzzleController : PuzzleController
                 break;
             }
         }
-        SetSolved();
-        if (!WasSolved)
+        CheckSolved();
+        if (!solved)
         {
             yield return new WaitForSeconds(StepTime);
             OnReset(false);
@@ -152,9 +133,9 @@ public class RobotPuzzleController : PuzzleController
     }
     #endregion
     #region Solution
-    public override bool CheckSolved()
+    public override bool WasSolved()
     {
-        if (base.CheckSolved())
+        if (base.WasSolved())
             return true;
 
         if (!PuzzleFailed)

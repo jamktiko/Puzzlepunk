@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonPawn : PuzzlePawn
+public class ButtonPawn : PuzzlePiece
 {
     public int RequiresCommandID = -1;
-    public override void InitPuzzle(RobotPuzzleController parent)
+    public override void TieToPuzzle(PuzzleController parent)
     {
-        base.InitPuzzle(parent);
-        GridNav.Node posNode = parent.mGrid.GetNodeAt(parent.mGrid.TranslateCoordinate(transform.position));
+        base.TieToPuzzle(parent);
+        RobotPuzzleController rpc = (RobotPuzzleController)parent;
+        GridNav.Node posNode = rpc.mGrid.GetNodeAt(rpc.mGrid.TranslateCoordinate(transform.position));
         transform.position = posNode.worldPos;
     }
     public override void OnReset(bool hard)
