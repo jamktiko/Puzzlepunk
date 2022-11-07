@@ -2,17 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DigitPuzzleController : MonoBehaviour
+public class DigitPuzzleController : PuzzleController
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int Solution = 0;
+    PuzzleNumberController[] numbers;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        numbers = GetComponentsInChildren<PuzzleNumberController>();
+    }
+    private void OnEnable()
+    {
+        OnEnterPuzzle();
+    }
+    private void OnDisable()
+    {
+        OnExitPuzzle();
+    }
+    public override bool TrySolve()
+    {
+        if (base.TrySolve())
+            return true;
+        int checksolution = 0;
+        for (int iDigit = 0; iDigit < numbers.Length; iDigit++)
+        {
+            checksolution += numbers[iDigit].GetDigit() * (int)Mathf.Pow(10, numbers.Length - iDigit - 1);
+        }
+        return checksolution == Solution;
     }
 }

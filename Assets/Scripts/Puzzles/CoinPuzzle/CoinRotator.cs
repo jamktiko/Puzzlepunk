@@ -2,23 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinRotator : MonoBehaviour
+public class CoinRotator : PuzzlePiece
 {
     public float RotationAngle = 45f;
     public float RotationTime = 1f;    
     CoinController[] coins;
 
-    
-
-    public CoinPuzzleController puzzleParent;
-    public void TieToPuzzle(CoinPuzzleController parent)
-    {
-        puzzleParent = parent;
-    }
 
     private void Awake()
     {
         coins = GetComponentsInChildren<CoinController>();
+    }
+    public override void OnReset(bool hard)
+    {
+        transform.rotation = Quaternion.identity;
+        OnRotate();
     }
     void OnRotate()
     {
@@ -50,7 +48,7 @@ public class CoinRotator : MonoBehaviour
         }
         transform.rotation = Quaternion.Euler(0, 0, DesiredAngle);
         OnRotate();
-        puzzleParent.SetSolved();
+        puzzleParent.CheckSolved();
         RotationCoroutine = null;
     }
     public bool IsInRequiredRotation(int iR)

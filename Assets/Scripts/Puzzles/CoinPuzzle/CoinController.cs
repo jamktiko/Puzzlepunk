@@ -4,9 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CoinController : MonoBehaviour
+public class CoinController : PuzzlePiece
 {
-    public CoinPuzzleController puzzleParent;
     public RectTransform RectT;
     public Image cImage;
     public TextMeshProUGUI cText;
@@ -19,11 +18,21 @@ public class CoinController : MonoBehaviour
             cText = GetComponentInChildren<TextMeshProUGUI>();
         if (RectT == null)
             RectT = GetComponent<RectTransform>();
+        InitialNumber = CoinNumber;
     }
     public int CoinNumber = 0;
+    int InitialNumber = 0;
     private void Start()
     {
         UpdateCoinDisplay();
+    }
+    public override void OnReset(bool hard)
+    {
+        if (hard)
+        {
+            CoinNumber = InitialNumber;
+            UpdateCoinDisplay();
+        }
     }
     void UpdateCoinDisplay()
     {
@@ -31,18 +40,14 @@ public class CoinController : MonoBehaviour
         cText.enabled = IsEmpty();
         cText.text = CoinNumber.ToString();
     }
-    public void TieToPuzzle(CoinPuzzleController parent)
-    {
-        puzzleParent = parent;
-    }
     public bool IsEmpty()
     {
         return CoinNumber >= 0;
     }
     public void OnClicked()
     {
-        if (puzzleParent != null)
-            puzzleParent.TrySwapCoin(this);
+        if ((CoinPuzzleController)puzzleParent != null)
+           ( (CoinPuzzleController)puzzleParent).TrySwapCoin(this);
     }
     public void Swap(CoinController otherC)
     {
@@ -56,7 +61,7 @@ public class CoinController : MonoBehaviour
         otherC.UpdateCoinDisplay();
 
         if (puzzleParent != null)
-            puzzleParent.SetSolved();
+            puzzleParent.CheckSolved();
     }
     public bool IsImportant = false;
     public int RequiresNumber = 0;

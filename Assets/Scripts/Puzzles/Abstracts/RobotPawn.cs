@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.Intrinsics;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class RobotPawn : PuzzlePawn
+public class RobotPawn : PuzzlePiece
 {
     [Header("Configuration")]
     public int CommandID = 0;
@@ -21,12 +20,16 @@ public class RobotPawn : PuzzlePawn
     {
         movement = GetComponent<MovementComponent>();
     }
-    public override void InitPuzzle(RobotPuzzleController parent)
+    public override void TieToPuzzle(PuzzleController parent)
     {
-        movement.grid = parent.mGrid;
-        movement.MovementSpeed = 1f / parent.StepTime;
-        OriginalNode = parent.mGrid.GetNodeAt(parent.mGrid.TranslateCoordinate(transform.position));
-        base.InitPuzzle(parent);
+        if ((RobotPuzzleController)parent != null)
+        {
+            RobotPuzzleController rpc = (RobotPuzzleController)parent;
+            movement.grid = rpc.mGrid;
+            movement.MovementSpeed = 1f / rpc.StepTime;
+            OriginalNode = rpc.mGrid.GetNodeAt(rpc.mGrid.TranslateCoordinate(transform.position));
+        }
+        base.TieToPuzzle(parent);
         InitOrders();
     }
     public override void OnReset(bool hard)
@@ -124,16 +127,17 @@ public class RobotPawn : PuzzlePawn
     }
     void InitOrders()
     {
-        if (puzzleParent.RobotCommands.Count <= CommandID)
+        RobotPuzzleController rpc = (RobotPuzzleController)puzzleParent;
+        if (rpc.RobotCommands.Count <= CommandID)
         {
-            puzzleParent.RobotCommands.Add(new Memory(icon, MaxMoves));
+            rpc.RobotCommands.Add(new Memory(icon, MaxMoves));
         }
-        else if (puzzleParent.RobotCommands[CommandID] == null)
-            puzzleParent.RobotCommands[CommandID] = new Memory(icon, MaxMoves);
+        else if (rpc.RobotCommands[CommandID] == null)
+            rpc.RobotCommands[CommandID] = new Memory(icon, MaxMoves);
         
-        memory = puzzleParent.RobotCommands[CommandID];
+        memory = rpc.RobotCommands[CommandID];
 
-        puzzleParent.UpdateMoveLimit(MaxMoves);
+        rpc.UpdateMoveLimit(MaxMoves);
     }
     Memory memory; //TODO nullchecks
     public void ClearOrders()
@@ -224,7 +228,7 @@ public class RobotPawn : PuzzlePawn
             return;
         }
 
-        foreach (RobotPawn robot in puzzleParent.Robots)
+        foreach (RobotPawn robot in ((RobotPuzzleController)puzzleParent).Robots)
         {
             if (robot != this && robot.movement.GetGridPosition() + GetNextStepDirection() == node)
             {

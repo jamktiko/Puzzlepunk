@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PuzzlePawn : MonoBehaviour
+public abstract class PuzzlePiece : MonoBehaviour
 {
-    public RobotPuzzleController puzzleParent;
-    public virtual void InitPuzzle(RobotPuzzleController parent)
+    public PuzzleController puzzleParent;
+    public virtual void TieToPuzzle(PuzzleController parent)
     {
         puzzleParent = parent;
         OnReset(true);
