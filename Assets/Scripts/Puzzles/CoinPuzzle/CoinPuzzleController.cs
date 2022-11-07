@@ -61,7 +61,7 @@ public class CoinPuzzleController : PuzzleController
             for (int iB = 0; iB < objectivecoins.Length; iB++)
             {
                 CoinController coin = objectivecoins[(iB + iA) % objectivecoins.Length];
-                if (coin.CoinNumber != objectivecoins[iB].RequiresNumber)
+                if (objectivecoins[iB].RequiresNumber >= 0 && coin.CoinNumber != objectivecoins[iB].RequiresNumber)
                 {
                     solved = false;
                     break;
