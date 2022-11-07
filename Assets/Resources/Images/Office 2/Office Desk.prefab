@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1339286999}
   - component: {fileID: 1339286998}
   - component: {fileID: 1339287000}
+  - component: {fileID: 3233074597868061673}
   m_Layer: 0
   m_Name: Office Desk
   m_TagString: Untagged
@@ -155,4 +156,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayOnStart: 0
   OnlyTriggerOnce: 0
-  CutsceneScript: {fileID: 11400000, guid: 377587504051c1042ba017d229debd76, type: 2}
+  CutsceneScript: {fileID: 11400000, guid: 6c6fd2181c675d94b8ecd40ba3586a7f, type: 2}
+--- !u!114 &3233074597868061673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186444801917131188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79b18aefa036d2846b548c3b74dcc80f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Conditions:
+  - variableName: LockPuzzle1
+    value: 1
+    change: 0
+  Action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PuzzleController, Assembly-CSharp
+        m_MethodName: OnEnterPuzzle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
