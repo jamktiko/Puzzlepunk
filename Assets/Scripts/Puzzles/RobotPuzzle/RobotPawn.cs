@@ -137,9 +137,13 @@ public class RobotPawn : PuzzlePiece
 
         rpc.UpdateMoveLimit(MaxMoves);
     }
-    Memory memory; //TODO nullchecks
+    public Memory GetOrders()
+    {
+        return (RobotPuzzleController)puzzleParent.RobotCommands[CommandID];
+    }
     public void ClearOrders()
     {
+        Memory memory = GetOrders();
         if (memory == null || memory.orders == null) return;
         cOrder = 0;
         memory.ClearOrders();
@@ -159,7 +163,7 @@ public class RobotPawn : PuzzlePiece
     {
         Vector2Int nPoint = Vector2Int.zero;
 
-        WalkDirection walkDir = memory.orders[cOrder];
+        WalkDirection walkDir = GetOrders().orders[cOrder];
         if (OppositeOrders)
             walkDir = ReverseDirection(walkDir);
 
