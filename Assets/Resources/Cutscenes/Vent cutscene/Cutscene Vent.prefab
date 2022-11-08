@@ -107,8 +107,6 @@ GameObject:
   - component: {fileID: -4076307267385979625}
   - component: {fileID: 1177991584}
   - component: {fileID: 1177991585}
-  - component: {fileID: 3705885101276342933}
-  - component: {fileID: 8281004451571877771}
   m_Layer: 0
   m_Name: Cutscene Vent
   m_TagString: Untagged
@@ -206,8 +204,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Events:
     m_Signals:
-    - {fileID: 11400000, guid: fa03dca883118c942ab880c8ae17e81d, type: 2}
     - {fileID: 11400000, guid: c886e43c0d71f5540b1569f0bac71e36, type: 2}
+    - {fileID: 11400000, guid: fa03dca883118c942ab880c8ae17e81d, type: 2}
     - {fileID: 11400000, guid: 315d56cc3598ebb4a83a67af6e4aeae3, type: 2}
     m_Events:
     - m_PersistentCalls:
@@ -217,7 +215,7 @@ MonoBehaviour:
           m_MethodName: PlayScript
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgument: {fileID: 11400000, guid: 6beb0ed04d26821479eff26f16471bfe, type: 2}
             m_ObjectArgumentAssemblyTypeName: DialogueScriptSO, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -231,7 +229,7 @@ MonoBehaviour:
           m_MethodName: PlayScript
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgument: {fileID: 11400000, guid: 4ae761477f43b2245b23efa4a7daa5d1, type: 2}
             m_ObjectArgumentAssemblyTypeName: DialogueScriptSO, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -245,82 +243,7 @@ MonoBehaviour:
           m_MethodName: PlayScript
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: DialogueScriptSO, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &3705885101276342933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8116692006325132272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0f85e1feb1060e4cbee02e9900a0acb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayOnStart: 0
-  OnlyTriggerOnce: 0
-  CutsceneScript: {fileID: 0}
---- !u!114 &8281004451571877771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8116692006325132272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: fa03dca883118c942ab880c8ae17e81d, type: 2}
-    - {fileID: 11400000, guid: c886e43c0d71f5540b1569f0bac71e36, type: 2}
-    - {fileID: 11400000, guid: 315d56cc3598ebb4a83a67af6e4aeae3, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3705885101276342933}
-          m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
-          m_MethodName: PlayScript
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: DialogueScriptSO, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3705885101276342933}
-          m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
-          m_MethodName: PlayScript
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: DialogueScriptSO, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3705885101276342933}
-          m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
-          m_MethodName: PlayScript
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgument: {fileID: 11400000, guid: 69f08a874be43104a862ef1f4b1153f4, type: 2}
             m_ObjectArgumentAssemblyTypeName: DialogueScriptSO, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
