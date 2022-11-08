@@ -30,9 +30,9 @@ public class SceneTransitionManager : MonoBehaviour
     }
     public IEnumerator TransitionSceneCoroutine(string SceneName)
     {
-        yield return SceneManager.LoadSceneAsync(LoadingScene);
+        yield return LoadSceneAsync(LoadingScene);
         yield return new WaitForSecondsRealtime(.5f);
-        yield return SceneManager.LoadSceneAsync(SceneName, LoadSceneMode.Additive);
+        yield return LoadSceneAsync(SceneName, LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync(LoadingScene);
     }
     public void TransitionGameScene(string SceneName)
@@ -41,11 +41,22 @@ public class SceneTransitionManager : MonoBehaviour
     }
     public IEnumerator TransitionGameSceneCoroutine(string SceneName)
     {
-        yield return SceneManager.LoadSceneAsync(LoadingScene);
+        yield return LoadSceneAsync(LoadingScene);
         yield return new WaitForSecondsRealtime(.5f);
-        yield return SceneManager.LoadSceneAsync(GameEssentials, LoadSceneMode.Additive);
-        yield return SceneManager.LoadSceneAsync(SceneName, LoadSceneMode.Additive);
+        yield return LoadSceneAsync(GameEssentials, LoadSceneMode.Additive);
+        yield return LoadSceneAsync(SceneName, LoadSceneMode.Additive);
         if (LoadingScreenManager.main != null)
             LoadingScreenManager.main.SetLoaded(true);
+    }
+    IEnumerator LoadSceneAsync(string sceneName)
+    {
+        yield return LoadSceneAsync(sceneName, LoadSceneMode.Single);
+    }
+        IEnumerator LoadSceneAsync(string sceneName, LoadSceneMode sceneMode)
+    {
+        for (int iS = 0; iS < SceneManager.sceneCount; iS++)
+            if (SceneManager.GetSceneAt(iS).name == sceneName)
+                yield return null;
+        yield return SceneManager.LoadSceneAsync(sceneName, sceneMode);
     }
 }

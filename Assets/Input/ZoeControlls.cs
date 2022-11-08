@@ -71,6 +71,15 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Any"",
+                    ""type"": ""Button"",
+                    ""id"": ""cffb90d6-41f7-47d3-8eb8-89f4eb52ae5c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -236,6 +245,28 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Mouse + Keyboard;Keyboard"",
                     ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""48428534-ba8c-4ee1-aead-b2ca78df027e"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard;Mouse + Keyboard"",
+                    ""action"": ""Any"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ba5bef49-6b1f-419a-b59f-a3d7f10f10c2"",
+                    ""path"": ""*/{Submit}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad;Mouse + Keyboard;Keyboard"",
+                    ""action"": ""Any"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -806,6 +837,7 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
         m_ZoePlayer_Skip = m_ZoePlayer.FindAction("Skip", throwIfNotFound: true);
         m_ZoePlayer_Cancel = m_ZoePlayer.FindAction("Cancel", throwIfNotFound: true);
         m_ZoePlayer_ShowHelp = m_ZoePlayer.FindAction("Show Help", throwIfNotFound: true);
+        m_ZoePlayer_Any = m_ZoePlayer.FindAction("Any", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -882,6 +914,7 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
     private readonly InputAction m_ZoePlayer_Skip;
     private readonly InputAction m_ZoePlayer_Cancel;
     private readonly InputAction m_ZoePlayer_ShowHelp;
+    private readonly InputAction m_ZoePlayer_Any;
     public struct ZoePlayerActions
     {
         private @ZoeControlls m_Wrapper;
@@ -891,6 +924,7 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
         public InputAction @Skip => m_Wrapper.m_ZoePlayer_Skip;
         public InputAction @Cancel => m_Wrapper.m_ZoePlayer_Cancel;
         public InputAction @ShowHelp => m_Wrapper.m_ZoePlayer_ShowHelp;
+        public InputAction @Any => m_Wrapper.m_ZoePlayer_Any;
         public InputActionMap Get() { return m_Wrapper.m_ZoePlayer; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -915,6 +949,9 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
                 @ShowHelp.started -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnShowHelp;
                 @ShowHelp.performed -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnShowHelp;
                 @ShowHelp.canceled -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnShowHelp;
+                @Any.started -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnAny;
+                @Any.performed -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnAny;
+                @Any.canceled -= m_Wrapper.m_ZoePlayerActionsCallbackInterface.OnAny;
             }
             m_Wrapper.m_ZoePlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -934,6 +971,9 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
                 @ShowHelp.started += instance.OnShowHelp;
                 @ShowHelp.performed += instance.OnShowHelp;
                 @ShowHelp.canceled += instance.OnShowHelp;
+                @Any.started += instance.OnAny;
+                @Any.performed += instance.OnAny;
+                @Any.canceled += instance.OnAny;
             }
         }
     }
@@ -1077,6 +1117,7 @@ public partial class @ZoeControlls : IInputActionCollection2, IDisposable
         void OnSkip(InputAction.CallbackContext context);
         void OnCancel(InputAction.CallbackContext context);
         void OnShowHelp(InputAction.CallbackContext context);
+        void OnAny(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
