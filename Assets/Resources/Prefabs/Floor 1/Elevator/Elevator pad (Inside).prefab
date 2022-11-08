@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8655997282503682340}
   - component: {fileID: 8655997282503682343}
   - component: {fileID: 6279242045131660365}
-  - component: {fileID: 8243799545606404945}
   - component: {fileID: 3633777699559902262}
+  - component: {fileID: 2997829101577330323}
   m_Layer: 0
   m_Name: Elevator pad (Inside)
   m_TagString: Untagged
@@ -113,21 +113,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.6}
   m_EdgeRadius: 0
---- !u!114 &8243799545606404945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8655997282503682342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0f85e1feb1060e4cbee02e9900a0acb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayOnStart: 0
-  OnlyTriggerOnce: 1
-  CutsceneScript: {fileID: 11400000, guid: e95f37c07ba1bd24ebc9ce445bfaf744, type: 2}
 --- !u!114 &3633777699559902262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,8 +128,8 @@ MonoBehaviour:
   uEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8243799545606404945}
-        m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DialogueConditionComponent, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -156,3 +141,24 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   SingleUse: 0
+--- !u!114 &2997829101577330323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8655997282503682342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da73e662d85a6004588af5b2d4e9ad86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayOnStart: 0
+  OnlyTriggerOnce: 1
+  CutsceneScript: {fileID: 11400000, guid: e95f37c07ba1bd24ebc9ce445bfaf744, type: 2}
+  options:
+  - Conditions:
+    - variableName: has_floor1_keycard
+      value: 1
+      change: 0
+    Cutscene: {fileID: 11400000, guid: 01cb82e84d81c6d40b2c6bf4fa917162, type: 2}
