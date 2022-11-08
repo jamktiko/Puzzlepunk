@@ -134,8 +134,6 @@ public class RobotPawn : PuzzlePiece
         }
         else if (rpc.RobotCommands[CommandID] == null)
             rpc.RobotCommands[CommandID] = new Memory(icon, MaxMoves);
-        
-        memory = rpc.RobotCommands[CommandID];
 
         rpc.UpdateMoveLimit(MaxMoves);
     }
