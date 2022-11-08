@@ -139,7 +139,7 @@ public class RobotPawn : PuzzlePiece
     }
     public Memory GetOrders()
     {
-        return (RobotPuzzleController)puzzleParent.RobotCommands[CommandID];
+        return ((RobotPuzzleController)puzzleParent).RobotCommands[CommandID];
     }
     public void ClearOrders()
     {
