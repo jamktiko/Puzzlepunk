@@ -29,8 +29,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!CanAct())
         {
-            if (movement.IsWalking())
-                movement.Stop();
+            if (movement.IsWalking()) { 
+            movement.Stop();
+            PlayerInteractions.main.ClearInteractable();
+        }
             return;
         }
         if (movement.IsWalking())
@@ -83,6 +85,7 @@ public class PlayerMovement : MonoBehaviour
     public void SetOrientation(Orientation nO)
     {
         movement.Stop();
+        PlayerInteractions.main.ClearInteractable();
         switch (nO)
         {
             case Orientation.up:

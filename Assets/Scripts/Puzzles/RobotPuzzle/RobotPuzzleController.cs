@@ -13,18 +13,21 @@ public class RobotPuzzleController : PuzzleController
     public ButtonPawn[] Objectives;
 
     public RobotPawn[] Robots;
-    public List<RobotPawn.Memory> RobotCommands;
+    public RobotPawn.Memory[] RobotCommands;
 
-    private void Awake()
-    {
-        RobotCommands = new List<RobotPawn.Memory>();   
-    }
     protected override void InitSolution()
     {
         mGrid = GetComponentInChildren<GridNav>();
 
         Objectives = GetComponentsInChildren<ButtonPawn>();
         Robots = GetComponentsInChildren<RobotPawn>();//Todo nullchecks
+
+        int maxCommand = 0;
+        foreach (RobotPawn rob in Robots)
+        {
+            maxCommand = Mathf.Max(rob.CommandID, maxCommand);
+        }
+        RobotCommands = new RobotPawn.Memory[maxCommand+1];
 
         base.InitSolution();
     }
@@ -51,6 +54,8 @@ public class RobotPuzzleController : PuzzleController
     public void ChangeSelection(int sel)
     {
         Selection = sel;
+        while (RobotCommands[Selection] == null)
+            Selection++;
         UIController.main.robotController.OnSelectionChanged();
     }
     public RobotPawn.Memory GetSelectedRobot()

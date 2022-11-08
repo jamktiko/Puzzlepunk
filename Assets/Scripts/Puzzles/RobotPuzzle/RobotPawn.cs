@@ -29,8 +29,9 @@ public class RobotPawn : PuzzlePiece
             movement.MovementSpeed = 1f / rpc.StepTime;
             OriginalNode = rpc.mGrid.GetNodeAt(rpc.mGrid.TranslateCoordinate(transform.position));
         }
-        base.TieToPuzzle(parent);
+        puzzleParent = parent;
         InitOrders();
+       // OnReset(true);
     }
     public override void OnReset(bool hard)
     {
@@ -128,18 +129,17 @@ public class RobotPawn : PuzzlePiece
     void InitOrders()
     {
         RobotPuzzleController rpc = (RobotPuzzleController)puzzleParent;
-        if (rpc.RobotCommands.Count <= CommandID)
-        {
-            rpc.RobotCommands.Add(new Memory(icon, MaxMoves));
-        }
-        else if (rpc.RobotCommands[CommandID] == null)
+       if (rpc.RobotCommands[CommandID] == null)
             rpc.RobotCommands[CommandID] = new Memory(icon, MaxMoves);
 
         rpc.UpdateMoveLimit(MaxMoves);
     }
     public Memory GetOrders()
     {
-        return ((RobotPuzzleController)puzzleParent).RobotCommands[CommandID];
+        var rpuzzleParent = (RobotPuzzleController)puzzleParent;
+        if (rpuzzleParent != null && rpuzzleParent.RobotCommands != null && CommandID < rpuzzleParent.RobotCommands.Length )
+            return ((RobotPuzzleController)puzzleParent).RobotCommands[CommandID];
+        return null;
     }
     public void ClearOrders()
     {
@@ -163,7 +163,11 @@ public class RobotPawn : PuzzlePiece
     {
         Vector2Int nPoint = Vector2Int.zero;
 
-        WalkDirection walkDir = GetOrders().orders[cOrder];
+        Memory memory = GetOrders();
+        if (memory == null)
+            return nPoint;
+
+        WalkDirection walkDir = memory.orders[cOrder];
         if (OppositeOrders)
             walkDir = ReverseDirection(walkDir);
 

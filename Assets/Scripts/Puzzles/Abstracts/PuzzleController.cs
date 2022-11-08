@@ -16,7 +16,7 @@ public abstract class PuzzleController : MonoBehaviour
     public UnityEvent onSolve;
 
     public PuzzlePiece[] Pieces;
-    private void Start()
+    private void Awake()
     {
         InitSolution();
     }
