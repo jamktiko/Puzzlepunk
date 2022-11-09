@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5334094769564948643}
   - component: {fileID: 6431331076837896651}
   - component: {fileID: 4494197302629983053}
+  - component: {fileID: 92130039}
   m_Layer: 0
   m_Name: Chair
   m_TagString: Obstacle
@@ -55,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -155,4 +156,31 @@ MonoBehaviour:
   - {x: 0.044332422, y: -0.09866452, z: 0}
   m_ShapePathHash: -1360603540
   m_Mesh: {fileID: 0}
-  m_InstanceId: 79436
+  m_InstanceId: -3204
+--- !u!114 &92130039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226823448782792195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 0
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: ed8408e30000000031b8ffbf4511d0a99b4d2d85
+  m_ShapePath:
+  - {x: -0.05033028, y: -0.096446514, z: 0}
+  - {x: -0.03433919, y: -0.03325802, z: 0}
+  - {x: 0.04144633, y: -0.035034835, z: 0}
+  - {x: 0.04322326, y: -0.09822321, z: 0}
+  m_ShapePathHash: 1553210869
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 38764

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5680101860089684266}
   - component: {fileID: 5680101860089684256}
   - component: {fileID: 5680101860089684257}
-  - component: {fileID: 1605358324758299554}
+  - component: {fileID: 604272615}
   m_Layer: 0
   m_Name: Zoe
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5680101860089684267}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.2242, y: -1.1946, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
@@ -57,7 +57,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeltaY: -0.12
+  AlwaysUpdate: 0
   spriteRenderer: {fileID: 5680101860089684271}
   deltaOrder: 0
 --- !u!114 &5680101860089684256
@@ -139,7 +140,6 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 0}
-  Director: {fileID: 0}
 --- !u!114 &5680101860089684257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,7 +160,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 032487017c09e1f4a8dea430cc094418, type: 2}
     - {fileID: 11400000, guid: 72fd5d5e77b37cd42933a7c7ff725e5e, type: 2}
     - {fileID: 11400000, guid: 86492edcc8853894fa5e4dfb20cdf1bd, type: 2}
-    - {fileID: 11400000, guid: 799a0fcaa28e75c48a06cd661b5fa98d, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -222,9 +221,7 @@ MonoBehaviour:
         m_Calls: []
     - m_PersistentCalls:
         m_Calls: []
-    - m_PersistentCalls:
-        m_Calls: []
---- !u!114 &1605358324758299554
+--- !u!114 &604272615
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -233,8 +230,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 5680101860089684267}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0adb8f3d63d130d418bc32f6e6ee417c, type: 3}
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navPoint: {fileID: 0}
-  instant: 1
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 0
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: ed8408e30000000031b8ffbf4511d0a99b4d2d85
+  m_ShapePath:
+  - {x: -0.43333328, y: -0.8999996, z: 0}
+  - {x: -0.2032962, y: -0.8002726, z: 0}
+  - {x: 0.21329784, y: -0.80027574, z: 0}
+  - {x: 0.38332525, y: -0.9100015, z: 0}
+  - {x: -0.0025449751, y: -1.0036365, z: 0}
+  m_ShapePathHash: 279462318
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -40248
