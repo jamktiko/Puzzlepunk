@@ -56,6 +56,8 @@ public class CoinPuzzleController : PuzzleController
     {
         if (base.WasSolved())
             return true;
+        if (objectivecoins == null)
+            return false;
         for (int iA = 0; iA < objectivecoins.Length; iA++)
         {
             bool solved = true;
