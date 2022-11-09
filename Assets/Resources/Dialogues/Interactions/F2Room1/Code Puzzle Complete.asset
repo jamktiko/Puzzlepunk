@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0faf04322e76f9744b7ad398a9e40df4, type: 3}
-  m_Name: Code Puzzle Solved
+  m_Script: {fileID: 11500000, guid: 5e2915eccd5392545b1a74b817a7f6d4, type: 3}
+  m_Name: Code Puzzle Complete
   m_EditorClassIdentifier: 
-  Dialogue:
-  - {fileID: 11400000, guid: e5d2f297b577feb49a7f1c627df3cd4e, type: 2}
-  - {fileID: 11400000, guid: da28c75d463150b4cb5dee5e852a1d2f, type: 2}
+  Changes:
+  - variableName: CodePuzzleSolved
+    value: 1
+    change: 0
