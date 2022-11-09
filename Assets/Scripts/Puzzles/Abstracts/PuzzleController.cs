@@ -23,9 +23,9 @@ public abstract class PuzzleController : MonoBehaviour
     protected virtual void InitSolution()
     {
         Pieces = GetComponentsInChildren<PuzzlePiece>();
-        foreach (PuzzlePiece rob in Pieces)
+        foreach (PuzzlePiece piece in Pieces)
         {
-            rob.TieToPuzzle(this);
+            piece.TieToPuzzle(this);
         }
         OnReset(true);
     }

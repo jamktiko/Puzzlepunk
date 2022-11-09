@@ -18,13 +18,17 @@ public class CoinController : PuzzlePiece
             cText = GetComponentInChildren<TextMeshProUGUI>();
         if (RectT == null)
             RectT = GetComponent<RectTransform>();
-        InitialNumber = CoinNumber;
     }
-    public int CoinNumber = 0;
+    public int CoinNumber = -1;
     int InitialNumber = 0;
     private void Start()
     {
         UpdateCoinDisplay();
+    }
+    public override void TieToPuzzle(PuzzleController parent)
+    {
+        InitialNumber = CoinNumber;
+        base.TieToPuzzle(parent);
     }
     public override void OnReset(bool hard)
     {
