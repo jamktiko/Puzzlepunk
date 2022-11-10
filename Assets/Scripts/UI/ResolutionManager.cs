@@ -62,12 +62,12 @@ public class ResolutionManager : MonoBehaviour
         if (!UIonly)
             UpdateResolution();
     }
-    public void ChangeResolution (int value)
+    public void ChangeResolution(int value)
     {
         current = resolutionsSO.AvailableResolutions[value];
         UpdateResolution();
     }
-    void UpdateResolution()
+    public void UpdateResolution()
     {
         Screen.SetResolution(current.width, current.height, toggleComponent.isOn);
 
