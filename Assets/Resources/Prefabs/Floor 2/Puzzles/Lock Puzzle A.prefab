@@ -3842,8 +3842,8 @@ MonoBehaviour:
   onSolve:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7478153669576890510}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+      - m_Target: {fileID: 4660513541289588011}
+        m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -3854,8 +3854,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4660513541289588011}
-        m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+      - m_Target: {fileID: 7478153669576890510}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -3905,7 +3905,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayOnStart: 0
   OnlyTriggerOnce: 0
-  CutsceneScript: {fileID: 11400000, guid: a01387b4ec5a7aa4cacd90255f2ec02e, type: 2}
+  CutsceneScript: {fileID: 11400000, guid: 5de5cb3eec453934c861cc6251cf6513, type: 2}
 --- !u!114 &4660513541289588020
 MonoBehaviour:
   m_ObjectHideFlags: 0
