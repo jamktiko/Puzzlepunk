@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 265013860987557271}
   - component: {fileID: 938150024812463217}
   - component: {fileID: 3842794914989287226}
+  - component: {fileID: 630644889053028570}
   m_Layer: 0
   m_Name: Control Pad (Puzzle)
   m_TagString: Obstacle
@@ -72,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1445981883
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 54679456, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -140,3 +141,19 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   SingleUse: 0
+--- !u!114 &630644889053028570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265013860987557270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a5ff6924b42c1e4bb7871dae4235e62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeltaY: -0.09
+  AlwaysUpdate: 0
+  spriteRenderer: {fileID: 265013860987557271}
+  deltaOrder: 0

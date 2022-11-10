@@ -17,7 +17,7 @@ public class SceneTransitionManager : MonoBehaviour
             main = this;
             GameObject.DontDestroyOnLoad(gameObject);
             if (RequireGameEssentials)
-                SceneManager.LoadSceneAsync(GameEssentials, LoadSceneMode.Additive);
+                StartCoroutine(LoadSceneAsync(GameEssentials, LoadSceneMode.Additive));
         }
         else
         {
