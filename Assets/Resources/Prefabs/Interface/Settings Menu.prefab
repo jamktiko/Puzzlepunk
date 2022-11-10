@@ -342,8 +342,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d3fafbe4983e547a0e6d2f86eac994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPrefSlot: MusicVolume
-  AudioGroup: {fileID: 24100000, guid: d1e92369ce17fb740b5765dca9fe4f17, type: 2}
+  PlayerPrefSlot: Music
+  AudioGroup: {fileID: 24100000, guid: 5a8e1ebea2e579d4fad69bce6938eced, type: 2}
 --- !u!1 &616916909536154317
 GameObject:
   m_ObjectHideFlags: 0
@@ -982,8 +982,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d3fafbe4983e547a0e6d2f86eac994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPrefSlot: SFKVolume
-  AudioGroup: {fileID: 24100000, guid: 85573141e08b86141841432ab06b82fc, type: 2}
+  PlayerPrefSlot: Audio
+  AudioGroup: {fileID: 24100000, guid: 5a8e1ebea2e579d4fad69bce6938eced, type: 2}
 --- !u!1 &2471599604119068608
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,8 +1017,8 @@ RectTransform:
   m_Father: {fileID: 6692386804796178441}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1208,6 +1208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b35d63e7defb254f879be59200d9e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AdaptOnStart: 0
   resolutionsSO: {fileID: 11400000, guid: 6b833574ece15534d8afb72dffcf9d8b, type: 2}
   dropDownComponent: {fileID: 7780691994317449341}
   toggleComponent: {fileID: 3319628570087740813}
@@ -1799,8 +1800,8 @@ RectTransform:
   m_Father: {fileID: 3366856532813841532}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2038,7 +2039,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2113,8 +2114,8 @@ RectTransform:
   m_Father: {fileID: 2845745138790115596}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2614,7 +2615,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3201,7 +3202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d3fafbe4983e547a0e6d2f86eac994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPrefSlot: MasterVolume
+  PlayerPrefSlot: Master
   AudioGroup: {fileID: 24100000, guid: 5a8e1ebea2e579d4fad69bce6938eced, type: 2}
 --- !u!1 &7934735453484033689
 GameObject:
@@ -3485,7 +3486,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
