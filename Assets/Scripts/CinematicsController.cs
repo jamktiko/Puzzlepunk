@@ -62,6 +62,14 @@ public class CinematicsController : MonoBehaviour
         OnStart.Invoke();
     }
 
+    public void SetPlayerInvisible()
+    {
+        if (PlayerCinematicController.main != null)
+        {
+            PlayerCinematicController.main.SetCinematicMode(true, true);
+        }
+    }
+
     void EndCinematic(PlayableDirector aDirector)
     {
         hasPlayed = true;
