@@ -14,7 +14,6 @@ public class IconUI : MonoBehaviour
         int iC = 0;
         foreach (RobotIconButton child in RobotButtons)
         {
-
             int iSelection = iC;
             child.RobotButton.onClick.AddListener(() =>
             {
@@ -30,7 +29,7 @@ public class IconUI : MonoBehaviour
         RobotPuzzleController puzzle = UIController.main.robotController.myPuzzle;
         for (int iI = 0; iI< RobotButtons.Length; iI++)
         {
-            bool RobotExists = iI < puzzle.RobotCommands.Count;
+            bool RobotExists = iI < puzzle.RobotCommands.Length && puzzle.RobotCommands[iI]!=null;
             if (RobotExists)
             {
                 RobotButtons[iI].ChangeIcon(puzzle.RobotCommands[iI].icon);
@@ -52,7 +51,7 @@ public class IconUI : MonoBehaviour
         var puzzle = UIController.main.robotController.myPuzzle;
         for (int iI = 0; iI < RobotButtons.Length; iI++)
         {
-            if (iI < puzzle.RobotCommands.Count)
+            if (iI < puzzle.RobotCommands.Length && puzzle.RobotCommands[iI]!=null)
             {
                 RobotButtons[iI].ChangeLabel(puzzle.RobotCommands[iI].iOrder, puzzle.RobotCommands[iI].orders.Length);
             }

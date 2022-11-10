@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour
         if (newbounds!=null)
         rBounds = newbounds.GetBounds();
     }
-    private void Update()
+    private void LateUpdate()
     {
         if (PlayerMovement.main != null)
         MovePosition(PlayerMovement.main.transform.position);

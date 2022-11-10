@@ -20,6 +20,7 @@ public class CoinRotator : PuzzlePiece
     }
     void OnRotate()
     {
+        if (coins!=null)
         foreach (CoinController c in coins)
         {
             c.transform.rotation = Quaternion.identity;

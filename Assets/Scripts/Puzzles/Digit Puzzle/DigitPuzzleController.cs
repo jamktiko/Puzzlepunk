@@ -7,9 +7,10 @@ public class DigitPuzzleController : PuzzleController
     public int Solution = 0;
     PuzzleNumberController[] numbers;
 
-    private void Awake()
+    protected override void InitSolution()
     {
         numbers = GetComponentsInChildren<PuzzleNumberController>();
+        base.InitSolution();
     }
     private void OnEnable()
     {

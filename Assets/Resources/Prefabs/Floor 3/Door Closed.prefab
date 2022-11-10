@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5858486466869567769
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3676711856448238087, guid: 3f86a4c89f4718240bb36eeb09d6a589, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179108859347543058, guid: 3f86a4c89f4718240bb36eeb09d6a589, type: 3}
+      propertyPath: uEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8667890950879603153}
+    - target: {fileID: 4179108859347543058, guid: 3f86a4c89f4718240bb36eeb09d6a589, type: 3}
+      propertyPath: uEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179108859347543058, guid: 3f86a4c89f4718240bb36eeb09d6a589, type: 3}
+      propertyPath: uEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DialogueComponent, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628313723070213510, guid: 3f86a4c89f4718240bb36eeb09d6a589, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628313723070213510, guid: 3f86a4c89f4718240bb36eeb09d6a589, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.3463783
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628313723070213510, guid: 3f86a4c89f4718240bb36eeb09d6a589, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.724
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628313723070213510, guid: 3f86a4c89f4718240bb36eeb09d6a589, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628313723070213510, guid: 3f86a4c89f4718240bb36eeb09d6a589, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628313723070213510, guid: 3f86a4c89f4718240bb36eeb09d6a589, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628313723070213510, guid: 3f86a4c89f4718240bb36eeb09d6a589, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628313723070213510, guid: 3f86a4c89f4718240bb36eeb09d6a589, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628313723070213510, guid: 3f86a4c89f4718240bb36eeb09d6a589, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628313723070213510, guid: 3f86a4c89f4718240bb36eeb09d6a589, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628313723070213510, guid: 3f86a4c89f4718240bb36eeb09d6a589, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628313723070213512, guid: 3f86a4c89f4718240bb36eeb09d6a589, type: 3}
+      propertyPath: m_Name
+      value: Door Closed
+      objectReference: {fileID: 0}
+    - target: {fileID: 9018275217334709987, guid: 3f86a4c89f4718240bb36eeb09d6a589, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3f86a4c89f4718240bb36eeb09d6a589, type: 3}
+--- !u!1 &770403954344578193 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6628313723070213512, guid: 3f86a4c89f4718240bb36eeb09d6a589, type: 3}
+  m_PrefabInstance: {fileID: 5858486466869567769}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8667890950879603153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770403954344578193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f85e1feb1060e4cbee02e9900a0acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayOnStart: 0
+  OnlyTriggerOnce: 0
+  CutsceneScript: {fileID: 11400000, guid: 20713d3ace60f87419e976d81c3ed915, type: 2}

@@ -16,7 +16,6 @@ public class VariableManager
 
     public Variable SetVariable(string vName, float nValue)
     {
-
         Debug.Log("Set variable " + vName + " to " + nValue) ;
         if (EncodedVariables.ContainsKey(vName))
         {

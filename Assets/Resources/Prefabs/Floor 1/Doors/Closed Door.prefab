@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 9184520813939191038}
   - component: {fileID: 9184520813939191033}
   - component: {fileID: 1715321103440809915}
+  - component: {fileID: 5640425155339574388}
+  - component: {fileID: 8131631231004552269}
   m_Layer: 0
   m_Name: Closed Door
   m_TagString: Untagged
@@ -112,6 +114,49 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.37}
   m_EdgeRadius: 0
+--- !u!114 &5640425155339574388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9184520813939191032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afaf64b857c16542948929e4579f7ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8131631231004552269}
+        m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  SingleUse: 0
+--- !u!114 &8131631231004552269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9184520813939191032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f85e1feb1060e4cbee02e9900a0acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayOnStart: 0
+  OnlyTriggerOnce: 0
+  CutsceneScript: {fileID: 11400000, guid: 0191a48189517c649a2e8595513feb8a, type: 2}
 --- !u!1001 &3266469665795704571
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -16,8 +16,9 @@ public class LevelController : MonoBehaviour
         rooms = GetComponentsInChildren<RoomComponent>();
 
         Reactors = new List<VariableReactionChange>();
-        foreach (var posReactor in Resources.FindObjectsOfTypeAll(typeof(VariableReactionChange)))
-            if ((VariableReactionChange)posReactor != null)
+        
+        foreach (VariableReactionChange posReactor in Resources.FindObjectsOfTypeAll(typeof(VariableReactionChange)) as VariableReactionChange[])
+            if (posReactor.gameObject.scene.IsValid())
                 RegisterReactor((VariableReactionChange)posReactor);
 
     }
