@@ -5,6 +5,8 @@ using UnityEngine;
 public class ButtonPawn : PuzzlePiece
 {
     public int RequiresCommandID = -1;
+    public Color ColorHighlighted = Color.white;
+    public Color ColorPressed = Color.black;
     public override void TieToPuzzle(PuzzleController parent)
     {
         base.TieToPuzzle(parent);
@@ -25,7 +27,7 @@ public class ButtonPawn : PuzzlePiece
     void SetPressed(bool value)
     {
         isPressed = value;
-        GetComponent<SpriteRenderer>().color = isPressed ? Color.cyan : Color.blue;
+        GetComponent<SpriteRenderer>().color = isPressed ? ColorPressed : ColorHighlighted;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
