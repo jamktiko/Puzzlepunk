@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 652655373462520160}
   - component: {fileID: 652655373462520161}
   - component: {fileID: 2765187338355363591}
+  - component: {fileID: 1898725074}
+  - component: {fileID: 1898725078}
   m_Layer: 0
   m_Name: Scene02 start
   m_TagString: Untagged
@@ -27,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 652655373462520162}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -60,13 +62,15 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: -5468948262424105712, guid: 5dbeb888a93b5e64581647850e74f140, type: 2}
     value: {fileID: 0}
-  - key: {fileID: 8373159181752887353, guid: 5dbeb888a93b5e64581647850e74f140, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: -859036977275613623, guid: 5dbeb888a93b5e64581647850e74f140, type: 2}
-    value: {fileID: 0}
   - key: {fileID: 9061861976710690768, guid: 5dbeb888a93b5e64581647850e74f140, type: 2}
     value: {fileID: 0}
   - key: {fileID: -3980703124427255787, guid: 5dbeb888a93b5e64581647850e74f140, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -859036977275613623, guid: 5dbeb888a93b5e64581647850e74f140, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 8373159181752887353, guid: 5dbeb888a93b5e64581647850e74f140, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -5051117283521364939, guid: 5dbeb888a93b5e64581647850e74f140, type: 2}
     value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
@@ -87,7 +91,19 @@ MonoBehaviour:
   Director: {fileID: 652655373462520161}
   OnStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1898725078}
+        m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnFinish:
     m_PersistentCalls:
       m_Calls:
@@ -103,3 +119,45 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1898725074}
+        m_TargetAssemblyTypeName: PointTransition, Assembly-CSharp
+        m_MethodName: MovePlayerToPoint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1898725074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652655373462520162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0adb8f3d63d130d418bc32f6e6ee417c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navPoint: {fileID: 0}
+  instant: 1
+  SetOrientation: 1
+--- !u!114 &1898725078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652655373462520162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f85e1feb1060e4cbee02e9900a0acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayOnStart: 0
+  OnlyTriggerOnce: 1
+  CutsceneScript: {fileID: 11400000, guid: 929396757d11616418429743ae6e0178, type: 2}

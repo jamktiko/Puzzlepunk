@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 273987555943817445}
   - component: {fileID: 273987555943817444}
+  - component: {fileID: 273987556500533140}
   - component: {fileID: 336376718047970120}
   - component: {fileID: 273987556500533141}
   - component: {fileID: 7459399459596631619}
   - component: {fileID: 2281364963293177544}
-  - component: {fileID: 273987556500533140}
+  - component: {fileID: 8136258936295416311}
   m_Layer: 0
   m_Name: Music Manager
   m_TagString: Untagged
@@ -46,7 +47,7 @@ AudioSource:
   m_GameObject: {fileID: 273987555943817447}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: d1e92369ce17fb740b5765dca9fe4f17, type: 2}
+  OutputAudioMixerGroup: {fileID: 4322219494160964170, guid: 5a8e1ebea2e579d4fad69bce6938eced, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -133,6 +134,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &273987556500533140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273987555943817447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1d00b5abc3b7ed4288bac4471c28212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 273987555943817444}
 --- !u!114 &336376718047970120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,7 +271,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &273987556500533140
+--- !u!114 &8136258936295416311
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -266,7 +280,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 273987555943817447}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1d00b5abc3b7ed4288bac4471c28212, type: 3}
+  m_Script: {fileID: 11500000, guid: 79b18aefa036d2846b548c3b74dcc80f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 273987555943817444}
+  Conditions:
+  - variableName: music
+    value: 5
+    change: 0
+  Action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 273987556500533140}
+        m_TargetAssemblyTypeName: LevelMusicController, Assembly-CSharp
+        m_MethodName: SmoothTransition
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 244ef5047611ca1499b3fb264a616864, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

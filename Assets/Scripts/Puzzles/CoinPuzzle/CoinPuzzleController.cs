@@ -10,12 +10,12 @@ public class CoinPuzzleController : PuzzleController
 
     CoinController[] coins;
     CoinController[] objectivecoins;
-    CoinRotator[] pieces;
+    CoinRotator[] rotators;
 
     protected override void InitSolution()
     {
         coins = GetComponentsInChildren<CoinController>();
-        pieces = GetComponentsInChildren<CoinRotator>();
+        rotators = GetComponentsInChildren<CoinRotator>();
 
         /*foreach (CoinController c in coins)
             c.TieToPuzzle(this);
@@ -56,6 +56,8 @@ public class CoinPuzzleController : PuzzleController
     {
         if (base.WasSolved())
             return true;
+        if (objectivecoins == null)
+            return false;
         for (int iA = 0; iA < objectivecoins.Length; iA++)
         {
             bool solved = true;
@@ -70,7 +72,7 @@ public class CoinPuzzleController : PuzzleController
             }
             if (solved)
             {
-                foreach (CoinRotator Rotator in pieces)
+                foreach (CoinRotator Rotator in rotators)
                 {
                     if (!Rotator.IsInRequiredRotation(iA))
                         return false;

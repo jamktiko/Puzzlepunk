@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1903287060}
   - component: {fileID: 2040287347}
   - component: {fileID: 2268645219100842729}
+  - component: {fileID: 1903287061}
   m_Layer: 0
   m_Name: Act 1 - Hallway_10
   m_TagString: Untagged
@@ -130,9 +131,9 @@ MonoBehaviour:
   uEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2268645219100842729}
-        m_TargetAssemblyTypeName: PointTransition, Assembly-CSharp
-        m_MethodName: MovePlayerToPoint
+      - m_Target: {fileID: 1903287061}
+        m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -158,6 +159,21 @@ MonoBehaviour:
   navPoint: {fileID: 0}
   instant: 0
   SetOrientation: 1
+--- !u!114 &1903287061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9176139490362017502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f85e1feb1060e4cbee02e9900a0acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayOnStart: 0
+  OnlyTriggerOnce: 0
+  CutsceneScript: {fileID: 11400000, guid: f712bdb9ba538984ca57bdd7f973523a, type: 2}
 --- !u!1001 &1341461432003913806
 PrefabInstance:
   m_ObjectHideFlags: 0

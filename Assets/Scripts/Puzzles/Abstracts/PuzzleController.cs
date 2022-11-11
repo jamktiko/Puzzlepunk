@@ -16,16 +16,16 @@ public abstract class PuzzleController : MonoBehaviour
     public UnityEvent onSolve;
 
     public PuzzlePiece[] Pieces;
-    private void Start()
+    private void Awake()
     {
         InitSolution();
     }
     protected virtual void InitSolution()
     {
         Pieces = GetComponentsInChildren<PuzzlePiece>();
-        foreach (PuzzlePiece rob in Pieces)
+        foreach (PuzzlePiece piece in Pieces)
         {
-            rob.TieToPuzzle(this);
+            piece.TieToPuzzle(this);
         }
         OnReset(true);
     }

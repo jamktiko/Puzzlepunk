@@ -58,8 +58,18 @@ public class CinematicsController : MonoBehaviour
         {
             PlayerCinematicController.main.SetCinematicMode(true, MakePlayerInvisible);
         }
+        else
+            { Debug.LogError("PlayerCinematicController.main does not exist!"); }
         }
         OnStart.Invoke();
+    }
+
+    public void SetPlayerInvisible()
+    {
+        if (PlayerCinematicController.main != null)
+        {
+            PlayerCinematicController.main.SetCinematicMode(true, true);
+        }
     }
 
     void EndCinematic(PlayableDirector aDirector)

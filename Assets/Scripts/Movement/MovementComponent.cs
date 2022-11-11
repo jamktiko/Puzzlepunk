@@ -137,7 +137,6 @@ public class MovementComponent : MonoBehaviour
     }
     public void Stop()
     {
-        PlayerInteractions.main.ClearInteractable();
         if (mNode!=null)
             gridPos = mNode.gridPos;
         mNode = null;

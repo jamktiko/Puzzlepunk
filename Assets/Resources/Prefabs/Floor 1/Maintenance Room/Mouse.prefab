@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4161468785461173695}
   - component: {fileID: 4161468785461173694}
   - component: {fileID: 3806103860957550151}
+  - component: {fileID: 1808072917}
   m_Layer: 0
   m_Name: Mouse
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4161468785461173689}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.24385202, y: 3.3204598, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -53,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,5 +99,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeltaY: 0
+  AlwaysUpdate: 0
   spriteRenderer: {fileID: 4161468785461173694}
-  deltaOrder: 0
+  deltaOrder: 5
+--- !u!114 &1808072917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4161468785461173689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 0
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: ed8408e30000000031b8ffbf4511d0a99b4d2d85
+  m_ShapePath:
+  - {x: -0.029999971, y: -0.029999971, z: 0}
+  - {x: -0.028503418, y: 0.0015645027, z: 0}
+  - {x: 0.028503418, y: 0.0015645027, z: 0}
+  - {x: 0.029999971, y: -0.029999971, z: 0}
+  m_ShapePathHash: -851031531
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 153266
