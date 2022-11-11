@@ -1598,6 +1598,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Version: 0
   m_Tracks:
+  - {fileID: 5190929006914221044}
   - {fileID: 3654913642623493731}
   - {fileID: 483786257536649616}
   - {fileID: 3338545336490996041}
@@ -3157,7 +3158,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: StreptoIdleNoTendril
   - m_Version: 1
-    m_Start: 10.183333333333334
+    m_Start: 9.983333333333333
     m_ClipIn: 0
     m_Asset: {fileID: 2208774674828765676}
     m_Duration: 2.8499999999999996
@@ -3342,7 +3343,7 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
-    m_PostExtrapolationTime: 0.4833333333333325
+    m_PostExtrapolationTime: 0.28333333333333144
     m_PreExtrapolationTime: 0
     m_DisplayName: StreptoSecondAttack
   m_Markers:
@@ -3583,6 +3584,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde0d25a170598d46a0b9dc16b4527a5, type: 3}
   m_Name: ActivationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
+--- !u!114 &5190929006914221044
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b46e36075dd1c124a8422c228e75e1fb, type: 3}
+  m_Name: Signal Track
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects: []
 --- !u!114 &5805156569723659727
 MonoBehaviour:
   m_ObjectHideFlags: 1
