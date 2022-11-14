@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1892600658257747879}
   m_Layer: 0
   m_Name: Container 2 (Reptile)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.188169}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -111,7 +111,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.56}
+  m_Size: {x: 0.25, y: 0.18366194}
   m_EdgeRadius: 0
 --- !u!114 &1892600658257747880
 MonoBehaviour:
@@ -155,4 +155,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayOnStart: 0
   OnlyTriggerOnce: 0
-  CutsceneScript: {fileID: 11400000, guid: 9475475a5d0835048b9e450e6b8e8880, type: 2}
+  CutsceneScript: {fileID: 11400000, guid: 44f80d0f1ca0c2e43abc2f27594162ae, type: 2}
