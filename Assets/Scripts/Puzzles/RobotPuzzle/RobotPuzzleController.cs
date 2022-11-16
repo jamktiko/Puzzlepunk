@@ -51,6 +51,7 @@ public class RobotPuzzleController : PuzzleController
     }
     public override bool ClosePuzzle()
     {
+        OnExitPuzzle();
         return true;
     }
     #region Selection

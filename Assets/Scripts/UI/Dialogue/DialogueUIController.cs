@@ -112,6 +112,7 @@ public class DialogueUIController : MonoBehaviour
     }
     public void SkipDialogue()
     {
+        if (mDialogue!= null)
         while (quote < mDialogue.Dialogue.Length)
         {
             mDialogue.Dialogue[quote].OnSkipped(this);
