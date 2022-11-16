@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8713764171946576819}
   - component: {fileID: 7830879586325190104}
   - component: {fileID: 7002787884867420863}
+  - component: {fileID: 4902519203640022329}
   m_Layer: 0
   m_Name: Container 2 (Mammal)
   m_TagString: Obstacle
@@ -156,3 +157,19 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 11400000, guid: 44f80d0f1ca0c2e43abc2f27594162ae, type: 2}
+--- !u!114 &4902519203640022329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307224124881871558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a5ff6924b42c1e4bb7871dae4235e62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeltaY: -0.2
+  AlwaysUpdate: 0
+  spriteRenderer: {fileID: 0}
+  deltaOrder: 0
