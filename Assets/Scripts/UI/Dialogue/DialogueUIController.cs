@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
@@ -80,25 +81,25 @@ public class DialogueUIController : MonoBehaviour
     {
         return gameObject.activeSelf && (CutsceneCoroutine != null || MultipleChoice.gameObject.activeSelf);
     }
+    DialogueScriptSO mDialogue;
+    int quote;
     IEnumerator PlayCutsceneCoroutine(DialogueScriptSO Script)
     {
         HideDialogue();
         skipPercent = 0;
-        int quote = 0;
-        while (quote < Script.Dialogue.Length)
+        mDialogue = Script;
+        quote = 0;
+        while (quote < mDialogue.Dialogue.Length)
         {
-            if (Script.Dialogue[quote] != null)
+            if (skipPercent >= 1)
             {
-                if (skipPercent >= 1)
-                {
-                    Script.Dialogue[quote].OnSkipped(this);
-                }
-                else
-                {
-                    yield return Script.Dialogue[quote].Run(this);
-                }
+                SkipDialogue();
             }
-            quote++;
+            else if (mDialogue.Dialogue[quote] != null)
+            {
+                    yield return mDialogue.Dialogue[quote].Run(this);
+                    quote++;
+            }
         }
         if (talkingNPC == null)
         {
@@ -107,6 +108,14 @@ public class DialogueUIController : MonoBehaviour
         else
         {
             yield return talkingNPC.Question.Run(this);
+        }
+    }
+    public void SkipDialogue()
+    {
+        while (quote < mDialogue.Dialogue.Length)
+        {
+            mDialogue.Dialogue[quote].OnSkipped(this);
+            quote++;
         }
     }
     public void ClearDialogue()
@@ -122,7 +131,7 @@ public class DialogueUIController : MonoBehaviour
     public void Close()
     {
         EndDialogue();
-        UIController.main.CloseWindow();
+        UIController.main.CloseWindow(true);
         if (PuzzleController.main != null && PuzzleController.main.CloseWithDialogue && PuzzleController.main.WasSolved())
         {
             PuzzleController.main.gameObject.SetActive(false);

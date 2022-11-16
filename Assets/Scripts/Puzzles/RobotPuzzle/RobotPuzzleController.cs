@@ -32,7 +32,7 @@ public class RobotPuzzleController : PuzzleController
         base.InitSolution();
     }
 
-    public override void OnEnterPuzzle()
+    protected override void OnEnterPuzzle()
     {
         base.OnEnterPuzzle();
         UIController.main.OpenWindow(UIController.UIWindow.robot);
@@ -42,12 +42,16 @@ public class RobotPuzzleController : PuzzleController
         CameraController.main.SetBounds(cambounds);
 
     }
-    public override void OnExitPuzzle()
+    protected override void OnExitPuzzle()
     {
         base.OnExitPuzzle();
         EndPuzzle();
         if (cambounds != null)
             CameraController.main.SetBounds(PlayerTransitionController.main.CurrentRoom.bounds);
+    }
+    public override bool ClosePuzzle()
+    {
+        return true;
     }
     #region Selection
     public int Selection = 0;

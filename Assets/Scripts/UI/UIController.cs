@@ -34,7 +34,7 @@ public class UIController : MonoBehaviour
         {
             TransitionScreen = GetComponentInChildren<TransitionScreenController>();
         }
-        CloseWindow();
+        CloseWindow(false);
     }
     public void OpenWindow(UIWindow nWindow)
     {
@@ -51,8 +51,12 @@ public class UIController : MonoBehaviour
             CinematicsController.active.SetPlayMode( CinematicsController.PlayMode.pause);
         }
     }
-    public void CloseWindow()
+    public void CloseWindow(bool skipDialogue)
     {
+        if (skipDialogue)
+        {
+            dialogueController.SkipDialogue();
+        }
         OpenWindow(UIWindow.none);
         dialogueController.ForgetNPC();
         if (CinematicsController.active != null)

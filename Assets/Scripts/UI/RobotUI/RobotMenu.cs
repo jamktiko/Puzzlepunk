@@ -41,9 +41,11 @@ public class RobotMenu : MonoBehaviour
     }
     public void Close()
     {
-        myPuzzle.OnExitPuzzle();
-        myPuzzle = null;
-        UIController.main.CloseWindow();
+        if (myPuzzle.ClosePuzzle())
+        {
+            myPuzzle = null;
+            UIController.main.CloseWindow(true);
+        }
     }
     public void OnSelectionChanged()
     {
