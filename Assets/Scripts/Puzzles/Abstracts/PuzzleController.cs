@@ -49,13 +49,14 @@ public abstract class PuzzleController : MonoBehaviour
         
         if (ForceCinematic)
             PlayerCinematicController.main.SetCinematicMode(true, false);
-        
+        UIController.main.CloseWindow();
     }
     public virtual void OnExitPuzzle()
     {
         main = null;
         if (ForceCinematic)
             PlayerCinematicController.main.SetCinematicMode(false, false);
+        UIController.main.CloseWindow();
     }
     public virtual bool WasSolved()
     {
