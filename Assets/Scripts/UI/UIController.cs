@@ -7,6 +7,7 @@ public class UIController : MonoBehaviour
 {
     public static UIController main { get; private set; }
     [Header("Components")]
+    public GameObject inGameOverlay;
     public DialogueUIController dialogueController;
     public RobotMenu robotController;
     public TransitionScreenController TransitionScreen;
@@ -33,7 +34,7 @@ public class UIController : MonoBehaviour
         {
             TransitionScreen = GetComponentInChildren<TransitionScreenController>();
         }
-        CloseWindow();
+        CloseWindow(false);
     }
     public void OpenWindow(UIWindow nWindow)
     {
@@ -43,13 +44,19 @@ public class UIController : MonoBehaviour
         if (robotController != null)
             robotController.gameObject.SetActive(nWindow == UIWindow.robot);
 
+        if (inGameOverlay != null && PlayerCinematicController.main!=null)
+            inGameOverlay.SetActive(!PlayerCinematicController.main.IsInCinematicMode());
         if (nWindow != UIWindow.none && CinematicsController.active!=null)
         {
             CinematicsController.active.SetPlayMode( CinematicsController.PlayMode.pause);
         }
     }
-    public void CloseWindow()
+    public void CloseWindow(bool skipDialogue)
     {
+        if (skipDialogue)
+        {
+            dialogueController.SkipDialogue();
+        }
         OpenWindow(UIWindow.none);
         dialogueController.ForgetNPC();
         if (CinematicsController.active != null)

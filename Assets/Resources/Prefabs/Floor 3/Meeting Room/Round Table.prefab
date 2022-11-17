@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1819707848680132880}
   - component: {fileID: 1819707848680132883}
+  - component: {fileID: 1095461792}
   m_Layer: 0
   m_Name: Round Table
   m_TagString: Untagged
@@ -84,3 +85,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1095461792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819707848680132882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a5ff6924b42c1e4bb7871dae4235e62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeltaY: 0.09
+  AlwaysUpdate: 0
+  spriteRenderer: {fileID: 1819707848680132883}
+  deltaOrder: 0

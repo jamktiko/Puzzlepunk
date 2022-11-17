@@ -10,9 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 3632037857721168182}
   - component: {fileID: 4148124360009643016}
+  - component: {fileID: 932365363297382520}
+  - component: {fileID: 4870970639715718602}
+  - component: {fileID: 3419394695556552320}
+  - component: {fileID: 6151031212926007208}
+  - component: {fileID: 9096143230631019394}
   m_Layer: 0
   m_Name: Locker
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_Sprite: {fileID: -1088733419, guid: 3353875210fef194ead56d0531049b3d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -84,3 +89,115 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &932365363297382520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4898046790008902910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 0
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: ed8408e30000000031b8ffbf4511d0a99b4d2d85
+  m_ShapePath:
+  - {x: -0.04000002, y: -0.20500004, z: 0}
+  - {x: -0.031536162, y: -0.0647068, z: 0}
+  - {x: 0.03808731, y: -0.060864925, z: 0}
+  - {x: 0.04000002, y: -0.20500004, z: 0}
+  m_ShapePathHash: 938695189
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 79424
+--- !u!61 &4870970639715718602
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4898046790008902910}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.12261918}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.08, y: 0.41}
+    newSize: {x: 0.08, y: 0.41}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.08, y: 0.1647616}
+  m_EdgeRadius: 0
+--- !u!114 &3419394695556552320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4898046790008902910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afaf64b857c16542948929e4579f7ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6151031212926007208}
+        m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  SingleUse: 0
+--- !u!114 &6151031212926007208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4898046790008902910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f85e1feb1060e4cbee02e9900a0acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayOnStart: 0
+  OnlyTriggerOnce: 0
+  CutsceneScript: {fileID: 11400000, guid: 44f80d0f1ca0c2e43abc2f27594162ae, type: 2}
+--- !u!114 &9096143230631019394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4898046790008902910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a5ff6924b42c1e4bb7871dae4235e62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeltaY: -0.12
+  AlwaysUpdate: 0
+  spriteRenderer: {fileID: 4148124360009643016}
+  deltaOrder: 0

@@ -10,9 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 423908259527678555}
   - component: {fileID: 423908259527678554}
+  - component: {fileID: 672386916}
+  - component: {fileID: 6825971337269014689}
+  - component: {fileID: 2565842973069470556}
+  - component: {fileID: 7226890813470906679}
+  - component: {fileID: 5275602250970480698}
   m_Layer: 0
   m_Name: Container 1 (Reptile)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,7 +54,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -84,3 +89,115 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &672386916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423908259527678553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 0
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: ed8408e30000000031b8ffbf4511d0a99b4d2d85
+  m_ShapePath:
+  - {x: -0.09407365, y: -0.27999997, z: 0}
+  - {x: -0.125, y: -0.14781296, z: 0}
+  - {x: 0.07345629, y: -0.15296733, z: 0}
+  - {x: 0.068301916, y: -0.2593825, z: 0}
+  m_ShapePathHash: -447695451
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 79014
+--- !u!61 &6825971337269014689
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423908259527678553}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.188169}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.25, y: 0.56}
+    newSize: {x: 0.25, y: 0.56}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.25, y: 0.18366194}
+  m_EdgeRadius: 0
+--- !u!114 &2565842973069470556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423908259527678553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a5ff6924b42c1e4bb7871dae4235e62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeltaY: -0.2
+  AlwaysUpdate: 0
+  spriteRenderer: {fileID: 0}
+  deltaOrder: 0
+--- !u!114 &7226890813470906679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423908259527678553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afaf64b857c16542948929e4579f7ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5275602250970480698}
+        m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  SingleUse: 0
+--- !u!114 &5275602250970480698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423908259527678553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f85e1feb1060e4cbee02e9900a0acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayOnStart: 0
+  OnlyTriggerOnce: 0
+  CutsceneScript: {fileID: 11400000, guid: 44f80d0f1ca0c2e43abc2f27594162ae, type: 2}
