@@ -42,6 +42,10 @@ public abstract class PuzzleController : MonoBehaviour
         gameObject.SetActive(true);
         OnEnterPuzzle();
     }
+    public void EndPuzzle()
+    {
+        TryShutDown();
+    }
     protected virtual void OnEnterPuzzle()
     {
         main = this;
@@ -58,7 +62,7 @@ public abstract class PuzzleController : MonoBehaviour
             PlayerCinematicController.main.SetCinematicMode(false, false);
         UIController.main.CloseWindow(true);
     }
-    public virtual bool ClosePuzzle()
+    public virtual bool TryShutDown()
     {
         if (UIController.main.dialogueController.IsInDialogueMode())
             return false;

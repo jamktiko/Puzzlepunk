@@ -49,7 +49,7 @@ public class RobotPuzzleController : PuzzleController
         if (cambounds != null)
             CameraController.main.SetBounds(PlayerTransitionController.main.CurrentRoom.bounds);
     }
-    public override bool ClosePuzzle()
+    public override bool TryShutDown()
     {
         OnExitPuzzle();
         return true;
