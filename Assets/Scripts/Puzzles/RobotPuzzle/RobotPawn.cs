@@ -45,6 +45,7 @@ public class RobotPawn : PuzzlePiece
             ClearOrders();
         SetMoving(false);
         SetSelected(false);
+        anim.Play("robotidle");
     }
     #region Orders
     public enum WalkDirection
