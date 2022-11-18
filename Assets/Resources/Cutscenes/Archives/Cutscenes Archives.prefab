@@ -82,6 +82,8 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: -4851816106721127044, guid: 7aabe4527b7c27c4594a1da9deb274ec, type: 2}
     value: {fileID: 0}
+  - key: {fileID: 8404247041492810871, guid: 7aabe4527b7c27c4594a1da9deb274ec, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &2004431258141853431
@@ -97,8 +99,83 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Events:
-    m_Signals: []
-    m_Events: []
+    m_Signals:
+    - {fileID: 11400000, guid: be5e1f95b4abf9b4c94062a9e7ff647f, type: 2}
+    - {fileID: 11400000, guid: 513db844124cd3a44bcd64947a3d4086, type: 2}
+    - {fileID: 11400000, guid: 5cca5eebdcdd1ea4e9a3355952bc247b, type: 2}
+    - {fileID: 11400000, guid: 382be6ef4d6194941a70c0eb85e0d2b7, type: 2}
+    - {fileID: 11400000, guid: c56dbfd888d499b488b1d5e95ad09831, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3432268678322981017}
+          m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+          m_MethodName: PlayScript
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 2296904ff76126f4caf3e229dde85297, type: 2}
+            m_ObjectArgumentAssemblyTypeName: DialogueScriptSO, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3432268678322981017}
+          m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+          m_MethodName: PlayScript
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 4db4daec7d9fc7349951c1285f0bc73b, type: 2}
+            m_ObjectArgumentAssemblyTypeName: DialogueScriptSO, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3432268678322981017}
+          m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+          m_MethodName: PlayScript
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: ecf1757e94119b3468a524acffa0ffbc, type: 2}
+            m_ObjectArgumentAssemblyTypeName: DialogueScriptSO, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3432268678322981017}
+          m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+          m_MethodName: PlayScript
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: b955cf26524385045840e03c871b077c, type: 2}
+            m_ObjectArgumentAssemblyTypeName: DialogueScriptSO, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3432268678322981017}
+          m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+          m_MethodName: PlayScript
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 1e27ebe34e2cb904dba9995b5b796d74, type: 2}
+            m_ObjectArgumentAssemblyTypeName: DialogueScriptSO, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &3432268678747495163
 GameObject:
   m_ObjectHideFlags: 0
