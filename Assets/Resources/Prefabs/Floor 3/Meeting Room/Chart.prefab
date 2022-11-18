@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4555510147268296781}
   - component: {fileID: 6290742220594129965}
   - component: {fileID: 8527571003786784571}
-  - component: {fileID: 2555758443538104644}
+  - component: {fileID: 7872566835851554523}
   m_Layer: 0
   m_Name: Chart
   m_TagString: Untagged
@@ -128,9 +128,9 @@ MonoBehaviour:
   uEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8527571003786784571}
-        m_TargetAssemblyTypeName: InteractableBase, Assembly-CSharp
-        m_MethodName: OnInteract
+      - m_Target: {fileID: 7872566835851554523}
+        m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -141,7 +141,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   SingleUse: 0
---- !u!114 &2555758443538104644
+--- !u!114 &7872566835851554523
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,10 +150,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4555510147268296780}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da73e662d85a6004588af5b2d4e9ad86, type: 3}
+  m_Script: {fileID: 11500000, guid: f0f85e1feb1060e4cbee02e9900a0acb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PlayOnStart: 0
   OnlyTriggerOnce: 0
-  CutsceneScript: {fileID: 11400000, guid: 44f80d0f1ca0c2e43abc2f27594162ae, type: 2}
-  options: []
+  CutsceneScript: {fileID: 11400000, guid: 68fc05a67468ad643843fa07f15e8f9c, type: 2}
