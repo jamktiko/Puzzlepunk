@@ -14,7 +14,7 @@ public class DigitPuzzleController : PuzzleController
     }
     private void OnEnable()
     {
-        OnEnterPuzzle();
+       // OnEnterPuzzle();
     }
     private void OnDisable()
     {
