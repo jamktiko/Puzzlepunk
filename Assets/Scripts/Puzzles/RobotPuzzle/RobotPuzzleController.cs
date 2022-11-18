@@ -61,6 +61,10 @@ public class RobotPuzzleController : PuzzleController
         Selection = sel;
         while (RobotCommands[Selection] == null)
             Selection++;
+        foreach (RobotPawn robot in Robots)
+        {
+            robot.SetSelected(robot.CommandID == Selection) ;
+        }
         UIController.main.robotController.OnSelectionChanged();
     }
     public RobotPawn.Memory GetSelectedRobot()
@@ -78,6 +82,11 @@ public class RobotPuzzleController : PuzzleController
     Coroutine PlayCoroutine;
     IEnumerator PuzzleCoroutine()
     {
+        foreach (RobotPawn robot in Robots)
+        {
+            robot.SetMoving(true);
+        }
+        yield return new WaitForSeconds(.5f);
         PuzzleFailed = false;
         for (int i = 0; i < MaxMove; i++)
         {
@@ -125,8 +134,12 @@ public class RobotPuzzleController : PuzzleController
     {
         return PlayCoroutine != null;
     }
-    public void EndPuzzle()
+    public override void EndPuzzle()
     {
+        foreach (RobotPawn robot in Robots)
+        {
+            robot.SetMoving(false);
+        }
         if (IsPlaying())
         {
             StopCoroutine(PlayCoroutine);

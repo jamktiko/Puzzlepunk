@@ -42,7 +42,7 @@ public abstract class PuzzleController : MonoBehaviour
         gameObject.SetActive(true);
         OnEnterPuzzle();
     }
-    public void EndPuzzle()
+    public virtual void EndPuzzle()
     {
         TryShutDown();
     }

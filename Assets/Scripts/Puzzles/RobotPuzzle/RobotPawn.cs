@@ -19,6 +19,7 @@ public class RobotPawn : PuzzlePiece
     private void Awake()
     {
         movement = GetComponent<MovementComponent>();
+        anim = GetComponent<Animator>();
     }
     public override void TieToPuzzle(PuzzleController parent)
     {
@@ -42,6 +43,9 @@ public class RobotPawn : PuzzlePiece
         SetCrashed(false);
         if (hard)
             ClearOrders();
+        SetMoving(false);
+        SetSelected(false);
+        anim.Play("robotidle");
     }
     #region Orders
     public enum WalkDirection
@@ -252,8 +256,20 @@ public class RobotPawn : PuzzlePiece
         if (value)
             Debug.Log(name + " HAS CRASHED! x.x");
         hasCrashed = value;
+        anim.SetBool("crashed", value);
     }
 
     #endregion
+    #region Animation
+    Animator anim;
+    public void SetMoving(bool value)
+    {
+        anim.SetBool("moving", value);
+    }
+    public void SetSelected(bool value)
+    {
+        anim.SetBool("selected", value);
+    }
 
+    #endregion
 }
