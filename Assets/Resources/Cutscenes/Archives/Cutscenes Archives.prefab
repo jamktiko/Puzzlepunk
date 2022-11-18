@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 3432268678850402010}
   - component: {fileID: 3432268678850401988}
   - component: {fileID: 3432268678850401989}
+  - component: {fileID: 3432268678322981015}
   m_Layer: 0
   m_Name: Cutscene Controller
   m_TagString: Untagged
@@ -78,8 +79,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Events:
-    m_Signals: []
-    m_Events: []
+    m_Signals:
+    - {fileID: 11400000, guid: 5f8c33ec6a900e74992f5a173bd48d38, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3432268678322981015}
+          m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+          m_MethodName: PlayScript
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: a38782615ccec04438b810ac19c9e78c, type: 2}
+            m_ObjectArgumentAssemblyTypeName: DialogueScriptSO, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!320 &3432268678850401989
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -113,6 +129,21 @@ PlayableDirector:
     value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &3432268678322981015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3432268678850402011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f85e1feb1060e4cbee02e9900a0acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayOnStart: 0
+  OnlyTriggerOnce: 0
+  CutsceneScript: {fileID: 0}
 --- !u!1 &3432268679147625406
 GameObject:
   m_ObjectHideFlags: 0
