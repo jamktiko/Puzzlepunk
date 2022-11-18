@@ -91,16 +91,20 @@ public class DialogueUIController : MonoBehaviour
         quote = 0;
         while (quote < mDialogue.Dialogue.Length)
         {
-            if (skipPercent >= 1)
+            if (Script.Dialogue[quote] != null)
             {
-                SkipDialogue();
+                if (skipPercent >= 1)
+                {
+                    Script.Dialogue[quote].OnSkipped(this);
+                }
+                else
+                {
+                    yield return Script.Dialogue[quote].Run(this);
+                }
             }
-            else if (mDialogue.Dialogue[quote] != null)
-            {
-                    yield return mDialogue.Dialogue[quote].Run(this);
-                    quote++;
-            }
+            quote++;
         }
+        mDialogue = null;
         if (talkingNPC == null)
         {
             Close();
@@ -112,12 +116,12 @@ public class DialogueUIController : MonoBehaviour
     }
     public void SkipDialogue()
     {
-        if (mDialogue!= null)
-        while (quote < mDialogue.Dialogue.Length)
-        {
-            mDialogue.Dialogue[quote].OnSkipped(this);
-            quote++;
-        }
+        while (mDialogue != null && quote < mDialogue.Dialogue.Length)
+            {
+                quote++;
+                mDialogue.Dialogue[quote-1].OnSkipped(this);
+            }
+        mDialogue = null;
     }
     public void ClearDialogue()
     {
