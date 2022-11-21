@@ -42,20 +42,28 @@ public abstract class PuzzleController : MonoBehaviour
         gameObject.SetActive(true);
         OnEnterPuzzle();
     }
-    public virtual void OnEnterPuzzle()
+    protected virtual void OnEnterPuzzle()
     {
         main = this;
         OnReset(HardResetOnReenter);
         
         if (ForceCinematic)
             PlayerCinematicController.main.SetCinematicMode(true, false);
-        
+        UIController.main.CloseWindow(true);
     }
-    public virtual void OnExitPuzzle()
+    protected virtual void OnExitPuzzle()
     {
         main = null;
         if (ForceCinematic)
             PlayerCinematicController.main.SetCinematicMode(false, false);
+        UIController.main.CloseWindow(true);
+    }
+    public virtual bool ClosePuzzle()
+    {
+        if (UIController.main.dialogueController.IsInDialogueMode())
+            return false;
+        gameObject.SetActive(false);
+        return true;
     }
     public virtual bool WasSolved()
     {

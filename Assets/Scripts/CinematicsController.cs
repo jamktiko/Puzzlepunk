@@ -64,11 +64,11 @@ public class CinematicsController : MonoBehaviour
         OnStart.Invoke();
     }
 
-    public void SetPlayerInvisible()
+    public void ChangePlayerVisibility(bool value)
     {
         if (PlayerCinematicController.main != null)
         {
-            PlayerCinematicController.main.SetCinematicMode(true, true);
+            PlayerCinematicController.main.SetCinematicMode(true, value);
         }
     }
 
