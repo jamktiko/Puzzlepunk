@@ -518,7 +518,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1080718524143219564}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2000,8 +2000,7 @@ MonoBehaviour:
   SpriteSelected: {fileID: 629332665, guid: 16af2eb8c1de11947ae0e33c7bed0220, type: 3}
   SpriteDeselected: {fileID: 183568123, guid: 075bf1849410c7b40ac010389fd1f542, type: 3}
   RobotBorders: {fileID: 1080718525042658332}
-  RobotIcon: {fileID: 0}
-  RobotPaint: {fileID: 0}
+  RobotIcon: {fileID: 1080718525092326992}
   RobotButton: {fileID: 1080718525042658333}
   buttonLabel: {fileID: 1080718525581882456}
 --- !u!1 &1080718525061936282
@@ -2295,8 +2294,7 @@ MonoBehaviour:
   SpriteSelected: {fileID: 629332665, guid: 16af2eb8c1de11947ae0e33c7bed0220, type: 3}
   SpriteDeselected: {fileID: 183568123, guid: 075bf1849410c7b40ac010389fd1f542, type: 3}
   RobotBorders: {fileID: 1080718525136062842}
-  RobotIcon: {fileID: 0}
-  RobotPaint: {fileID: 0}
+  RobotIcon: {fileID: 1080718524325472491}
   RobotButton: {fileID: 1080718525136062840}
   buttonLabel: {fileID: 1080718525774203723}
 --- !u!1 &1080718525245376759
@@ -2802,8 +2800,7 @@ MonoBehaviour:
   SpriteSelected: {fileID: 629332665, guid: 16af2eb8c1de11947ae0e33c7bed0220, type: 3}
   SpriteDeselected: {fileID: 183568123, guid: 075bf1849410c7b40ac010389fd1f542, type: 3}
   RobotBorders: {fileID: 1080718525505352536}
-  RobotIcon: {fileID: 0}
-  RobotPaint: {fileID: 0}
+  RobotIcon: {fileID: 1080718525061936280}
   RobotButton: {fileID: 1080718525505352537}
   buttonLabel: {fileID: 1080718524034072507}
 --- !u!1 &1080718525520017240
@@ -3119,8 +3116,7 @@ MonoBehaviour:
   SpriteSelected: {fileID: 629332665, guid: 16af2eb8c1de11947ae0e33c7bed0220, type: 3}
   SpriteDeselected: {fileID: 183568123, guid: 075bf1849410c7b40ac010389fd1f542, type: 3}
   RobotBorders: {fileID: 1080718525735731804}
-  RobotIcon: {fileID: 0}
-  RobotPaint: {fileID: 0}
+  RobotIcon: {fileID: 1080718524608383758}
   RobotButton: {fileID: 1080718525735731805}
   buttonLabel: {fileID: 1080718525245376757}
 --- !u!1 &1080718525774203725
@@ -4540,6 +4536,22 @@ PrefabInstance:
     - target: {fileID: 5537685455169308860, guid: 2f31102b48a632741a3bc8a5c095ad19, type: 3}
       propertyPath: buttonLabel
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940339996667521801, guid: 2f31102b48a632741a3bc8a5c095ad19, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940339996667521801, guid: 2f31102b48a632741a3bc8a5c095ad19, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940339996667521801, guid: 2f31102b48a632741a3bc8a5c095ad19, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940339996667521801, guid: 2f31102b48a632741a3bc8a5c095ad19, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: 6940339998093111465, guid: 2f31102b48a632741a3bc8a5c095ad19, type: 3}
       propertyPath: m_Name
