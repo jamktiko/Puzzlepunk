@@ -7,6 +7,9 @@ public class ButtonPawn : PuzzlePiece
     public int RequiresCommandID = -1;
     public Color ColorHighlighted = Color.white;
     public Color ColorPressed = Color.black;
+
+    RobotPawn myRobot;
+
     public override void TieToPuzzle(PuzzleController parent)
     {
         base.TieToPuzzle(parent);
@@ -33,7 +36,8 @@ public class ButtonPawn : PuzzlePiece
     {
         if (collision.TryGetComponent(out RobotPawn robot))
         {
-            if (RequiresCommandID == -1 || RequiresCommandID == robot.CommandID)
+            myRobot = robot;
+            if (RequiresCommandID < 0 || RequiresCommandID == robot.CommandID)
             SetPressed( true);
         }
     }
@@ -41,7 +45,11 @@ public class ButtonPawn : PuzzlePiece
     {
         if (collision.TryGetComponent(out RobotPawn robot))
         {
-            SetPressed( false);
+            if (robot == myRobot)
+            {
+                myRobot = null;
+                SetPressed(false);
+            }
         }
     }
 }
