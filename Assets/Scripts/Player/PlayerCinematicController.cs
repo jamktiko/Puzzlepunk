@@ -35,4 +35,8 @@ public class PlayerCinematicController : MonoBehaviour
     {
         return CinematicMode;
     }
+    public bool IsInInvisibeMode()
+    {
+        return gameObject.activeSelf;
+    }
 }

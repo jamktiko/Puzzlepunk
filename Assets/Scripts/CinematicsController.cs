@@ -18,12 +18,14 @@ public class CinematicsController : MonoBehaviour
 
     public bool PlayOnce = false;
     public bool MakePlayerInvisible = false;
+    public bool CanOverlap = false;
     public PlayableDirector Director;
 
     public UnityEvent OnStart;
     public UnityEvent OnFinish;
 
     bool hasPlayed = false;
+    
 
     private void Awake()
     {
@@ -48,6 +50,8 @@ public class CinematicsController : MonoBehaviour
     public void StartCinematic()
     {
         if (hasPlayed && PlayOnce)
+            return;
+        if (!CanOverlap && PlayerCinematicController.main != null && PlayerCinematicController.main.IsInCinematicMode())
             return;
         active = this;
         if (Director!=null)

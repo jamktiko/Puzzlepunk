@@ -48,8 +48,7 @@ public class PlayerTransitionController : MonoBehaviour
 
         if (skipCoroutine)
         {
-            MovePlayerToNewRoom(newRoom, pointPosition);
-            PlayerMovement.main.SetOrientation(endOrientation);
+            MovePlayerToNewRoom(newRoom, pointPosition, endOrientation);
             return;
         }
         else if (newRoom == CurrentRoom)
@@ -68,15 +67,14 @@ public class PlayerTransitionController : MonoBehaviour
             UIController.main.TransitionScreen.StopAllCoroutines();
             yield return UIController.main.TransitionScreen.AwaitTransitionIn(ScreenTransitionTime);
         }
-        MovePlayerToNewRoom(newRoom, pointPosition);
-        PlayerMovement.main.SetOrientation(endOrientation);
+        MovePlayerToNewRoom(newRoom, pointPosition,endOrientation);
         if (UIController.main.TransitionScreen != null)
         {
             yield return UIController.main.TransitionScreen.AwaitTransitionOut(ScreenTransitionTime);
         }
         PlayerCinematicController.main.SetCinematicMode(false, false);
     }
-    void MovePlayerToNewRoom(RoomComponent newRoom, Vector2 pointPosition)
+    void MovePlayerToNewRoom(RoomComponent newRoom, Vector2 pointPosition, PlayerMovement.Orientation endOrientation)
     {
         if (CurrentRoom != null)
             CurrentRoom.gameObject.SetActive(false);
@@ -95,5 +93,7 @@ public class PlayerTransitionController : MonoBehaviour
         if (CurrentRoom.bounds != null)
             CameraController.main.SetBounds(CurrentRoom.bounds);
         CurrentRoom.gameObject.SetActive(true);
+
+        PlayerMovement.main.SetOrientation(endOrientation);
     }
 }

@@ -124,12 +124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62be90b8399320459250ddcc604d116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CheckTag: 
+  CheckTag: Player
   TriggerOnce: 0
   onStay:
-    m_PersistentCalls:
-      m_Calls: []
-  onEnter:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3291646714442111571}
@@ -144,6 +141,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onEnter:
+    m_PersistentCalls:
+      m_Calls: []
   onExit:
     m_PersistentCalls:
       m_Calls: []
@@ -162,7 +162,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8043708064135141943
 Transform:
   m_ObjectHideFlags: 0
@@ -896,8 +896,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navPoint: {fileID: 0}
-  instant: 0
-  SetOrientation: 2
+  instant: 1
+  SetOrientation: 1
 --- !u!114 &617670431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -927,6 +927,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayOnce: 1
   MakePlayerInvisible: 1
+  CanOverlap: 0
   Director: {fileID: 869019533258519030}
   OnStart:
     m_PersistentCalls:

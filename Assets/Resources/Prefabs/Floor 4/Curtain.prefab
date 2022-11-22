@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1720564026462869144}
   - component: {fileID: 4718641201386454075}
   - component: {fileID: 2607623188371342963}
-  - component: {fileID: 4921929279209099404}
+  - component: {fileID: 5249331942817293237}
   m_Layer: 0
   m_Name: Curtain
   m_TagString: Obstacle
@@ -114,7 +114,7 @@ MonoBehaviour:
   - {x: 0.645, y: -0.26524526, z: 0}
   m_ShapePathHash: 1253697061
   m_Mesh: {fileID: 0}
-  m_InstanceId: -76954
+  m_InstanceId: -174302
 --- !u!61 &4718641201386454075
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -156,9 +156,9 @@ MonoBehaviour:
   uEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4921929279209099404}
-        m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
-        m_MethodName: Play
+      - m_Target: {fileID: 5249331942817293237}
+        m_TargetAssemblyTypeName: PointTransition, Assembly-CSharp
+        m_MethodName: MovePlayerToPoint
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -169,7 +169,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   SingleUse: 0
---- !u!114 &4921929279209099404
+--- !u!114 &5249331942817293237
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,9 +178,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3469940141893902612}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0f85e1feb1060e4cbee02e9900a0acb, type: 3}
+  m_Script: {fileID: 11500000, guid: 0adb8f3d63d130d418bc32f6e6ee417c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayOnStart: 0
-  OnlyTriggerOnce: 0
-  CutsceneScript: {fileID: 0}
+  navPoint: {fileID: 0}
+  instant: 0
+  SetOrientation: 1

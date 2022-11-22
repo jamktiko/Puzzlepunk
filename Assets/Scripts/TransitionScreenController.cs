@@ -27,7 +27,14 @@ public class TransitionScreenController : MonoBehaviour
     }
     public IEnumerator AwaitTransitionIn(float dur)
     {
-        yield return StartCoroutine(FadeIn(dur));
+        if (PlayerCinematicController.main != null && PlayerCinematicController.main.IsInInvisibeMode())
+        {
+            yield return StartCoroutine(FadeIn(0));
+        }
+        else
+        {
+            yield return StartCoroutine(FadeIn(dur));
+        }
     }
     public IEnumerator FadeIn(float dur)
     {
@@ -49,7 +56,14 @@ public class TransitionScreenController : MonoBehaviour
     }
     public IEnumerator AwaitTransitionOut(float dur)
     {
-        yield return StartCoroutine(FadeOut(dur));
+        if (PlayerCinematicController.main != null && PlayerCinematicController.main.IsInInvisibeMode())
+        {
+            yield return StartCoroutine(FadeOut(0));
+        }
+        else
+        {
+            yield return StartCoroutine(FadeOut(dur));
+        }
     }
     public IEnumerator FadeOut(float dur)
     {
