@@ -32,7 +32,7 @@ public class IconUI : MonoBehaviour
             bool RobotExists = iI < puzzle.RobotCommands.Length && puzzle.RobotCommands[iI]!=null;
             if (RobotExists)
             {
-                RobotButtons[iI].ChangeIcon(puzzle.RobotCommands[iI].icon);
+                RobotButtons[iI].ChangeIcon(puzzle.RobotCommands[iI].color);
             }
             RobotButtons[iI].gameObject.SetActive(RobotExists);
         }

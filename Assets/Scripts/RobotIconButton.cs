@@ -10,13 +10,13 @@ public class RobotIconButton : MonoBehaviour
     public Sprite SpriteDeselected;
 
     public Image RobotBorders;
-    public Image RobotIcons;
+    public Image RobotIcon;
     public Button RobotButton;
     public TextMeshProUGUI buttonLabel;
 
-    public void ChangeIcon(Sprite Icon)
+    public void ChangeIcon(Color col)
     {
-        RobotIcons.sprite = Icon;
+        RobotIcon.color = col;
     }
     public void SetSelected(bool state)
     {
