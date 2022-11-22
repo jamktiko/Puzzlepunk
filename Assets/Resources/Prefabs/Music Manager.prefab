@@ -18,6 +18,9 @@ GameObject:
   - component: {fileID: 8136258936295416311}
   - component: {fileID: -8969774399389054593}
   - component: {fileID: -3741928342916579946}
+  - component: {fileID: 7421629135278198092}
+  - component: {fileID: 2766679575969362150}
+  - component: {fileID: 1505293298812763263}
   m_Layer: 0
   m_Name: Music Manager
   m_TagString: Untagged
@@ -366,3 +369,45 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7421629135278198092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273987555943817447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d3fafbe4983e547a0e6d2f86eac994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerPrefSlot: Master
+  AudioGroup: {fileID: 24100000, guid: 5a8e1ebea2e579d4fad69bce6938eced, type: 2}
+--- !u!114 &2766679575969362150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273987555943817447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d3fafbe4983e547a0e6d2f86eac994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerPrefSlot: Effects
+  AudioGroup: {fileID: 24100000, guid: 5a8e1ebea2e579d4fad69bce6938eced, type: 2}
+--- !u!114 &1505293298812763263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273987555943817447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d3fafbe4983e547a0e6d2f86eac994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerPrefSlot: Music
+  AudioGroup: {fileID: 24100000, guid: 5a8e1ebea2e579d4fad69bce6938eced, type: 2}

@@ -17,7 +17,8 @@ public class RobotPuzzleController : PuzzleController
 
     protected override void InitSolution()
     {
-        mGrid = GetComponentInChildren<GridNav>();
+        if (mGrid==null)
+            mGrid = GetComponentInChildren<GridNav>();
 
         Objectives = GetComponentsInChildren<ButtonPawn>();
         Robots = GetComponentsInChildren<RobotPawn>();//Todo nullchecks

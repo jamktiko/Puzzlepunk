@@ -89,6 +89,11 @@ public class DialogueUIController : MonoBehaviour
         skipPercent = 0;
         mDialogue = Script;
         quote = 0;
+        if (PlayerAnimations.main != null)
+        {
+            PlayerAnimations.main.SetWalking(false);
+            PlayerAnimations.main.SetCurious(false);
+        }
         while (quote < mDialogue.Dialogue.Length)
         {
             if (Script.Dialogue[quote] != null)
