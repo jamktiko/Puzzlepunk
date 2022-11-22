@@ -31,6 +31,8 @@ public class RobotPawn : PuzzlePiece
             movement.MovementSpeed = 1f / rpc.StepTime;
             OriginalNode = rpc.mGrid.GetNodeAt(rpc.mGrid.TranslateCoordinate(transform.position));
         }
+        if (paint != null)
+            paint.color = robotColor;
         puzzleParent = parent;
         InitOrders();
        // OnReset(true);
