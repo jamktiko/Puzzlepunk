@@ -158,7 +158,18 @@ MonoBehaviour:
   CutsceneScript: {fileID: 11400000, guid: 414a9767e3550a0469190fcc823846e9, type: 2}
   options:
   - Conditions:
-    - variableName: Floor3Complete
+    - variableName: floor3_keycard
+      value: 1
+      change: 0
+    - variableName: BelamyTalk
+      value: 0
+      change: 0
+    Cutscene: {fileID: 11400000, guid: 44f80d0f1ca0c2e43abc2f27594162ae, type: 2}
+  - Conditions:
+    - variableName: BelamyTalk
+      value: 1
+      change: 0
+    - variableName: floor3_keycard
       value: 1
       change: 0
     Cutscene: {fileID: 11400000, guid: 020e74ca714f0d64d8ac7ec66716c503, type: 2}
