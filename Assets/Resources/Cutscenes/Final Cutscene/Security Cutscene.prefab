@@ -804,6 +804,21 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 0}
+--- !u!114 &6615690804819095312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6615690805257032288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0adb8f3d63d130d418bc32f6e6ee417c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navPoint: {fileID: 0}
+  instant: 1
+  SetOrientation: 1
 --- !u!114 &8210023536721515946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -850,21 +865,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6615690804819095312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6615690805257032288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0adb8f3d63d130d418bc32f6e6ee417c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  navPoint: {fileID: 0}
-  instant: 0
-  SetOrientation: 1
 --- !u!114 &6615690805257032290 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 150129739326989036, guid: 1738be39a2af1b8439a23722d558bb35, type: 3}
