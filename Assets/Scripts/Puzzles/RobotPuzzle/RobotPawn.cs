@@ -17,13 +17,20 @@ public class RobotPawn : PuzzlePiece
     public SpriteRenderer paint;
     public GridNav.Node OriginalNode;
 
+    private void Init()
+    {
+        if (movement==null)
+        movement = GetComponent<MovementComponent>();
+        if (anim==null)
+        anim = GetComponent<Animator>();
+    }
     private void Awake()
     {
-        movement = GetComponent<MovementComponent>();
-        anim = GetComponent<Animator>();
+        Init();
     }
     public override void TieToPuzzle(PuzzleController parent)
     {
+        Init();
         if ((RobotPuzzleController)parent != null)
         {
             RobotPuzzleController rpc = (RobotPuzzleController)parent;

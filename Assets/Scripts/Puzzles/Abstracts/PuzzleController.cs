@@ -18,11 +18,14 @@ public abstract class PuzzleController : MonoBehaviour
     public PuzzlePiece[] Pieces;
     private void Awake()
     {
+        Pieces = GetComponentsInChildren<PuzzlePiece>();
+    }
+    private void Start()
+    {
         InitSolution();
     }
     protected virtual void InitSolution()
     {
-        Pieces = GetComponentsInChildren<PuzzlePiece>();
         foreach (PuzzlePiece piece in Pieces)
         {
             piece.TieToPuzzle(this);

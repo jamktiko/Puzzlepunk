@@ -268,6 +268,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3395966990551557735}
     m_Modifications:
+    - target: {fileID: 3082563466363724442, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
+      propertyPath: onPress.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3082563466363724442, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
+      propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3082563466363724442, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
+      propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 3395966990634436644}
+    - target: {fileID: 3082563466363724442, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
+      propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3082563466363724442, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
+      propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 3082563466363724442, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
+      propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3082563466363724442, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
+      propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3658067977968308909, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -361,6 +389,11 @@ PrefabInstance:
 --- !u!224 &166434534 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3658067977968308909, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
+  m_PrefabInstance: {fileID: 3658067978100130891}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3395966990634436644 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2154115410890591343, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
   m_PrefabInstance: {fileID: 3658067978100130891}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4621808176946961748
@@ -973,6 +1006,10 @@ PrefabInstance:
     - target: {fileID: 6243373801804151770, guid: 1b3d6b42aff2d174ab52a776e2f7f8b2, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -19.9388
+      objectReference: {fileID: 0}
+    - target: {fileID: 6243373802436617814, guid: 1b3d6b42aff2d174ab52a776e2f7f8b2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 110.94873
       objectReference: {fileID: 0}
     - target: {fileID: 6293062407338102908, guid: 1b3d6b42aff2d174ab52a776e2f7f8b2, type: 3}
       propertyPath: m_text
