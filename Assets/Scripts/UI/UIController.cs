@@ -44,8 +44,6 @@ public class UIController : MonoBehaviour
         if (robotController != null)
             robotController.gameObject.SetActive(nWindow == UIWindow.robot);
 
-        if (inGameOverlay != null && PlayerCinematicController.main!=null)
-            inGameOverlay.SetActive(!PlayerCinematicController.main.IsInCinematicMode());
         if (nWindow != UIWindow.none && CinematicsController.active!=null)
         {
             CinematicsController.active.SetPlayMode( CinematicsController.PlayMode.pause);
@@ -64,5 +62,8 @@ public class UIController : MonoBehaviour
             CinematicsController.active.SetPlayMode( CinematicsController.PlayMode.playing);
         }
     }
-
+    public void ToggleHelpOverlay(bool value)
+    {
+            inGameOverlay.SetActive(value);
+    }
 }
