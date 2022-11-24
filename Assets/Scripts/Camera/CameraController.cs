@@ -45,7 +45,14 @@ public class CameraController : MonoBehaviour
         {
             center.y = Mathf.Clamp(center.y, rBounds.yMin + height, rBounds.yMax - height);
         }
-        transform.position = center;
+        transform.position = GridSnap(center);
+    }
+    Vector3 GridSnap(Vector3 main)
+    {
+        float scaleVal = 100;
+        main.x = Mathf.Round(main.x * scaleVal) / scaleVal;
+        main.y = Mathf.Round(main.y * scaleVal) / scaleVal;
+        return main;
     }
     float width = 0;
     float height = 0;
