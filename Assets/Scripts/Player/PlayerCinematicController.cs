@@ -30,6 +30,9 @@ public class PlayerCinematicController : MonoBehaviour
 
         PlayerAnimations.main.SetWalking(false);
         PlayerAnimations.main.SetCurious(false);
+
+        if (UIController.main != null)
+            UIController.main.ToggleHelpOverlay(!toValue);
     }
     public bool IsInCinematicMode()
     {
