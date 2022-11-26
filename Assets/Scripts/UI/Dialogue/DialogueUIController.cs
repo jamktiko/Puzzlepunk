@@ -55,7 +55,7 @@ public class DialogueUIController : MonoBehaviour
         {
             if (Skipping)
             {
-                skipPercent += Time.deltaTime;
+                skipPercent += Time.deltaTime * 2;
                 if (skipText!=null)
                 skipText.color = new Color(1, 1, 1, skipPercent);
             }
@@ -94,7 +94,7 @@ public class DialogueUIController : MonoBehaviour
             PlayerAnimations.main.SetWalking(false);
             PlayerAnimations.main.SetCurious(false);
         }
-        while (quote < mDialogue.Dialogue.Length)
+        while (quote < mDialogue?.Dialogue?.Length)
         {
             if (Script.Dialogue[quote] != null)
             {

@@ -59,9 +59,17 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 30188629923075806, guid: bde9c49c7d3f73d40a463cb888aa836b, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 30188629923075806, guid: bde9c49c7d3f73d40a463cb888aa836b, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 30188629923075807, guid: bde9c49c7d3f73d40a463cb888aa836b, type: 3}
       propertyPath: m_Name
-      value: Coffee cup
+      value: Coffee cup Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2456085013318153440, guid: bde9c49c7d3f73d40a463cb888aa836b, type: 3}
       propertyPath: m_InitialState
@@ -378,6 +386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayOnce: 1
   MakePlayerInvisible: 0
+  CanOverlap: 0
   Director: {fileID: 8706787094646933994}
   OnStart:
     m_PersistentCalls:

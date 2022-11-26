@@ -22,8 +22,8 @@ public class DigitPuzzleController : PuzzleController
     }
     public override bool WasSolved()
     {
-        if (base.WasSolved())
-            return true;
+        if (numbers == null) return false;
+        if (base.WasSolved())            return true;
         int checksolution = 0;
         for (int iDigit = 0; iDigit < numbers.Length; iDigit++)
         {

@@ -24,6 +24,11 @@ public class IconUI : MonoBehaviour
             iC++;
         }
     }
+    public void CycleSelection(bool back)
+    {
+        UIController.main.robotController.myPuzzle.CycleSelection(back ? -1 : 1);
+        OnSelectionChanged();
+    }
     public void OnPuzzleStart()
     {
         RobotPuzzleController puzzle = UIController.main.robotController.myPuzzle;

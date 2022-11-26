@@ -23,12 +23,12 @@ public class CoinPuzzleController : PuzzleController
             r.TieToPuzzle(this);
         */
 
-        base.InitSolution();
-
         List<CoinController> important = new List<CoinController>();
         important.AddRange(coins);
         important.RemoveAll((CoinController C) => { return !C.IsImportant; });
         objectivecoins = important.ToArray();
+
+        base.InitSolution();
     }
     public void TrySwapCoin(CoinController othercoin)
     {

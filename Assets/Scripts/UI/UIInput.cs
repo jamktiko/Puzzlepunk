@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 
 public class UIInput : MonoBehaviour
 {
+    public bool GamepadOnly = false;
     public InputActionReference action;
     public UnityEvent onPress;
     public UnityEvent onHold;
@@ -18,13 +19,16 @@ public class UIInput : MonoBehaviour
     private void Awake()
     {
         fPress = _ => {
-            if (onPress != null) onPress.Invoke();
+            if (!GamepadOnly || IsControllerConnected())
+                if (onPress != null) onPress.Invoke();
         };
         fHold = _ => {
-            if (onHold != null) onHold.Invoke();
+            if (!GamepadOnly || IsControllerConnected())
+                if (onHold != null) onHold.Invoke();
         };
         fRelease = _ => {
-            if (onRelease != null) onRelease.Invoke();
+            if (!GamepadOnly || IsControllerConnected())
+                if (onRelease != null) onRelease.Invoke();
         };
         onRelease.Invoke();
     }
@@ -45,5 +49,20 @@ public class UIInput : MonoBehaviour
             action.action.started -= fHold;
             action.action.canceled -= fRelease;
         }
+    }
+    bool IsControllerConnected()
+    {
+        foreach (PlayerInput control in PlayerInput.all)
+        {
+            switch (control.currentControlScheme)
+            {
+                case "Gamepad":
+                    return true;
+                default:
+                    continue;
+
+            }
+        }
+        return false;
     }
 }

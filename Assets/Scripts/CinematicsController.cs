@@ -13,7 +13,7 @@ public class CinematicsController : MonoBehaviour
         stopped = -1,
         pause = 0,
         playing = 1,
-        fast = 2
+        fast = 4
     }
 
     public bool PlayOnce = false;

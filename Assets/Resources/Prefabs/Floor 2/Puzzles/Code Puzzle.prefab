@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 1397508749483729641}
   - component: {fileID: 1397508749483729642}
   - component: {fileID: 1397508749483729643}
+  - component: {fileID: 5021003266057572475}
   m_Layer: 5
   m_Name: Close
   m_TagString: Untagged
@@ -269,6 +270,40 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5021003266057572475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397508749483729645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e341a8a6cab33154296d947810606f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: {fileID: -7254457006478871038, guid: 9b63f004cd798fa4fa0ebb0269e56aba, type: 3}
+  onPress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1397508750630774281}
+        m_TargetAssemblyTypeName: PuzzleController, Assembly-CSharp
+        m_MethodName: EndPuzzle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHold:
+    m_PersistentCalls:
+      m_Calls: []
+  onRelease:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1397508750088656898
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,7 +402,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1397508750630774282
 RectTransform:
   m_ObjectHideFlags: 0
@@ -629,6 +664,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1397508750630774282}
     m_Modifications:
+    - target: {fileID: 873527360505080414, guid: 3ef9e990769fd6749af664fe40039777, type: 3}
+      propertyPath: puzzleParent
+      value: 
+      objectReference: {fileID: 1397508750630774281}
+    - target: {fileID: 873527360877078652, guid: 3ef9e990769fd6749af664fe40039777, type: 3}
+      propertyPath: puzzleParent
+      value: 
+      objectReference: {fileID: 1397508750630774281}
+    - target: {fileID: 873527360971630499, guid: 3ef9e990769fd6749af664fe40039777, type: 3}
+      propertyPath: puzzleParent
+      value: 
+      objectReference: {fileID: 1397508750630774281}
+    - target: {fileID: 873527361293100481, guid: 3ef9e990769fd6749af664fe40039777, type: 3}
+      propertyPath: puzzleParent
+      value: 
+      objectReference: {fileID: 1397508750630774281}
+    - target: {fileID: 873527361823929255, guid: 3ef9e990769fd6749af664fe40039777, type: 3}
+      propertyPath: puzzleParent
+      value: 
+      objectReference: {fileID: 1397508750630774281}
+    - target: {fileID: 873527362168381629, guid: 3ef9e990769fd6749af664fe40039777, type: 3}
+      propertyPath: puzzleParent
+      value: 
+      objectReference: {fileID: 1397508750630774281}
     - target: {fileID: 3111580733930689817, guid: 3ef9e990769fd6749af664fe40039777, type: 3}
       propertyPath: m_Type
       value: 1
@@ -732,6 +791,26 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3111580733930689818, guid: 3ef9e990769fd6749af664fe40039777, type: 3}
   m_PrefabInstance: {fileID: 4056191840122635592}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4449782001800334602 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 399327073050904642, guid: 3ef9e990769fd6749af664fe40039777, type: 3}
+  m_PrefabInstance: {fileID: 4056191840122635592}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1337936602619067140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4449782001800334602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5978bfe79aee4d241bc3103a91b0f2f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myButton: {fileID: 0}
+  SelectOnEnable: 1
+  SelectButton: {fileID: -3269493122909547105, guid: 9b63f004cd798fa4fa0ebb0269e56aba, type: 3}
 --- !u!1001 &5204533874006628581
 PrefabInstance:
   m_ObjectHideFlags: 0

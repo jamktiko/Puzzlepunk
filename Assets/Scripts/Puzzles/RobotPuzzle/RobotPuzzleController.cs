@@ -57,6 +57,19 @@ public class RobotPuzzleController : PuzzleController
     }
     #region Selection
     public int Selection = 0;
+    public void CycleSelection(int dir)
+    {
+        int sel = (Selection + dir) % RobotCommands.Length;
+        if (sel < 0) sel += RobotCommands.Length;
+
+        while (RobotCommands[sel] == null)
+        {
+            sel = (sel + dir) % RobotCommands.Length;
+            if (sel < 0) sel += RobotCommands.Length;
+        }
+
+        ChangeSelection(sel);
+    }
     public void ChangeSelection(int sel)
     {
         Selection = sel;

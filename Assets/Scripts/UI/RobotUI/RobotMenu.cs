@@ -31,9 +31,15 @@ public class RobotMenu : MonoBehaviour
     }
     public void OnBackSpace()
     {
-        if (myPuzzle.IsPlaying()) return;
-        myPuzzle.GetSelectedRobot().ClearLastOrder();
-        ResetOrderUI();
+        if (myPuzzle.IsPlaying())
+        {
+            OnReset(false);
+        }
+        else
+        {
+            myPuzzle.GetSelectedRobot().ClearLastOrder();
+            ResetOrderUI();
+        }
     }
     public bool IsPuzzleMode()
     {
