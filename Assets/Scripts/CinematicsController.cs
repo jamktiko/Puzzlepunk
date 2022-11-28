@@ -79,12 +79,12 @@ public class CinematicsController : MonoBehaviour
     void EndCinematic(PlayableDirector aDirector)
     {
         hasPlayed = true;
-        OnFinish.Invoke();
-        SetPlayMode(PlayMode.stopped);
         if (PlayerCinematicController.main != null)
         {
             PlayerCinematicController.main.SetCinematicMode(false, false);
         }
+        OnFinish.Invoke();
+        SetPlayMode(PlayMode.stopped);
         if (active == this)
             active = null;
     }

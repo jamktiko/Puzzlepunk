@@ -33,12 +33,15 @@ public class LevelMusicController : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         audioSource.Stop();
-        audioSource.clip = nMusic; 
-        audioSource.Play();
-        for (float fadeIn = 0; fadeIn < duration; fadeIn+=Time.deltaTime)
+        if (nMusic != null)
         {
-            audioSource.volume = startVolume * fadeIn / duration;
-            yield return new WaitForEndOfFrame();
+            audioSource.clip = nMusic;
+            audioSource.Play();
+            for (float fadeIn = 0; fadeIn < duration; fadeIn += Time.deltaTime)
+            {
+                audioSource.volume = startVolume * fadeIn / duration;
+                yield return new WaitForEndOfFrame();
+            }
         }
         audioSource.volume = startVolume;
     }
