@@ -343,6 +343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayOnce: 1
+  PlayOnStart: 0
   MakePlayerInvisible: 1
   CanOverlap: 1
   Director: {fileID: 3432268678322981016}
@@ -655,6 +656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayOnce: 1
+  PlayOnStart: 0
   MakePlayerInvisible: 1
   CanOverlap: 0
   Director: {fileID: 0}
@@ -963,6 +965,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5680101860089684271, guid: 82f4d4d3f1e682d4fb8421e342c14a30, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680101860089684271, guid: 82f4d4d3f1e682d4fb8421e342c14a30, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82f4d4d3f1e682d4fb8421e342c14a30, type: 3}
 --- !u!82 &3432268679108340384 stripped
@@ -994,15 +1004,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 812336440359088901, guid: 48c4cdafd2dc6a14389f0fab50bac4b7, type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 812336440359088901, guid: 48c4cdafd2dc6a14389f0fab50bac4b7, type: 3}
       propertyPath: m_SortingOrder
-      value: 60
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 812336440359088901, guid: 48c4cdafd2dc6a14389f0fab50bac4b7, type: 3}
       propertyPath: m_SortingLayerID
-      value: -1445981883
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 812336440359088901, guid: 48c4cdafd2dc6a14389f0fab50bac4b7, type: 3}
       propertyPath: m_Materials.Array.data[0]
