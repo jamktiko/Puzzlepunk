@@ -46,7 +46,7 @@ public class RobotPuzzleController : PuzzleController
     protected override void OnExitPuzzle()
     {
         base.OnExitPuzzle();
-        EndPuzzle();
+        StopSolution();
         if (cambounds != null)
             CameraController.main.SetBounds(PlayerTransitionController.main.CurrentRoom.bounds);
     }
@@ -90,7 +90,7 @@ public class RobotPuzzleController : PuzzleController
     bool PuzzleFailed = false;
     public void PlaySolution()
     {
-        EndPuzzle();
+        StopSolution();
         PlayCoroutine = StartCoroutine(PuzzleCoroutine());
     }
     Coroutine PlayCoroutine;
@@ -116,7 +116,14 @@ public class RobotPuzzleController : PuzzleController
             yield return new WaitForSeconds(StepTime);
             OnReset(false);
         }
-        EndPuzzle();
+        else
+        {
+            foreach (RobotPawn robot in Robots)
+            {
+                robot.SetSelected(false);
+            }
+        }
+        StopSolution();
     }
     IEnumerator Step()
     {
@@ -148,7 +155,7 @@ public class RobotPuzzleController : PuzzleController
     {
         return PlayCoroutine != null;
     }
-    public override void EndPuzzle()
+    public void StopSolution()
     {
         foreach (RobotPawn robot in Robots)
         {

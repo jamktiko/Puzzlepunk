@@ -12,6 +12,8 @@ public abstract class PuzzleController : MonoBehaviour
     public bool CloseWithDialogue = false;
     public bool HardResetOnReenter = false;
     public bool ForceCinematic = true;
+    public bool EndOnSolve = false;
+    public bool CannotReenterOnSolved = true;
 
     public UnityEvent onSolve;
 
@@ -42,6 +44,8 @@ public abstract class PuzzleController : MonoBehaviour
     }
     public void BeginPuzzle()
     {
+        if (CannotReenterOnSolved && solved)
+            return;
         gameObject.SetActive(true);
         OnEnterPuzzle();
     }
@@ -81,6 +85,8 @@ public abstract class PuzzleController : MonoBehaviour
         if (!solved && WasSolved())
         {
             solved = true;
+            if (EndOnSolve)
+                EndPuzzle();
             onSolve.Invoke();
             Debug.Log("PUZZLE " + name.ToUpper() + " SOLVED!");
         }
