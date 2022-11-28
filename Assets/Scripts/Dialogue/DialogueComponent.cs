@@ -20,9 +20,16 @@ public class DialogueComponent : MonoBehaviour
             Play();
         }
     }
+    void OnEnable()
+    {
+        if (PlayOnStart)
+        {
+            Play();
+        }
+    }
     public virtual void Play()
     {
-        UIController.main.dialogueController.PlayCutscene(CutsceneScript);
+        PlayScript(CutsceneScript);
     }
     public void PlayScript(DialogueScriptSO Script)
     {

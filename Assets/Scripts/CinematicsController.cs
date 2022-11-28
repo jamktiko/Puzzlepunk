@@ -17,6 +17,7 @@ public class CinematicsController : MonoBehaviour
     }
 
     public bool PlayOnce = false;
+    public bool PlayOnStart = false;
     public bool MakePlayerInvisible = false;
     public bool CanOverlap = false;
     public PlayableDirector Director;
@@ -33,6 +34,21 @@ public class CinematicsController : MonoBehaviour
             Director = GetComponent<PlayableDirector>();
         if (Director != null)
             Director.stopped += EndCinematic;
+    }
+
+    void Start()
+    {
+        if (PlayOnStart)
+        {
+            StartCinematic();
+        }
+    }
+    void OnEnable()
+    {
+        if (PlayOnStart)
+        {
+            StartCinematic();
+        }
     }
 
     private void Update()
@@ -52,6 +68,8 @@ public class CinematicsController : MonoBehaviour
         if (hasPlayed && PlayOnce)
             return;
         if (!CanOverlap && PlayerCinematicController.main != null && PlayerCinematicController.main.IsInCinematicMode())
+            return;
+        if (!gameObject.activeSelf || !gameObject.activeInHierarchy)
             return;
         active = this;
         if (Director!=null)

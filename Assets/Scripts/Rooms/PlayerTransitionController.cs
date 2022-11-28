@@ -72,6 +72,7 @@ public class PlayerTransitionController : MonoBehaviour
         {
             yield return UIController.main.TransitionScreen.AwaitTransitionOut(ScreenTransitionTime);
         }
+        if (CinematicsController.active == null)
         PlayerCinematicController.main.SetCinematicMode(false, false);
     }
     void MovePlayerToNewRoom(RoomComponent newRoom, Vector2 pointPosition, PlayerMovement.Orientation endOrientation)
