@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 273987555943817445}
   - component: {fileID: 273987555943817444}
   - component: {fileID: 273987556500533140}
+  - component: {fileID: 9215828415697128075}
   - component: {fileID: 336376718047970120}
   - component: {fileID: 273987556500533141}
   - component: {fileID: 7459399459596631619}
@@ -20,6 +21,7 @@ GameObject:
   - component: {fileID: -3741928342916579946}
   - component: {fileID: 4344467816999896026}
   - component: {fileID: 1774421876159051271}
+  - component: {fileID: 1477649124599810699}
   - component: {fileID: 7421629135278198092}
   - component: {fileID: 2766679575969362150}
   - component: {fileID: 1505293298812763263}
@@ -154,6 +156,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 273987555943817444}
+--- !u!114 &9215828415697128075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273987555943817447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79b18aefa036d2846b548c3b74dcc80f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Conditions:
+  - variableName: music
+    value: 0
+    change: 0
+  Action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 273987556500533140}
+        m_TargetAssemblyTypeName: LevelMusicController, Assembly-CSharp
+        m_MethodName: SmoothTransition
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &336376718047970120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,6 +460,37 @@ MonoBehaviour:
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 8300000, guid: 97d977d91fd4ace479c8266a7297e8f9, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1477649124599810699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273987555943817447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79b18aefa036d2846b548c3b74dcc80f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Conditions:
+  - variableName: music
+    value: 10
+    change: 0
+  Action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 273987556500533140}
+        m_TargetAssemblyTypeName: LevelMusicController, Assembly-CSharp
+        m_MethodName: SmoothTransition
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 7149cba5284e77548963886f7fd40bdf, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
