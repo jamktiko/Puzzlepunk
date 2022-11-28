@@ -162,7 +162,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8043708064135141943
 Transform:
   m_ObjectHideFlags: 0
@@ -204,7 +204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2061709590, guid: 82f4d4d3f1e682d4fb8421e342c14a30, type: 3}
       propertyPath: m_InstanceId
-      value: -1462
+      value: -62376
       objectReference: {fileID: 0}
     - target: {fileID: 5680101860089684267, guid: 82f4d4d3f1e682d4fb8421e342c14a30, type: 3}
       propertyPath: m_Name
@@ -931,7 +931,19 @@ MonoBehaviour:
   Director: {fileID: 869019533258519030}
   OnStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1731141532}
+        m_TargetAssemblyTypeName: VariableChangeComponent, Assembly-CSharp
+        m_MethodName: ApplyChanges
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnFinish:
     m_PersistentCalls:
       m_Calls:
@@ -959,6 +971,50 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1731141531}
+        m_TargetAssemblyTypeName: VariableChangeComponent, Assembly-CSharp
+        m_MethodName: ApplyChanges
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1731141531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3527818637061462768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d03381a847477b449a368aa0af8e9257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Changes:
+  - variableName: music
+    value: 9
+    change: 0
+--- !u!114 &1731141532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3527818637061462768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d03381a847477b449a368aa0af8e9257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Changes:
+  - variableName: music
+    value: 8
+    change: 0
 --- !u!114 &5391695728574567844 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6284260950619944924, guid: 3a1ff73cde8123844af3f0eee2f1770f, type: 3}
