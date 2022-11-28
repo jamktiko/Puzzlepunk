@@ -9,10 +9,12 @@ public class ResolutionManager : MonoBehaviour
 {
     public bool AdaptOnStart = false;
     public ResolutionsSO resolutionsSO;
+    [Header("UI Components")]
     public TMP_Dropdown dropDownComponent;
     public Toggle toggleComponent;
 
     ResolutionsSO.ResolutionSetting current;
+    bool fullScreen = true;
 
     private void Start()
     {
@@ -21,6 +23,8 @@ public class ResolutionManager : MonoBehaviour
     }
     void InitDropdownComponents()
     {
+        if (dropDownComponent == null)
+            return;
         foreach (ResolutionsSO.ResolutionSetting res in resolutionsSO.AvailableResolutions)
         {
             dropDownComponent.options.Add(new TMP_Dropdown.OptionData(res.name));
@@ -34,15 +38,17 @@ public class ResolutionManager : MonoBehaviour
             int width = PlayerPrefs.GetInt("ScreenWidth");
             int height = PlayerPrefs.GetInt("ScreenHeight");
 
-            for (int I = 0; I < resolutionsSO.AvailableResolutions.Length; I++)
-            {
-                if (resolutionsSO.AvailableResolutions[I].width == width && resolutionsSO.AvailableResolutions[I].height == height)
+            current = resolutionsSO.AvailableResolutions[0];
+            if (resolutionsSO.AvailableResolutions.Length > 1)
+                for (int I = 1; I < resolutionsSO.AvailableResolutions.Length; I++)
                 {
-                    current = resolutionsSO.AvailableResolutions[I];
-                    resValue = I;
+                    if (resolutionsSO.AvailableResolutions[I].width == width && resolutionsSO.AvailableResolutions[I].height == height)
+                    {
+                        current = resolutionsSO.AvailableResolutions[I];
+                        resValue = I;
+                    }
                 }
-            }
-            toggleComponent.SetIsOnWithoutNotify(PlayerPrefs.GetInt("ScreenFullscreen") == 1);
+            fullScreen = PlayerPrefs.GetInt("ScreenFullscreen") == 1;
         }
         else if (!UIonly)
         {
@@ -56,9 +62,12 @@ public class ResolutionManager : MonoBehaviour
                     resValue = I;
                 }
             }
-            toggleComponent.SetIsOnWithoutNotify(true);
+            fullScreen = true;
         }
-        dropDownComponent.SetValueWithoutNotify(resValue);
+        if (toggleComponent != null)
+            toggleComponent.SetIsOnWithoutNotify(fullScreen);
+        if (dropDownComponent != null)
+            dropDownComponent.SetValueWithoutNotify(resValue);
         if (!UIonly)
             UpdateResolution();
     }
@@ -69,10 +78,10 @@ public class ResolutionManager : MonoBehaviour
     }
     public void UpdateResolution()
     {
-        Screen.SetResolution(current.width, current.height, toggleComponent.isOn);
+        Screen.SetResolution(current.width, current.height, fullScreen);
 
         PlayerPrefs.SetInt("ScreenWidth", current.width);
         PlayerPrefs.SetInt("ScreenHeight", current.height);
-        PlayerPrefs.SetInt("ScreenFullscreen", toggleComponent.isOn ? 1 : 0);
+        PlayerPrefs.SetInt("ScreenFullscreen", fullScreen ? 1 : 0);
     }
 }
