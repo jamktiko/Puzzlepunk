@@ -130,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayOnStart: 0
   OnlyTriggerOnce: 0
-  CutsceneScript: {fileID: 11400000, guid: e2877d377ff7bc44ca68b1a569369390, type: 2}
+  CutsceneScript: {fileID: 11400000, guid: 488df34909547bf478ef4da5df99a6c6, type: 2}
 --- !u!58 &4291996214658510897
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -253,6 +253,11 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5562927095902874335, guid: 3ed29cae0debe4c49abe9c6471c4480b, type: 3}
   m_PrefabInstance: {fileID: 163118331427169827}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &5724356576932629757 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5562927095902874334, guid: 3ed29cae0debe4c49abe9c6471c4480b, type: 3}
+  m_PrefabInstance: {fileID: 163118331427169827}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5724356576932629758 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5562927095902874333, guid: 3ed29cae0debe4c49abe9c6471c4480b, type: 3}
@@ -354,6 +359,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1618004805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5724356576932629758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a5ff6924b42c1e4bb7871dae4235e62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeltaY: 0
+  AlwaysUpdate: 0
+  spriteRenderer: {fileID: 5724356576932629757}
+  deltaOrder: 0
 --- !u!4 &5724356576932629759 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5562927095902874332, guid: 3ed29cae0debe4c49abe9c6471c4480b, type: 3}
@@ -622,7 +643,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayOnce: 1
+  PlayOnStart: 0
   MakePlayerInvisible: 0
+  CanOverlap: 0
   Director: {fileID: 5724356576052242349}
   OnStart:
     m_PersistentCalls:
