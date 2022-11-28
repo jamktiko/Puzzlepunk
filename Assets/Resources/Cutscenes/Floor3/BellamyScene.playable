@@ -12,6 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde0d25a170598d46a0b9dc16b4527a5, type: 3}
   m_Name: ActivationPlayableAsset
   m_EditorClassIdentifier: 
+--- !u!114 &-6854452474626167967
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f10dd60657c6004587f237a7e90f8e4, type: 3}
+  m_Name: AudioPlayableAsset
+  m_EditorClassIdentifier: 
+  m_Clip: {fileID: 8300000, guid: 6bd13a60d633b7247bc510a2eec2015e, type: 3}
+  m_Loop: 0
+  m_bufferingTime: 0.1
+  m_ClipProperties:
+    volume: 1
 --- !u!114 &-6324522934118835741
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -341,23 +358,6 @@ MonoBehaviour:
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 6d71556add1babd4b8e88ecd9e90cd92, type: 2}
---- !u!114 &3173345649836293923
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f10dd60657c6004587f237a7e90f8e4, type: 3}
-  m_Name: AudioPlayableAsset
-  m_EditorClassIdentifier: 
-  m_Clip: {fileID: 8300000, guid: 224ca36e74d8de740b2bb418c38329f9, type: 3}
-  m_Loop: 0
-  m_bufferingTime: 0.1
-  m_ClipProperties:
-    volume: 1
 --- !u!114 &3485298318248746459
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -420,8 +420,8 @@ MonoBehaviour:
   - m_Version: 1
     m_Start: 0.9166666666666666
     m_ClipIn: 0
-    m_Asset: {fileID: 3173345649836293923}
-    m_Duration: 1.585124716553288
+    m_Asset: {fileID: -6854452474626167967}
+    m_Duration: 1.5865306122448979
     m_TimeScale: 1
     m_ParentTrack: {fileID: 6499212152638860168}
     m_EaseInDuration: 0
@@ -485,7 +485,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: bellamy_gets_up
+    m_DisplayName: Bellamy_gets_up
   m_Markers:
     m_Objects: []
   m_TrackProperties:

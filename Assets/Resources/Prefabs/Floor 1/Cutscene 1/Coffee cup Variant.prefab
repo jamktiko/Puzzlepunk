@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 30188629923075807, guid: bde9c49c7d3f73d40a463cb888aa836b, type: 3}
       propertyPath: m_Name
-      value: Coffee cup Variant
+      value: Coffee cup
       objectReference: {fileID: 0}
     - target: {fileID: 2456085013318153440, guid: bde9c49c7d3f73d40a463cb888aa836b, type: 3}
       propertyPath: m_InitialState
@@ -385,6 +385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayOnce: 1
+  PlayOnStart: 0
   MakePlayerInvisible: 0
   CanOverlap: 0
   Director: {fileID: 8706787094646933994}
@@ -444,7 +445,7 @@ MonoBehaviour:
   - {x: 0.029999971, y: -0.029999971, z: 0}
   m_ShapePathHash: 1300733077
   m_Mesh: {fileID: 0}
-  m_InstanceId: -95088
+  m_InstanceId: -15892
 --- !u!320 &8706787094646933994 stripped
 PlayableDirector:
   m_CorrespondingSourceObject: {fileID: 2456085013318153440, guid: bde9c49c7d3f73d40a463cb888aa836b, type: 3}

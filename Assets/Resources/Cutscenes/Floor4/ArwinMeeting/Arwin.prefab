@@ -162,7 +162,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4856050853763400080
 Transform:
   m_ObjectHideFlags: 0
@@ -385,7 +385,7 @@ PrefabInstance:
     - target: {fileID: 4662074209866358726, guid: db4055d665631984cad9801632f2e242, type: 3}
       propertyPath: m_SceneBindings.Array.data[4].value
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1472963042}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db4055d665631984cad9801632f2e242, type: 3}
 --- !u!1 &1731210241134356096 stripped
@@ -517,6 +517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayOnce: 1
+  PlayOnStart: 0
   MakePlayerInvisible: 0
   CanOverlap: 1
   Director: {fileID: 5789966680269518121}

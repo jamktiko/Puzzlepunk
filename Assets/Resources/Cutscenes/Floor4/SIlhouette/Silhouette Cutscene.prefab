@@ -233,11 +233,11 @@ PrefabInstance:
     - target: {fileID: 3060787831677251181, guid: ad0fb53e9a6c9fd4aac69dcf9aa06bdc, type: 3}
       propertyPath: m_SceneBindings.Array.data[7].key
       value: 
-      objectReference: {fileID: -86507051452206536, guid: df924cf14d80fd041bde60b1a61b57ce, type: 2}
+      objectReference: {fileID: 8441637094434963137, guid: df924cf14d80fd041bde60b1a61b57ce, type: 2}
     - target: {fileID: 3060787831677251181, guid: ad0fb53e9a6c9fd4aac69dcf9aa06bdc, type: 3}
       propertyPath: m_SceneBindings.Array.data[8].key
       value: 
-      objectReference: {fileID: 8441637094434963137, guid: df924cf14d80fd041bde60b1a61b57ce, type: 2}
+      objectReference: {fileID: -4449729239856082008, guid: df924cf14d80fd041bde60b1a61b57ce, type: 2}
     - target: {fileID: 3060787831677251181, guid: ad0fb53e9a6c9fd4aac69dcf9aa06bdc, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value
       value: 
@@ -255,9 +255,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 142743541}
     - target: {fileID: 3060787831677251181, guid: ad0fb53e9a6c9fd4aac69dcf9aa06bdc, type: 3}
-      propertyPath: m_SceneBindings.Array.data[8].value
+      propertyPath: m_SceneBindings.Array.data[7].value
       value: 
       objectReference: {fileID: 142743539}
+    - target: {fileID: 3060787831677251181, guid: ad0fb53e9a6c9fd4aac69dcf9aa06bdc, type: 3}
+      propertyPath: m_SceneBindings.Array.data[8].value
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7327318335588898206, guid: ad0fb53e9a6c9fd4aac69dcf9aa06bdc, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -486,6 +490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayOnce: 1
+  PlayOnStart: 0
   MakePlayerInvisible: 0
   CanOverlap: 0
   Director: {fileID: 503869306404991355}

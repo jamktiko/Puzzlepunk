@@ -52,10 +52,6 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: 7691170557758793430, guid: 5dbeb888a93b5e64581647850e74f140, type: 2}
     value: {fileID: 0}
-  - key: {fileID: 3625174812130717993, guid: 5dbeb888a93b5e64581647850e74f140, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: 165912059413395220, guid: 5dbeb888a93b5e64581647850e74f140, type: 2}
-    value: {fileID: 0}
   - key: {fileID: -6527797700291061013, guid: 5dbeb888a93b5e64581647850e74f140, type: 2}
     value: {fileID: 0}
   - key: {fileID: 7464969296407396835, guid: 5dbeb888a93b5e64581647850e74f140, type: 2}
@@ -83,6 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayOnce: 1
+  PlayOnStart: 0
   MakePlayerInvisible: 1
   CanOverlap: 0
   Director: {fileID: 652655373462520161}
