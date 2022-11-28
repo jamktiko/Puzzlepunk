@@ -69,6 +69,8 @@ public class CinematicsController : MonoBehaviour
             return;
         if (!CanOverlap && PlayerCinematicController.main != null && PlayerCinematicController.main.IsInCinematicMode())
             return;
+        if (!gameObject.activeSelf || !gameObject.activeInHierarchy)
+            return;
         active = this;
         if (Director!=null)
         {
