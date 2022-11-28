@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8230602393709154450
 Transform:
   m_ObjectHideFlags: 0
@@ -913,6 +913,22 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 0}
+--- !u!114 &1731141531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3527818637061462768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d03381a847477b449a368aa0af8e9257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Changes:
+  - variableName: music
+    value: 9
+    change: 0
 --- !u!114 &3291646714442111571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -926,8 +942,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayOnce: 1
+  PlayOnStart: 1
   MakePlayerInvisible: 1
-  CanOverlap: 0
+  CanOverlap: 1
   Director: {fileID: 869019533258519030}
   OnStart:
     m_PersistentCalls:
@@ -971,22 +988,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1731141531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3527818637061462768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d03381a847477b449a368aa0af8e9257, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Changes:
-  - variableName: music
-    value: 9
-    change: 0
 --- !u!114 &5391695728574567844 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6284260950619944924, guid: 3a1ff73cde8123844af3f0eee2f1770f, type: 3}
