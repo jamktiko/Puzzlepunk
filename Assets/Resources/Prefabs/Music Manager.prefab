@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8136258936295416311}
   - component: {fileID: -8969774399389054593}
   - component: {fileID: -3741928342916579946}
+  - component: {fileID: 4344467816999896026}
   - component: {fileID: 7421629135278198092}
   - component: {fileID: 2766679575969362150}
   - component: {fileID: 1505293298812763263}
@@ -176,7 +177,7 @@ MonoBehaviour:
         m_MethodName: SmoothTransition
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 94aa5de8dfb2e85489088970c7b239a5, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 11105fc1837be6d4c9d0e495696bf79d, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -207,7 +208,7 @@ MonoBehaviour:
         m_MethodName: SmoothTransition
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 1a97b296db8bb4c4698bb49e2217481e, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 11105fc1837be6d4c9d0e495696bf79d, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -238,7 +239,7 @@ MonoBehaviour:
         m_MethodName: SmoothTransition
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 846d964c30087e941ae52f864edefa56, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 3ef98ebaf0b970a45ae86cf7fb3b4279, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -269,7 +270,7 @@ MonoBehaviour:
         m_MethodName: SmoothTransition
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: d4901b22bf1b8ef4f86b6750bec4134c, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 18431dcf4813739489b60ef87959b733, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -300,7 +301,7 @@ MonoBehaviour:
         m_MethodName: SmoothTransition
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 244ef5047611ca1499b3fb264a616864, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 6ae18837ba727b243b065f94d7792840, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -331,7 +332,7 @@ MonoBehaviour:
         m_MethodName: SmoothTransition
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: f8ed8636577eb474da77c2153aa76194, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 3cd7dcf502a074e40ab451842acbd876, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -362,7 +363,38 @@ MonoBehaviour:
         m_MethodName: SmoothTransition
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 291d326484a22c64f91658d6d07470bb, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 11d89b8cc7513394ea8460b2b55d12ab, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4344467816999896026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273987555943817447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79b18aefa036d2846b548c3b74dcc80f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Conditions:
+  - variableName: music
+    value: 8
+    change: 0
+  Action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 273987556500533140}
+        m_TargetAssemblyTypeName: LevelMusicController, Assembly-CSharp
+        m_MethodName: SmoothTransition
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 7526cb2655c05df458053215f06e03f5, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
