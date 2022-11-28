@@ -33,6 +33,10 @@ public class LoadingScreenManager : MonoBehaviour
             UIController.main.TransitionScreen.TransitionOut(.5f);
         }
         GameController.main.StartGame();
+        foreach (var gob in  SceneManager.GetSceneByName(SceneTransitionManager.main.LoadingScene).GetRootGameObjects())
+        {
+            gob.SetActive(false);
+        }
         SceneManager.UnloadSceneAsync(SceneTransitionManager.main.LoadingScene);
         gameObject.SetActive(false);
     }
