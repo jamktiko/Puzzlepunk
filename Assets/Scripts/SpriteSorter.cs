@@ -10,11 +10,13 @@ public class SpriteSorter : MonoBehaviour, IOnMoved
     public SpriteRenderer spriteRenderer;
     public int deltaOrder = 0;
 
+    float unit = .02f;
+
     private void OnDrawGizmosSelected()
     {
         if (spriteRenderer == null) return;
             Gizmos.color = Color.gray;
-        Gizmos.DrawCube(transform.position + Vector3.up * DeltaY, new Vector3(transform.localScale.x * spriteRenderer.sprite.rect.size.x / spriteRenderer.sprite.pixelsPerUnit, .05f,.05f));
+        Gizmos.DrawCube(transform.position + Vector3.up * DeltaY, new Vector3(transform.localScale.x * spriteRenderer.sprite.rect.size.x / spriteRenderer.sprite.pixelsPerUnit, unit, unit));
     }
     private void Awake()
     {
@@ -46,6 +48,6 @@ public class SpriteSorter : MonoBehaviour, IOnMoved
     public void Sort(float delta)
     {
         if (spriteRenderer != null)
-            spriteRenderer.sortingOrder = Mathf.RoundToInt((delta) * 20f) + deltaOrder;
+            spriteRenderer.sortingOrder = Mathf.RoundToInt((delta) / unit) + deltaOrder;
     }
 }
