@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 3589332767063602525}
   - component: {fileID: 5974093079910592451}
   - component: {fileID: 6611063628175129143}
-  - component: {fileID: 2541165306712992327}
   m_Layer: 0
   m_Name: floor4_equipment_26
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,9 +144,9 @@ MonoBehaviour:
   uEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2541165306712992327}
-        m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
-        m_MethodName: Play
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CinematicsController, Assembly-CSharp
+        m_MethodName: StartCinematic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -157,19 +156,4 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  SingleUse: 0
---- !u!114 &2541165306712992327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7081024468378338107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0f85e1feb1060e4cbee02e9900a0acb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayOnStart: 0
-  OnlyTriggerOnce: 0
-  CutsceneScript: {fileID: 11400000, guid: 44f80d0f1ca0c2e43abc2f27594162ae, type: 2}
+  SingleUse: 1
