@@ -178,7 +178,7 @@ public class RobotPawn : PuzzlePiece
         Vector2Int nPoint = Vector2Int.zero;
 
         Memory memory = GetOrders();
-        if (memory == null)
+        if (memory == null || cOrder < 0 || cOrder >= memory.orders.Length)
             return nPoint;
 
         WalkDirection walkDir = memory.orders[cOrder];
@@ -221,6 +221,10 @@ public class RobotPawn : PuzzlePiece
         }
         return nPoint;
     }
+    Vector2Int PredictPosition()
+    {
+        return movement.GetGridPosition() + GetNextStepDirection();
+    }
     public void Step()
     {
         if (IsIdle())
@@ -250,10 +254,16 @@ public class RobotPawn : PuzzlePiece
 
         foreach (RobotPawn robot in ((RobotPuzzleController)puzzleParent).Robots)
         {
-            if (robot != this && robot.movement.GetGridPosition() + GetNextStepDirection() == node)
+            if (robot != this)
             {
-                SetCrashed(true);
-                return;
+                if (
+                    robot.PredictPosition() == node ||
+                    (robot.PredictPosition() == movement.GetGridPosition() && PredictPosition() == robot.movement.GetGridPosition())    //hack prevent robots from swapping positions
+                    )
+                {
+                    SetCrashed(true);
+                    return;
+                }
             }
         }
     }
