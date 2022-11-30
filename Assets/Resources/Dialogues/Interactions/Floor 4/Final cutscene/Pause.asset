@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0faf04322e76f9744b7ad398a9e40df4, type: 3}
-  m_Name: Window
+  m_Script: {fileID: 11500000, guid: f9d93de6abea4d74d85f27752f7e0185, type: 3}
+  m_Name: Pause
   m_EditorClassIdentifier: 
-  Dialogue:
-  - {fileID: 11400000, guid: a80351c70c40c534c815e76f8b7f0b1e, type: 2}
-  - {fileID: 11400000, guid: e7bd2103bda1d6f48bbf3e890603836a, type: 2}
+  HideText: 0
+  DialogueImage: {fileID: 21300000, guid: c7289accad7de244c86ee05eea57a9f8, type: 3}
+  StartColor: {r: 0, g: 0, b: 0, a: 1}
+  Duration: 2
+  FinalColor: {r: 0, g: 0, b: 0, a: 1}

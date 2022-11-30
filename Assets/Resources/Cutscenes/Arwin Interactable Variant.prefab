@@ -1,0 +1,157 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &371539302444630465
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 812336440359088901, guid: 48c4cdafd2dc6a14389f0fab50bac4b7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 188018210, guid: eb44dfbdf5416464f9ae593c17f7451a, type: 3}
+    - target: {fileID: 812336440359088901, guid: 48c4cdafd2dc6a14389f0fab50bac4b7, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 812336440359088901, guid: 48c4cdafd2dc6a14389f0fab50bac4b7, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -485980947
+      objectReference: {fileID: 0}
+    - target: {fileID: 812336440359088901, guid: 48c4cdafd2dc6a14389f0fab50bac4b7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 7062608084833403744, guid: 48c4cdafd2dc6a14389f0fab50bac4b7, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062608084833403744, guid: 48c4cdafd2dc6a14389f0fab50bac4b7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.1349991
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062608084833403744, guid: 48c4cdafd2dc6a14389f0fab50bac4b7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.212
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062608084833403744, guid: 48c4cdafd2dc6a14389f0fab50bac4b7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.019653127
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062608084833403744, guid: 48c4cdafd2dc6a14389f0fab50bac4b7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062608084833403744, guid: 48c4cdafd2dc6a14389f0fab50bac4b7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062608084833403744, guid: 48c4cdafd2dc6a14389f0fab50bac4b7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062608084833403744, guid: 48c4cdafd2dc6a14389f0fab50bac4b7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062608084833403744, guid: 48c4cdafd2dc6a14389f0fab50bac4b7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062608084833403744, guid: 48c4cdafd2dc6a14389f0fab50bac4b7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062608084833403744, guid: 48c4cdafd2dc6a14389f0fab50bac4b7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247816186952766334, guid: 48c4cdafd2dc6a14389f0fab50bac4b7, type: 3}
+      propertyPath: m_Name
+      value: Arwin Interactable Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247816186952766334, guid: 48c4cdafd2dc6a14389f0fab50bac4b7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247816186952766334, guid: 48c4cdafd2dc6a14389f0fab50bac4b7, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 48c4cdafd2dc6a14389f0fab50bac4b7, type: 3}
+--- !u!1 &7039851264077353663 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7247816186952766334, guid: 48c4cdafd2dc6a14389f0fab50bac4b7, type: 3}
+  m_PrefabInstance: {fileID: 371539302444630465}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &99190909
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7039851264077353663}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5769231}
+    oldSize: {x: 0.13, y: 0.26}
+    newSize: {x: 0.13, y: 0.26}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.3}
+  m_EdgeRadius: 0
+--- !u!114 &3943018363256986552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7039851264077353663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f85e1feb1060e4cbee02e9900a0acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayOnStart: 0
+  OnlyTriggerOnce: 0
+  CutsceneScript: {fileID: 11400000, guid: 1f04dcfdca3aa5641b74e02d1655114b, type: 2}
+--- !u!114 &8313026252018919364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7039851264077353663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afaf64b857c16542948929e4579f7ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3943018363256986552}
+        m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  SingleUse: 0
