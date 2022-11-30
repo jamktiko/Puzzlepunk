@@ -13,7 +13,11 @@ public class OrderUI : MonoBehaviour
 
     public void UpdateOrders()
     {
-        UpdateOrdersForRobot( ((RobotPuzzleController)RobotPuzzleController.main).GetSelectedRobot());  //TODO nullcheck
+        if (RobotPuzzleController.main == null)
+            return;
+
+        RobotPawn.Memory selection = ((RobotPuzzleController)RobotPuzzleController.main).GetSelectedRobot();
+        UpdateOrdersForRobot(selection);  
     }
     void UpdateOrdersForRobot(RobotPawn.Memory mRobot)
     {

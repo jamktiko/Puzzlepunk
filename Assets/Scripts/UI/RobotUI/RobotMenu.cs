@@ -25,7 +25,7 @@ public class RobotMenu : MonoBehaviour
     }
     public void OnReset(bool hard)
     {
-        myPuzzle.EndPuzzle();
+        myPuzzle.StopSolution();
         myPuzzle.OnReset(hard);
         ResetOrderUI();
     }
