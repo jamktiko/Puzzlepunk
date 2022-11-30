@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class LevelMusicController : MonoBehaviour
 {
+    public float SwitchInterval = .5f;
     public AudioSource audioSource;
 
     private void Awake()
@@ -21,7 +22,7 @@ public class LevelMusicController : MonoBehaviour
             StopCoroutine(ChangeMusicCoroutine);
             audioSource.volume = startVolume;
         }
-        ChangeMusicCoroutine = StartCoroutine(ChangeMusicTransition(1,nMusic));
+        ChangeMusicCoroutine = StartCoroutine(ChangeMusicTransition(SwitchInterval, nMusic));
     }
     float startVolume = 1f;
     public IEnumerator ChangeMusicTransition(float duration, AudioClip nMusic)
