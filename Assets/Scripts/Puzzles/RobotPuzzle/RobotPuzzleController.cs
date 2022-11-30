@@ -95,13 +95,15 @@ public class RobotPuzzleController : PuzzleController
             if (robot.GetRemainingOrders() > 0)
                 return false;
         }
-        return PlayCoroutine == null;
+        return !IsPlaying();
     }
     public void PlaySolution()
     {
-        StopSolution();
         if (CanPlaySolution())
+        {
+            StopSolution();
             PlayCoroutine = StartCoroutine(PuzzleCoroutine());
+        }
     }
     Coroutine PlayCoroutine;
     IEnumerator PuzzleCoroutine()
