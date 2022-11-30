@@ -155,6 +155,12 @@ public class RobotPawn : PuzzlePiece
             return ((RobotPuzzleController)puzzleParent).RobotCommands[CommandID];
         return null;
     }
+    public int GetRemainingOrders()
+    {
+        Memory memory = GetOrders();
+        if (memory == null || memory.orders == null) return 0;
+        return  memory.orders.Length - memory.iOrder - 1;
+    }
     public void ClearOrders()
     {
         Memory memory = GetOrders();

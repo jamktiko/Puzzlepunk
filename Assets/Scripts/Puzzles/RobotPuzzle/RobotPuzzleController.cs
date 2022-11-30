@@ -88,10 +88,20 @@ public class RobotPuzzleController : PuzzleController
     #endregion
     #region Play
     bool PuzzleFailed = false;
+    public bool CanPlaySolution()
+    {
+        foreach (RobotPawn robot in Robots)
+        {
+            if (robot.GetRemainingOrders() > 0)
+                return false;
+        }
+        return PlayCoroutine == null;
+    }
     public void PlaySolution()
     {
         StopSolution();
-        PlayCoroutine = StartCoroutine(PuzzleCoroutine());
+        if (CanPlaySolution())
+            PlayCoroutine = StartCoroutine(PuzzleCoroutine());
     }
     Coroutine PlayCoroutine;
     IEnumerator PuzzleCoroutine()
