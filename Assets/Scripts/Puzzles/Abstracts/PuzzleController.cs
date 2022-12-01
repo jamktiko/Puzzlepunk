@@ -72,7 +72,12 @@ public abstract class PuzzleController : MonoBehaviour
     public virtual bool TryShutDown()
     {
         if (UIController.main.dialogueController.IsInDialogueMode())
-            return false;
+        {
+            if (WasSolved())
+                UIController.main.dialogueController.SetSkipping(true);
+            else
+                return false;
+        }
         gameObject.SetActive(false);
         return true;
     }
