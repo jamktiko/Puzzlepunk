@@ -106,8 +106,10 @@ public class RobotPuzzleController : PuzzleController
         }
     }
     Coroutine PlayCoroutine;
+    public int cStep = 0;
     IEnumerator PuzzleCoroutine()
     {
+        cStep = 0;
         foreach (RobotPawn robot in Robots)
         {
             robot.SetMoving(true);
@@ -143,6 +145,7 @@ public class RobotPuzzleController : PuzzleController
         {
             robot.Step();
         }
+        cStep++;
         yield return new WaitForSeconds(1f);
         yield return new WaitWhile(() =>
         {

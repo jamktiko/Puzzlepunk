@@ -47,7 +47,6 @@ public class RobotPawn : PuzzlePiece
     public override void OnReset(bool hard)
     {
         if (puzzleParent == null) return;
-        cOrder = 0;
         movement.Stop();
         movement.JumpToPoint(OriginalNode);
         SetCrashed(false);
@@ -164,30 +163,35 @@ public class RobotPawn : PuzzlePiece
     public void ClearOrders()
     {
         Memory memory = GetOrders();
-        if (memory == null || memory.orders == null) return;
-        cOrder = 0;
         memory.ClearOrders();
     }
     #endregion
     #region Moving Cycle
-    int cOrder = 0;
     public bool IsMoving()
     {
         return movement.IsWalking();
     }
+    int CurrentStep()
+    {
+        if ((RobotPuzzleController)puzzleParent != null)
+        {
+            return  ((RobotPuzzleController)puzzleParent).cStep;
+        }
+        return 0;
+        }
     public bool IsIdle()
     {
-        return cOrder < MaxMoves;
+        return CurrentStep() < MaxMoves;
     }
     Vector2Int GetNextStepDirection()
     {
         Vector2Int nPoint = Vector2Int.zero;
 
         Memory memory = GetOrders();
-        if (memory == null || cOrder < 0 || cOrder >= memory.orders.Length)
+        if (memory == null || CurrentStep() < 0 || CurrentStep() >= memory.orders.Length)
             return nPoint;
 
-        WalkDirection walkDir = memory.orders[cOrder];
+        WalkDirection walkDir = memory.orders[CurrentStep()];
         if (OppositeOrders)
             walkDir = ReverseDirection(walkDir);
 
@@ -240,7 +244,6 @@ public class RobotPawn : PuzzlePiece
             CheckCrash(movement.GetGridPosition() + nPoint);
             if (!HasCrashed())
                 movement.MoveToPoint(movement.GetGridPosition() + nPoint);
-            cOrder++;
         }
 
     }
@@ -262,8 +265,10 @@ public class RobotPawn : PuzzlePiece
         {
             if (robot != this)
             {
+                var predicted = robot.PredictPosition();
+
                 if (
-                    robot.PredictPosition() == node ||
+                    predicted == node ||
                     (robot.PredictPosition() == movement.GetGridPosition() && PredictPosition() == robot.movement.GetGridPosition())    //hack prevent robots from swapping positions
                     )
                 {
