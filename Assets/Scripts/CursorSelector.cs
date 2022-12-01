@@ -7,8 +7,12 @@ using UnityEngine.UI;
 
 public class CursorSelector : MonoBehaviour
 {
-    public Selectable myButton;
+    [Header("Config")]
+    public bool ControllerOnly = true;
     public bool SelectOnEnable = false;
+
+    [Header("Components")]
+    public Selectable myButton;
     public InputActionReference SelectButton;
 
     private void Awake()
@@ -31,7 +35,7 @@ public class CursorSelector : MonoBehaviour
     }
     void CheckSelection()
     {
-        if (!IsControllerConnected())
+        if (ControllerOnly && !IsControllerConnected())
             return;
         if (EventSystem.current.currentSelectedGameObject == null || !EventSystem.current.currentSelectedGameObject.activeSelf || !EventSystem.current.currentSelectedGameObject.activeInHierarchy)
         {
