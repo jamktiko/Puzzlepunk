@@ -9,12 +9,13 @@ public class RobotPawn : PuzzlePiece
     public int CommandID = 0;
     public int MaxMoves = 1;
     public bool OppositeOrders = false;
-    public Color robotColor;
+    //public Color robotColor;
+    public Sprite robotSprite;
 
     [Header("Components")]
 
     public MovementComponent movement;
-    public SpriteRenderer paint;
+    //public SpriteRenderer paint;
     public GridNav.Node OriginalNode;
 
     private void Init()
@@ -38,8 +39,8 @@ public class RobotPawn : PuzzlePiece
             movement.MovementSpeed = 1f / rpc.StepTime;
             OriginalNode = rpc.mGrid.GetNodeAt(rpc.mGrid.TranslateCoordinate(transform.position));
         }
-        if (paint != null)
-            paint.color = robotColor;
+        //if (paint != null)
+         //   paint.color = robotColor;
         puzzleParent = parent;
         InitOrders();
        // OnReset(true);
@@ -83,11 +84,13 @@ public class RobotPawn : PuzzlePiece
     }
     public class Memory
     {
-        public Color color;
+        //public Color color;
+        public Sprite Icon;
         public WalkDirection[] orders;
-        public Memory(Color mcol, int nOrders)
+        public Memory(Sprite micon, int nOrders)
         {
-            color = mcol;
+            Icon = micon;
+            //color = mcol;
             orders = new WalkDirection[nOrders];
         }
         public int iOrder = 0;
@@ -144,7 +147,7 @@ public class RobotPawn : PuzzlePiece
     {
         RobotPuzzleController rpc = (RobotPuzzleController)puzzleParent;
        if (rpc.RobotCommands[CommandID] == null)
-            rpc.RobotCommands[CommandID] = new Memory(robotColor, MaxMoves);
+            rpc.RobotCommands[CommandID] = new Memory(robotSprite, MaxMoves);
 
         rpc.UpdateMoveLimit(MaxMoves);
     }
