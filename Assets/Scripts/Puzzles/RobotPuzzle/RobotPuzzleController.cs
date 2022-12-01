@@ -169,6 +169,7 @@ public class RobotPuzzleController : PuzzleController
             if (robot.HasCrashed())
             {
                 PuzzleFailed = true;
+                UIController.main.robotController.ShowError(RobotMenu.ErrorMessageID.collision);
                 break;
             }
         }

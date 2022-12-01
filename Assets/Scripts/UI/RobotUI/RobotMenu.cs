@@ -31,6 +31,7 @@ public class RobotMenu : MonoBehaviour
         myPuzzle.StopSolution();
         myPuzzle.OnReset(hard);
         ResetOrderUI();
+        ShowError(ErrorMessageID.reset);
     }
     public void OnBackSpace()
     {
@@ -42,7 +43,6 @@ public class RobotMenu : MonoBehaviour
         {
             myPuzzle.GetSelectedRobot().ClearLastOrder();
             ResetOrderUI();
-            ShowError( ErrorMessageID.reset);
         }
     }
     public bool IsPuzzleMode()

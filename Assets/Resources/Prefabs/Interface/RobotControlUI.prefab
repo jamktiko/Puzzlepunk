@@ -553,9 +553,9 @@ MonoBehaviour:
   input: {fileID: 0}
   ErrorText: {fileID: 2737289204120123225}
   RobotErrorDuration: 3
-  RobotOrderError: Not All Robots Have Been Given Orders!
-  PuzzlePlayingError: Puzzle is already playing!
-  RobotCollisionError: Robots have collided!
+  RobotOrderError: Error! Not All Robots Have Been Given Orders!
+  PuzzlePlayingError: Error! Puzzle is already playing!
+  RobotCollisionError: Error! Robots have collided!
   PuzzleResetError: The puzzle was reset!
 --- !u!114 &1080718525762425650
 MonoBehaviour:
@@ -4033,8 +4033,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -50, y: 20}
-  m_SizeDelta: {x: 100, y: 40}
+  m_AnchoredPosition: {x: -50, y: 50}
+  m_SizeDelta: {x: 100, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4240378303164639819
 CanvasRenderer:
@@ -4064,7 +4064,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Error XOXOXOXOOXOXOXOXOX
+  m_text: 'Error XOXOXOXOOXOXOXOXOX
+
+    XOXOXOXOX'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0eb0d1cdfe2cf7c4d9edeffb82c7e9ed, type: 2}
   m_sharedMaterial: {fileID: -3701997837162119748, guid: 0eb0d1cdfe2cf7c4d9edeffb82c7e9ed, type: 2}
@@ -4099,7 +4101,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 4
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
