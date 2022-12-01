@@ -93,9 +93,17 @@ public class RobotPuzzleController : PuzzleController
         foreach (RobotPawn robot in Robots)
         {
             if (robot.GetRemainingOrders() > 0)
+            {
+                UIController.main.robotController.ShowError(RobotMenu.ErrorMessageID.robotOrders);
                 return false;
+            }
         }
-        return !IsPlaying();
+        if (IsPlaying())
+        {
+            UIController.main.robotController.ShowError(RobotMenu.ErrorMessageID.puzzlePlaying);
+            return false;
+        }
+        return true;
     }
     public void PlaySolution()
     {
