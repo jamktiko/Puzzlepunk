@@ -310,7 +310,7 @@ public class RobotPawn : PuzzlePiece
     }
     public void SetSelected(bool value)
     {
-        if (PuzzleController.main != puzzleParent || !puzzleParent.WasSolved())
+        if (PuzzleController.main != puzzleParent || puzzleParent.WasSolved())
         {
             anim.SetBool("selected", false);
             return;
