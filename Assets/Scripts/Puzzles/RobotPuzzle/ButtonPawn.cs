@@ -5,8 +5,11 @@ using UnityEngine;
 public class ButtonPawn : PuzzlePiece
 {
     public int RequiresCommandID = -1;
-    public Color ColorHighlighted = Color.white;
-    public Color ColorPressed = Color.black;
+    //public Color ColorHighlighted = Color.white;
+    // public Color ColorPressed = Color.black;
+
+    public SpriteRenderer normalRenderer;
+    public SpriteRenderer pressedRenderer;
 
     RobotPawn myRobot;
 
@@ -16,6 +19,12 @@ public class ButtonPawn : PuzzlePiece
         RobotPuzzleController rpc = (RobotPuzzleController)parent;
         GridNav.Node posNode = rpc.mGrid.GetNodeAt(rpc.mGrid.TranslateCoordinate(transform.position));
         transform.position = posNode.worldPos;
+
+
+        /*if (highlightedRenderer != null)
+            highlightedRenderer.color = ColorHighlighted;
+        if (pressedRenderer != null)
+            pressedRenderer.color = ColorPressed;*/
     }
     public override void OnReset(bool hard)
     {
@@ -30,7 +39,10 @@ public class ButtonPawn : PuzzlePiece
     void SetPressed(bool value)
     {
         isPressed = value;
-        GetComponent<SpriteRenderer>().color = isPressed ? ColorPressed : ColorHighlighted;
+        if (pressedRenderer != null)
+            normalRenderer.enabled = !isPressed;
+        if (pressedRenderer != null)
+            pressedRenderer.enabled = isPressed;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
