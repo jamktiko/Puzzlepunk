@@ -58,6 +58,6 @@ public class DialogueLineSO : ScriptableDialogue
     public override void OnSkipped(DialogueUIController DC)
     {
         base.OnSkipped(DC);
-        DC.dialogImage.enabled = false;
+        //DC.dialogImage.enabled = false;
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.Intrinsics;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class RobotPawn : PuzzlePiece
 {
@@ -15,7 +16,7 @@ public class RobotPawn : PuzzlePiece
     [Header("Components")]
 
     public MovementComponent movement;
-    //public SpriteRenderer paint;
+    public SpriteRenderer paint;
     public GridNav.Node OriginalNode;
 
     private void Init()
@@ -85,13 +86,15 @@ public class RobotPawn : PuzzlePiece
     {
         //public Color color;
         public Sprite Icon;
+        public bool Reverse;
         public WalkDirection[] orders;
-        public Memory(Sprite micon, int nOrders)
+        public Memory(Sprite micon, int nOrders, bool broken)
         {
             Icon = micon;
             //color = mcol;
             orders = new WalkDirection[nOrders];
-        }
+        Reverse = broken;
+    }
         public int iOrder = 0;
         public bool IssueOrder(WalkDirection order)
         {
@@ -141,12 +144,17 @@ public class RobotPawn : PuzzlePiece
                 orders[iO] = WalkDirection.empty;
             }
         }
+        public int GetRemainingOrders()
+        {
+            if (orders == null) return 0;
+            return orders.Length - iOrder;
+        }
     }
     void InitOrders()
     {
         RobotPuzzleController rpc = (RobotPuzzleController)puzzleParent;
        if (rpc.RobotCommands[CommandID] == null)
-            rpc.RobotCommands[CommandID] = new Memory(robotSprite, MaxMoves);
+            rpc.RobotCommands[CommandID] = new Memory(robotSprite, MaxMoves, OppositeOrders);
 
         rpc.UpdateMoveLimit(MaxMoves);
     }
@@ -160,8 +168,8 @@ public class RobotPawn : PuzzlePiece
     public int GetRemainingOrders()
     {
         Memory memory = GetOrders();
-        if (memory == null || memory.orders == null) return 0;
-        return  memory.orders.Length - memory.iOrder - 1;
+        if (memory == null) return 0;
+        return  memory.GetRemainingOrders();
     }
     public void ClearOrders()
     {
@@ -302,7 +310,19 @@ public class RobotPawn : PuzzlePiece
     }
     public void SetSelected(bool value)
     {
+        if (PuzzleController.main != puzzleParent || !puzzleParent.WasSolved())
+        {
+            anim.SetBool("selected", false);
+            return;
+        }
+
         anim.SetBool("selected", value);
+
+        if (paint != null)
+        {
+            bool grey = !value &&  !((RobotPuzzleController)puzzleParent).IsPlaying();
+            paint.color = grey ? Color.grey : Color.white;
+        }
     }
 
     #endregion

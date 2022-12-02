@@ -34,7 +34,7 @@ public abstract class PuzzleController : MonoBehaviour
         }
         OnReset(true);
     }
-    public void OnReset(bool hard)
+    public virtual void OnReset(bool hard)
     {
         if (solved) return;
         foreach (PuzzlePiece rob in Pieces)

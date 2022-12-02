@@ -45,7 +45,6 @@ public class PlayerTransitionController : MonoBehaviour
     Coroutine TransitionCoroutine;
     public void TransitionRoom(RoomComponent newRoom, Vector2 pointPosition, PlayerMovement.Orientation endOrientation, bool skipCoroutine)
     {
-
         if (skipCoroutine)
         {
             MovePlayerToNewRoom(newRoom, pointPosition, endOrientation);
