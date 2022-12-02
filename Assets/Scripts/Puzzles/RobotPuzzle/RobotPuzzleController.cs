@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class RobotPuzzleController : PuzzleController
 {
+    public bool AutoPlay = true;
+
     public float StepTime = .5f;
     public CameraBounds cambounds;
     public GridNav mGrid;
@@ -50,6 +52,15 @@ public class RobotPuzzleController : PuzzleController
         if (cambounds != null)
             CameraController.main.SetBounds(PlayerTransitionController.main.CurrentRoom.bounds);
     }
+    public override void OnReset(bool hard)
+    {
+        if (hard)
+        {
+            AutoPlay = true;
+            ChangeSelection(0);
+        }
+        base.OnReset(hard);
+    }
     public override bool TryShutDown()
     {
         OnExitPuzzle();
@@ -57,7 +68,7 @@ public class RobotPuzzleController : PuzzleController
     }
     #region Selection
     public int Selection = 0;
-    public void CycleSelection(int dir)
+    public void CycleSelection(int dir, bool player)
     {
         int sel = (Selection + dir) % RobotCommands.Length;
         if (sel < 0) sel += RobotCommands.Length;
@@ -68,7 +79,13 @@ public class RobotPuzzleController : PuzzleController
             if (sel < 0) sel += RobotCommands.Length;
         }
 
+        if (player)
+            AutoPlay = false;
+
         ChangeSelection(sel);
+
+        if (AutoPlay && sel == 0)
+            PlaySolution();
     }
     public void ChangeSelection(int sel)
     {

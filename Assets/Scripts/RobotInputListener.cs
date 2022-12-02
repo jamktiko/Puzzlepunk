@@ -25,7 +25,7 @@ public class RobotInputListener : MonoBehaviour
         RobotPuzzleController pzl = (RobotPuzzleController)PuzzleController.main;
         if (pzl == null || pzl.IsPlaying()) return;
 
-        var myRob = pzl.GetSelectedRobot();
+        RobotPawn.Memory myRob = pzl.GetSelectedRobot();
 
         if (myRob != null)
         {
@@ -49,7 +49,13 @@ public class RobotInputListener : MonoBehaviour
                 order = RobotPawn.WalkDirection.right;
             }
             if (order != RobotPawn.WalkDirection.empty)
+            {
                 myRob.IssueOrder(order);
+                if (pzl.AutoPlay && myRob.GetRemainingOrders() == 0)
+                {
+                    pzl.CycleSelection(1, false);
+                }
+            }
         }
     }
 }

@@ -29,4 +29,8 @@ public class RobotOrderButton : MonoBehaviour
         BackgroundImage.sprite = States[(int)buttonState];
         gameObject.SetActive(buttonState != ButtonState.inactive);
     }
+    public void SetBroken(bool value)
+    {
+        BackgroundImage.color = value ? Color.red : Color.white;
+    }
 }

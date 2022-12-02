@@ -26,7 +26,7 @@ public class IconUI : MonoBehaviour
     }
     public void CycleSelection(bool back)
     {
-        UIController.main.robotController.myPuzzle.CycleSelection(back ? -1 : 1);
+        UIController.main.robotController.myPuzzle.CycleSelection(back ? -1 : 1, true);
         OnSelectionChanged();
     }
     public void OnPuzzleStart()

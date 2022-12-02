@@ -43,6 +43,7 @@ public class OrderUI : MonoBehaviour
             {
                 OrderDisplays[iDisplay].ChangeState(RobotOrderButton.ButtonState.inactive);
             }
+            OrderDisplays[iDisplay].SetBroken(mRobot.Reverse);
         }
     }
 }
