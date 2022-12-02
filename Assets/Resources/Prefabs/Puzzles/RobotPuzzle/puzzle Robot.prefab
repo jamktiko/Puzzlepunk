@@ -10,9 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 97634381}
   - component: {fileID: 97634378}
-  - component: {fileID: 1621128556723102171}
   m_Layer: 0
-  m_Name: Sprite
+  m_Name: Robot Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,22 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1621128556723102171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 97634379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a5ff6924b42c1e4bb7871dae4235e62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DeltaY: -0.12
-  AlwaysUpdate: 1
-  spriteRenderer: {fileID: 97634378}
-  deltaOrder: 0
 --- !u!1 &3512247975386626343
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,9 +345,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5ff6924b42c1e4bb7871dae4235e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeltaY: 0
-  AlwaysUpdate: 0
-  spriteRenderer: {fileID: 0}
+  DeltaY: -0.12
+  AlwaysUpdate: 1
+  spriteRenderer: {fileID: 97634378}
   deltaOrder: 0
 --- !u!95 &7301447946782285205
 Animator:
