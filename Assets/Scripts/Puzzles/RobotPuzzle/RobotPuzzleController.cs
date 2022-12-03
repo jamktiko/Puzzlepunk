@@ -82,10 +82,11 @@ public class RobotPuzzleController : PuzzleController
         if (player)
             AutoPlay = false;
 
+        if (AutoPlay && !player && Selection == RobotCommands.Length - 1)
+            PlaySolution();
+
         ChangeSelection(sel);
 
-        if (AutoPlay && sel == 0)
-            PlaySolution();
     }
     public void ChangeSelection(int sel)
     {
@@ -97,6 +98,8 @@ public class RobotPuzzleController : PuzzleController
             robot.SetSelected(robot.CommandID == Selection) ;
         }
         UIController.main.robotController.OnSelectionChanged();
+        if (RobotCommands[Selection].Reversed)
+        UIController.main.robotController.ShowError(RobotMenu.ErrorMessageID.brokenrobot);
     }
     public RobotPawn.Memory GetSelectedRobot()
     {

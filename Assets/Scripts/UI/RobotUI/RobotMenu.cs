@@ -82,6 +82,7 @@ public class RobotMenu : MonoBehaviour
         puzzlePlaying = 1,
         collision = 2,
         reset = 3,
+        brokenrobot = 4,
     }
     public void ShowError (ErrorMessageID errorID)
     {
@@ -103,6 +104,9 @@ public class RobotMenu : MonoBehaviour
             case ErrorMessageID.reset:
                 text = PuzzleResetError;
                 break;
+            case ErrorMessageID.brokenrobot:
+                text = PuzzleResetError;
+                break;
         }
 
         errorCoroutine = StartCoroutine(ShowErrorForDuration(text, RobotErrorDuration));
@@ -122,4 +126,5 @@ public class RobotMenu : MonoBehaviour
     public string PuzzlePlayingError = "Puzzle is already playing!";
     public string RobotCollisionError = "Robots have collided!";
     public string PuzzleResetError = "The puzzle was reset!";
+    public string RobotBrokenError = "Glitch! This robot will walk in reverse!";
 }

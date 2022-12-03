@@ -86,14 +86,14 @@ public class RobotPawn : PuzzlePiece
     {
         //public Color color;
         public Sprite Icon;
-        public bool Reverse;
+        public bool Reversed;
         public WalkDirection[] orders;
         public Memory(Sprite micon, int nOrders, bool broken)
         {
             Icon = micon;
             //color = mcol;
             orders = new WalkDirection[nOrders];
-        Reverse = broken;
+        Reversed = broken;
     }
         public int iOrder = 0;
         public bool IssueOrder(WalkDirection order)
