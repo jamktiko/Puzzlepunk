@@ -9,11 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 972c2ac44e160f649aebc97f4389cc0b, type: 3}
-  m_Name: TrayWithScalpel2
+  m_Script: {fileID: 11500000, guid: a518eeaca7c7b8346a6d80f64f34e7fb, type: 3}
+  m_Name: TrayWithScalpelRandom
   m_EditorClassIdentifier: 
-  WaitTime: 0
-  Skippable: 1
   Character: {fileID: 11400000, guid: 5ad905a5fc265c6429a27d825589f904, type: 2}
-  Emote: 4
-  DialogueQuestion: Scary...
+  Emote: 5
+  DialogueImage: {fileID: 0}
+  DialogueQuestion: 
+  PossibleChoices:
+  - They look really sharp...
+  - They look really shiny!
+  - Scary...
