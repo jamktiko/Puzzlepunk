@@ -307,6 +307,7 @@ public class RobotPawn : PuzzlePiece
     public void SetMoving(bool value)
     {
         anim.SetBool("moving", value);
+        SetDirty(false);
     }
     public void SetSelected(bool value)
     {
@@ -317,10 +318,14 @@ public class RobotPawn : PuzzlePiece
         }
 
         anim.SetBool("selected", value);
+        SetDirty(!value);
+    }
+    void SetDirty(bool value)
+    {
 
         if (paint != null)
         {
-            bool grey = !value &&  !((RobotPuzzleController)puzzleParent).IsPlaying();
+            bool grey = value && !((RobotPuzzleController)puzzleParent).IsPlaying();
             paint.color = grey ? Color.grey : Color.white;
         }
     }
