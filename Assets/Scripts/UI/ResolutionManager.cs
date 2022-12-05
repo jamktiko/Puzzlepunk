@@ -48,7 +48,11 @@ public class ResolutionManager : MonoBehaviour
                         resValue = I;
                     }
                 }
-            fullScreen = PlayerPrefs.GetInt("ScreenFullscreen") == 1;
+            if (PlayerPrefs.HasKey("ScreenFullscreen"))
+                fullScreen = PlayerPrefs.GetInt("ScreenFullscreen") == 1;
+            else
+                fullScreen = true;
+            UpdateResolution();
         }
         else if (!UIonly)
         {
@@ -68,12 +72,15 @@ public class ResolutionManager : MonoBehaviour
             toggleComponent.SetIsOnWithoutNotify(fullScreen);
         if (dropDownComponent != null)
             dropDownComponent.SetValueWithoutNotify(resValue);
-        if (!UIonly)
-            UpdateResolution();
     }
     public void ChangeResolution(int value)
     {
         current = resolutionsSO.AvailableResolutions[value];
+        UpdateResolution();
+    }
+    public void ChangeFullscreen(bool value)
+    {
+        fullScreen = value;
         UpdateResolution();
     }
     public void UpdateResolution()
