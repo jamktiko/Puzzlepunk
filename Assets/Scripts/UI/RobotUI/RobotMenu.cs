@@ -105,7 +105,7 @@ public class RobotMenu : MonoBehaviour
                 text = PuzzleResetError;
                 break;
             case ErrorMessageID.brokenrobot:
-                text = PuzzleResetError;
+                text = RobotBrokenError;
                 break;
         }
 

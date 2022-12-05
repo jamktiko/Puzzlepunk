@@ -140,6 +140,7 @@ public class RobotPuzzleController : PuzzleController
         cStep = 0;
         foreach (RobotPawn robot in Robots)
         {
+            robot.SetSelected(false);
             robot.SetMoving(true);
         }
         yield return new WaitForSeconds(.5f);
