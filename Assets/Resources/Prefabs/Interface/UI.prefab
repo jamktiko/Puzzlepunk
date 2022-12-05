@@ -507,11 +507,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2831580321284591269, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2831580321284591269, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 4040119003911990657}
     - target: {fileID: 2831580321284591269, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2831580321284591269, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: PlayOneShot
       objectReference: {fileID: 0}
     - target: {fileID: 2831580321284591269, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
@@ -520,6 +528,14 @@ PrefabInstance:
     - target: {fileID: 2831580321284591269, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2831580321284591269, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8300000, guid: 2361501dc738d74479e9ec4d13fbc20e, type: 3}
+    - target: {fileID: 2831580321284591269, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.AudioClip, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3658067977968308909, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
       propertyPath: m_Pivot.x
@@ -684,7 +700,7 @@ PrefabInstance:
     - target: {fileID: 5651308021863787702, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 8300000, guid: 911051cb7c1f80d458d27525e5c98838, type: 3}
+      objectReference: {fileID: 8300000, guid: 2361501dc738d74479e9ec4d13fbc20e, type: 3}
     - target: {fileID: 5651308021863787702, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.AudioClip, UnityEngine
