@@ -282,6 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e341a8a6cab33154296d947810606f81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GamepadOnly: 0
   action: {fileID: -7254457006478871038, guid: 9b63f004cd798fa4fa0ebb0269e56aba, type: 3}
   onPress:
     m_PersistentCalls:
@@ -402,7 +403,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1397508750630774282
 RectTransform:
   m_ObjectHideFlags: 0
@@ -503,6 +504,8 @@ MonoBehaviour:
   CloseWithDialogue: 1
   HardResetOnReenter: 1
   ForceCinematic: 1
+  EndOnSolve: 0
+  CannotReenterOnSolved: 1
   onSolve:
     m_PersistentCalls:
       m_Calls:
@@ -808,8 +811,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5978bfe79aee4d241bc3103a91b0f2f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myButton: {fileID: 0}
+  ControllerOnly: 1
   SelectOnEnable: 1
+  myButton: {fileID: 0}
   SelectButton: {fileID: -3269493122909547105, guid: 9b63f004cd798fa4fa0ebb0269e56aba, type: 3}
 --- !u!1001 &5204533874006628581
 PrefabInstance:
@@ -904,7 +908,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3294848594632560387, guid: 4952fa49e0d1427408b61b8a5de282fc, type: 3}
       propertyPath: m_Name
-      value: Lock Puzzle Help
+      value: Code  Puzzle Help
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4952fa49e0d1427408b61b8a5de282fc, type: 3}
