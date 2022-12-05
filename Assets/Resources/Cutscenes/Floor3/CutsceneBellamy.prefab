@@ -91,9 +91,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4291996214658510888}
-  - component: {fileID: 4291996214658510889}
   - component: {fileID: 4291996214658510897}
   - component: {fileID: 4291996214658510896}
+  - component: {fileID: 2402120054480952103}
   m_Layer: 0
   m_Name: BelamyDisabled
   m_TagString: Obstacle
@@ -116,21 +116,6 @@ Transform:
   m_Father: {fileID: 4560380052623967884}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4291996214658510889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4291996214658510895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0f85e1feb1060e4cbee02e9900a0acb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayOnStart: 0
-  OnlyTriggerOnce: 0
-  CutsceneScript: {fileID: 11400000, guid: 488df34909547bf478ef4da5df99a6c6, type: 2}
 --- !u!58 &4291996214658510897
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -162,8 +147,8 @@ MonoBehaviour:
   uEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4291996214658510889}
-        m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+      - m_Target: {fileID: 2402120054480952103}
+        m_TargetAssemblyTypeName: DialogueConditionComponent, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -175,6 +160,27 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   SingleUse: 0
+--- !u!114 &2402120054480952103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4291996214658510895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da73e662d85a6004588af5b2d4e9ad86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayOnStart: 0
+  OnlyTriggerOnce: 0
+  CutsceneScript: {fileID: 11400000, guid: 488df34909547bf478ef4da5df99a6c6, type: 2}
+  options:
+  - Conditions:
+    - variableName: BelamyTalk
+      value: 1
+      change: 0
+    Cutscene: {fileID: 11400000, guid: 2cb006769b5650747a35cb08103af3d9, type: 2}
 --- !u!1001 &163118331427169827
 PrefabInstance:
   m_ObjectHideFlags: 0
