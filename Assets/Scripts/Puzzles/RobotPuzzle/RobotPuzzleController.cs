@@ -57,8 +57,11 @@ public class RobotPuzzleController : PuzzleController
         if (hard)
         {
             AutoPlay = true;
-            ChangeSelection(0);
         }
+        if (AutoPlay)
+            ChangeSelection(0);
+        else
+            ReviseRobotColors();
         base.OnReset(hard);
     }
     public override bool TryShutDown()
@@ -93,13 +96,17 @@ public class RobotPuzzleController : PuzzleController
         Selection = sel;
         while (RobotCommands[Selection] == null)
             Selection++;
-        foreach (RobotPawn robot in Robots)
-        {
-            robot.SetSelected(robot.CommandID == Selection) ;
-        }
+        ReviseRobotColors();
         UIController.main.robotController.OnSelectionChanged();
         if (RobotCommands[Selection].Reversed)
         UIController.main.robotController.ShowError(RobotMenu.ErrorMessageID.brokenrobot);
+    }
+    void ReviseRobotColors()
+    {
+        foreach (RobotPawn robot in Robots)
+        {
+            robot.SetSelected(robot.CommandID == Selection);
+        }
     }
     public RobotPawn.Memory GetSelectedRobot()
     {

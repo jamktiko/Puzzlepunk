@@ -156,10 +156,10 @@ RectTransform:
   m_Father: {fileID: 3395966990551557735}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7334342886639037947
 MonoBehaviour:
@@ -393,6 +393,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3395966990551557735}
     m_Modifications:
+    - target: {fileID: 207607008804399408, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 207607008804399408, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 712357281574786489, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -704,6 +712,14 @@ PrefabInstance:
     - target: {fileID: 5651308021863787702, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.AudioClip, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390763441618208156, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390763441618208156, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9aedd3cdc449e7c4db4b12bdb4ca049e, type: 3}

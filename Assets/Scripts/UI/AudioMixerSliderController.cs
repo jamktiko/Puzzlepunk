@@ -43,4 +43,8 @@ public class AudioMixerSliderController : MonoBehaviour
             AudioGroup.SetFloat(PlayerPrefSlot, ParameterMinValue + (ParameterDefaultValue - ParameterMinValue) * nVolume);   
         PlayerPrefs.SetFloat(AudioGroup.name + PlayerPrefSlot, nVolume);
     }
+    private void OnDestroy()
+    {
+        AudioGroup.SetFloat(PlayerPrefSlot, ParameterDefaultValue);
+    }
 }

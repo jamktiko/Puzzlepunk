@@ -37,6 +37,7 @@ public class DialogueUIController : MonoBehaviour
      if (PlayerInputListener.control!=null)
         {
             PlayerInputListener.control.ZoePlayer.Submit.started += _ => { SkipLine = true; };
+            PlayerInputListener.control.ZoePlayer.Cancel.started += _ => { SkipLine = true; };
             PlayerInputListener.control.ZoePlayer.Skip.performed += _ => { SetSkipping ( true); };
             PlayerInputListener.control.ZoePlayer.Skip.canceled += _ => { SetSkipping( false); };
         }

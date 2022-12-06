@@ -44,6 +44,8 @@ public class IconUI : MonoBehaviour
     }
     public void OnSelectionChanged()
     {
+        if (UIController.main.robotController == null || UIController.main.robotController.myPuzzle == null)
+            return;
         int sel = UIController.main.robotController.myPuzzle.Selection;
         for (int iI = 0; iI < RobotButtons.Length; iI++)
         {
@@ -53,7 +55,9 @@ public class IconUI : MonoBehaviour
     }
     public void UpdateOrders()
     {
-        var puzzle = UIController.main.robotController.myPuzzle;
+        if (UIController.main.robotController == null || UIController.main.robotController.myPuzzle == null)
+            return;
+        RobotPuzzleController puzzle = UIController.main.robotController.myPuzzle;
         for (int iI = 0; iI < RobotButtons.Length; iI++)
         {
             if (iI < puzzle.RobotCommands.Length && puzzle.RobotCommands[iI]!=null)
