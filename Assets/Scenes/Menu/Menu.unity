@@ -2500,23 +2500,6 @@ MonoBehaviour:
   onRelease:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &1163913256 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2119254731187895724, guid: 355b76540cd9235468d386e42211568a, type: 3}
-  m_PrefabInstance: {fileID: 2119254732317578628}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1163913259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1163913256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dcbbb46e04b3e14a907f76d1d7db3fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1201793517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2843,7 +2826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -4121,10 +4104,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5905556669207841269, guid: b3ffb5810f76f4640ba377f2f0501074, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 896be7b455a7a7d4db114a35569e958b, type: 3}
     - target: {fileID: 5905556669207841270, guid: b3ffb5810f76f4640ba377f2f0501074, type: 3}
       propertyPath: m_Name
       value: Music Manager
