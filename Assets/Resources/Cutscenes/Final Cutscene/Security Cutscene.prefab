@@ -723,6 +723,49 @@ MonoBehaviour:
   PlayOnStart: 0
   OnlyTriggerOnce: 0
   CutsceneScript: {fileID: 0}
+--- !u!114 &2012229406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6615690805257032288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79b18aefa036d2846b548c3b74dcc80f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Conditions:
+  - variableName: EndingScene
+    value: 1
+    change: 0
+  Action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6615690804819095312}
+        m_TargetAssemblyTypeName: PointTransition, Assembly-CSharp
+        m_MethodName: MovePlayerToPoint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
+        m_MethodName: PlayScript
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 05be0e105a09dfc48ac46d030ce9e428, type: 2}
+          m_ObjectArgumentAssemblyTypeName: DialogueScriptSO, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6615690804819095312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -773,49 +816,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2012229406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6615690805257032288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79b18aefa036d2846b548c3b74dcc80f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Conditions:
-  - variableName: EndingScene
-    value: 1
-    change: 0
-  Action:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6615690804819095312}
-        m_TargetAssemblyTypeName: PointTransition, Assembly-CSharp
-        m_MethodName: MovePlayerToPoint
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DialogueComponent, Assembly-CSharp
-        m_MethodName: PlayScript
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 05be0e105a09dfc48ac46d030ce9e428, type: 2}
-          m_ObjectArgumentAssemblyTypeName: DialogueScriptSO, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &6615690805257032290 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 150129739326989036, guid: 1738be39a2af1b8439a23722d558bb35, type: 3}
@@ -858,7 +858,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5351211286259970868, guid: 616581d65f674c645aa8b3b1fdfd9806, type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5351211286259970868, guid: 616581d65f674c645aa8b3b1fdfd9806, type: 3}
       propertyPath: m_SortingOrder
@@ -866,7 +866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5351211286259970868, guid: 616581d65f674c645aa8b3b1fdfd9806, type: 3}
       propertyPath: m_SortingLayerID
-      value: -1445981883
+      value: -2060628581
       objectReference: {fileID: 0}
     - target: {fileID: 5351211286259970868, guid: 616581d65f674c645aa8b3b1fdfd9806, type: 3}
       propertyPath: m_WasSpriteAssigned
