@@ -41,13 +41,15 @@ public class RobotMenu : MonoBehaviour
         }
         else
         {
-            if (myPuzzle.GetSelectedRobot().orders[0] == RobotPawn.WalkDirection.empty && myPuzzle.AutoPlay)
+            RobotPawn.Memory selrob = myPuzzle.GetSelectedRobot();
+            Debug.Log(selrob.orders[0]);
+            if (selrob.orders[0] == RobotPawn.WalkDirection.empty && myPuzzle.AutoPlay && myPuzzle.Selection > 0)
             {
-                myPuzzle.CycleSelection(-1, true);
+                myPuzzle.CycleSelection(-1, false);
             }
             else
             {
-                myPuzzle.GetSelectedRobot().ClearLastOrder();
+                selrob.ClearLastOrder();
             }
             ResetOrderUI();
         }
