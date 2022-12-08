@@ -31,6 +31,6 @@ public class RobotOrderButton : MonoBehaviour
     }
     public void SetBroken(bool value)
     {
-        BackgroundImage.color = value ? Color.red : Color.white;
+        ArrowImage.color = value ? Color.red : Color.white;
     }
 }

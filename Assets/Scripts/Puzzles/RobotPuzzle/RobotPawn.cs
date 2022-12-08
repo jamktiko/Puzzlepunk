@@ -126,13 +126,20 @@ public class RobotPawn : PuzzlePiece
         }
         public void ClearLastOrder()
         {
-            for (int iO = 1; iO <= orders.Length; iO++)
+            if (orders[0] == WalkDirection.empty)
             {
-                if (iO == orders.Length || orders[iO] == WalkDirection.empty)
+                if ()
+            }
+            else
+            {
+                for (int iO = 1; iO <= orders.Length; iO++)
                 {
-                    iOrder = Mathf.Max(0,iOrder-1);
-                    orders[iO - 1] = WalkDirection.empty;
-                    break;
+                    if (iO == orders.Length || orders[iO] == WalkDirection.empty)
+                    {
+                        iOrder = Mathf.Max(0, iOrder - 1);
+                        orders[iO - 1] = WalkDirection.empty;
+                        break;
+                    }
                 }
             }
         }

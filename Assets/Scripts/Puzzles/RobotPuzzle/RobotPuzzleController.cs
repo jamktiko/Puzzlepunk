@@ -85,7 +85,7 @@ public class RobotPuzzleController : PuzzleController
         if (player)
             AutoPlay = false;
 
-        if (AutoPlay && !player && Selection == RobotCommands.Length - 1)
+        if (AutoPlay && !player && Selection == RobotCommands.Length - 1 && CanPlaySolution())
             PlaySolution();
 
         ChangeSelection(sel);

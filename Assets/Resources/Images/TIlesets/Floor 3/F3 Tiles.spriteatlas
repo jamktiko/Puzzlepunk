@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Floor 3
+  m_Name: F3 Tiles
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -20,7 +20,19 @@ SpriteAtlas:
       readable: 0
       crunchedCompression: 0
       sRGB: 1
-    platformSettings: []
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 8192
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 2
+      m_CompressionQuality: 100
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     packingSettings:
       serializedVersion: 2
       padding: 4
@@ -32,14 +44,12 @@ SpriteAtlas:
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: 102900000, guid: f9948825aed0d16408f2eae63fe31a48, type: 3}
+    - {fileID: 102900000, guid: f97687118fbabea4bb1c60a7514b8f93, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: -1702296549, guid: 5e25a8a06a6f4e74a895f07323570142, type: 3}
-  - {fileID: -1650562337, guid: 5e25a8a06a6f4e74a895f07323570142, type: 3}
   - {fileID: 1112068608, guid: 19f3b514ca3f57a459cc4cd19671f757, type: 3}
   - {fileID: -1796370128, guid: 19f3b514ca3f57a459cc4cd19671f757, type: 3}
   - {fileID: -66909487, guid: 19f3b514ca3f57a459cc4cd19671f757, type: 3}
@@ -68,19 +78,6 @@ SpriteAtlas:
   - {fileID: 692829236, guid: 19f3b514ca3f57a459cc4cd19671f757, type: 3}
   - {fileID: 372717001, guid: 19f3b514ca3f57a459cc4cd19671f757, type: 3}
   - {fileID: -197546028, guid: 19f3b514ca3f57a459cc4cd19671f757, type: 3}
-  - {fileID: -828486301, guid: 327134d56f99bee41851acc7d9f37d07, type: 3}
-  - {fileID: -688957249, guid: 327134d56f99bee41851acc7d9f37d07, type: 3}
-  - {fileID: 872969375, guid: 327134d56f99bee41851acc7d9f37d07, type: 3}
-  - {fileID: -1578832199, guid: 327134d56f99bee41851acc7d9f37d07, type: 3}
-  - {fileID: 497878841, guid: 327134d56f99bee41851acc7d9f37d07, type: 3}
-  - {fileID: 83824572, guid: 327134d56f99bee41851acc7d9f37d07, type: 3}
-  - {fileID: -1437621116, guid: 327134d56f99bee41851acc7d9f37d07, type: 3}
-  - {fileID: -2019064345, guid: 327134d56f99bee41851acc7d9f37d07, type: 3}
-  - {fileID: -1572706967, guid: 327134d56f99bee41851acc7d9f37d07, type: 3}
-  - {fileID: 1021525704, guid: 327134d56f99bee41851acc7d9f37d07, type: 3}
-  - {fileID: 1318546121, guid: 327134d56f99bee41851acc7d9f37d07, type: 3}
-  - {fileID: 29272164, guid: 327134d56f99bee41851acc7d9f37d07, type: 3}
-  - {fileID: 220137199, guid: 327134d56f99bee41851acc7d9f37d07, type: 3}
   - {fileID: 935171067, guid: b00425f6fe86aad4ba0563af1c80d50d, type: 3}
   - {fileID: -1739004303, guid: b00425f6fe86aad4ba0563af1c80d50d, type: 3}
   - {fileID: -1975217313, guid: b00425f6fe86aad4ba0563af1c80d50d, type: 3}
@@ -171,62 +168,6 @@ SpriteAtlas:
   - {fileID: 1011931414, guid: b00425f6fe86aad4ba0563af1c80d50d, type: 3}
   - {fileID: -642921168, guid: b00425f6fe86aad4ba0563af1c80d50d, type: 3}
   - {fileID: 469338930, guid: b00425f6fe86aad4ba0563af1c80d50d, type: 3}
-  - {fileID: -203157031, guid: c1c2a409834734641b95e16461bd0acc, type: 3}
-  - {fileID: -741343231, guid: c1c2a409834734641b95e16461bd0acc, type: 3}
-  - {fileID: 1087392991, guid: c1c2a409834734641b95e16461bd0acc, type: 3}
-  - {fileID: 264007582, guid: a0a4e459f8155a74297ba225c2bc0e49, type: 3}
-  - {fileID: -963231878, guid: a0a4e459f8155a74297ba225c2bc0e49, type: 3}
-  - {fileID: 1019070677, guid: a0a4e459f8155a74297ba225c2bc0e49, type: 3}
-  - {fileID: -1579926679, guid: a0a4e459f8155a74297ba225c2bc0e49, type: 3}
-  - {fileID: -1463965157, guid: a0a4e459f8155a74297ba225c2bc0e49, type: 3}
-  - {fileID: -899472463, guid: a0a4e459f8155a74297ba225c2bc0e49, type: 3}
-  - {fileID: -615879845, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
-  - {fileID: -1794892797, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
-  - {fileID: 1531753242, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
-  - {fileID: 515759010, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
-  - {fileID: 856813053, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
-  - {fileID: 1077362205, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
-  - {fileID: -1973538677, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
-  - {fileID: 657386638, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
-  - {fileID: -1300556007, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
-  - {fileID: 1607760690, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
-  - {fileID: 510336958, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
-  - {fileID: -1167537171, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
-  - {fileID: 1285867091, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
-  - {fileID: -991824735, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
-  - {fileID: 192543049, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
-  - {fileID: -680663523, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
-  - {fileID: 1792557504, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
-  - {fileID: 54679456, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
-  - {fileID: 2119193067, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
-  - {fileID: 1614641192, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
-  - {fileID: -251666496, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
-  - {fileID: 477657438, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
-  - {fileID: 1857494318, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
-  - {fileID: 283335270, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
-  - {fileID: 697217769, guid: e07e73f9e5fceb3439a8d10564952163, type: 3}
-  - {fileID: 666237155, guid: 1408258a52e4cbc499ab87050af62a49, type: 3}
-  - {fileID: -2125034030, guid: 1408258a52e4cbc499ab87050af62a49, type: 3}
-  - {fileID: -955340695, guid: 1408258a52e4cbc499ab87050af62a49, type: 3}
-  - {fileID: 649650517, guid: 1408258a52e4cbc499ab87050af62a49, type: 3}
-  - {fileID: 619713516, guid: 1408258a52e4cbc499ab87050af62a49, type: 3}
-  - {fileID: -309216013, guid: 538e35da02f585d4aa9ffbf9089dcdfe, type: 3}
-  - {fileID: -1814841705, guid: 538e35da02f585d4aa9ffbf9089dcdfe, type: 3}
-  - {fileID: 58376582, guid: 538e35da02f585d4aa9ffbf9089dcdfe, type: 3}
-  - {fileID: -1573758357, guid: 538e35da02f585d4aa9ffbf9089dcdfe, type: 3}
-  - {fileID: 207956851, guid: 538e35da02f585d4aa9ffbf9089dcdfe, type: 3}
-  - {fileID: 1854975470, guid: 538e35da02f585d4aa9ffbf9089dcdfe, type: 3}
-  - {fileID: -1715773755, guid: 538e35da02f585d4aa9ffbf9089dcdfe, type: 3}
-  - {fileID: 528279806, guid: 538e35da02f585d4aa9ffbf9089dcdfe, type: 3}
-  - {fileID: 1081796136, guid: 538e35da02f585d4aa9ffbf9089dcdfe, type: 3}
-  - {fileID: 21300000, guid: e1bc143eec6f8974a9a0726cfa42a882, type: 3}
-  - {fileID: 2062251368, guid: be7d646e462c9e048a1240d0d0468733, type: 3}
-  - {fileID: -338068126, guid: be7d646e462c9e048a1240d0d0468733, type: 3}
-  - {fileID: -910602342, guid: be7d646e462c9e048a1240d0d0468733, type: 3}
-  - {fileID: -545230363, guid: be7d646e462c9e048a1240d0d0468733, type: 3}
-  - {fileID: 1487447604, guid: be7d646e462c9e048a1240d0d0468733, type: 3}
-  - {fileID: -237611344, guid: be7d646e462c9e048a1240d0d0468733, type: 3}
-  - {fileID: 1532817613, guid: be7d646e462c9e048a1240d0d0468733, type: 3}
   - {fileID: -186758385, guid: 56f18e8e59dbc314eb5a0e143f713a49, type: 3}
   - {fileID: -40775189, guid: 56f18e8e59dbc314eb5a0e143f713a49, type: 3}
   - {fileID: -806977677, guid: 56f18e8e59dbc314eb5a0e143f713a49, type: 3}
@@ -262,8 +203,6 @@ SpriteAtlas:
   - {fileID: 1426723495, guid: 56f18e8e59dbc314eb5a0e143f713a49, type: 3}
   - {fileID: -1330300471, guid: 56f18e8e59dbc314eb5a0e143f713a49, type: 3}
   m_PackedSpriteNamesToIndex:
-  - Charger and Mag_0
-  - Charger and Mag_1
   - meeting room_8
   - meeting room_9
   - meeting room_6
@@ -292,19 +231,6 @@ SpriteAtlas:
   - meeting room_10
   - meeting room_13
   - meeting room_12
-  - 3 - Equipment 2_12
-  - 3 - Equipment 2_11
-  - 3 - Equipment 2_10
-  - 3 - Equipment 2_0
-  - 3 - Equipment 2_1
-  - 3 - Equipment 2_2
-  - 3 - Equipment 2_3
-  - 3 - Equipment 2_4
-  - 3 - Equipment 2_5
-  - 3 - Equipment 2_6
-  - 3 - Equipment 2_7
-  - 3 - Equipment 2_8
-  - 3 - Equipment 2_9
   - floor3_41
   - floor3_40
   - floor3_43
@@ -395,62 +321,6 @@ SpriteAtlas:
   - floor3_53
   - floor3_50
   - floor3_51
-  - meeting room_5
-  - meeting room_0
-  - meeting room_1
-  - -extra_3
-  - -extra_2
-  - -extra_1
-  - -extra_0
-  - -extra_5
-  - -extra_4
-  - 3 - Equipment_0
-  - hallway_2
-  - hallway_3
-  - hallway_0
-  - hallway_1
-  - hallway_6
-  - hallway_7
-  - hallway_4
-  - hallway_5
-  - hallway_8
-  - hallway_9
-  - hallway_20
-  - hallway_21
-  - hallway_22
-  - hallway_23
-  - hallway_19
-  - hallway_18
-  - hallway_11
-  - hallway_10
-  - hallway_13
-  - hallway_12
-  - hallway_15
-  - hallway_14
-  - hallway_17
-  - hallway_16
-  - Wall deco_3
-  - Wall deco_2
-  - Wall deco_1
-  - Wall deco_0
-  - Wall deco_4
-  - Floor3_hotfix_8
-  - Floor3_hotfix_9
-  - Floor3_hotfix_2
-  - Floor3_hotfix_3
-  - Floor3_hotfix_0
-  - Floor3_hotfix_6
-  - Floor3_hotfix_7
-  - Floor3_hotfix_4
-  - Floor3_hotfix_5
-  - Wall sign
-  - meeting room pt2_4
-  - meeting room pt2_5
-  - meeting room pt2_6
-  - meeting room pt2_0
-  - meeting room pt2_1
-  - meeting room pt2_2
-  - meeting room pt2_3
   - meeting room 2_8
   - meeting room 2_9
   - meeting room 2_0
@@ -486,5 +356,5 @@ SpriteAtlas:
   - meeting room 2_20
   - meeting room 2_21
   m_RenderDataMap: {}
-  m_Tag: Floor 3
+  m_Tag: F3 Tiles
   m_IsVariant: 0
