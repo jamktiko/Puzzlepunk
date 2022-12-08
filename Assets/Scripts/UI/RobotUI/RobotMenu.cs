@@ -59,16 +59,13 @@ public class RobotMenu : MonoBehaviour
     }
     public void OnSelectionChanged()
     {
-        if (iconMenu!=null)
-            iconMenu.OnSelectionChanged();
+        iconMenu.OnSelectionChanged();
         ResetOrderUI();
     }
     public void ResetOrderUI()
     {
-        if (orderMenu!=null)
-            orderMenu.UpdateOrders();
-        if (iconMenu != null)
-            iconMenu.UpdateOrders();
+        orderMenu.UpdateOrders();
+        iconMenu.UpdateOrders();
     }
     public void PlaySolution()
     {
