@@ -37,9 +37,9 @@ public class DialogueLineSO : ScriptableDialogue
     {
         return DialogueQuestion;
     }
-    public override IEnumerator Run(DialogueUIController DC)
+    public IEnumerator LoadDialogue(DialogueUIController DC)
     {
-        if (DialogueImage!=null)
+        if (DialogueImage != null)
         {
             DC.dialogImage.sprite = DialogueImage;
             DC.dialogImage.color = Color.white;
@@ -52,6 +52,10 @@ public class DialogueLineSO : ScriptableDialogue
         DC.LoadDialogueCharacter(this);
         string DialogueQuestion = GetDialogueLine();
         yield return DC.TypeDialog(DialogueQuestion, Character == null);
+    }
+    public override IEnumerator Run(DialogueUIController DC)
+    {
+        yield return LoadDialogue(DC);
         yield return DC.PostLineWait();
         OnSkipped(DC);
     }

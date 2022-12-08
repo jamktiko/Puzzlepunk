@@ -25,9 +25,9 @@ public class DialogueAudioSO : DialogueLineSO
             }
             string line = GetDialogueLine();
             if (line.Length > 0)
-            {
-                yield return DC.TypeDialog(line, Character == null);
-                if (PlayType == DialogueAudioSO.AudioPlayType.after)
+        {
+            yield return LoadDialogue(DC);
+            if (PlayType == DialogueAudioSO.AudioPlayType.after)
                 {
                     if (AudioClip != null)
                     DC.PlaySound(AudioClip);
