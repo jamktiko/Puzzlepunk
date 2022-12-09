@@ -6,16 +6,23 @@ using UnityEngine.UI;
 
 public class AudioMixerSliderController : MonoBehaviour
 {
+    public static Dictionary<string, float> defaultValues = new Dictionary<string, float>();
+
     public string PlayerPrefSlot;
     public AudioMixer AudioGroup;
      float ParameterDefaultValue = 0;
-     float ParameterMinValue = -40;
+     float ParameterMinValue = -20;
 
     private void Start()
     {
-        if (AudioGroup.GetFloat(PlayerPrefSlot, out float value))
+        if (defaultValues.ContainsKey(PlayerPrefSlot))
+        {
+            ParameterDefaultValue = defaultValues[PlayerPrefSlot];
+        }
+        else if (AudioGroup.GetFloat(PlayerPrefSlot, out float value))
         {
             ParameterDefaultValue = value;
+            defaultValues.Add(PlayerPrefSlot, value);
         }
         else
         {
@@ -25,6 +32,8 @@ public class AudioMixerSliderController : MonoBehaviour
     }
     void InitVolume()
     {
+        if (ParameterDefaultValue == 0)
+            return;
         float volume = 1;
         if (PlayerPrefs.HasKey(AudioGroup.name + PlayerPrefSlot))
         {
@@ -40,11 +49,10 @@ public class AudioMixerSliderController : MonoBehaviour
     public void ChangeVolume (float nVolume)
     {
         if (AudioGroup != null)
-            AudioGroup.SetFloat(PlayerPrefSlot, ParameterMinValue + (ParameterDefaultValue - ParameterMinValue) * nVolume);   
+        {
+            float rVolume = nVolume == 0 ? -40 : (ParameterMinValue + (ParameterDefaultValue - ParameterMinValue) * nVolume);
+            AudioGroup.SetFloat(PlayerPrefSlot, rVolume);
+        }
         PlayerPrefs.SetFloat(AudioGroup.name + PlayerPrefSlot, nVolume);
-    }
-    private void OnDestroy()
-    {
-        AudioGroup.SetFloat(PlayerPrefSlot, ParameterDefaultValue);
     }
 }
