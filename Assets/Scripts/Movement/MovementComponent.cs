@@ -125,7 +125,7 @@ public class MovementComponent : MonoBehaviour
             {
                 float speed = MovementSpeed * Time.deltaTime * (IsSprinting() ? SprintMultiplier : 1);
                 transform.position += delta.normalized * speed;
-                yield return new WaitForEndOfFrame();
+                yield return new WaitForFixedUpdate();
             }
             else
             {

@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour
         if (newbounds!=null)
         rBounds = newbounds.GetBounds();
     }
-    private void Update()
+    private void LateUpdate()
     {
         if (PlayerMovement.main != null)
         MovePosition(PlayerMovement.main.transform.position);
@@ -45,7 +45,7 @@ public class CameraController : MonoBehaviour
         {
             center.y = Mathf.Clamp(center.y, rBounds.yMin + height, rBounds.yMax - height);
         }
-        transform.position = GridSnap(center);
+        transform.position = center;
     }
     Vector3 GridSnap(Vector3 main)
     {
