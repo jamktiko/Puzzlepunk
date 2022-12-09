@@ -12,11 +12,10 @@ GameObject:
   - component: {fileID: 8306395930701372587}
   - component: {fileID: 1720564026462869144}
   - component: {fileID: 4718641201386454075}
-  - component: {fileID: 2607623188371342963}
-  - component: {fileID: 5249331942817293237}
+  - component: {fileID: 1720564026462869145}
   m_Layer: 0
   m_Name: Curtain
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -485980947
-  m_SortingLayer: -1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: -522493844, guid: 3353875210fef194ead56d0531049b3d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -114,7 +113,7 @@ MonoBehaviour:
   - {x: 0.645, y: -0.26524526, z: 0}
   m_ShapePathHash: -1122781019
   m_Mesh: {fileID: 0}
-  m_InstanceId: 173916
+  m_InstanceId: -176224
 --- !u!61 &4718641201386454075
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -141,7 +140,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.29, y: 0.61}
   m_EdgeRadius: 0
---- !u!114 &2607623188371342963
+--- !u!114 &1720564026462869145
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,37 +149,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3469940141893902612}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5afaf64b857c16542948929e4579f7ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a5ff6924b42c1e4bb7871dae4235e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5249331942817293237}
-        m_TargetAssemblyTypeName: PointTransition, Assembly-CSharp
-        m_MethodName: MovePlayerToPoint
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  SingleUse: 0
---- !u!114 &5249331942817293237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3469940141893902612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0adb8f3d63d130d418bc32f6e6ee417c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  navPoint: {fileID: 0}
-  instant: 0
-  SetOrientation: 1
+  DeltaY: -0.23
+  AlwaysUpdate: 0
+  spriteRenderer: {fileID: 8306395930701372587}
+  deltaOrder: 0
