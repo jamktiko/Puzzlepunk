@@ -16,6 +16,10 @@ public class MovementComponent : MonoBehaviour
     {
         return Sprinting;
     }
+    public float GetSprintSpeed()
+    {
+        return (IsSprinting() ? SprintMultiplier : 1);
+    }
     public GridNav grid;
     Vector2Int gridPos;
     public Vector2Int GetGridPosition()
@@ -121,9 +125,9 @@ public class MovementComponent : MonoBehaviour
         while (mNode != null)
         {
             Vector3 delta = moveDestination - transform.position;
-            if (delta.sqrMagnitude > MovementSpeed * MovementSpeed * Time.deltaTime * Time.deltaTime)
+            float speed = MovementSpeed * Time.deltaTime * GetSprintSpeed();
+            if (delta.sqrMagnitude > speed * speed)
             {
-                float speed = MovementSpeed * Time.deltaTime * (IsSprinting() ? SprintMultiplier : 1);
                 transform.position += delta.normalized * speed;
                 yield return new WaitForFixedUpdate();
             }

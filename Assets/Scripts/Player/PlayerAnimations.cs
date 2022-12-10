@@ -35,6 +35,7 @@ public class PlayerAnimations : MonoBehaviour
             if (Walking)
             {
                 UpdateOrientation();
+                animator.SetFloat("walkingspeed", PlayerMovement.main.movement.GetSprintSpeed());
             }
 
             SetCurious(PlayerInteractions.main.CanInteract());
@@ -50,6 +51,7 @@ public class PlayerAnimations : MonoBehaviour
 
         animator.SetBool("Going Front", PlayerMovement.main.facing.y < 0);
         animator.SetBool("Going Back", PlayerMovement.main.facing.y > 0);
+
     }
     public void SetWalking(bool value)
     {
